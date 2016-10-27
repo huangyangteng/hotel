@@ -1,0 +1,158 @@
+body{
+	overflow: hidden;
+}
+#one{
+	width: 100%;
+	height: 35px;
+	margin: 5px;
+}
+#two{
+	width: 100%;
+	height: 700px;
+	margin: 10px;
+}
+#main{
+	width: 92%;
+	height: 700px;
+	float: left;
+}
+#bar{
+	width: 8%;
+	height: 700px;
+	float: right;
+	background-color:#eaf7f0;
+}
+.box1{
+	width: 120px;
+	height: 75px;
+	background: #2993cc;
+	margin-right: 5px;
+    float: left;
+     margin-top: 5px;
+
+}
+.box2{
+	width: 120px;
+	height: 75px;
+	background: #d32945;
+	margin-right: 5px;
+    float: left;
+     margin-top: 5px;
+
+}
+.box3{
+	width: 120px;
+	height:75px;
+	background:#24282a ;
+	margin-right: 5px;
+    float: left;
+     margin-top: 5px;
+
+}
+.box4{
+	width: 120px;
+	height: 75px;
+	background: #b7c7cf;
+	margin-right: 5px;
+    float: left;
+    margin-top: 5px;
+
+}
+.box5{
+	width: 120px;
+	height:75px;
+	background: #29e17f;
+	margin-right: 5px;
+    float: left;
+     margin-top: 5px;
+
+}
+.box6{
+	width: 120px;
+	height:75px;
+	background: #c9d329;
+	margin-right: 5px;
+	float: left;
+	margin-top: 5px;
+}
+.box7{
+	width: 120px;
+	height:75px;
+	background: #070f7a;
+	margin-right: 5px;
+	float: left;
+	margin-top: 5px;
+}
+span.color-lump{
+    color: white;
+    margin-left: 5%;
+}
+#msg{
+    width: 20%;
+    height: 40%;
+    border: 1px solid cornflowerblue;
+    background: cornflowerblue;
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+
+}
+#title{
+    width: 100%;
+    height: 10%;
+    background: cornflowerblue;
+    position: absolute;
+
+
+}
+#mainmsg{
+    width: 100%;
+    height: 100%;
+    background: lightgoldenrodyellow;
+    overflow-y: scroll;
+
+}
+
+#three{
+	width: 100%;
+	height: 80px;
+}
+.smallbox{
+	width: 50px;
+	height: 30px;
+
+}
+.ul{
+	display: inline;
+	float: left;
+
+}
+ul li{
+	list-style: none;
+	float: left;
+	margin-right: 10px;
+}
+footer{
+	width: 100%;
+	height: 35px;
+	background: black;
+    margin-top: 19px;
+}
+#left{
+	float: left;
+	width: 40%;
+}
+#right{
+	float: right;
+	width: 25%;
+	color: white;
+}
+.foot{
+	color: white;
+	margin: 10px;
+}
+a{
+	text-decoration: none;
+
+}
+a:visited{color:white;}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/amazeui.min.css">
+    <script src="assets/js/jquery.min.js"></script>
+    <script  src="assets/js/amazeui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/3.css">
+</head>
+<body>
+	<header class="am-topbar">
+	  <h1 class="am-topbar-brand" style="margin-left:20%;margin-right:2%;">
+	    <a href="#" style="color:white;">酒店管理系统</a>
+	  </h1>
+
+	  <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#doc-topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
+	  <div class="am-collapse am-topbar-collapse am-topbar-inverse" id="doc-topbar-collapse">
+	    <ul class="am-nav am-nav-pills am-topbar-nav">
+	            <li class="am-active"><a href="room-status.html">房态图</a></li>
+	            <li><a href="#">客人</a></li>
+	            <li><a href="vip.html">会员</a></li>
+	            <li><a href="#">协议单位</a></li>
+	            <li><a href="host.html">非住客帐</a></li>
+	            <li><a href="#">预定</a></li>
+	            <li><a href="report-forms.html">报表</a></li>
+	            <li><a href="#">短信</a></li>
+	            <li><a href="#">库存</a></li>
+	            <li><a href="#">设置</a></li>
+	    </ul>
+	  </div>
+	</header>
+    <section id="one">
+    	<form>
+    	    <label>时间：</label>
+    		<input type="date" name="date">
+    		<label >至</label>
+    		<input type="date" name="date">
+    		<label style="margin-left:10px;">单号：</label>
+    		<input type="text" name="danhao">
+    		<button class="am-btn am-btn-xs am-btn-secondary" style="margin-left:10px;">查询</button>
+    	</form>
+    </section>
+    <section id="two">
+
+    	<table class="am-table am-table-bordered am-table-hover">
+    		<thead>
+    		  <tr class="am-primary">
+    			<th>时间</th>
+    			<th>单号</th>
+    			<th>消费数量</th>
+    			<th>消费金额</th>
+    			<th>支付方式</th>
+    			<th>支付状态</th>
+    			<th>操作员</th>
+    			<th>备注</th>
+    		  </tr>
+    		</thead>
+    		<tbody>
+    			<tr>
+    				<td colspan="2" style="text-align:right;">当页合计</td>   				
+    				<td>0</td>
+    				<td>0.00</td>
+    				<td colspan="4" style="text-align:right;">消费总量：0件 &nbsp; &nbsp; 消费金额：0.00元</td>
+    			</tr>
+    		</tbody>
+    	</table>
+    </section>
+    <section id="three"></section>
+	<footer>
+          <div id="right">
+            <span class="foot">酒店名称：斯纳格田园酒店</span>
+            <span class="foot">用户名：18990180707</span>
+            <span class="foot">班次：早班</span>
+          </div>
+
+          <div id="left">
+            <a href="">QQ交谈</a>
+            <span>||</span>
+            <a href="">交班</a>
+            <span>|</span>
+            <a href="">记事本</a>
+            <span>|</span>
+            <a href="">失物招领</a>
+            <span>|</span>
+            <a href="">版本更新</a>
+            <span>|</span>
+            <a href="">退出</a>
+            <span>|</span>
+            <a href="">QQ交谈</a>
+
+          </div>		
+	</footer>
+	
+</body>
+</html>

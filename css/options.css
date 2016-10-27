@@ -1,0 +1,15 @@
+#options{
+    width: 100%;
+    height: 835px;
+}
+#options-left{
+    width: 8%;
+    height:835px;
+    background: #eaf7f0;
+    float: left;
+}
+#options-right{
+    width: 88%;
+    float: right;
+    height:835px;
+}

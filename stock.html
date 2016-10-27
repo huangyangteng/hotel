@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/amazeui.min.css">
+    <script src="assets/js/jquery.min.js"></script>
+    <script  src="assets/js/amazeui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <script rel="jquery.min.js"></script>
+	<style>
+        #stock{
+            width: 100%;
+            height: 835px;
+            margin: 0 5px 0;
+        }
+		#column-left{
+			width: 8%;
+            height:835px;
+			background: #eaf7f0;
+            float: left;
+		}
+        #column-right{
+            width: 90%;
+            float: right;
+            height:835px;
+        }
+	</style>
+</head>
+<body>
+    <header class="am-topbar">
+    <h1 class="am-topbar-brand" style="margin-left:20%;margin-right:2%;">
+        <a href="#" style="color:white;">酒店管理系统</a>
+    </h1>
+
+    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#doc-topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
+    <div class="am-collapse am-topbar-collapse am-topbar-inverse" id="doc-topbar-collapse">
+        <ul class="am-nav am-nav-pills am-topbar-nav">
+            <li class="am-active"><a href="room-status.html">房态图</a></li>
+            <li><a href="guest.html">客人</a></li>
+            <li><a href="vip.html">会员</a></li>
+            <li><a href="company.html">协议单位</a></li>
+            <li><a href="report-forms.html">报表</a></li>
+            <li><a href="stock.html">库存</a></li>
+            <li><a href="options.html">设置</a></li>
+        </ul>
+    </div>
+</header>
+    <section id="stock">
+        <div id="column-left">
+            <button class="am-btn am-btn-secondary am-btn-group-lg">商品管理</button>
+            <button class="am-btn am-btn-secondary am-btn-group-lg">商品分类</button>
+            <button class="am-btn am-btn-secondary am-btn-group-lg">固定资产</button>
+	    </div>
+        <script>
+            $('#column-left button:eq(0)').click(function () {
+               window.location.reload()
+            }).next().click(function () {
+                $('#column-right').load('stock/stock-2.html')
+            }).next().click(function () {
+                $('#column-right').load('stock/stock-3.html')
+            });
+        </script>
+
+        <div id="column-right">
+            <div class="select">
+                <table class="am-table">
+                    <tr class="am-primary">
+                        <td>筛选</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label >关键字：</label>
+                            <input type="text" class="">
+                            <label>状态：</label>
+                            <select name="status" id="status" class="am-form">
+                                <option >上架</option>
+                                <option >下架</option>
+                            </select>
+                            <label>分类：</label>
+                            <select name="status" id="classify" class="am-form">
+                                <option >客房</option>
+                                <option >茶座</option>
+                                <option >红酒</option>
+                                <option >小商品</option>
+                            </select>
+                            <label>请选择二级分类：</label>
+                            <select name="status" id="classify-again" class="am-form">
+                                <option >根据一级分类</option>
+                                <option ></option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="am-btn ">搜索</button>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="add-goods">
+                <table class="am-table">
+                    <tr class="am-primary">
+                        <td>
+                            <button class="am-btn am-btn-secondary ">添加商品</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+		    <div class="goods">
+                <table class="am-table">
+                    <tr class="am-primary">
+                        <td>ID</td>
+                        <td>排序</td>
+                        <td>商品名称</td>
+                        <td>商品属性</td>
+                        <td>价格</td>
+                        <td>库存</td>
+                        <td>实际销量</td>
+                        <td>商品编码</td>
+                        <td>商品条码</td>
+                        <td>状态</td>
+                        <td>操作</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <img src="image/stook.png" alt="上面表格中的数据">
+	    </div>
+    </section>
+    <footer>
+        <div id="left">
+            <span class="foot">酒店名称：斯纳格田园酒店</span>
+            <span class="foot">用户名：18990180707</span>
+            <span class="foot">班次：早班</span>
+        </div>
+
+        <div id="right">
+            <a href="#" class="foot" data-am-modal="{target: '#doc-modal-shiftexchange', closeViaDimmer: 0, width:1200, height:800}">交班</a>
+            <span>|</span>
+            <a href="#" class="foot">版本更新</a>
+            <span>|</span>
+            <a href="#" class="foot">退出</a>
+            <span>|</span>
+            <a href="#" class="foot"><img src="image/message.gif"> </a>
+        </div>
+        <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-shiftexchange">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd">交班报表
+                    <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+                </div>
+                <div class="am-modal-bd">
+                    <span  style="float: left" >本班时间:</span>
+                    <table class="am-table am-table-bordered">
+                        <tr class="am-primary">
+                            <td>项目</td>
+                            <td colspan="11">支付方式</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>现金</td>
+                            <td>银行卡</td>
+                            <td>网上支付</td>
+                            <td>储值卡</td>
+                            <td>微信支付</td>
+                            <td>协议挂账</td>
+                            <td>支付宝扫码</td>
+                            <td>携程</td>
+                            <td>糯米</td>
+                            <td>美团</td>
+                            <td>盖网</td>
+                            <td>小计</td>
+                        </tr>
+                        <tr>
+                            <td>订金</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>押金</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>非住客帐</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>结账收款</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>结账退款</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>卡充值</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>消费付现</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>挂账结算</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>协议单位充值</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>合计</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <span  style="float: left">交班人签字</span>
+                    <button class="am-btn am-btn-secondary">交班</button>
+                    <button class="am-btn am-btn-secondary">打印</button>
+
+
+                </div>
+            </div>
+        </div><!--交班报表的模态窗口-->
+
+    </footer>
+</body>
+</html>
