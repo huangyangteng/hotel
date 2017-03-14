@@ -9,7 +9,19 @@
     <script src="assets/js/jquery.min.js"></script>
     <script  src="assets/js/amazeui.min.js"></script>
 </head>
+<!-- 
+header········································导航条
+section#one··································表单行，两个按钮，两个搜索框
+section#two··································房态
+  div#main·································房态
+    div#msg·····························消息提示框
 
+  div#bar··································侧边栏
+section#three································
+
+
+
+ -->
 <body>
   <header class="am-topbar">
     <h1 class="am-topbar-brand" style="margin-left:20%;margin-right:2%;">
@@ -32,6 +44,7 @@
   </header>
       <section id="one">
       <form >
+      <!-- ·································外客购买·························· -->
           <button
                   style="margin-right: 18%"
                   type="button"
@@ -78,8 +91,9 @@
                   </div>
               </div>
           </div>
+          <!-- ·························时间输入框······················· -->
           <input type="date" name="date"   style="width:20%; margin-right:10%  " data-am-datepicker>
-
+          <!-- ·························反结账······························ -->
           <button
                   type="button"
                   class="am-btn am-btn-primary"
@@ -159,14 +173,15 @@
                   </div>
               </div>
           </div>
-
+          <!-- ·····················搜索框····························· -->
           <input type="text" name="" placeholder ="请输入会员卡号//证件号码/房号" style="width:14%; margin-left:14%; line-height:1.8; border:1px solid #ccc ;">
           
         </form>
 
       </section>
-
+<!-- ···································房态图································· -->
       <section id="two">
+          <!-- ························主要房态图······························· -->
           <div id="main">
               <div class="box1"><span class="hotel-one">8101</span> <br><span>测试</span> <br> <span>空房</span></div>
               <div class="box1"><span class="hotel-one">8102</span> <br><span>测试</span> <br> <span>空房</span></div>
@@ -548,7 +563,7 @@
                   </div>
               </div>   <!-- box1,空房的模态窗口-->
 
-
+             <!-- ··············提示框······························· -->
               <div id="msg">
                   <div id="title">
                       <span style="color:black;font-size: 20px;">提示框</span>
@@ -599,21 +614,18 @@
                       却始终 是他喜欢的
                       样子
 
-                      文／小竹筏儿（简书作者）
-                      原文链接：http://www.jianshu.com/p/045c74c6a7ac
-                      著作权归作者所有，转载请联系作者获得授权，并标注“简书作者”。
-                      overflow-y: scroll;
+
                   </div>
 
-              </div><!--消息提示框-->
+              </div>
 
           </div>
 
 
 
-
+          <!-- ···············右侧边栏··························· -->
           <div id="bar">
-
+              <!-- ···············房态·················· -->
               <label>房态</label>
                 <select >
                   <option value="a" selected>全部</option>
@@ -638,6 +650,7 @@
                   <option value="m">4</option>
                 </select>
               <hr>
+              <!-- ························房型维护······················ -->
               <button
                       type="button"
                       class="am-btn am-btn-secondary"
@@ -679,13 +692,14 @@
                   </div>
               </div>
 
-
+              <!-- ·························今日房价······················· -->
               <p><b>今日房价:</b></p>
               <p>商务单间：168元</p>
               <p>商务标间：128元</p>
               <p>休闲单间:228元</p>
               <p>特价房：98元</p>
               <br><hr>
+              <!-- ·····················房价调整················· -->
               <button
                       type="button"
                       class="am-btn am-btn-primary"
@@ -773,10 +787,10 @@
 
 
                   
-          </div><!--侧边栏-->
+          </div>
 
       </section>
-
+<!-- ·················不同颜色对应不同房间······································· -->
       <section id="three">
         <ul class="ul">
 
@@ -795,7 +809,7 @@
         </ul>
       </section>
 
-
+<!-- ·································页脚································ -->
   <footer>
       <div id="left">
           <span class="foot">酒店名称：斯纳格田园酒店</span>
