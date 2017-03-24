@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="css/room-status.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" type="text/css" href="assets/css/amazeui.min.css">
     <script src="assets/js/jquery.min.js"></script>
@@ -32,7 +32,7 @@ section#three································
 
     <div class="am-collapse am-topbar-collapse am-topbar-inverse" id="doc-topbar-collapse">
       <ul class="am-nav am-nav-pills am-topbar-nav">
-              <li class="am-active"><a href="room-status.html">房态图</a></li>
+              <li class="am-active"><a href="index.html">房态图</a></li>
               <li><a href="guest.html">客人</a></li>
               <li><a href="vip.html">会员</a></li>
               <li><a href="company.html">协议单位</a></li>
@@ -401,7 +401,7 @@ section#three································
                               <button id="checked-btn-two" class="am-btn am-btn-secondary">点击换房</button>
                               <button id="checked-btn-three" class="am-btn am-btn-secondary">点击续住</button>
                               <button id="checked-btn-four" class="am-btn am-btn-secondary">商品添加</button>
-                              <a class="am-btn am-btn-secondary" href="room-status.html">返回主页</a>
+                              <a class="am-btn am-btn-secondary" href="index.html">返回主页</a>
                           </section>
 
                           <div id="checked-right" style="width: 89%;float: right;">
@@ -480,16 +480,16 @@ section#three································
                           <script>
                               $(document).ready(function(){
                                   $('#checked-btn-one').click(function(){
-                                      $('#checked-right').load('room-status/check-out.html')
+                                      $('#checked-right').load('index/check-out.html')
                                   });
                                   $('#checked-btn-two').click(function(){
-                                      $('#checked-right').load('room-status/exchange.html')
+                                      $('#checked-right').load('index/exchange.html')
                                   });
                                   $('#checked-btn-three').click(function(){
-                                      $('#checked-right').load('room-status/continue.html')
+                                      $('#checked-right').load('index/continue.html')
                                   });
                                   $('#checked-btn-four').click(function(){
-                                      $('#checked-right').load('room-status/add.html')
+                                      $('#checked-right').load('index/add.html')
                                   });
                               });
 
@@ -509,7 +509,7 @@ section#three································
                           <section id="book-left" style="width: 8%;float:left;">
                               <button id="btn-book-one" class="am-btn am-btn-secondary">点击预定</button>
                               <button id="btn-book-two" class="am-btn am-btn-secondary">点击入住</button>
-                              <a class="am-btn am-btn-secondary" href="room-status.html">返回主页</a>
+                              <a class="am-btn am-btn-secondary" href="index.html">返回主页</a>
                           </section>
                           <section id="book-right" style="width: 89%;float: right;">
                               <table class="am-table am-table-bordered">
@@ -551,10 +551,10 @@ section#three································
                           <script>
                               $(document).ready(function(){
                                   $('#btn-book-two').click(function(){
-                                      $('#book-right').load('room-status/registe.html')
+                                      $('#book-right').load('index/registe.html')
                                   });
                                   $('#btn-book-one').click(function(){
-                                      $('#book-right').load('room-status/check-in.html')
+                                      $('#book-right').load('index/check-in.html')
                                   });
                               });
                           </script>
