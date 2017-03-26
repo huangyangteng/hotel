@@ -24,4 +24,35 @@
 #top{
 	margin-bottom: 5px;
 }
+#body{
+	opacity: 0.4;
+}
+#banner_in{
+	position: absolute;
+	border: 4px solid #ccc;
+	width: 880px;
+	height: 530px;
+	left: 50%;
+	margin-left: -335px;
+	cursor: pointer;
+	top: 50px;
+	display: none;
+	background: white;
+	padding: 20px;
+}
+#banner_in a{
+	width: 32px;
+	height: 32px;
+	position: absolute;
+	left: 860px;
+	top: -12px;
+	margin-top: -8px;
+	margin-right: -8px;
+	background: url(../image/tk_close.png);
+	background-repeat: no-repeat;
+	display: block;
+}
+#banner_in a:hover{
+	background-position: 0 -35px;
+}
 
