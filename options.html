@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
@@ -7,29 +8,29 @@
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" type="text/css" href="assets/css/amazeui.min.css">
     <script src="assets/js/jquery.min.js"></script>
-    <script  src="assets/js/amazeui.min.js"></script>
+    <script src="assets/js/amazeui.min.js"></script>
 </head>
 
 <body>
     <header class="am-topbar">
-    <h1 class="am-topbar-brand" style="margin-left:20%;margin-right:2%;">
+        <h1 class="am-topbar-brand" style="margin-left:20%;margin-right:2%;">
         <a href="#" style="color:white;">酒店管理系统</a>
     </h1>
 
-    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#doc-topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+        <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#doc-topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
 
-    <div class="am-collapse am-topbar-collapse am-topbar-inverse" id="doc-topbar-collapse">
-        <ul class="am-nav am-nav-pills am-topbar-nav">
-            <li class="am-active"><a href="index.html">房态图</a></li>
-            <li><a href="guest.html">客人</a></li>
-            <li><a href="vip.html">会员</a></li>
-            <li><a href="company.html">协议单位</a></li>
-            <li><a href="report-forms.html">报表</a></li>
-            <li><a href="stock.html">库存</a></li>
-            <li><a href="options.html">设置</a></li>
-        </ul>
-    </div>
-</header>
+        <div class="am-collapse am-topbar-collapse am-topbar-inverse" id="doc-topbar-collapse">
+            <ul class="am-nav am-nav-pills am-topbar-nav">
+                <li><a href="index.html">房态图</a></li>
+                <li><a href="guest.html">客人</a></li>
+                <li><a href="vip.html">会员</a></li>
+                <li><a href="company.html">协议单位</a></li>
+                <li><a href="report-forms.html">报表</a></li>
+                <li><a href="stock.html">库存</a></li>
+                <li class="am-active"><a href="options.html">设置</a></li>
+            </ul>
+        </div>
+    </header>
     <section id="options">
         <section id="options-left">
             <button class="am-btn am-btn-secondary am-btn-group-lg">酒店信息</button>
@@ -56,11 +57,11 @@
         </section>
     </section>
     <script>
-        $('#options-left button:eq(0)').click(function () {
+        $('#options-left button:eq(0)').click(function() {
             window.location.reload()
-        }).next().click(function () {
+        }).next().click(function() {
             $('#options-right').load('options/authority.html')
-        }).next().click(function () {
+        }).next().click(function() {
             $('#options-right').load('options/password.html')
         });
     </script>
@@ -86,7 +87,7 @@
                     <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
                 </div>
                 <div class="am-modal-bd">
-                    <span  style="float: left" >本班时间:</span>
+                    <span style="float: left">本班时间:</span>
                     <table class="am-table am-table-bordered">
                         <tr class="am-primary">
                             <td>项目</td>
@@ -258,29 +259,17 @@
                             <td></td>
                         </tr>
                     </table>
-                    <span  style="float: left">交班人签字</span>
+                    <span style="float: left">交班人签字</span>
                     <button class="am-btn am-btn-secondary">交班</button>
                     <button class="am-btn am-btn-secondary">打印</button>
 
 
                 </div>
             </div>
-        </div><!--交班报表的模态窗口-->
+        </div>
+        <!--交班报表的模态窗口-->
 
     </footer>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
