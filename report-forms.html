@@ -366,7 +366,7 @@
         })
 
         function ButtonClicked(position) {
-            var tags = document.getElementsByTagName('div');
+            var tags = document.getElementsByTagName('button');
             for (i=0; i<tags.length; i++)
             {
                 tags.item(i).style.display = 'none';
@@ -377,6 +377,7 @@
             {
                 tags.item(i).style.display = 'block';
             }
+            window.location.reload(); 
         }
     </script>  
 </body>
