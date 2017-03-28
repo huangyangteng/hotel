@@ -1,6 +1,9 @@
 html,body{
-	height: 100%;
+    height: 100%;
+    user-select:none;
+
 }
+li{list-style: none;}
 /*
 
 header········································导航条
@@ -13,158 +16,287 @@ section#two··································�
 section#three································不同颜色对应不同房态
 */
 #one{
-	width: 100%;
-	height: 35px;
-	margin: 5px;
-}
+    width: 100%;
+    height: 35px;
+    }
 #two{
-	width: 100%;
-	height: 700px;
-	margin: 10px;
+    width: 100%;
+    height: 700px;
+    margin: 10px;
 }
 #main{
-	width: 92%;
-	height: 700px;
-	float: left;
+    width: 90%;
+    height: 700px;
+    float: left;
 }
 #bar{
-	width: 8%;
-	height: 700px;
-	float: right;
-	background-color:#eaf7f0;
+    width: 10%;
+    min-width: 129px;
+    padding: 10px;
+    user-select: none;
+    position: absolute;
+    right: 0px;
+    text-align: center;
+    background-color:#eaf7f0;
 }
-/*······box1*/
-.box1{
-	width: 120px;
-	height: 75px;
-	background: #2993cc;
-	margin-right: 5px;
-    float: left;
-     margin-top: 5px;
+/*房型维护 start
 
-}
-.box2{
-	width: 120px;
-	height: 75px;
-	background: #d32945;
-	margin-right: 5px;
-    float: left;
-     margin-top: 5px;
 
-}
-.box3{
-	width: 120px;
-	height:75px;
-	background:#24282a ;
-	margin-right: 5px;
-    float: left;
-     margin-top: 5px;
 
-}
-.box4{
-	width: 120px;
-	height: 75px;
-	background: #b7c7cf;
-	margin-right: 5px;
-    float: left;
-    margin-top: 5px;
+*/
+    .add div.modal-content{
+        top: 50px;
+    }
+    .add div.modal-header{
+        width: 94%;
+        margin-left: 3%;
+        height: 40px;
+        text-align: left;
+    }
+    .add button.close{
+        font-size: 30px;
+        position: relative;
+        right: -20px;
+        top: -8px;
+    }
+    .add p{
+        position: relative;
+        left: -16px;
+        font-family: 'microsodt yahei';
+        color:#4695F8;
+    }
+    .add div.modal-body{
+        width: 80%;
+        margin-left: 10%;
+        font-size: 14px;
+    }
+    .add div.row{
+        margin-bottom: 20px;
+    }
+    .add div.modal-body input{
+        position: relative;
+        left: -20px;
+    }
+    .add div.modal-footer{
+        border: 0px;
+        width: 70%;
+        text-align: center;
+    }
+    .add  div.rest{
+        padding:0;
+        width: 25%;
 
-}
-.box5{
-	width: 120px;
-	height:75px;
-	background: #29e17f;
-	margin-right: 5px;
-    float: left;
-     margin-top: 5px;
+    }
+    .add div.col-md-10 input{
+        float: left;
+    }
+    .add #error{
+        color: red;
+    }
+    #floor{
+        display: inline-block;
+    }
+    #floor div.p{
+        display: inline-block;
+        font-size: 14px;
+        background: #2993cc;
+        padding: 0.4em 1.5em;
+        color: #fff;
+    }
+    #floor ul li,#floor ul {
+        margin: 0px;
+        padding: 0px;
+        display: inline-block;
+        position: relative;
+        bottom: -6px;
+    }
+    #floor ul li{
+        margin: 0px;
+        font-size: 14px;
+        letter-spacing: 1px;
+        padding: 0.4em 3.5em;
+        padding-left: 2em;
+        color:#E4E0E0;
+        background: #666666;
+        cursor: pointer;
+        margin-right: 5px;
+        position: relative;
+    }
+    #floor ul li:active,#floor ul li:hover{
+        background:#2993cc;
+        color: #fff;
+    }
+    #floor ul li span{
+        position: absolute;
+        right: 20px;
+        bottom: 6px;
+    }
+    #floor ul li span:hover,#floor ul li i.close:hover{
+        color: #666666;
 
-}
-.box6{
-	width: 120px;
-	height:75px;
-	background: #c9d329;
-	margin-right: 5px;
-	float: left;
-	margin-top: 5px;
-}
-.box7{
-	width: 120px;
-	height:75px;
-	background: #070f7a;
-	margin-right: 5px;
-	float: left;
-	margin-top: 5px;
-}
+    }
+    #floor ul li i.close{
+        position: absolute;
+        right: 1px;
+        bottom: 9px;
+        color:#ABABAA;
+        opacity: 1;
+        font-size: 18px;
+    }
+    #floor li.clicked{
+        background: #2993cc;
+    }
+
+
+
+
+
+
+
+/*end房型维护*/
+/*外客购买 start*/
+    .one_content{
+        width: 98%;
+        min-width: 830px;
+        height: 3px;
+        line-height: 35px;
+        margin: 0 auto;
+        text-align: justify;
+    }
+    .one_content:after {width: 100%;height: 0;margin: 0;display: inline-block;overflow: hidden;content: '';}
+    .oc_time{
+        width:20%;
+    }
+    .oc_search{
+        width:20%;
+        line-height:1.6;
+        padding: 5px;
+        border:1px solid #ccc ;
+        margin-right: 10%;
+        font-size: 14px;
+    }
+
+/*end 外客购买*/
+/*todayprice start*/
+    .todayprice p{
+        font-size: 14px;
+        text-align: left;
+    }
+    .todayprice b{
+        font-size: 16px;
+        width: 100%;
+        height: 30px;
+        line-height: 50px;
+        display: block;
+    }
+/*end  todayprice*/
 span.color-lump{
     color: white;
     margin-left: 5%;
 }
-#msg{
-    width: 20%;
-    height: 40%;
-    border: 1px solid cornflowerblue;
-    background: cornflowerblue;
-    position: absolute;
-    bottom: 10%;
-    right: 10%;
+/*msg start*/
+    #msg{
+        width: 20%;
+        height: 40%;
+        border: 1px solid cornflowerblue;
+        background: cornflowerblue;
+        position: absolute;
+        bottom: 35px;
+        right: 10%;
 
-}
-#title{
-    width: 100%;
-    height: 10%;
-    background: cornflowerblue;
-    position: absolute;
+    }
+    #title{
+        width: 100%;
+        height: 30px;
+        line-height: 30px;
+        color:black;
+        background: cornflowerblue;
+        position: absolute;
+    }
+    #title button{
+        font-size: 32px;
+        float: right;
+    }
+    #mainmsg{
+        width: 100%;
+        height: 100%;
+        padding: 5px;
+        text-align: justify;
+        background: lightgoldenrodyellow;
+        overflow-y: scroll;
+    }
+/* end msg*/
 
+    #three{
+        position: absolute;
+        bottom: 35px;
+        width: 100%;
+        height: 30px;
+        cursor: pointer;
+    }
+    #three ul{
+        display: inline;
+        float: left;
 
-}
-#mainmsg{
-    width: 100%;
-    height: 100%;
-    background: lightgoldenrodyellow;
-    overflow-y: scroll;
+    }
+    #three ul li{
+        width: 50px;
+        height: 25px;
+        color: #fff;
+        font-size: 12px;
+        line-height: 25px;
+        text-align: center;
+        letter-spacing: 2px;
+        margin-top: 3px;
+    }
 
-}
+    ul li{
+        list-style: none;
+        float: left;
+        margin-right: 10px;
+    }
+/*foot start*/
+    footer{
+        width: 100%;
+        height: 35px;
+        line-height: 35px;
+        background: black;
+        position: absolute;
+        bottom: 0px;
+        background: red;
+        cursor: pointer;
+        font-size: 14px;
+        min-width: 830px;
+        letter-spacing: 1px;
+        padding: 0 1%;
+    }
+    #left{
+        color:#F0EEEE;
+        width: 60% !important;
+    }
+    #right{
+        width: 40% !important;
+        float: right;
+        color:#F0EEEE;
+        text-align: center;
+    }
+    #right .prompt{
+        cursor: pointer;
 
-#three{
-	width: 100%;
-	height: 80px;
-}
-.smallbox{
-	width: 50px;
-	height: 30px;
+    }
+    .foot{
+        color:#E7E5E5;
 
-}
-.ul{
-	display: inline;
-	float: left;
+    }
+/*end foot */
 
-}
-ul li{
-	list-style: none;
-	float: left;
-	margin-right: 10px;
-}
-footer{
-	width: 100%;
-	height: 35px;
-	background: black;
-    margin-top: 19px;
-}
-#left{
-	float: left;
-	width: 40%;
-}
-#right{
-	float: right;
-	width: 25%;
-	color: white;
-}
-.foot{
-	color: white;
-	margin: 10px;
-}
 a{
-	text-decoration: none;
+    text-decoration: none;
 
 }
 a:visited{color:white;}
+@media ( max-width:1300px ){
+    #msg{
+        right: 130px;
+    }
+}
