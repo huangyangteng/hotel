@@ -8,19 +8,21 @@
     <link rel="stylesheet" type="text/css" href="assets/css/amazeui.min.css">
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/amazeui.min.js"></script>
-    <style>
-        #one {
-            width: 100%;
-            margin: 0 5px 5px;
-        }
+    <link rel="stylesheet" href="css/guest.css">
 
-        #two {
-            width: 100%;
-            height: 793px;
-            margin: 0 5px 5px;
-        }
+    </script>
+    <style>
+
     </style>
 </head>
+<!--
+项目结构：
+header............................................................nav
+div#gu-one...........................................................客人类型 +搜索框
+div#gu-two...........................................................表格，里面是客人的基本信息
+footer...........................................................页脚
+
+ -->
 
 <body>
     <header class="am-topbar">
@@ -42,7 +44,7 @@
             </ul>
         </div>
     </header>
-    <section id="one">
+    <section id="gu-one">
         <label>类型：</label>
         <select data-am-selected>
             <option value="a" selected>在住客人</option>
@@ -53,7 +55,7 @@
         <button class="am-btn am-btn-secondary">查询</button>
 
     </section>
-    <section id="two">
+    <section id="gu-two">
         <table class="am-table am-table-bordered am-table-hover">
             <thead>
                 <tr class="am-primary">
