@@ -39,11 +39,141 @@ section#three································不
     text-align: center;
     background-color:#eaf7f0;
 }
-/*房型维护 start
+/*外客购买 start*/
+    .one_content{
+        width: 98%;
+        min-width: 830px;
+        height: 3px;
+        line-height: 35px;
+        margin: 0 auto;
+        text-align: justify;
+    }
+    .one_content:after {width: 100%;height: 0;margin: 0;display: inline-block;overflow: hidden;content: '';}
 
+    .oc_time{
+        width:20%;
+    }
+    .oc_search{
+        width:20%;
+        line-height:1.6;
+        padding: 5px;
+        border:1px solid #ccc ;
+        font-size: 14px;
+    }
 
+/*end 外客购买*/
+/*房态的放大缩小 start*/
+    .oc_house{
+        width: 15%;
+        font-size: 14px;
+        margin-right: 5%;
+        display: inline-block;
+        text-align: center;
+    }
+    .oc_house div{
+        width: 50px;
+        height: 20px;
+        float: left;
+    }
+    .oc_house ul{
+        padding: 0;
+        margin: 0;
+    }
+    .oc_house ul li{
+        list-style: none;
+        float: left;
+    }
+    .oc_house ul li.och_one,.oc_house ul li.och_two,.oc_house ul li.och_three{
+        position: relative;
+        background: #A8A7A7;
+        box-shadow: 0px 0px 5px #A8A7A7;
+    }
+    .oc_house ul li.och_one{
+        width: 15px;
+        height: 15px;
+    }
+    .oc_house ul li.och_one{
+        width: 12px;
+        height: 12px;
+        top: 12px;
+        left: 3px;
+        background: #2993cc;
+    }
+    .oc_house ul li.och_two{
+        width: 14px;
+        height: 14px;
+        top: 10.4px;
+        left: 6px;
+    }
+    .oc_house ul li.och_three{
+        width: 16px;
+        height: 16px;
+        top: 9.4px;
+        left: 9px;
+    }
+/*end 房态的放大缩小*/
+/*房态显示 start*/
+    #main .main ul{
+        width: 100%;
+        height: auto;
+        padding:8px 0px;
+        margin: 0;
+        overflow:hidden;
+    }
+	#main .main ul li{
+        list-style: none;
+        display: inline-block;
+		color: #F0EFEF;
+		background:#2993cc;
+        cursor: pointer;
+        overflow: hidden;
+        border: 2px solid #A8A7A7;
+        margin-bottom: 1px;
+        margin-left: 4px;
+	}
+    #main .main ul li.s{
+        width: 120px;
+        height: 68px;
+        padding: 3px 5px;
+        font-size: 16px;
 
-*/
+    }
+    #main .main ul li.m{
+        width: 130px;
+        height: 80px;
+        padding: 4px 8px;
+        font-size: 18px;
+
+    }
+    #main .main ul li.l{
+        width: 140px;
+        height: 88px;
+        padding: 5px 10px;
+        font-size: 20px;
+
+    }
+    #main .main ul li:hover{
+        border: 4px solid grey;
+
+    }
+	#main dd.main_one{
+		font-weight: bold;
+		font-size: 1em;
+	}
+    #main dd.main_two{
+        font-size: 0.8em;
+    }
+	#main dd.main_three{
+		font-size: 0.6em;
+	}
+    #main dd.main_four{
+        position: relative;
+        right: -80px;
+        top: -20px;
+        font-size: 0.7px;
+    }
+/*end 房态显示*/
+/*房型维护 start*/
     .add div.modal-content{
         top: 50px;
     }
@@ -121,6 +251,12 @@ section#three································不
         cursor: pointer;
         margin-right: 5px;
         position: relative;
+        list-style: none;
+        margin-right: 10px;
+        float: left;
+    }
+    #floor ul li.checked{
+    	background: #2993cc;
     }
     #floor ul li:active,#floor ul li:hover{
         background:#2993cc;
@@ -147,36 +283,7 @@ section#three································不
         background: #2993cc;
     }
 
-
-
-
-
-
-
 /*end房型维护*/
-/*外客购买 start*/
-    .one_content{
-        width: 98%;
-        min-width: 830px;
-        height: 3px;
-        line-height: 35px;
-        margin: 0 auto;
-        text-align: justify;
-    }
-    .one_content:after {width: 100%;height: 0;margin: 0;display: inline-block;overflow: hidden;content: '';}
-    .oc_time{
-        width:20%;
-    }
-    .oc_search{
-        width:20%;
-        line-height:1.6;
-        padding: 5px;
-        border:1px solid #ccc ;
-        margin-right: 10%;
-        font-size: 14px;
-    }
-
-/*end 外客购买*/
 /*todayprice start*/
     .todayprice p{
         font-size: 14px;
@@ -190,6 +297,8 @@ section#three································不
         display: block;
     }
 /*end  todayprice*/
+
+
 span.color-lump{
     color: white;
     margin-left: 5%;
@@ -220,12 +329,13 @@ span.color-lump{
     #mainmsg{
         width: 100%;
         height: 100%;
-        padding: 5px;
+        padding: 10px;
         text-align: justify;
         background: lightgoldenrodyellow;
         overflow-y: scroll;
     }
 /* end msg*/
+
 
     #three{
         position: absolute;
@@ -248,13 +358,12 @@ span.color-lump{
         text-align: center;
         letter-spacing: 2px;
         margin-top: 3px;
-    }
-
-    ul li{
         list-style: none;
         float: left;
         margin-right: 10px;
+
     }
+
 /*foot start*/
     footer{
         width: 100%;
