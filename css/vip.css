@@ -245,3 +245,34 @@
 	margin:10px 30px;
 	float: right;
 }
+/*vips_integrals下特有样式*/
+#vips_integrals .vips_imformations ul{
+	height: 70px;
+}
+#vips_integrals .vips_imformations ul li{
+	height: 70px;
+}
+#vips_integrals .shops_list{
+	margin-top: 10px;
+	width: 100%;
+	border: 1px solid #ccc;
+}
+#vips_integrals .shops_list table{
+	width: 100%;
+}
+#vips_integrals .shops_list table tr th{
+    height: 32px;
+    font-size: 14px;
+    text-align: center;
+    border-bottom: 1px #0789be solid;
+    border-right: 1px #66d5ff solid;
+    background: #00adef;
+    color: #fff;
+}
+#vips_integrals .shops_list table tr td{
+	border-bottom: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	text-align: center;
+	padding: 2px 5px;
+	height: 50px;
+}
