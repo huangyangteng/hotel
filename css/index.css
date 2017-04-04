@@ -50,6 +50,35 @@ section#three································不
     }
     .one_content:after {width: 100%;height: 0;margin: 0;display: inline-block;overflow: hidden;content: '';}
 
+    #oc_thead th{
+        text-align: center;
+    }
+    #oc_tbody td{
+        padding: 0px;
+    }
+    #oc_tbody input{
+        width: 100%;
+        outline: none;
+        border: 0px;
+        height: 40px;
+        text-align: center;
+        background: inherit;
+    }
+    #oc_tbody select{
+        width: 40%;
+        outline: none;
+        border: 0px;
+        height: 40px;
+        background: inherit;
+    }
+    #oc_tbody select option{
+        text-align: center;
+    }
+     #oc_tbody .oct_tr td{
+        padding: 10px;
+     }
+
+
     .oc_time{
         width:20%;
     }
@@ -59,59 +88,11 @@ section#three································不
         padding: 5px;
         border:1px solid #ccc ;
         font-size: 14px;
+        margin-right: 10%;
     }
 
 /*end 外客购买*/
-/*房态的放大缩小 start*/
-    .oc_house{
-        width: 15%;
-        font-size: 14px;
-        margin-right: 5%;
-        display: inline-block;
-        text-align: center;
-    }
-    .oc_house div{
-        width: 50px;
-        height: 20px;
-        float: left;
-    }
-    .oc_house ul{
-        padding: 0;
-        margin: 0;
-    }
-    .oc_house ul li{
-        list-style: none;
-        float: left;
-    }
-    .oc_house ul li.och_one,.oc_house ul li.och_two,.oc_house ul li.och_three{
-        position: relative;
-        background: #A8A7A7;
-        box-shadow: 0px 0px 5px #A8A7A7;
-    }
-    .oc_house ul li.och_one{
-        width: 15px;
-        height: 15px;
-    }
-    .oc_house ul li.och_one{
-        width: 12px;
-        height: 12px;
-        top: 12px;
-        left: 3px;
-        background: #2993cc;
-    }
-    .oc_house ul li.och_two{
-        width: 14px;
-        height: 14px;
-        top: 10.4px;
-        left: 6px;
-    }
-    .oc_house ul li.och_three{
-        width: 16px;
-        height: 16px;
-        top: 9.4px;
-        left: 9px;
-    }
-/*end 房态的放大缩小*/
+
 /*房态显示 start*/
     #main .main ul{
         width: 100%;
@@ -124,167 +105,75 @@ section#three································不
         list-style: none;
         display: inline-block;
 		color: #F0EFEF;
-		background:#2993cc;
+		/*background:#2993cc;*/
         cursor: pointer;
         overflow: hidden;
         border: 2px solid #A8A7A7;
         margin-bottom: 1px;
         margin-left: 4px;
-	}
-    #main .main ul li.s{
-        width: 120px;
-        height: 68px;
-        padding: 3px 5px;
-        font-size: 16px;
-
-    }
-    #main .main ul li.m{
-        width: 130px;
-        height: 80px;
+        width:130px;;
+        height: 85px;
         padding: 4px 8px;
         font-size: 18px;
-
-    }
-    #main .main ul li.l{
-        width: 140px;
-        height: 88px;
-        padding: 5px 10px;
-        font-size: 20px;
-
-    }
+        position: relative;
+	}
     #main .main ul li:hover{
         border: 4px solid grey;
-
+    }
+    #main dd{
+        width: 50%;
+        float: left;
+        font-size: 14px
     }
 	#main dd.main_one{
 		font-weight: bold;
+        text-align: left;
 		font-size: 1em;
 	}
+    #main dd.t{
+        text-align: right;
+    }
     #main dd.main_two{
-        font-size: 0.8em;
+        font-size: .8em;
     }
 	#main dd.main_three{
 		font-size: 0.6em;
 	}
     #main dd.main_four{
-        position: relative;
-        right: -80px;
-        top: -20px;
+        text-align: right;
         font-size: 0.7px;
     }
+
+
 /*end 房态显示*/
-/*房型维护 start*/
-    .add div.modal-content{
-        top: 50px;
-    }
-    .add div.modal-header{
-        width: 94%;
-        margin-left: 3%;
-        height: 40px;
-        text-align: left;
-    }
-    .add button.close{
-        font-size: 30px;
-        position: relative;
-        right: -20px;
-        top: -8px;
-    }
-    .add p{
-        position: relative;
-        left: -16px;
-        font-family: 'microsodt yahei';
-        color:#4695F8;
-    }
-    .add div.modal-body{
-        width: 80%;
-        margin-left: 10%;
+/*房态的右边栏    start */
+    #bar select option{
         font-size: 14px;
+
     }
-    .add div.row{
-        margin-bottom: 20px;
-    }
-    .add div.modal-body input{
-        position: relative;
-        left: -20px;
-    }
-    .add div.modal-footer{
-        border: 0px;
-        width: 70%;
+    #b_thead th{
         text-align: center;
     }
-    .add  div.rest{
-        padding:0;
-        width: 25%;
-
+    #b_tbody select{
+        width: 50%;
+        outline: none;
+        border: 0px;
+        height: 40px;
+        background: inherit;
     }
-    .add div.col-md-10 input{
-        float: left;
+    #b_tbody input{
+        width: 100%;
+        outline: none;
+        border: 0px;
+        height: 40px;
+        text-align: center;
+        background: inherit;
     }
-    .add #error{
-        color: red;
-    }
-    #floor{
+    #bt_time input{
+        width: 40%;
         display: inline-block;
+        border: 1px solid #E3E1E1;
     }
-    #floor div.p{
-        display: inline-block;
-        font-size: 14px;
-        background: #2993cc;
-        padding: 0.4em 1.5em;
-        color: #fff;
-    }
-    #floor ul li,#floor ul {
-        margin: 0px;
-        padding: 0px;
-        display: inline-block;
-        position: relative;
-        bottom: -6px;
-    }
-    #floor ul li{
-        margin: 0px;
-        font-size: 14px;
-        letter-spacing: 1px;
-        padding: 0.4em 3.5em;
-        padding-left: 2em;
-        color:#E4E0E0;
-        background: #666666;
-        cursor: pointer;
-        margin-right: 5px;
-        position: relative;
-        list-style: none;
-        margin-right: 10px;
-        float: left;
-    }
-    #floor ul li.checked{
-    	background: #2993cc;
-    }
-    #floor ul li:active,#floor ul li:hover{
-        background:#2993cc;
-        color: #fff;
-    }
-    #floor ul li span{
-        position: absolute;
-        right: 20px;
-        bottom: 6px;
-    }
-    #floor ul li span:hover,#floor ul li i.close:hover{
-        color: #666666;
-
-    }
-    #floor ul li i.close{
-        position: absolute;
-        right: 1px;
-        bottom: 9px;
-        color:#ABABAA;
-        opacity: 1;
-        font-size: 18px;
-    }
-    #floor li.clicked{
-        background: #2993cc;
-    }
-
-/*end房型维护*/
-/*todayprice start*/
     .todayprice p{
         font-size: 14px;
         text-align: left;
@@ -296,7 +185,9 @@ section#three································不
         line-height: 50px;
         display: block;
     }
-/*end  todayprice*/
+
+/*end       房态的右边栏 */
+
 
 
 span.color-lump{
@@ -334,20 +225,38 @@ span.color-lump{
         background: lightgoldenrodyellow;
         overflow-y: scroll;
     }
+    #mainmsg p{
+        font-size: 14px;
+        margin-bottom: 0px;
+        cursor: pointer;
+    }
+    #mainmsg p.mm_a{
+        text-align: right;
+    }
+    #mainmsg div{
+        font-size: 12px;
+        text-align: right;
+        border-bottom: 1px #C9CACA solid
+    }
+    #mainmsg a{
+        color: #0e90d2;
+        }
 /* end msg*/
 
 
     #three{
         position: absolute;
         bottom: 35px;
-        width: 100%;
+        left: 1%;
+        width: 98%;
         height: 30px;
         cursor: pointer;
     }
     #three ul{
         display: inline;
         float: left;
-
+        padding: 0px;
+        margin: 0px;
     }
     #three ul li{
         width: 50px;
@@ -360,9 +269,20 @@ span.color-lump{
         margin-top: 3px;
         list-style: none;
         float: left;
-        margin-right: 10px;
-
+        margin-right: 5px;
     }
+    #three ul span{
+        width: 40px;
+        height: 25px;
+        font-size: 12px;
+        line-height: 25px;
+        text-align: left;
+        margin-top: 3px;
+        float: left;
+    }
+
+
+
 
 /*foot start*/
     footer{

@@ -5,13 +5,12 @@
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/amazeui.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery-ui-1.10.4.custom.min.css">
     <script src="assets/js/jquery.min.js"></script>
     <script  src="assets/js/amazeui.min.js"></script>
     <script src="assets/js/angular.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/underscore-min.js"></script>
+    <script src="assets/js/jquery-ui-1.10.4.custom.min.js"></script>
 </head>
 <!--
 header········································导航条
@@ -51,41 +50,66 @@ section#three································
                   <div class="am-modal-hd">外客购买
                       <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
                   </div>
-                  <div class="am-modal-bd">
+                  <div class="am-modal-bd" class="oc-shop">
                       <table class="am-table am-table-bordered am-table-hover">
                           <thead>
-                          <tr class="am-primary">
-                              <th>商品</th>
+                          <tr class="am-primary" id="oc_thead">
+                              <th >商品</th>
+                              <th>剩余库存</th>
                               <th>单价</th>
-                              <th>数量</th>
+                              <th>购买数量</th>
+                              <th>支付方式</th>
                               <th>金额</th>
                           </tr>
                           </thead>
-                          <tbody>
+                          <tbody id="oc_tbody">
                           <tr>
-                              <td>&nbsp;</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
+                              <td><input type="" name="" class="research" value="酒"></td>
+                              <td><input type="" name=""  disabled value="100"></td>
+                              <td><input class="oct_price" type="" name=""  disabled value="10"></td>
+                              <td><input class="oct_number" type="number" name="" ng-model='octNumber' ng-change='change()'></td>
+
+                              <td>
+                                <select ng-init="selectedName=paymethods[0]" ng-model="selectedName" ng-options="x for x in paymethods"></select>
+                              </td>
+                              <td><input class="oct_totalPrice" type="" name="" disabled ng-value='totalPrice'></td>
                           </tr>
                           <tr>
-                              <td>&nbsp;</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
+                              <td><input type="" name="" ></td>
+                              <td><input type="" name=""></td>
+                              <td><input type="" name=""></td>
+                              <td><input type="" name=""></td>
+                              <td><input type="" name=""></td>
+                              <td><input type="" name=""></td>
                           </tr>
                           <tr>
-                              <td colspan="3" style="text-align: right">总计：</td>
+                              <td><input type="" name="" ></td>
+                              <td><input type="" name=""></td>
+                              <td><input type="" name=""></td>
+                              <td><input type="" name=""></td>
+                              <td><input type="" name=""></td>
+                              <td><input type="" name=""></td>
+                          </tr>
+                          <tr>
+                              <td><input type="" name="" ></td>
+                              <td><input type="" name=""></td>
+                              <td><input type="" name=""></td>
+                              <td><input type="" name=""></td>
+                              <td><input type="" name=""></td>
+                              <td><input type="" name=""></td>
+                          </tr>
+
+                          <tr class="oct_tr">
+                              <td colspan="5">总计：</td>
                               <td></td>
                           </tr>
                           </tbody>
                       </table>
-                      <button class="am-btn am-btn-secondary">保存</button>
+                      <button class="am-btn am-btn-secondary" data-am-modal-close>保存</button>
                   </div>
               </div>
           </div>
     <!-- ·································end 外客购买·························· -->
-
     <!-- ·························时间输入框······················· -->
           <input class="oc_time" type="date" name="date" data-am-datepicker>
     <!-- ·························反结账 start······························ -->
@@ -169,17 +193,8 @@ section#three································
               </div>
           </div>
     <!-- ·························end 反结账······························ -->
-
     <!-- ·····················搜索框····························· -->
-          <input class="oc_search" type="text" name="" placeholder ="请输入会员卡号/证件号码/房号" >
-          <div class="oc_house">
-            <div>房态图 : </div>
-            <ul>
-              <li class="och_one och_change"></li>
-              <li class="och_two och_change"></li>
-              <li class="och_three och_change"></li>
-            </ul>
-          </div>
+          <input class="oc_search research" type="text" name="" placeholder ="请输入会员卡号/证件号码/房号" >
         </form>
       </section>
     <!-- ···································房态图································· -->
@@ -188,12 +203,14 @@ section#three································
           <div id="main">
               <div class="main">
                   <ul ng-repeat='v in data.floor1'>
-                    <li ng-repeat='k in data.floor2' class="s">
-                      <dl>
-                        <dd class="main_one">{{v.id}}01</dd>
+                    <li ng-repeat='k in v.floor2' ng-style="{background:bgcolor}">
+                      <dl ng-repeat='m in k.floor3'>
+                        <dd class="main_one">{{m.number}}</dd>
+                        <dd class="main_one t">{{v.id}}</dd>
                         <dd class="main_two">{{k.name}}</dd>
-                        <dd class="main_three" ng-show="true">张三</dd>
-                        <dd class="main_four" ng-show="true">空房</dd>
+                        <dd class="main_two t">110元</dd>
+                        <dd class="main_three" ng-show="true">{{m.person}}</dd>
+                        <dd class="main_four">{{m.state}}</dd>
                       </dl>
                     </li>
                   </ul>
@@ -564,10 +581,8 @@ section#three································
                       有个小家 有爸爸有妈妈
                       陪着他们走在 铺满鹅卵石的道上
                       夕阳的余晖
-                      将影子 越拉越长
-                      就像 他们的陪伴
-                      越来越久</p>
-
+                      </p>
+                      <div class="nowTime"></div>
                       <p>2 . 我想在这个城市
                       有一群 可爱的朋友
                       可以陪着我 在
@@ -575,7 +590,7 @@ section#three································
                       也可以 穿着淑女装
                       在小桥流水的
                       古镇里 优雅</p>
-
+                      <div class="nowTime"></div>
                       <p>3 . 我想在这个城市
                       邂逅 迟迟归来的他
                       可以没有 海誓山盟
@@ -583,14 +598,15 @@ section#three································
                       慢慢老去
                       却始终 是他喜欢的
                       样子</p>
-
-
+                      <div class="nowTime"></div>
                       <p>4 . 有一群 可爱的朋友
                       可以陪着我 在
                       车水马龙中疯狂
                       也可以 穿着淑女装
                       在小桥流水的
                       古镇里 优雅</p>
+                      <div class="nowTime"></div>
+                      <p class="mm_a"><a href="#">更多&raquo;</a></p>
                   </div>
               </div>
             <!-- ··············end 提示框 ······························ -->
@@ -599,299 +615,15 @@ section#three································
           <div id="bar">
             <!-- ···············房态 start·················· -->
               <label>房态 :</label>
-                <select >
-                  <option value="a" selected >全部</option>
-                  <option value="b">2</option>
-                  <option value="o">3</option>
-                  <option value="m">4</option>
-                </select>
+                <select ng-init="roomData=roomdatas[0]" ng-model="roomData" ng-options="x as x.name for x in roomdatas"></select>
               <br>
               <label>房型 :</label>
-                <select >
-                  <option value="a" selected>全部</option>
-                  <option value="b" >2</option>
-                  <option value="o">3</option>
-                  <option value="m">4</option>
-                </select>
+                <select ng-init="roomShape=roomshapes[0]" ng-model="roomShape" ng-options="x as x.name for x in roomshapes"></select>
               <br>
               <label>楼层 :</label>
-                <select>
-                  <option value="a" selected>全部</option>
-                  <option value="b">1</option>
-                  <option value="o">3</option>
-                  <option value="m">4</option>
-                </select>
+                <select ng-init="roomFloor=roomfloors[0]" ng-model="roomFloor" ng-options="x for x in roomfloors"></select>
               <hr>
             <!-- ···············end 房态················· -->
-
-            <!-- ························房型维护 start······················ -->
-              <button
-                      type="button"
-                      class="am-btn am-btn-secondary"
-                      data-am-modal="{target: '#doc-modal-4', closeViaDimmer: 0, width: 1200, height: 800}">
-                  房型维护
-              </button>
-
-              <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-4">
-                  <div class="am-modal-dialog">
-                      <div class="am-modal-hd">
-                          <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
-                      </div>
-                      <div class="am-modal-bd">
-                      <!-- 楼层 房间 房型 start -->
-                          <div class="add">
-                              <div class="modal fade" id="myModal"  aria-hidden='true' data-backdrop='static'>
-                                  <div class="modal-dialog">
-                                      <div class="modal-content">
-                                          <div class="modal-header">
-                                              <button class="close" data-dismiss="modal">&times;</button>
-                                              <p class="modal-title">添加楼层</p>
-                                          </div>
-                                          <div class="modal-body">
-                                              <div class="container-fluid">
-                                                  <div class="row">
-                                                      <div class="col-md-2">楼层：</div>
-                                                      <div class="col-md-4"><input type="number" name="" value='' ng-model='floor1id' class="num"></div>
-                                                      <div class="col-md-4" id="error">{{error}}</div>
-
-                                                  </div>
-                                                  <div class="row">
-                                                      <div class="col-md-2">备注：</div>
-                                                      <textarea class="col-md-6" name="" id="" cols="20" rows="4" value="">
-                                                      </textarea>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                          <div class="modal-footer">
-                                              <button class="am-btn am-btn-success am-btn-sm" ng-click='addfloor1()'>添加</button>
-                                              <button class="am-btn am-btn-danger am-btn-sm" data-dismiss="modal">关闭</button>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="modal fade" id="myModal2"  aria-hidden='true' data-backdrop='static'>
-                                  <div class="modal-dialog">
-                                      <div class="modal-content">
-                                          <div class="modal-header">
-                                              <button class="close" data-dismiss="modal">&times;</button>
-                                              <p class="modal-title">添加房型</p>
-                                          </div>
-                                          <div class="modal-body">
-                                              <div class="container-fluid">
-                                                  <div class="row">
-                                                      <div class="col-md-3">楼层：</div>
-                                                      <div class="col-md-4 default1"><input type="text" name="" placeholder="全部" readonly></div>
-                                                  </div>
-                                                  <div class="row">
-                                                      <div class="col-md-3">房型名称：</div>
-                                                      <div class="col-md-4"><input type="text" name=""  ng-model='floor2name' class="nam"></div>
-                                                      <div class="col-md-4" id="error">{{error2}}</div>
-
-                                                  </div>
-                                                  <div class="row">
-                                                      <div class="col-md-3">挂牌价：</div>
-                                                      <div class="col-md-4"><input type="number" name="" class="pric"></div>
-                                                      <div class="col-md-4" id="error">{{error21}}</div>
-
-                                                  </div>
-                                                  <div class="row">
-                                                      <div class="col-md-4 rest">周末挂牌价：</div>
-                                                      <div class="col-md-4"><input type="number" name=""></div>
-                                                  </div>
-                                                  <div class="row">
-                                                      <div class="col-md-3">拼房床位：</div>
-                                                      <div class="col-md-4"><input type="number" name=""></div>
-                                                  </div>
-                                                  <div class="row">
-                                                      <div class="col-md-3">备注：</div>
-                                                      <textarea class="col-md-6" name="" id="" cols="20" rows="4" value="">
-                                                      </textarea>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                          <div class="modal-footer">
-                                              <button class="am-btn am-btn-success am-btn-sm "  ng-click="addfloor2()">添加</button>
-                                              <button class="am-btn am-btn-danger am-btn-sm " data-dismiss="modal">关闭</button>
-
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="modal fade" id="myModal3"  aria-hidden='true' data-backdrop='static'>
-                                  <div class="modal-dialog">
-                                      <div class="modal-content">
-                                          <div class="modal-header">
-                                              <button class="close" data-dismiss="modal">&times;</button>
-                                              <p class="modal-title">添加房间</p>
-                                          </div>
-                                          <div class="modal-body">
-                                              <div class="container-fluid">
-                                                  <div class="row">
-                                                      <div class="col-md-2">房号：</div>
-                                                      <div class="col-md-4"><input type="number" name=""></div>
-                                                  </div>
-                                                  <div class="row">
-                                                      <div class="col-md-2">楼层：</div>
-                                                      <div class="col-md-4"><input type="number" name=""></div>
-                                                  </div>
-                                                  <div class="row">
-                                                      <div class="col-md-2">房型：</div>
-                                                      <div class="col-md-4"><input type="text" name=""></div>
-                                                  </div>
-                                                  <div class="row">
-                                                      <div class="col-md-2">描述：</div>
-                                                      <textarea class="col-md-6" name="" id="" cols="20" rows="4" value="" placeholder="hello">
-                                                      </textarea>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                          <div class="modal-footer">
-                                              <button class="am-btn am-btn-success am-btn-sm ">保存</button>
-                                              <button class="am-btn am-btn-danger am-btn-sm ">重置</button>
-
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                              <!--end 楼层 房间 房型-->
-                              <div class="modal fade" id="myedit1"  aria-hidden='true' data-backdrop='static'>
-                                  <div class="modal-dialog">
-                                      <div class="modal-content">
-                                          <div class="modal-header">
-                                              <button class="close" data-dismiss="modal">&times;</button>
-                                              <p class="modal-title">编辑楼层</p>
-                                          </div>
-                                          <div class="modal-body">
-                                              <div class="container-fluid">
-                                                  <div class="row">
-                                                      <div class="col-md-2">楼层：</div>
-                                                      <div class="col-md-4"><input type="text" readonly  name="" class="editfloor1" ></div>
-
-                                                  </div>
-                                                  <div class="row">
-                                                      <div class="col-md-2">排序：</div>
-                                                      <div class="col-md-4"><input type="number" name="" value=''  class="numberfloor1"></div>
-                                                  </div>
-                                                  <div class="row">
-                                                      <div class="col-md-2">备注：</div>
-                                                      <textarea class="col-md-6" name="" id="" cols="20" rows="4" value="value">
-                                                      </textarea>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                          <div class="modal-footer">
-                                              <button class="am-btn am-btn-success am-btn-sm"  data-dismiss="modal" >保存</button>
-                                              <button class="am-btn am-btn-danger am-btn-sm" data-dismiss="modal">关闭</button>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="modal fade" id="myedit2"  aria-hidden='true' data-backdrop='static'>
-                                  <div class="modal-dialog">
-                                      <div class="modal-content">
-                                          <div class="modal-header">
-                                              <button class="close" data-dismiss="modal">&times;</button>
-                                              <p class="modal-title">编辑房型</p>
-                                          </div>
-                                          <div class="modal-body">
-                                              <div class="container-fluid">
-                                                  <div class="row">
-                                                      <div class="col-md-3">楼层：</div>
-                                                      <div class="col-md-4 default1"><input type="text" name="" placeholder="全部" readonly></div>
-                                                  </div>
-                                                  <div class="row">
-                                                      <div class="col-md-3">房型名称：</div>
-                                                      <div class="col-md-4"><input type="text" readonly  name="" class="editfloor2"></div>
-                                                  </div>
-                                                  <div class="row">
-                                                      <div class="col-md-3">挂牌价：</div>
-                                                      <div class="col-md-4"><input type="number" name=""  class="pricefloor2"></div>
-                                                  </div>
-                                                  <div class="row">
-                                                      <div class="col-md-3 rest">周末挂牌价：</div>
-                                                      <div class="col-md-4"><input type="number" name=""  class="price2floor2"></div>
-                                                  </div>
-                                                  <div class="row">
-                                                      <div class="col-md-3">拼房床位：</div>
-                                                      <div class="col-md-4"><input type="number" name=""  class="numberfloor2"></div>
-                                                  </div>
-                                                  <div class="row">
-                                                      <div class="col-md-2">备注：</div>
-                                                      <textarea class="col-md-6" name="" id="" cols="20" rows="4" value="value">
-                                                      </textarea>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                          <div class="modal-footer">
-                                              <button class="am-btn am-btn-success am-btn-sm"  data-dismiss="modal" >保存</button>
-                                              <button class="am-btn am-btn-danger am-btn-sm" data-dismiss="modal">关闭</button>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                              <!-- end 编辑楼层 房间 -->
-
-                          </div>
-
-
-
-
-                          <table class="am-table am-table-bordered">
-                              <tr>
-                                  <td style="text-align: left">
-                                     <div id="floor" >
-                                       楼层：
-                                        <div class="p">全部</div>
-                                        <ul ng-repeat='v in data.floor1'>
-                                          <li ng-class='{clicked:true}'>
-                                              <div  class="clickfloor1">{{v.id}}楼</div>
-                                              <span class="am-icon-pencil" data-target="#myedit1" data-toggle="modal" ng-click='add()'></span>
-                                              <i class="close" ng-click='removefloor1(v)'>&times;</i>
-                                          </li>
-                                        </ul>
-                                     <button class="btn btn-success" id="btn1" data-target="#myModal" data-toggle="modal" ng-click='add()'>增加</button>
-                                     </div>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td style="text-align: left">
-                                      <div id="floor" >
-                                        房型：
-                                        <div class="p">全部</div>
-                                        <ul ng-repeat='v in data.floor2'>
-                                          <li >{{v.name}}
-                                            <span class="am-icon-pencil" ng-click='add()' data-target="#myedit2" data-toggle="modal"></span>
-                                            <i class="close" ng-click="removefloor2(v)">&times;</i>
-                                          </li>
-                                        </ul>
-                                        <button class="btn btn-success" id="btn2" data-target="#myModal2" data-toggle="modal" ng-click='add()'>增加</button>
-                                      </div>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td style="text-align: left; height: 500px;">
-                                      房间：
-                                     <button class="btn btn-success" id="btn3" data-target="#myModal3" data-toggle="modal">增加</button>
-                                  </td>
-                              </tr>
-                          </table>
-
-                          <button class="am-btn am-btn-secondary">保存</button>
-                      </div>
-                  </div>
-              </div>
-            <!-- ························end 房型维护······················ -->
-
-            <!-- ·························今日房价 start······················· -->
-              <div class="todayprice">
-                  <p><b>今日房价:</b></p>
-                  <p>商务单间：168元</p>
-                  <p>商务标间：128元</p>
-                  <p>休闲单间:228元</p>
-                  <p>特价房：98元</p>
-              </div>
-            <!-- ·························end 今日房价······················ -->
-
             <!-- ·····················房价调整 start················· -->
               <button
                       type="button"
@@ -899,7 +631,6 @@ section#three································
                       data-am-modal="{target: '#doc-modal-5', closeViaDimmer: 0, width: 1200, height: 800}">
                   房价调整
               </button>
-              <hr>
               <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-5">
                   <div class="am-modal-dialog">
                       <div class="am-modal-hd">房价调整
@@ -907,88 +638,77 @@ section#three································
                       </div>
                       <div class="am-modal-bd">
                           <table class="am-table am-table-bordered am-table-hover">
-                              <thead>
+                              <thead id="b_thead">
                               <tr class="am-primary">
-                                  <th>房间类别</th>
+                                  <th>房间类型</th>
                                   <th>原房价</th>
-                                  <th>调整方式</th>
-                                  <th>调整后价格</th>
-                                  <th>时段价格</th>
+                                  <th>现房价</th>
+                                  <th>会原价</th>
+                                  <th colspan="2">调整时间段</th>
                               </tr>
                               </thead>
-                              <tbody>
+                              <tbody id="b_tbody">
                               <tr>
-                                  <td>&nbsp;</td>
-                                  <td></td>
-                                  <td><input type="text"></td>
-                                  <td></td>
-                                  <td>
-                                      <table class="am-table am-table-bordered">
-                                          <tr>
-                                              <td></td>
-                                              <td></td>
-                                          </tr>
-                                          <tr>
-                                              <td></td>
-                                              <td></td>
-                                          </tr>
-                                      </table>
-                                  </td>
+                                  <td><select id="test" ng-init="roomShapes=roomshapes[0]" ng-model="roomShapes" ng-options="x as x.name for x in roomshapes"></select></td>
+                                  <td><input type="" name="" value="168" disabled></td>
+                                  <td><input type="" name="" ng-model='newPrice' class="bt_new" ng-change='roomPrice()'></td>
+                                  <td><input type="" name="" disabled ng-model='memberPrice' class="bt_merber"></td>
+                                  <td colspan="2" id="bt_time"><input type="" name="date" data-am-datepicker> ---- <input type="" name="date" data-am-datepicker></td>
                               </tr>
                               <tr>
-                                  <td>&nbsp;</td>
-                                  <td></td>
-                                  <td><input type="text"></td>
-                                  <td></td>
-                                  <td><table class="am-table am-table-bordered">
-                                      <tr>
-                                          <td></td>
-                                          <td></td>
-                                      </tr>
-                                      <tr>
-                                          <td></td>
-                                          <td></td>
-                                      </tr>
-                                  </table></td>
+                                  <td><input type="" name="" ></td>
+                                  <td><input type="" name=""></td>
+                                  <td><input type="" name=""></td>
+                                  <td><input type="" name=""></td>
+                                  <td colspan="2"><input type="" name=""></td>
+                              </tr>
+                              <tr>
+                                  <td><input type="" name="" ></td>
+                                  <td><input type="" name=""></td>
+                                  <td><input type="" name=""></td>
+                                  <td><input type="" name=""></td>
+                                  <td colspan="2"><input type="" name=""></td>
+                              </tr>
+                              <tr>
+                                  <td><input type="" name="" ></td>
+                                  <td><input type="" name=""></td>
+                                  <td><input type="" name=""></td>
+                                  <td><input type="" name=""></td>
+                                  <td colspan="2"><input type="" name=""></td>
+                              </tr>
+                              <tr>
+                                  <td><input type="" name="" ></td>
+                                  <td><input type="" name=""></td>
+                                  <td><input type="" name=""></td>
+                                  <td><input type="" name=""></td>
+                                  <td colspan="2"><input type="" name=""></td>
+                              </tr>
 
-                              </tr>
-                              <tr>
-                                  <td>&nbsp;</td>
-                                  <td></td>
-                                  <td><input type="text"></td>
-                                  <td></td>
-                              </tr>
-                              <tr>
-                                  <td>&nbsp;</td>
-                                  <td></td>
-                                  <td><input type="text"></td>
-                                  <td></td>
-                              </tr>
-                              <tr>
-                                  <td>&nbsp;</td>
-                                  <td></td>
-                                  <td><input type="text"></td>
-                                  <td></td>
-                              </tr>
                               </tbody>
                           </table>
-                          <button class="am-btn am-btn-success">保存</button>
+                          <button class="am-btn am-btn-success" ng-click='savePrice()' >保存</button>
                       </div>
                   </div>
               </div>
             <!-- ·····················end 房价调整················· -->
+
+
+            <!-- ·························今日房价 start······················· -->
+              <div class="todayprice">
+                  <p><b>今日房价:</b></p>
+                  <div ng-repeat="v in roomshapes">
+                      <p ng-hide='v.name=="全部"'>{{v.name}}：{{v.price}}元</p>
+                  </div>
+              </div>
+            <!-- ·························end 今日房价······················ -->
+
+
           </div>
       </section>
     <!-- ·················不同颜色对应不同房间······································· -->
       <section id="three">
-        <ul>
-            <li style="background:#2993cc"> <span>空房</span> </li>
-            <li style="background:#c9d329"> <span>预定 </span></li>
-            <li style="background:#d32945"> <span>在住 </span></li>
-            <li style="background:#070f7a"> <span>待查 </span></li>
-            <li style="background:#29e17f"> <span>自用房</span></li>
-            <li style="background:#24282a"> <span>脏房</span></li>
-            <li style="background:#a49fb1"> <span>修理 </span></li>
+        <ul ng-repeat="v in roomdatas">
+            <li ng-click="threeclick($event)" ng-style="{background:v.bgcolor}">{{v.name}}</li><span>{{v.residue}}间</span>
         </ul>
       </section>
     <!-- ·································页脚································ -->
@@ -1194,30 +914,24 @@ section#three································
           </div><!--交班报表的模态窗口-->
       </footer>
 <script>
+
     $('.box2').attr("data-am-modal","{target: '#doc-modal-getout', closeViaDimmer: 0, width: 1300,height: 850}");
     $('.box1').attr("data-am-modal","{target: '#doc-modal-empty', closeViaDimmer: 0, width: 1300,height: 850}");
     $('.box6').attr("data-am-modal","{target: '#doc-modal-book', closeViaDimmer: 0, width: 1300,height: 850}");
     $('#main span').addClass('color-lump');
     $('.smallbox span').addClass('color-lump');
-  //放大 缩小  start
-      $('.oc_house li.och_change').click(function(){
-          var width = $(this).width();
-          $(this).css('background','#2993cc').siblings().css('background','#A8A7A7');
-          console.log(width);
-          if (width==12) {
-              $('.main li').removeClass();
-              $('.main li').addClass('s');
-          }
-          else if (width==14) {
-              $('.main li').removeClass();
-              $('.main li').addClass('m');
-          }
-          else{
-              $('.main li').removeClass();
-              $('.main li').addClass('l');
-          }
-      });
-  //end   放大 缩小
+
+  // 获取本地时间  start
+    function current(){
+      var d=new Date(),str='';
+      str +=d.getFullYear()+'年';
+      str +=d.getMonth()+1+'月';
+      str +=d.getDate()+'日';
+      return str; }
+      setInterval(function(){$(".nowTime").html(current)},50);
+      var d=new Date();
+  //end   获取本地时间
+
   // msg start
     $('div#title span button').click(function () {
         $('#msg').animate({
@@ -1247,123 +961,320 @@ section#three································
             alert('已取消')
         }
     }/*反结账操作*/
+    $(function() {
+       var shopdatas = [
+           '牙膏',
+           '牙刷',
+           '酒',
+           '纸',
+       ];
+
+       $( ".research" ).autocomplete({
+         source: shopdatas
+       });
+     });
+  // 鼠标移上li显示 start
+    $(function() {
+       $('#main .main li').popover({
+        theme: 'success sm',
+        content: '<div style="width: 250px"><b style="padding: 0px">101</b><p style="margin: 2px 0px">普通房</p><div><p style="width: 50%;float: left;margin: 2px 0px">床位数：2</p><p style="width: 50%;float: left;margin: 2px 0px">房价：168元</p></div><div><span style="float: left;">房内设施：</span><span style="display: inline-block; background:  rgba(0,0,0,.5);margin: 2px 5px;padding:1px 5px">热水</span><span style="display: inline-block; background: rgba(0,0,0,.5);padding:1px 5px;margin: 2px 5px">空调</span><span style="display: inline-block; background: rgba(0,0,0,.5);padding:1px 5px;margin: 2px 5px">电视</span><span style="display: inline-block; background: rgba(0,0,0,.5);padding:1px 5px;margin-left: 10px">wifi</span><span style="display: inline-block; background:rgba(0,0,0,.5);padding:1px 5px;margin: 2px 5px">卫生间</span></div><div style="padding:5px 0px"><span style="float: left;">房内特征：</span ><span style="display: inline-block; background: rgba(0,0,0,.5);padding:1px 5px;margin: 2px 5px">白色调</span><span style="display: inline-block; background: rgba(0,0,0,.5);padding:1px 5px;margin: 2px 5px">朝海</span></div></div>',
+        trigger: 'hover',
+      })
+    });
+  // end    鼠标移上li显示
+
     var app = angular.module('myApp', []);
+    // focus指令           start
+      app.directive('autoFocus', function(){
+             return function(scope, element){
+               element[0].focus();
+             };
+       });
+    // end           focus指令
+
     app.controller('Ctrl', ["$scope","$http",function($scope,$http) {
-
+        console.log($('#main .main').html())
+        $scope.shop={
+            'shopdatas':[{
+                'name':'牙膏',
+                'numbers':'100',
+                'price':'12'
+            },
+            {
+                'name':'牙刷',
+                'numbers':'10',
+                'price':'5'
+            },
+            {
+                'name':'酒',
+                'numbers':'10',
+                'price':'200'
+            },
+            {
+                'name':'纸',
+                'numbers':'1000',
+                'price':'3'
+            },]
+        };
+        $scope.paymethods=["现金","支付宝","微信","刷卡","挂账"];// 支付方式 start
+      // 外客购买计算总价       start
+        $scope.change=function(){
+          if ($scope.octNumber<0) {
+            $scope.totalPrice=0;
+            alert('请输入大于0的数字')
+          } else {
+            $scope.totalPrice=$('.oct_price').val()*$scope.octNumber;
+          }
+        };
+      // end       外客购买 计算总价
         $scope.data={
-          "floor1":[{'id':1},{'id':2},{'id':3},],
-          "floor2":[{'name':'普通房'},{'name':'商品房'},{'name':'自用房'},{'name':'普通房'},{'name':'普通房'},{'name':'普通房'},{'name':'普通房'},{'name':'普通房'},{'name':'普通房'}],
+          "floor1":[
+              { 'id':1,'bgcolor':'red',
+                "floor2":[{ 'name':'普通房',
+                            'floor3':[
+                                {'number':101,'person':'张三','state':'空房'},
+                                     ]
+                          },
+                          { 'name':'商务房',
+                            'floor3':[
+                                {'number':102,'person':'张三','state':'在住'},
+                                     ]
+                          },
+                          { 'name':'贵宾房',
+                            'floor3':[
+                                {'number':103,'person':'张三','state':'打扫'},
+                                     ]
+                          },
+                          { 'name':'标间房',
+                            'floor3':[
+                                {'number':104,'person':'张三','state':'自用'},
+                                     ]
+                          },
+                          { 'name':'普通房',
+                            'floor3':[
+                                {'number':105,'person':'张三','state':'修理'},
+                                     ]
+                          },
+                          { 'name':'普通房',
+                            'floor3':[
+                                {'number':106,'person':'张三','state':'脏房'},
+                                     ]
+                          },
+                          { 'name':'普通房',
+                            'floor3':[
+                                {'number':107,'person':'张三','state':'待查'},
+                                     ]
+                          },
+                          { 'name':'普通房',
+                            'floor3':[
+                                {'number':108,'person':'张三','state':'空房'},
+                                     ]
+                          },
+                          { 'name':'普通房',
+                            'floor3':[
+                                {'number':109,'person':'张三','state':'空房'},
+                                     ]
+                          },
+                          { 'name':'普通房',
+                            'floor3':[
+                                {'number':110,'person':'张三','state':'空房'},
+                                     ]
+                          },
+                          { 'name':'普通房',
+                            'floor3':[
+                                {'number':107,'person':'张三','state':'待查'},
+                                     ]
+                          },
+                          { 'name':'普通房',
+                            'floor3':[
+                                {'number':105,'person':'张三','state':'修理'},
+                                     ]
+                          },
+                          { 'name':'标间房',
+                            'floor3':[
+                                {'number':104,'person':'张三','state':'自用'},
+                                     ]
+                          },]
+              },
+              { 'id':2,
+                "floor2":[{ 'name':'普通房',
+                            'floor3':[
+                                {'number':101,'person':'张三','state':'空房'},
+                                     ]
+                          },
+                          { 'name':'商务房',
+                            'floor3':[
+                                {'number':102,'person':'张三','state':'在住'},
+                                     ]
+                          },
+                          { 'name':'贵宾房',
+                            'floor3':[
+                                {'number':103,'person':'张三','state':'打扫'},
+                                     ]
+                          },
+                          { 'name':'标间房',
+                            'floor3':[
+                                {'number':104,'person':'张三','state':'自用'},
+                                     ]
+                          },
+                          { 'name':'普通房',
+                            'floor3':[
+                                {'number':105,'person':'张三','state':'修理'},
+                                     ]
+                          },
+                          { 'name':'普通房',
+                            'floor3':[
+                                {'number':106,'person':'张三','state':'脏房'},
+                                     ]
+                          },
+                          { 'name':'普通房',
+                            'floor3':[
+                                {'number':107,'person':'张三','state':'待查'},
+                                     ]
+                          },
+                          { 'name':'普通房',
+                            'floor3':[
+                                {'number':109,'person':'张三','state':'待查'},
+                                     ]
+                          },
+                          { 'name':'标间房',
+                            'floor3':[
+                                {'number':110,'person':'张三','state':'自用'},
+                                     ]
+                          },]
+              },
+              { 'id':3,
+                "floor2":[{ 'name':'普通房',
+                            'floor3':[
+                                {'number':301,'person':'张三','state':'空房'},
+                                     ]
+                          },
+                          { 'name':'商务房',
+                            'floor3':[
+                                {'number':302,'person':'张三','state':'在住'},
+                                     ]
+                          },
+                          { 'name':'贵宾房',
+                            'floor3':[
+                                {'number':303,'person':'张三','state':'打扫'},
+                                     ]
+                          },
+                          { 'name':'标间房',
+                            'floor3':[
+                                {'number':304,'person':'张三','state':'自用'},
+                                     ]
+                          },
+                          { 'name':'普通房',
+                            'floor3':[
+                                {'number':305,'person':'张三','state':'修理'},
+                                     ]
+                          },
+                          { 'name':'普通房',
+                            'floor3':[
+                                {'number':306,'person':'张三','state':'脏房'},
+                                     ]
+                          },
+                          { 'name':'普通房',
+                            'floor3':[
+                                {'number':307,'person':'张三','state':'待查'},
+                                     ]
+                          },
+
+                          { 'name':'普通房',
+                            'floor3':[
+                                {'number':308,'person':'张三','state':'修理'},
+                                     ]
+                          },
+                          { 'name':'标间房',
+                            'floor3':[
+                                {'number':309,'person':'张三','state':'自用'},
+                                     ]
+                          },]
+              },
+           ],
         };
-        $scope.add=function(){
-            $('textarea').val('');
-            $scope.floor1id='';
-            $scope.error='';
-            $('#myModal2 input').val('');
-            $scope.error2='';
-            $scope.error21='';
+        $scope.roomdatas=[
+                        {'name':'空房','bgcolor':'#2993cc','residue':'12'},
+                        {'name':'预订','bgcolor':'#c9d329','residue':'2'},
+                        {'name':'在住','bgcolor':'#d32945','residue':'1'},
+                        {'name':'待查','bgcolor':'#070f7a','residue':'18'},
+                        {'name':'自用','bgcolor':'#29e17f','residue':'24'},
+                        {'name':'脏房','bgcolor':'#24282a','residue':'14'},
+                        {'name':'修理','bgcolor':'#a49fb1','residue':'52'},];
+        $scope.roomshapes=[
+                        {'name':'全部'},
+                        {'name':'普通','price':'120'},
+                        {'name':'商务','price':'168'},
+                        {'name':'贵宾','price':'228'},
+                        {'name':'标间','price':'90'},];
+        $scope.roomfloors=['全部','1','2','3'];
+      // 选择房型 楼层房态       start
+          $scope.$watch("roomFloor", function(n){
+              for (var i = 0; i < $scope.data.floor1.length; i++) {
+                  if(n==$scope.data.floor1[i].id){
+                      console.log($('.main ul').html())
+                      // $('.main li').hide();
+                  }
+               }
+          });
+
+          // console.log($scope.data.floor1[2].floor2[1].floor3[0].state)
+      //end        选择房型 楼层房态
+      // 房价调整     start
+        $scope.roomPrice=function(){
+          if ($scope.newPrice<0 ||  isNaN($('.bt_new').val())) {
+            $scope.newPrice='';
+            alert('请输入大于0的数字')
+          } else {
+            $scope.memberPrice=$('.bt_new').val()*8/10;
+          }
+        };
+        $scope.savePrice=function(){
+          $scope.$watch("roomShapes", function(n){
+              for (var i = 0; i < $scope.roomshapes.length; i++) {
+                  if (n.name==$scope.roomshapes[i].name) {
+                      $scope.roomshapes[i].price=$('.bt_new').val();
+                  };
+                  if (n.name=='全部'){
+                      $scope.roomshapes[i].price=$('.bt_new').val();
+                  };
+                }
+          });
+          if ($scope.newPrice>0 && ! isNaN($('.bt_new').val())){
+              $("#doc-modal-5").modal("close");
+          }
+          else{
+             alert('请输入调整后的价格')
+          }
+
+
 
         };
-      //添加楼层start
-        $scope.addfloor1=function(){
-            var menu={
-                'id':$scope.floor1id
-              };
-              if ($('#myModal .num').val()=='') {
-                  // $scope.$watch('floor1id',function(n,o){
-                  //    $scope.error="$scope.floor1id=''"?'请正确输入楼层':"";
-                  // });
-                  $scope.error='请输入正确的楼层';
-                  $('#myModal .num').focus();
-              }
-              else{
-                  for (var i = 0; i < $scope.data.floor1.length; i++) {
-                       if ($scope.data.floor1[i].id==$scope.floor1id) {
-                            $scope.error='不能重复输入楼层';
-                            $('#myModal .num').focus();
-                            $('#myModal .num').val('');
-                        }
-                    };
+      // end           房价调整
 
-              };
-              if(! $('#myModal .num').val()==''){
-                  $scope.data.floor1.push(menu);
-                  $('#myModal').modal('hide');
-              };
+      $scope.threeclick=function($event){
+        // $($event.target).addClass("checked");
 
-
-            // $('.numberfloor1').val($scope.floor1id);
-            // $('.editfloor1').attr('placeholder',$scope.floor1id)
+        for (var i = 0; i < $scope.data.floor1.length; i++) {
+          var v = $scope.data.floor1
+          console.log(v[i].id);
+          for (var k = 0; k < v.floor2.length; i++) {
+            console.log( v.floor2[k].name)
+          }
         };
 
-        $scope.removefloor1=function(item){
-            function firm() {
-                 //利用对话框返回的值 （true 或者 false）
-                 if (confirm("删除后不可恢复，您确定删除该楼吗？")) {
-                     $scope.data.floor1=_.without($scope.data.floor1,item);
-                 }
-                 else {
-                     return false
-                 }
-            }
-            firm()
-        };
 
-      //end添加楼层
-      //编辑楼层 start
-      //end 编辑楼层
-      // 点击楼层 li start
-          // $scope.defualt1=function(){
-          //   console.log($('#floor li div').html());
-          //   $('div.default1 input').attr('placeholder',1);
-          // }
-      // end 点击楼层li
-      //添加房型 start
-
-          $scope.addfloor2=function(){
-            var menu={
-                'name':$scope.floor2name,
-              };
-
-              if ($('#myModal2 .nam').val()=='' ) {
-                    $scope.error2='请输入房型';
-                    $('#myModal2 .nam').focus();
-              }
-              else{
-                  for (var i = 0; i < $scope.data.floor2.length; i++) {
-                       if ($scope.data.floor2[i].name==$scope.floor2name) {
-                            $scope.error2='不能重复输入房型';
-                            $('#myModal2 .nam').focus();
-                            $('#myModal2 .nam').val('');
-                        }
-                    };
-              };
-              if($('#myModal2 .pric').val()==''){
-                  $scope.error21='请输入挂牌价';
-                  $('#myModal2 .pric').focus();
-              }
-              if(! $('#myModal2 .nam').val()=='' && ! $('#myModal2 .pric').val()==''){
-                  $scope.data.floor2.push(menu);
-                  $('#myModal2').modal('hide');
-              };
-
-          };
+        if ($($event.target).html()=='空房') {
+            $scope.bgcolor= $scope.roomdatas.bgcolor
+        }
+        else if ($($event.target).html()=='预订') {
+        console.log(2)
+        }
+      }
 
 
-
-
-          $scope.removefloor2=function(item){
-              function firm() {
-                   if (confirm("删除后不可恢复，您确定删除该楼吗？")) {
-                       $scope.data.floor2=_.without($scope.data.floor2,item);
-                   }
-                   else {
-                       return false
-                   }
-              }
-              firm()
-          };
-    //end 添加房型
     }]);
+
 </script>
 </body>
 </html>
