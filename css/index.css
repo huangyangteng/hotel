@@ -95,25 +95,24 @@ section#three································不
 
 /*房态显示 start*/
     #main .main ul{
-        width: 100%;
         height: auto;
         padding:8px 0px;
         margin: 0;
+        display: inline-block;
+        float: left;
         overflow:hidden;
     }
 	#main .main ul li{
         list-style: none;
-        display: inline-block;
 		color: #F0EFEF;
-		/*background:#2993cc;*/
+        padding: 4px 8px;
         cursor: pointer;
         overflow: hidden;
         border: 2px solid #A8A7A7;
         margin-bottom: 1px;
         margin-left: 4px;
-        width:130px;;
-        height: 85px;
-        padding: 4px 8px;
+        width:140px;
+        height: 100px;
         font-size: 18px;
         position: relative;
 	}
@@ -149,8 +148,8 @@ section#three································不
 /*房态的右边栏    start */
     #bar select option{
         font-size: 14px;
-
     }
+
     #b_thead th{
         text-align: center;
     }
@@ -253,7 +252,6 @@ span.color-lump{
         cursor: pointer;
     }
     #three ul{
-        display: inline;
         float: left;
         padding: 0px;
         margin: 0px;

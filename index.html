@@ -202,19 +202,20 @@ section#three································
         <!-- ························主要房态图······························· -->
           <div id="main">
               <div class="main">
-                  <ul ng-repeat='v in data.floor1'>
-                    <li ng-repeat='k in v.floor2' ng-style="{background:bgcolor}">
-                      <dl ng-repeat='m in k.floor3'>
-                        <dd class="main_one">{{m.number}}</dd>
+                  <ul  ng-repeat='v in data'>
+                    <li  ng-style="{background:v.color}" ng-if='v.show=="" && v.show2=="" && v.show3==""'>
+                      <dl>
+                        <dd class="main_one">{{v.number}}</dd>
                         <dd class="main_one t">{{v.id}}</dd>
-                        <dd class="main_two">{{k.name}}</dd>
-                        <dd class="main_two t">110元</dd>
-                        <dd class="main_three" ng-show="true">{{m.person}}</dd>
-                        <dd class="main_four">{{m.state}}</dd>
+                        <dd class="main_two">{{v.name}}房</dd>
+                        <dd class="main_two t">{{v.price}}元</dd>
+                        <dd class="main_three">{{v.person}}</dd>
+                        <dd class="main_four">{{v.state}}</dd>
                       </dl>
                     </li>
                   </ul>
               </div>
+
               <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-book">
                   <div class="am-modal-dialog">
                       <div class="am-modal-hd">
@@ -708,7 +709,7 @@ section#three································
     <!-- ·················不同颜色对应不同房间······································· -->
       <section id="three">
         <ul ng-repeat="v in roomdatas">
-            <li ng-click="threeclick($event)" ng-style="{background:v.bgcolor}">{{v.name}}</li><span>{{v.residue}}间</span>
+            <li ng-click="threeclick($event)" ng-style="{background:v.bgcolor}" ng-if="v.name !=='全部'" >{{v.name}}</li><span  ng-if="v.name !=='全部'">{{v.residue}}间</span>
         </ul>
       </section>
     <!-- ·································页脚································ -->
@@ -976,12 +977,13 @@ section#three································
   // 鼠标移上li显示 start
     $(function() {
        $('#main .main li').popover({
-        theme: 'success sm',
+        theme: 'warning sm',
         content: '<div style="width: 250px"><b style="padding: 0px">101</b><p style="margin: 2px 0px">普通房</p><div><p style="width: 50%;float: left;margin: 2px 0px">床位数：2</p><p style="width: 50%;float: left;margin: 2px 0px">房价：168元</p></div><div><span style="float: left;">房内设施：</span><span style="display: inline-block; background:  rgba(0,0,0,.5);margin: 2px 5px;padding:1px 5px">热水</span><span style="display: inline-block; background: rgba(0,0,0,.5);padding:1px 5px;margin: 2px 5px">空调</span><span style="display: inline-block; background: rgba(0,0,0,.5);padding:1px 5px;margin: 2px 5px">电视</span><span style="display: inline-block; background: rgba(0,0,0,.5);padding:1px 5px;margin-left: 10px">wifi</span><span style="display: inline-block; background:rgba(0,0,0,.5);padding:1px 5px;margin: 2px 5px">卫生间</span></div><div style="padding:5px 0px"><span style="float: left;">房内特征：</span ><span style="display: inline-block; background: rgba(0,0,0,.5);padding:1px 5px;margin: 2px 5px">白色调</span><span style="display: inline-block; background: rgba(0,0,0,.5);padding:1px 5px;margin: 2px 5px">朝海</span></div></div>',
         trigger: 'hover',
       })
     });
   // end    鼠标移上li显示
+
 
     var app = angular.module('myApp', []);
     // focus指令           start
@@ -992,8 +994,9 @@ section#three································
        });
     // end           focus指令
 
+
     app.controller('Ctrl', ["$scope","$http",function($scope,$http) {
-        console.log($('#main .main').html())
+
         $scope.shop={
             'shopdatas':[{
                 'name':'牙膏',
@@ -1027,173 +1030,43 @@ section#three································
           }
         };
       // end       外客购买 计算总价
-        $scope.data={
-          "floor1":[
-              { 'id':1,'bgcolor':'red',
-                "floor2":[{ 'name':'普通房',
-                            'floor3':[
-                                {'number':101,'person':'张三','state':'空房'},
-                                     ]
-                          },
-                          { 'name':'商务房',
-                            'floor3':[
-                                {'number':102,'person':'张三','state':'在住'},
-                                     ]
-                          },
-                          { 'name':'贵宾房',
-                            'floor3':[
-                                {'number':103,'person':'张三','state':'打扫'},
-                                     ]
-                          },
-                          { 'name':'标间房',
-                            'floor3':[
-                                {'number':104,'person':'张三','state':'自用'},
-                                     ]
-                          },
-                          { 'name':'普通房',
-                            'floor3':[
-                                {'number':105,'person':'张三','state':'修理'},
-                                     ]
-                          },
-                          { 'name':'普通房',
-                            'floor3':[
-                                {'number':106,'person':'张三','state':'脏房'},
-                                     ]
-                          },
-                          { 'name':'普通房',
-                            'floor3':[
-                                {'number':107,'person':'张三','state':'待查'},
-                                     ]
-                          },
-                          { 'name':'普通房',
-                            'floor3':[
-                                {'number':108,'person':'张三','state':'空房'},
-                                     ]
-                          },
-                          { 'name':'普通房',
-                            'floor3':[
-                                {'number':109,'person':'张三','state':'空房'},
-                                     ]
-                          },
-                          { 'name':'普通房',
-                            'floor3':[
-                                {'number':110,'person':'张三','state':'空房'},
-                                     ]
-                          },
-                          { 'name':'普通房',
-                            'floor3':[
-                                {'number':107,'person':'张三','state':'待查'},
-                                     ]
-                          },
-                          { 'name':'普通房',
-                            'floor3':[
-                                {'number':105,'person':'张三','state':'修理'},
-                                     ]
-                          },
-                          { 'name':'标间房',
-                            'floor3':[
-                                {'number':104,'person':'张三','state':'自用'},
-                                     ]
-                          },]
-              },
-              { 'id':2,
-                "floor2":[{ 'name':'普通房',
-                            'floor3':[
-                                {'number':101,'person':'张三','state':'空房'},
-                                     ]
-                          },
-                          { 'name':'商务房',
-                            'floor3':[
-                                {'number':102,'person':'张三','state':'在住'},
-                                     ]
-                          },
-                          { 'name':'贵宾房',
-                            'floor3':[
-                                {'number':103,'person':'张三','state':'打扫'},
-                                     ]
-                          },
-                          { 'name':'标间房',
-                            'floor3':[
-                                {'number':104,'person':'张三','state':'自用'},
-                                     ]
-                          },
-                          { 'name':'普通房',
-                            'floor3':[
-                                {'number':105,'person':'张三','state':'修理'},
-                                     ]
-                          },
-                          { 'name':'普通房',
-                            'floor3':[
-                                {'number':106,'person':'张三','state':'脏房'},
-                                     ]
-                          },
-                          { 'name':'普通房',
-                            'floor3':[
-                                {'number':107,'person':'张三','state':'待查'},
-                                     ]
-                          },
-                          { 'name':'普通房',
-                            'floor3':[
-                                {'number':109,'person':'张三','state':'待查'},
-                                     ]
-                          },
-                          { 'name':'标间房',
-                            'floor3':[
-                                {'number':110,'person':'张三','state':'自用'},
-                                     ]
-                          },]
-              },
-              { 'id':3,
-                "floor2":[{ 'name':'普通房',
-                            'floor3':[
-                                {'number':301,'person':'张三','state':'空房'},
-                                     ]
-                          },
-                          { 'name':'商务房',
-                            'floor3':[
-                                {'number':302,'person':'张三','state':'在住'},
-                                     ]
-                          },
-                          { 'name':'贵宾房',
-                            'floor3':[
-                                {'number':303,'person':'张三','state':'打扫'},
-                                     ]
-                          },
-                          { 'name':'标间房',
-                            'floor3':[
-                                {'number':304,'person':'张三','state':'自用'},
-                                     ]
-                          },
-                          { 'name':'普通房',
-                            'floor3':[
-                                {'number':305,'person':'张三','state':'修理'},
-                                     ]
-                          },
-                          { 'name':'普通房',
-                            'floor3':[
-                                {'number':306,'person':'张三','state':'脏房'},
-                                     ]
-                          },
-                          { 'name':'普通房',
-                            'floor3':[
-                                {'number':307,'person':'张三','state':'待查'},
-                                     ]
-                          },
+$scope.data=[
+ {'id':1,'name':'普通','number':101,'price':120,'person':'张三','state':'空房','color':'#2993cc'},
+ {'id':1,'name':'商务','number':102,'price':168,'person':'张三','state':'在住','color':'#d32945'},
+ {'id':1,'name':'贵宾','number':103,'price':228,'person':'张三','state':'待查','color':'#070f7a'},
+ {'id':1,'name':'标间','number':104,'price': 90,'person':'张三','state':'自用','color':'#29e17f'},
+ {'id':1,'name':'普通','number':105,'price':120,'person':'张三','state':'修理','color':'#a49fb1'},
+ {'id':1,'name':'普通','number':106,'price':120,'person':'张三','state':'脏房','color':'#24282a'},
+ {'id':1,'name':'商务','number':107,'price':168,'person':'张三','state':'待查','color':'#070f7a'},
+ {'id':1,'name':'贵宾','number':108,'price':228,'person':'张三','state':'预订','color':'#c9d329'},
+ {'id':1,'name':'标间','number':109,'price': 90,'person':'张三','state':'空房','color':'#2993cc'},
+ {'id':1,'name':'普通','number':110,'price':120,'person':'张三','state':'空房','color':'#2993cc'},
+ {'id':1,'name':'商务','number':111,'price':168,'person':'张三','state':'待查','color':'#070f7a'},
+ {'id':1,'name':'贵宾','number':112,'price':228,'person':'张三','state':'空房','color':'#2993cc'},
+ {'id':1,'name':'标间','number':113,'price': 90,'person':'张三','state':'空房','color':'#2993cc'},
 
-                          { 'name':'普通房',
-                            'floor3':[
-                                {'number':308,'person':'张三','state':'修理'},
-                                     ]
-                          },
-                          { 'name':'标间房',
-                            'floor3':[
-                                {'number':309,'person':'张三','state':'自用'},
-                                     ]
-                          },]
-              },
-           ],
-        };
+ {'id':2,'name':'普通','number':201,'price':120,'person':'张三','state':'空房','color':'#2993cc'},
+ {'id':2,'name':'商务','number':202,'price':168,'person':'张三','state':'在住','color':'#d32945'},
+ {'id':2,'name':'贵宾','number':203,'price':228,'person':'张三','state':'待查','color':'#070f7a'},
+ {'id':2,'name':'标间','number':204,'price': 90,'person':'张三','state':'自用','color':'#29e17f'},
+ {'id':2,'name':'普通','number':205,'price':120,'person':'张三','state':'修理','color':'#a49fb1'},
+ {'id':2,'name':'普通','number':206,'price':120,'person':'张三','state':'脏房','color':'#24282a'},
+ {'id':2,'name':'商务','number':207,'price':168,'person':'张三','state':'待查','color':'#070f7a'},
+ {'id':2,'name':'贵宾','number':208,'price':228,'person':'张三','state':'预订','color':'#c9d329'},
+ {'id':2,'name':'标间','number':209,'price': 90,'person':'张三','state':'空房','color':'#2993cc'},
+
+ {'id':3,'name':'普通','number':305,'price':120,'person':'张三','state':'修理','color':'#a49fb1'},
+ {'id':3,'name':'普通','number':306,'price':120,'person':'张三','state':'脏房','color':'#24282a'},
+ {'id':3,'name':'商务','number':307,'price':168,'person':'张三','state':'待查','color':'#070f7a'},
+ {'id':3,'name':'贵宾','number':308,'price':228,'person':'张三','state':'预订','color':'#c9d329'},
+ {'id':3,'name':'标间','number':309,'price': 90,'person':'张三','state':'空房','color':'#2993cc'},
+ {'id':3,'name':'普通','number':310,'price':120,'person':'张三','state':'空房','color':'#2993cc'},
+ {'id':3,'name':'商务','number':311,'price':168,'person':'张三','state':'待查','color':'#070f7a'},
+ {'id':3,'name':'贵宾','number':312,'price':228,'person':'张三','state':'空房','color':'#2993cc'},
+ {'id':3,'name':'标间','number':313,'price': 90,'person':'张三','state':'空房','color':'#2993cc'},
+]
         $scope.roomdatas=[
+                        {'name':'全部',},
                         {'name':'空房','bgcolor':'#2993cc','residue':'12'},
                         {'name':'预订','bgcolor':'#c9d329','residue':'2'},
                         {'name':'在住','bgcolor':'#d32945','residue':'1'},
@@ -1208,17 +1081,42 @@ section#three································
                         {'name':'贵宾','price':'228'},
                         {'name':'标间','price':'90'},];
         $scope.roomfloors=['全部','1','2','3'];
+
       // 选择房型 楼层房态       start
           $scope.$watch("roomFloor", function(n){
-              for (var i = 0; i < $scope.data.floor1.length; i++) {
-                  if(n==$scope.data.floor1[i].id){
-                      console.log($('.main ul').html())
-                      // $('.main li').hide();
+              for (var i = 0; i < $scope.data.length; i++) {
+               $scope.data[i].show=""
+                  if(n=='全部'){
+                    $scope.data[i].show=!$scope.data[i].show
+                  };
+                  if(n != $scope.data[i].id){
+                     $scope.data[i].show=!$scope.data[i].show
                   }
                }
           });
-
-          // console.log($scope.data.floor1[2].floor2[1].floor3[0].state)
+          $scope.$watch("roomData", function(n){
+              for (var i = 0; i < $scope.data.length; i++) {
+               $scope.data[i].show2="";
+                  if(n.name =='全部'){
+                    $scope.data[i].show2=!$scope.data[i].show2
+                  }
+                  if(n.name !== $scope.data[i].state){
+                     $scope.data[i].show2=!$scope.data[i].show2
+                  }
+               }
+          });
+          $scope.$watch("roomShape", function(n){
+              for (var i = 0; i < $scope.data.length; i++) {
+               $scope.data[i].show3="";
+                  if(n.name =='全部'){
+                    $scope.data[i].show3=!$scope.data[i].show3
+                  }
+                  if(n.name !== $scope.data[i].name){
+                    console.log(2)
+                     $scope.data[i].show3=!$scope.data[i].show3
+                  }
+               }
+          });
       //end        选择房型 楼层房态
       // 房价调整     start
         $scope.roomPrice=function(){
@@ -1252,25 +1150,22 @@ section#three································
         };
       // end           房价调整
 
-      $scope.threeclick=function($event){
-        // $($event.target).addClass("checked");
-
-        for (var i = 0; i < $scope.data.floor1.length; i++) {
-          var v = $scope.data.floor1
-          console.log(v[i].id);
-          for (var k = 0; k < v.floor2.length; i++) {
-            console.log( v.floor2[k].name)
-          }
-        };
 
 
-        if ($($event.target).html()=='空房') {
-            $scope.bgcolor= $scope.roomdatas.bgcolor
-        }
-        else if ($($event.target).html()=='预订') {
-        console.log(2)
-        }
-      }
+
+
+
+      // $scope.threeclick=function($event){
+      //   for (var i = 0; i < $scope.data.length; i++) {
+      //     // console.log($scope.data[i].state);
+      //     if ($($event.target).html()==$scope.data[i].state) {
+      //         console.log(i)
+      //     }
+      //   }
+      // }
+
+
+
 
 
     }]);
