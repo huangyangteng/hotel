@@ -10,6 +10,18 @@
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/amazeui.min.js"></script>
 </head>
+<!--
+页面结构
+header........................................................导航条
+section#options..............................................页面主体
+  section#left..............................................左侧边栏
+  section#right.............................................右边主体
+footer......................................................页脚
+
+
+
+
+-->
 
 <body>
     <header class="am-topbar">
@@ -31,11 +43,14 @@
             </ul>
         </div>
     </header>
+
     <section id="options">
         <section id="options-left">
             <button class="am-btn am-btn-secondary am-btn-group-lg">酒店信息</button>
+            <button class="am-btn am-btn-secondary am-btn-group-lg">房态管理</button>
             <button class="am-btn am-btn-secondary am-btn-group-lg">权限管理</button>
             <button class="am-btn am-btn-secondary am-btn-group-lg">修改密码</button>
+
         </section>
         <section id="options-right">
             <h1 style="text-align: left;">酒店信息:</h1>
@@ -56,15 +71,7 @@
 
         </section>
     </section>
-    <script>
-        $('#options-left button:eq(0)').click(function() {
-            window.location.reload()
-        }).next().click(function() {
-            $('#options-right').load('options/authority.html')
-        }).next().click(function() {
-            $('#options-right').load('options/password.html')
-        });
-    </script>
+
     <footer>
         <div id="left">
             <span class="foot">酒店名称：斯纳格田园酒店</span>
@@ -270,6 +277,17 @@
         <!--交班报表的模态窗口-->
 
     </footer>
+    <script>
+        $('#options-left button:eq(0)').click(function() {
+            window.location.reload()
+        }).next().click(function() {
+            $('#options-right').load('options/room-status.html')
+        }).next().click(function() {
+            $('#options-right').load('options/authority.html')
+        }).next().click(function() {
+            $('#options-right').load('options/password.html')
+        });
+    </script>
 
 
 
