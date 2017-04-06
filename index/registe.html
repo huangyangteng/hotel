@@ -1,16 +1,17 @@
 <!doctype html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
-    <title>Document</title>
-
+    <title></title>
 </head>
-
-
 <body>
     <div class="table">
         <table class="am-table am-table-bordered am-table-hover">
-            <tr>
+            <thead>
+                <tr class="am-primary" >入住信息:</tr>
+            </thead>
+                <tr>
                 <td>
                     <label>房型：</label>
                     <select data-am-selected>
@@ -27,8 +28,8 @@
                     <label>会员卡号：</label>
                     <input type="text" name="text">
                 </td>
-            </tr>
-            <tr>
+                </tr>
+                <tr>
                 <td>
                     <label>来源：</label>
                     <select data-am-selected>
@@ -54,8 +55,8 @@
                     <label>房价：</label>
                     <input type="text" name="text">
                 </td>
-            </tr>
-            <tr>
+                </tr>
+                <tr>
                 <td>
                     <label>时间：</label>
                     <input type="date" data-am-datepicker="" name="date">
@@ -64,9 +65,10 @@
                     <label>预住天数：</label>
                     <input type="num" name="">
                 </td>
-                <td><label >欲离时间:</label></td>
-                <input type="date" data-am-datepicker="" name="date">
-            </tr>
+                <td><label >欲离时间:</label>
+                    <input type="date" data-am-datepicker="" name="date">
+                </td>
+                </tr>
         </table>
     </div>
     <div class="table">
@@ -178,25 +180,4 @@
         </table>
         <button class="am-btn am-btn-secondarys">保存</button>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>

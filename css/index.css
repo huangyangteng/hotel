@@ -77,7 +77,9 @@ section#three································不
      #oc_tbody .oct_tr td{
         padding: 10px;
      }
-
+    .oct_last{
+        background: #F0EFEF;
+    }
 
     .oc_time{
         width:20%;
@@ -90,9 +92,7 @@ section#three································不
         font-size: 14px;
         margin-right: 10%;
     }
-
 /*end 外客购买*/
-
 /*房态显示 start*/
     #main .main ul{
         height: auto;
@@ -109,7 +109,6 @@ section#three································不
         cursor: pointer;
         overflow: hidden;
         border: 2px solid #A8A7A7;
-        margin-bottom: 1px;
         margin-left: 4px;
         width:140px;
         height: 100px;
@@ -140,7 +139,15 @@ section#three································不
 	}
     #main dd.main_four{
         text-align: right;
+        line-height: 100px;
         font-size: 0.7px;
+        width:140px;
+        height: 100px;
+        line-height: 100px;
+        padding: 15px;
+        position: absolute;
+        top: 0;
+        left: 0;
     }
 
 
@@ -168,6 +175,18 @@ section#three································不
         text-align: center;
         background: inherit;
     }
+    #b_tbody .bt_btn,#b_thead .bt_btn{
+        display: none;
+
+    }
+    #b_tbody tr button{
+        outline: none;
+        border: 0px;
+        background: inherit;
+    }
+    #b_tbody tr button:hover{
+        background: #D5D4D4;
+    }
     #bt_time input{
         width: 40%;
         display: inline-block;
@@ -184,15 +203,8 @@ section#three································不
         line-height: 50px;
         display: block;
     }
-
 /*end       房态的右边栏 */
 
-
-
-span.color-lump{
-    color: white;
-    margin-left: 5%;
-}
 /*msg start*/
     #msg{
         width: 20%;
@@ -242,7 +254,7 @@ span.color-lump{
         }
 /* end msg*/
 
-
+/*房态图的下边烂 start*/
     #three{
         position: absolute;
         bottom: 35px;
@@ -278,6 +290,7 @@ span.color-lump{
         margin-top: 3px;
         float: left;
     }
+/* end 房态图的下边烂 */
 
 
 
@@ -315,11 +328,18 @@ span.color-lump{
         color:#E7E5E5;
 
     }
+    #dialogbox1{
+        border: 1px solid #C6C5C5;
+        box-shadow: 0px 10px 30px #C6C5C5;
+        background: #fff;
+    }
+    #dialogbox1 p input{
+        display: inline-block;
+    }
 /*end foot */
 
 a{
     text-decoration: none;
-
 }
 a:visited{color:white;}
 @media ( max-width:1300px ){
