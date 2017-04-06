@@ -34,6 +34,12 @@
 	border-top: 1px dashed #ccc;
 	padding: 10px;
 }
+.tored{
+	border: 2px solid rgba(255,0,0,0.6);
+}
+.toyellow{
+	border: 2px solid yellow;
+}
 /*vips_selects所有样式开始*/
 .vips_selects {
 	width: 100%;
@@ -100,6 +106,7 @@
 	margin-bottom: 30px;
 	width: 130px;
 	margin-right: 150px;
+	padding: 2px;
 }
 .vips_imformations_footers {
 	width: 100%;
@@ -270,6 +277,33 @@
     color: #fff;
 }
 #vips_integrals .shops_list table tr td{
+	border-bottom: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	text-align: center;
+	padding: 2px 5px;
+	height: 50px;
+}
+/*会员导出*/
+#vips_out {
+	border: 1px solid #ccc;
+	background: rgb(239,239,239);
+	margin-top: 10px;
+	padding: 20px;
+}
+#vips_out table{
+	width: 100%;
+	border-left: 1px solid #ddd;
+}
+#vips_out table tr th{
+	height: 32px;
+    font-size: 14px;
+    text-align: center;
+    border-bottom: 1px #0789be solid;
+    border-right: 1px #66d5ff solid;
+    background: #00adef;
+    color: #fff;
+}
+#vips_out table tr td{
 	border-bottom: 1px solid #ddd;
 	border-right: 1px solid #ddd;
 	text-align: center;

@@ -39,6 +39,40 @@ section#three································不
     text-align: center;
     background-color:#eaf7f0;
 }
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+/*房型维护 start
+
+
+*/
+    .add div.modal-content{
+        top: 50px;
+    }
+    .add div.modal-header{
+        width: 94%;
+        margin-left: 3%;
+        height: 40px;
+        text-align: left;
+    }
+    .add button.close{
+        font-size: 30px;
+        position: relative;
+        right: -20px;
+        top: -8px;
+    }
+    .add p{
+        position: relative;
+        left: -16px;
+        font-family: 'microsodt yahei';
+        color:#4695F8;
+    }
+    .add div.modal-body{
+        width: 80%;
+        margin-left: 10%;
+        font-size: 14px;
+=======
+>>>>>>> Stashed changes
 /*外客购买 start*/
     .one_content{
         width: 98%;
@@ -47,6 +81,10 @@ section#three································不
         line-height: 35px;
         margin: 0 auto;
         text-align: justify;
+<<<<<<< Updated upstream
+=======
+>>>>>>> origin/master
+>>>>>>> Stashed changes
     }
     .one_content:after {width: 100%;height: 0;margin: 0;display: inline-block;overflow: hidden;content: '';}
 
@@ -122,6 +160,7 @@ section#three································不
         width: 50%;
         float: left;
         font-size: 14px
+<<<<<<< Updated upstream
     }
 	#main dd.main_one{
 		font-weight: bold;
@@ -134,6 +173,20 @@ section#three································不
     #main dd.main_two{
         font-size: .8em;
     }
+=======
+    }
+	#main dd.main_one{
+		font-weight: bold;
+        text-align: left;
+		font-size: 1em;
+	}
+    #main dd.t{
+        text-align: right;
+    }
+    #main dd.main_two{
+        font-size: .8em;
+    }
+>>>>>>> Stashed changes
 	#main dd.main_three{
 		font-size: 0.6em;
 	}
@@ -280,6 +333,7 @@ section#three································不
         list-style: none;
         float: left;
         margin-right: 5px;
+<<<<<<< Updated upstream
     }
     #three ul span{
         width: 40px;
@@ -290,7 +344,22 @@ section#three································不
         margin-top: 3px;
         float: left;
     }
+=======
+    }
+    #three ul span{
+        width: 40px;
+        height: 25px;
+        font-size: 12px;
+        line-height: 25px;
+        text-align: left;
+        margin-top: 3px;
+        float: left;
+    }
+<<<<<<< HEAD
 /* end 房态图的下边烂 */
+=======
+>>>>>>> Stashed changes
+>>>>>>> d0482a34e099b8fb0c67d4a7c26d8036e69761df
 
 
 
