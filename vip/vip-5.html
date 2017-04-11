@@ -3,39 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <script src="../assets/js/jquery.min.js"></script>
 </head>
 <body>
         <table class="am-table am-table-bordered am-table-hover">
             <thead>
             <tr class="am-primary">
-                <th>兑换物品</th>
-                <th>所需积分</th>
+                <th style="width:50%">兑换物品</th>
+                <th style="width:10%">操作</th>
+                <th style="width:40%">所需积分</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody id="vips_shoplist">
             <tr>
-                <td>360随身wifi</td>
-                <td>10000</td>
+                <td style="width:50%">360随身wifi</td>
+                <td style="width:10%">
+                    <button type="button" onclick="$(this).parent().parent().remove();" class="am-btn am-btn-primary vips_shop_cut"> 删除 </button></td>
+                <td style="width:40%">10000</td>
             </tr>
             <tr>
-                <td>小米充电宝</td>
-                <td>20000</td>
+                <td style="width:50%">小米充电宝</td>
+                <td style="width:10%">
+                    <button type="button" onclick="$(this).parent().parent().remove();" class="am-btn am-btn-primary vips_shop_cut"> 删除 </button>
+                </td>
+                <td style="width:40%">20000</td>
             </tr>
             <tr>
-                <td>20元话费</td>
-                <td>10000</td>
+                <td style="width:50%">20元话费</td>
+                <td style="width:10%">
+                <button  type="button" onclick="$(this).parent().parent().remove();" class="am-btn am-btn-primary vips_shop_cut"> 删除 </button>
+                </td>
+                <td style="width:40%">10000</td>
             </tr>
             <tr>
-                <td>金士顿U盘</td>
-                <td>30000</td>
+                <td style="width:50%">金士顿U盘</td>
+                <td style="width:10%">
+                <button type="button" onclick="$(this).parent().parent().remove();" class="am-btn am-btn-primary vips_shop_cut"> 删除 </button>
+                </td>
+                <td style="width:40%">40000</td> 
             </tr>
             <tr>
-                <td>50元话费</td>
-                <td>50000</td>
+                <td style="width:50%">50元话费</td>
+                <td style="width:10%">
+                <button type="button" onclick="$(this).parent().parent().remove();" class="am-btn am-btn-primary vips_shop_cut"> 删除 </button>
+                </td>
+                <td style="width:40%">50000</td>
             </tr>
             </tbody>
         </table>
-        <button class="am-btn am-btn-secondary">修改设置</button>
-
+        <button id="vips_addshops_box" class="am-btn am-btn-secondary" data-am-modal="{target: '#doc-modal-6', closeViaDimmer: 0, width:500, height: 180}">添加商品</button>
+        <!-- ....................................会员商品添加弹出框开始............................-->
+               <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-6">
+                     <div class="am-modal-dialog">
+                           <div class="am-modal-hd">商品添加
+                             <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+                           </div>
+                           <div class="am-modal-bd">
+                                <div class="am-g">
+                                  <div class="am-u-md-8 am-u-sm-centered">
+                                    <form class="am-form">
+                                      <fieldset class="am-form-set">
+                                        <input id="shops_name" type="text" placeholder="商品名字">
+                                        <input id="shops_price" type="text" placeholder="商品价格">
+                                      </fieldset>
+                                      <button id="vips_addshop" type="submit" class="am-btn am-btn-primary am-btn-block" data-am-modal-close>添加</button>
+                                    </form>
+                                  </div>
+                                </div>
+                           </div>
+                     </div>
+               </div>
+        <!-- ....................................会员商品添加弹出框结束...................... ......-->
 </body>
+<script type="text/javascript">
+    $(function(){
+        //添加商品
+        var shoppings=$("#vips_shoplist"); 
+        $("#vips_addshop").click(function(){
+            var shops_name=$("#shops_name").val();
+            var shops_price=$("#shops_price").val();
+            if(shops_name!=""&&shops_price!=""){
+            shoppings.append('<tr> <td style="width:50%">'+shops_name+'</td> <td style="width:10%"><button type="button" onclick="$(this).parent().parent().remove();" class="am-btn am-btn-primary vips_shop_cut"> 删除 </button></td><td style="width:40%">'+ shops_price +'</td></tr>');
+            }
+        })
+        $("#vips_addshops_box").click(function(){
+           if (shops_price!=""||shops_name!="") {
+                $("#shops_name").val("");
+                $("#shops_price").val("");
+           }
+        })  
+    })        
+</script>
 </html>
