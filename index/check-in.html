@@ -6,68 +6,86 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/amazeui.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/jquery-ui-1.10.4.custom.min.css">
+    <script src="../assets/js/jquery.min.js"></script>
+    <script  src="../assets/js/amazeui.min.js"></script>
+    <script src="../assets/js/angular.min.js"></script>
+    <script src="../assets/js/jquery-ui-1.10.4.custom.min.js"></script>
 </head>
 <body>
+            <table class="am-table am-table-bordered am-table-hover">
+                <tr>
+                    <td>
+                        <label>房型：</label>
+                        <input type="text" value="普通房" name="" disabled>
+                    <td>
+                        <label>房号：</label>
+                        <input type="text" name="text" value="101" disabled>
+                    </td>
+                    <td>
+                        <label>房价：</label>
+                        <input type="text" name="text" value="168元" disabled>
+                    </td>
+                    <td >
+                        <label>会员卡号：</label>
+                        <input type="text" name="text">
+                    </td>
 
-
-        <table class="am-table am-table-bordered">
-            <thead>
-            <tr class="am-primary">
-                <th>预定号</th>
-                <th>预定人</th>
-                <th>预定人手机号</th>
-                <th>人数</th>
-                <th>订房数</th>
-                <th>到店日期</th>
-                <th>离店日期</th>
-                <th>预订房型房号</th>
-                <th>预定金</th>
-
-                <th>备注</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>&nbsp;</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            </tbody>
-        </table>
-        <button class="am-btn am-btn-secondary" style="float: right;margin-right: 6%">预定</button>
-
-
-
+                </tr>
+                <tr>
+                    <td>
+                        <label>预订人：</label>
+                        <input type="text" name="text">
+                    </td>
+                    <td>
+                        <label>预留电话：</label>
+                        <input type="num" name="">
+                    </td>
+                    <td><label >到店时间:</label>
+                        <input type="date" data-am-datepicker="" name="date">
+                    </td>
+                    <td><label >离店时间:</label>
+                        <input type="date" data-am-datepicker="" name="date">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>押金：</label>
+                        <input type="text" name="text">
+                    </td>
+                    <td colspan="3">
+                            <div class="am-form-group">
+                                <label>支付方式：</label>
+                                <label class="am-radio-inline" >
+                                    <input type="radio"  value="" name="docInlineRadio" checked > 现金
+                                </label>
+                                <label class="am-radio-inline">
+                                    <input type="radio" name="docInlineRadio"> 刷卡
+                                </label>
+                                <label class="am-radio-inline">
+                                    <input type="radio" name="docInlineRadio"> 支付宝
+                                </label>
+                                <label class="am-radio-inline">
+                                    <input type="radio" name="docInlineRadio"> 微信
+                                </label>
+                                <label class="am-radio-inline">
+                                    <input type="radio" name="docInlineRadio">挂账
+                                </label>
+                            </div>
+                    </td>
+                </tr>
+            </table>
+        <p>
+            日期: <input type="" name="" value="2017.04.10" disabled>
+            业务员：<input type="" name="" value="001" disabled>
+        </p>
+        <p>
+        <span style="position: relative;top: -60px;"> 备注：</span>
+        <input type="textarea" name="textarea" style="width:200px;height: 140px; ">
+        </p>
+        <button class="am-btn am-btn-secondary" style="float: right;margin-right: 6%;margin-bottom: 0%;">预定</button>
 </body>
 </html>

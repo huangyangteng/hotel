@@ -147,8 +147,6 @@ section#three································不
         top: 0;
         left: 0;
     }
-
-
 /*end 房态显示*/
 /*房态的右边栏    start */
     #bar select option{
@@ -158,24 +156,13 @@ section#three································不
     #b_thead th{
         text-align: center;
     }
-    #b_tbody select{
-        width: 50%;
-        outline: none;
-        border: 0px;
-        height: 40px;
-        background: inherit;
-    }
-    #b_tbody input{
-        width: 100%;
+    #b_tbody input,#b_tbody select{
+        width: 80%;
         outline: none;
         border: 0px;
         height: 40px;
         text-align: center;
         background: inherit;
-    }
-    #b_tbody .bt_btn,#b_thead .bt_btn{
-        display: none;
-
     }
     #b_tbody tr button{
         outline: none;
@@ -187,7 +174,7 @@ section#three································不
     }
     #bt_time input{
         width: 40%;
-        display: inline-block;
+        /*display: inline-block;*/
         border: 1px solid #E3E1E1;
     }
     .todayprice p{

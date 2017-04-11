@@ -30,7 +30,7 @@ section#three································
             <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#doc-topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
             <div class="am-collapse am-topbar-collapse am-topbar-inverse" id="doc-topbar-collapse">
               <ul class="am-nav am-nav-pills am-topbar-nav">
-                      <li class="am-active"><a href="room-status.html">房态图</a></li>
+                      <li class="am-active"><a href="index.html">房态图</a></li>
                       <li><a href="guest.html">客人</a></li>
                       <li><a href="vip.html">会员</a></li>
                       <li><a href="company.html">协议单位</a></li>
@@ -92,8 +92,9 @@ section#three································
               </div>
           </div>
     <!-- ·································end 外客购买·························· -->
+          <button type="button"  class="am-btn am-btn-secondary">团队服务</button>
     <!-- ·························时间输入框······················· -->
-          <input class="oc_time" type="date" name="date" data-am-datepicker>
+          <input class="oc_time" type="text"  data-am-datepicker readonly required placeholder="请选择日期">
     <!-- ·························反结账 start······························ -->
           <button
                   type="button"
@@ -185,7 +186,7 @@ section#three································
           <div id="main">
               <div class="main">
                   <ul  ng-repeat='v in data' on-finish-render-filters>
-                    <li  ng-style="{background:v.color}" ng-if='v.show=="" && v.show2=="" && v.show3==""' ng-click='click($event)'>
+                    <li  ng-style="{background:v.color}" ng-if='v.show=="" && v.show2!=="" && v.show3==""' ng-click='click($event)'>
                       <dl>
                         <dd class="main_one">{{v.number}}</dd>
                         <dd class="main_one t">{{v.id}}</dd>
@@ -480,9 +481,9 @@ section#three································
           <!-- ···············右侧边栏··························· -->
           <div id="bar">
             <!-- ···············房态 start·················· -->
-              <label>房态 :</label>
+              <!-- <label>房态 :</label>
                 <select ng-init="roomData=roomdatas[0]" ng-model="roomData" ng-options="x as x.name for x in roomdatas"></select>
-              <br>
+              <br> -->
               <label>房型 :</label>
                 <select ng-init="roomShape=roomshapes[0]" ng-model="roomShape" ng-options="x as x.name for x in roomshapes"></select>
               <br>
@@ -507,34 +508,36 @@ section#three································
                               <thead id="b_thead">
                               <tr class="am-primary">
                                   <th>房间类型</th>
-                                  <th>原房价</th>
-                                  <th>现房价</th>
-                                  <th>会原价</th>
+                                  <th>基准价</th>
+                                  <th>调整方式</th>
+                                  <th>调整</th>
                                   <th colspan="2">调整时间段</th>
-                                  <th class="bt_btn"></th>
                               </tr>
                               </thead>
                               <tbody id="b_tbody">
-                              <tr>
-                                  <td><select id="test" ng-init="roomShapes=roomshapes[0]" ng-model="roomShapes" ng-options="x as x.name for x in roomshapes"></select></td>
-                                  <td><input type="" name="" ng-model="oldPrice" disabled></td>
-                                  <td class='bt_newprice'><input type="" name="" ng-model='newPrice' class="bt_new" ng-change='roomPrice()' placeholder="请输入调整后的房价"></td>
-                                  <td><input type="" name="" disabled ng-model='memberPrice' class="bt_merber"></td>
-                                  <td colspan="2" id="bt_time"><input type="" name="date" data-am-datepicker placeholder="请选择开始日期"> ---- <input type="" name="date" data-am-datepicker placeholder="请选择结束日期"></td>
-                                  <td class="bt_btn"><button>修改</button></td>
+                              <tr ng-repeat='v in roomshapes'>
+                                  <td><input type="" name="" ng-model='v.name' disabled> </td>
+                                  <td><input type="" name="" ng-model="v.price" disabled></td>
+                                  <td ng-click="exmethod($event)">
+                                      <select ng-init="exMethod=exmethods[0]" ng-model="exMethod" ng-options="v for v in exmethods ">
+                                      </select>
+                                  </td>
+                                  <td><input type="" name="" class="bt_merber" placeholder="请输入调整比例"></td>
+                                  <td colspan="2" id="bt_time"><input type="text" class="datepicker"  readonly required placeholder="请选择开始日期"> ---- <input type="text" class="datepicker"  readonly required placeholder="请选择结束日期"></td>
                               </tr>
+
                               <tr class="oct_last">
                                   <td><input type="" name="" disabled></td>
                                   <td><input type="" name="" disabled></td>
                                   <td><input type="" name="" disabled></td>
                                   <td><input type="" name="" disabled></td>
                                   <td colspan="2"><input type="" name="" disabled></td>
-                                  <td class="bt_btn"></td>
                               </tr>
                               </tbody>
                           </table>
                           <button class="am-btn am-btn-success" ng-click='savePrice()'>保存</button>
                       </div>
+
                   </div>
               </div>
             <!-- ·····················end 房价调整················· -->
@@ -753,9 +756,18 @@ section#three································
       str +=d.getMonth()+1+'月';
       str +=d.getDate()+'日';
       str +=d.getHours()+'时';
+
       return str; }
+      var date=new Date();
+      var new_date1=date.getFullYear()+'年'+date.getMonth()+1+'月'+date.getDate()+'日'+date.getHours()+'时';
+      var new_date2=date.getFullYear()+'-'+date.getMonth()+1+'-'+date.getDate();
       setInterval(function(){$(".nowTime").val(current)},50);
   //end   获取本地时间
+  // jquery ui 的日历插件 start
+    $(function() {
+      $( ".datepicker" ).datepicker();
+    });
+  // end   jquery ui 的日历插件
   // msg start
     $('div#title span button').click(function () {
         $('#msg').animate({
@@ -801,7 +813,7 @@ section#three································
   // 鼠标移上li显示 start
     $(function() {
        $('#main .main li').popover({
-        theme: 'warning sm',
+        theme: 'default sm',
         content: '<div style="width: 250px"><b style="padding: 0px">101</b><p style="margin: 2px 0px">普通房</p><div><p style="width: 50%;float: left;margin: 2px 0px">床位数：2</p><p style="width: 50%;float: left;margin: 2px 0px">房价：168元</p></div><div><span style="float: left;">房内设施：</span><span style="display: inline-block; background:  rgba(0,0,0,.5);margin: 2px 5px;padding:1px 5px">热水</span><span style="display: inline-block; background: rgba(0,0,0,.5);padding:1px 5px;margin: 2px 5px">空调</span><span style="display: inline-block; background: rgba(0,0,0,.5);padding:1px 5px;margin: 2px 5px">电视</span><span style="display: inline-block; background: rgba(0,0,0,.5);padding:1px 5px;margin-left: 10px">wifi</span><span style="display: inline-block; background:rgba(0,0,0,.5);padding:1px 5px;margin: 2px 5px">卫生间</span></div><div style="padding:5px 0px"><span style="float: left;">房内特征：</span ><span style="display: inline-block; background: rgba(0,0,0,.5);padding:1px 5px;margin: 2px 5px">白色调</span><span style="display: inline-block; background: rgba(0,0,0,.5);padding:1px 5px;margin: 2px 5px">朝海</span></div></div>',
         trigger: 'hover',
       })
@@ -837,6 +849,7 @@ section#three································
                   {'name':'酒','numbers':'10','price':'200'},
                   {'name':'纸','numbers':'1000','price':'3'},
         ];//商品购买
+        $scope.exmethods=['按比例调整','按差价调整','基准价调整'];//房价调整的方法
         $scope.paymethods=["现金","支付宝","微信","刷卡","挂账"];// 商品购买的支付方式
         $scope.data=[
          {'id':1,'name':'普通','number':101,'price':120,'person':'张三','state':'空房','color':'#2993cc'},
@@ -880,7 +893,7 @@ section#three································
                         {'name':'自用','bgcolor':'#29e17f'},
                         {'name':'脏房','bgcolor':'#24282a'},
                         {'name':'修理','bgcolor':'#a49fb1'},
-        ];//右边栏房态下拉框
+        ];//下边栏房态
         $scope.roomshapes=[
                         {'name':'全部'},
                         {'name':'普通','price':'120'},
@@ -918,7 +931,7 @@ section#three································
             }
         }
       // end       外客购买 计算总价
-      // 选择房型 楼层房态       start
+      // 选择房型 楼层        start
           $scope.$watch("roomFloor", function(n){
               for (var i = 0; i < $scope.data.length; i++) {
                $scope.data[i].show=""
@@ -927,17 +940,6 @@ section#three································
                   };
                   if(n != $scope.data[i].id){
                      $scope.data[i].show=!$scope.data[i].show
-                  }
-               }
-          });
-          $scope.$watch("roomData", function(n){
-              for (var i = 0; i < $scope.data.length; i++) {
-               $scope.data[i].show2="";
-                  if(n.name =='全部'){
-                    $scope.data[i].show2=!$scope.data[i].show2
-                  }
-                  if(n.name !== $scope.data[i].state){
-                     $scope.data[i].show2=!$scope.data[i].show2
                   }
                }
           });
@@ -952,28 +954,26 @@ section#three································
                   }
                }
           });
-      // end        选择房型 楼层房态
+      // end        选择房型 楼层
+
+
+
+
+
+
+
+
       // 房价调整     start
-        $scope.roomPrice=function(){
-          if ($scope.newPrice<0 ||  isNaN($('.bt_new').val())) {
-            $scope.newPrice='';
-            alert('请输入大于0的数字')
-          } else {
-            $scope.memberPrice=$('.bt_new').val()*8/10;
-          }
-        };
-        $scope.$watch("roomShapes", function(n){
-              for (var i = 0; i < $scope.roomshapes.length; i++) {
-                  if (n.name==$scope.roomshapes[i].name) {
-                      $scope.oldPrice=$scope.roomshapes[i].price
-                  };
-                  if (n.name=='全部'){
-                      $scope.oldPrice=''
-                  };
-                }
-          });
-        $scope.savePrice=function(){
-          $scope.$watch("roomShapes", function(n){
+        // $scope.roomPrice=function(){
+        //   if ($scope.newPrice<0 ||  isNaN($('.bt_new').val())) {
+        //     $scope.newPrice='';
+        //     alert('请输入大于0的数字')
+        //   } else {
+        //     $scope.memberPrice=$('.bt_new').val()*8/10;
+        //   }
+        // };
+        // $scope.savePrice=function(){
+          /*$scope.$watch("roomShapes", function(n){
               for (var i = 0; i < $scope.roomshapes.length; i++) {
                   if (n.name==$scope.roomshapes[i].name) {
                       $scope.roomshapes[i].price=$('.bt_new').val();
@@ -982,13 +982,9 @@ section#three································
                       $scope.roomshapes[i].price=$('.bt_new').val();
                   };
                 }
-          });
-          if ($scope.newPrice>0 && ! isNaN($('.bt_new').val()) && !$('#bt_time input').val()==''){
+          });*/
+    /*      if ($scope.newPrice>0 && ! isNaN($('.bt_new').val()) && !$('#bt_time input').val()==''){
               $("#doc-modal-5").modal("close");
-              $('.bt_new').attr("disabled",true);
-              $('#bt_time input').attr("disabled",true);
-              $('#b_tbody select').attr("disabled",true);
-              $('.bt_btn').show();
           }
           else{
               if ($('.bt_new').val()=='') {
@@ -997,8 +993,21 @@ section#three································
                   alert('请输入调整时间段')
               }
           };
-        };
+        };*/
+
+
       // end           房价调整
+
+
+
+
+
+
+
+
+
+
+
       // 房态图下边栏计算剩余房间 start
         var count1=0;var count2=0;var count3=0;var count4=0;
         var count5=0;var count6=0;var count7=0;
@@ -1047,7 +1056,7 @@ section#three································
             }
         }
       // end  交班
-      // 房态图的点击(页面渲染完执行) start
+      // 点击(页面渲染完执行) start
         $scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {
             $scope.click=function($event){
                 if ($($event.target).html()=='空房'){
@@ -1081,10 +1090,51 @@ section#three································
                         $($event.target).attr("data-am-modal","{target: '#doc-modal-empty', closeViaDimmer: 0, width: 1300,height: 850}");
                     }
                 }
-                // console.log($($event.target).html());
-            };
+            };// 房态图的点击
+            $scope.threeclick=function($event){
+                var x = $($event.target).html();
+                for (var i = 0; i < $scope.data.length; i++) {
+                 $scope.data[i].show2="";
+                    if( x == $scope.data[i].state){
+                       $scope.data[i].show2=!$scope.data[i].show2
+                    }
+                 }
+            };//下边栏房态的点击
+
+
+
+
+
+
+
+
+              $scope.exmethod=function($event){
+                  $($event.target).children().show();
+
+                  $($event.target).next().children().show();
+              };
+
+
+            $scope.$watch("exMethod", function(n){
+                    // console.log()
+                        console.log(n)
+
+                    if(n=='按比例调整'){
+                    };
+            });
+
+
+
+
+
+
+
+
+
+
+
         });
-      // end  房态图的点击(页面渲染完执行)
+      // end  点击(页面渲染完执行)
     }]);
 </script>
 </body>
