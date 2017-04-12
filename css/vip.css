@@ -80,18 +80,18 @@
 }
 .vips_imformations ul {
 	padding-left: 0px !important;
-	height: 170px;
+	overflow: auto;
 }
 .vips_imformations ul li {
 	list-style: none;
 	float: left;
-	width: 415px;
+	width: 33%;
 	height: 170px;
 	padding-top: 20px;
 }
 .vips_imformations ul li label {
 	margin-left: 15px;
-	width: 100px;
+	width: 30%;
 	float: left;
 	text-align: right;
 	margin-bottom: 30px;
@@ -99,13 +99,12 @@
 .vips_imformations ul li input {
 	float: left;
 	margin-bottom: 30px;
-	width: 280px;
+	width: 60%;
 }
 .vips_imformations ul li select {
 	float: left;
 	margin-bottom: 30px;
-	width: 130px;
-	margin-right: 150px;
+	width: 60%;
 	padding: 2px;
 }
 .vips_imformations_footers {
@@ -115,7 +114,7 @@
 }
 .vips_imformations_footers label {
 	margin-left: 15px;
-	width: 100px;
+	width: 15%;
 	float: left;
 	text-align: right;
 	height: 40px;
@@ -126,7 +125,7 @@
 	float: left;
 	margin-bottom: 15px;
 	height: 40px;
-	width: 1100px;
+	width: 70%;
 }
 /*vips_imformations所有样式结束*/
 
@@ -142,11 +141,11 @@
 .vips_moneys input {
     float: left;
 	margin-bottom: 30px;
-	width: 280px;
+	width: 19%;
 }
 .vips_moneys label {
     margin-left: 15px;
-	width: 100px;
+	width: 10%;
 	float: left;
 	margin-bottom: 0px;
 	text-align: right;
@@ -155,8 +154,7 @@
 .vips_moneys select {
     float: left;
 	margin-bottom: 30px;
-	width: 130px;
-	margin-right: 150px;
+	width: 19%;
 }
 /*vips_moneys所有样式结束*/
 
@@ -309,4 +307,9 @@
 	text-align: center;
 	padding: 2px 5px;
 	height: 50px;
+}
+/*模态框背景色设置*/
+.am-modal{
+    background: rgba(102,102,102,0.1) !important;
+    opacity: 0;
 }

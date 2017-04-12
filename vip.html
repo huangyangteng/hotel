@@ -85,8 +85,6 @@
                                     </li>
                                 </ul>
                                 <div class="vips_imformations_footers">
-                                    <label>喜好：</label>
-                                    <input type="text" name="vips_hobby">
                                     <label>地址：</label>
                                     <input type="text" class="input_no_warns" name="vips_address">
                                     <label>备注：</label>
@@ -462,7 +460,6 @@
                    var cards_password;
                    var vips_tel;
                    var cards_type;
-                   var vips_hobby;
                    var vips_address;
                    var vips_otherwise;
                    var vips_timer;
@@ -477,7 +474,6 @@
                          cards_password=$("[name='cards_password']").val();
                          vips_tel=$("[name='vips_tel']").val();
                          cards_type=$("[name='cards_type']").val();
-                         vips_hobby=$("[name='vips_hobby']").val();
                          vips_address=$("[name='vips_address']").val();
                          vips_otherwise=$("[name='vips_otherwise']").val();
                          vips_imformations={
@@ -489,7 +485,6 @@
                               "password" : cards_password,
                               "tel" : vips_tel,
                               "cards_t" : cards_type,
-                              "hobby" : vips_hobby,
                               "adderss" : vips_address,
                               "otherwise" : vips_otherwise,
                          };
