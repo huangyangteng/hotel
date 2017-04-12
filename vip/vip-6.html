@@ -22,9 +22,19 @@
             </tr>
             </tbody>
         </table>
-        <button class="am-btn am-btn-secondary">修改设置</button>
+        <!-- 增添方案开始 -->
+        <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-8">
+          <div class="am-modal-dialog">
+            <div class="am-modal-hd">Modal 标题
+              <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+            </div>
+            <div class="am-modal-bd">
+              Modal 内容。本 Modal 无法通过遮罩层关闭。
+            </div>
+          </div>
+        </div>
+        <!-- 增添方案结束 -->
+        <button class="am-btn am-btn-secondary" data-am-modal="{target: '#doc-modal-8', closeViaDimmer: 0, width:500, height: 180}">增添方案</button>
     </section>
-
-
 </body>
 </html>
