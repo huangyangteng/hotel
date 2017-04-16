@@ -1,0 +1,22 @@
+{
+  "name": "hotel",
+  "version": "1.0.0",
+  "description": "一个房态系统的基本界面 ",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huangyangteng/hotel.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huangyangteng/hotel/issues"
+  },
+  "homepage": "https://github.com/huangyangteng/hotel#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
