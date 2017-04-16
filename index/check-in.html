@@ -5,87 +5,145 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="../css/index.css">
-    <link rel="stylesheet" type="text/css" href="../css/common.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/amazeui.min.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/jquery-ui-1.10.4.custom.min.css">
-    <script src="../assets/js/jquery.min.js"></script>
-    <script  src="../assets/js/amazeui.min.js"></script>
-    <script src="../assets/js/angular.min.js"></script>
-    <script src="../assets/js/jquery-ui-1.10.4.custom.min.js"></script>
+    <title>预订</title>
+    <style type="text/css">
+        #checkin{
+            border: 2px solid #EAE8E8;
+            background: #fff;
+        }
+        #checkin td{
+            border: 0px;
+        }
+        #checkin td[colspan="4"]{
+            font-size: 20px;
+            letter-spacing: 15px;
+            margin: 0px;
+        }
+        #checkin td[colspan="3"] input{
+            width: 85%;
+        }
+        #checkin td[colspan="3"] textarea{
+            width: 85%;
+            height: 80px
+        }
+        #checkin .c_hr hr{
+            margin: 0px;
+            margin-top: 30px;
+        }
+        #checkin td[colspan="3"] button{
+            float: right;
+            margin-right: 6%;
+        }
+        #checkin .c_bottom p{
+            display: inline-block;
+            margin: 0px 0px 0px 20px;
+        }
+        #checkin hr{
+            border-color: #C6C6C6;
+            box-shadow: 0px 0px 1px #C6C6C6;
+        }
+    </style>
 </head>
 <body>
-            <table class="am-table am-table-bordered am-table-hover">
-                <tr>
-                    <td>
-                        <label>房型：</label>
-                        <input type="text" value="普通房" name="" disabled>
-                    <td>
-                        <label>房号：</label>
-                        <input type="text" name="text" value="101" disabled>
-                    </td>
-                    <td>
-                        <label>房价：</label>
-                        <input type="text" name="text" value="168元" disabled>
-                    </td>
-                    <td >
-                        <label>会员卡号：</label>
-                        <input type="text" name="text">
-                    </td>
-
-                </tr>
-                <tr>
-                    <td>
-                        <label>预订人：</label>
-                        <input type="text" name="text">
-                    </td>
-                    <td>
-                        <label>预留电话：</label>
-                        <input type="num" name="">
-                    </td>
-                    <td><label >到店时间:</label>
-                        <input type="date" data-am-datepicker="" name="date">
-                    </td>
-                    <td><label >离店时间:</label>
-                        <input type="date" data-am-datepicker="" name="date">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label>押金：</label>
-                        <input type="text" name="text">
-                    </td>
-                    <td colspan="3">
-                            <div class="am-form-group">
-                                <label>支付方式：</label>
-                                <label class="am-radio-inline" >
-                                    <input type="radio"  value="" name="docInlineRadio" checked > 现金
-                                </label>
-                                <label class="am-radio-inline">
-                                    <input type="radio" name="docInlineRadio"> 刷卡
-                                </label>
-                                <label class="am-radio-inline">
-                                    <input type="radio" name="docInlineRadio"> 支付宝
-                                </label>
-                                <label class="am-radio-inline">
-                                    <input type="radio" name="docInlineRadio"> 微信
-                                </label>
-                                <label class="am-radio-inline">
-                                    <input type="radio" name="docInlineRadio">挂账
-                                </label>
-                            </div>
-                    </td>
-                </tr>
-            </table>
-        <p>
-            日期: <input type="" name="" value="2017.04.10" disabled>
-            业务员：<input type="" name="" value="001" disabled>
-        </p>
-        <p>
-        <span style="position: relative;top: -60px;"> 备注：</span>
-        <input type="textarea" name="textarea" style="width:200px;height: 140px; ">
-        </p>
-        <button class="am-btn am-btn-secondary" style="float: right;margin-right: 6%;margin-bottom: 0%;">预定</button>
+    <table class="am-table am-table-bordered" id="checkin" >
+        <tr><td colspan="4">预订单</td></tr>
+        <tr>
+            <td colspan="3"><hr></td>
+        </tr>
+        <tr>
+            <td>
+                <label>房型：</label>
+                <input type="text" value="普通房" name="" disabled>
+            <td>
+                <label>房号：</label>
+                <input type="text" name="text" value="101" disabled>
+            </td>
+            <td>
+                <label>房价：</label>
+                <input type="text" name="text" value="168元" disabled>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>预订人：</label>
+                <input type="text" name="text">
+            </td>
+            <td>
+                <label>电话：</label>
+                <input type="num" name="">
+            </td>
+            <td>
+                <label>客源帐号：</label>
+                <input type="text" name="text">
+                <button>...</button>
+            </td>
+        </tr>
+        <tr>
+            <td><label >到店日期：</label>
+                <input type="date" data-am-datepicker="" name="date">
+            </td>
+            <td><label >离店日期：</label>
+                <input type="date" data-am-datepicker="" name="date">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>订金：</label>
+                <input type="text" name="text">
+            </td>
+            <td colspan="2">
+                <div class="am-form-group">
+                    <span><b>支付方式：</b></span>
+                    <label class="am-radio-inline">
+                        <input type="radio"  value="" name="docInlineRadio" checked> 现金
+                    </label>
+                    <label class="am-radio-inline">
+                        <input type="radio" name="docInlineRadio"> 刷卡
+                    </label>
+                    <label class="am-radio-inline">
+                        <input type="radio" name="docInlineRadio"> 支付宝
+                    </label>
+                    <label class="am-radio-inline">
+                        <input type="radio" name="docInlineRadio"> 微信
+                    </label>
+                    <label class="am-radio-inline">
+                        <input type="radio" name="docInlineRadio">挂账
+                    </label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <label>地址：</label>
+                <input type="text" name="">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <label>公司：</label>
+                <input type="text" name="">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <label>备注：</label>
+                <textarea></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3"  class="c_hr"><hr></td>
+        </tr>
+        <tr>
+            <td class="c_bottom">
+                <p>预订日期：<span>2017.04.10</span></p>
+                <p>工号：<span>003</span></p>
+                <p>营销员：<span>小张</span></p>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <button class="am-btn am-btn-secondary">预定</button>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>

@@ -11,15 +11,17 @@
     <script  src="assets/js/amazeui.min.js"></script>
     <script src="assets/js/angular.min.js"></script>
     <script src="assets/js/jquery-ui-1.10.4.custom.min.js"></script>
+<script src="https://cdn.bootcss.com/angular-ui-router/1.0.0-alpha0/angular-ui-router.min.js"></script>
+
 </head>
 <!--
-header········································导航条
-section#one··································表单行，两个按钮，两个搜索框
-section#two··································房态
+  header········································导航条
+  section#one··································表单行，两个按钮，两个搜索框
+  section#two··································房态
   div#main·································房态
-    div#msg·····························消息提示框
+  div#msg·····························消息提示框
   div#bar··································侧边栏
-section#three································
+  section#three································
  -->
 <body  ng-app="myApp" ng-controller="Ctrl">
     <!-- nav start -->
@@ -188,11 +190,9 @@ section#three································
                   <ul  ng-repeat='v in data' on-finish-render-filters>
                     <li  ng-style="{background:v.color}" ng-if='v.show=="" && v.show2!=="" && v.show3==""' ng-click='click($event)'>
                       <dl>
-                        <dd class="main_one">{{v.number}}</dd>
-                        <dd class="main_one t">{{v.id}}</dd>
-                        <dd class="main_two">{{v.name}}房</dd>
-                        <dd class="main_two t">{{v.price}}元</dd>
-                        <dd class="main_three">{{v.person}}</dd>
+                        <dd class="main_one"><b>{{v.number}}</b>&nbsp;<p>{{v.name}}房</p></dd>
+                        <dd class="main_two"><span>{{v.person}}</span><p>{{v.price}}元</p></dd>
+                        <dd class="main_three"></dd>
                         <dd class="main_four">{{v.state}}</dd>
                       </dl>
                     </li>
@@ -384,7 +384,6 @@ section#three································
                               <button id="checked-btn-one"  class="am-btn am-btn-secondary">点击结账</button>
                               <button id="checked-btn-two" class="am-btn am-btn-secondary">点击换房</button>
                               <button id="checked-btn-three" class="am-btn am-btn-secondary">点击续住</button>
-                              <button id="checked-btn-four" class="am-btn am-btn-secondary">商品添加</button>
                               <button data-am-modal-close class="am-btn am-btn-secondary">返回主页</button>
                           </section>
                           <div id="checked-right" style="width: 89%;float: right;">
@@ -401,9 +400,6 @@ section#three································
                                   $('#checked-btn-three').click(function(){
                                       $('#checked-right').load('index/continue.html')
                                   });
-                                  $('#checked-btn-four').click(function(){
-                                      $('#checked-right').load('index/add.html')
-                                  });
                               });
                           </script>
                       </div>
@@ -417,7 +413,7 @@ section#three································
                               <button id="btn-book-two" class="am-btn am-btn-secondary">点击入住</button>
                               <button data-am-modal-close class="am-btn am-btn-secondary">返回主页</button>
                           </section>
-                          <section id="book-right" style="width: 89%;float: right;">
+                          <section id="book-right" style="width: 90%;float: right;padding: 20px 8% 0px 2%;">
                           </section>
                           <script>
                               $(document).ready(function(){
@@ -430,7 +426,6 @@ section#three································
                                   });
                               });
                           </script>
-
                       </div>
                   </div>
               </div>   <!-- 空房的模态窗口-->
@@ -741,7 +736,7 @@ section#three································
                             <p>账号：<input type="text" class="d_username"></p>
                             <p>密码：<input type="text" class="d_password"></p>
                           </div>
-                          <button type="button"  class="am-btn am-btn-success" ng-click='shift()'>登录</button>
+                          <a id="shiftA" type="button"  class="am-btn am-btn-success" ng-click='shift()'>登录</a>
                         </div>
                       </div>
                   </div>
@@ -852,37 +847,37 @@ section#three································
         $scope.exmethods=['按比例调整','按差价调整','基准价调整'];//房价调整的方法
         $scope.paymethods=["现金","支付宝","微信","刷卡","挂账"];// 商品购买的支付方式
         $scope.data=[
-         {'id':1,'name':'普通','number':101,'price':120,'person':'张三','state':'空房','color':'#2993cc'},
+         {'id':1,'name':'普通','number':101,'price':120,'person':'','state':'空房','color':'#2993cc'},
          {'id':1,'name':'商务','number':102,'price':168,'person':'张三','state':'在住','color':'#d32945'},
-         {'id':1,'name':'贵宾','number':103,'price':228,'person':'张三','state':'待查','color':'#070f7a'},
-         {'id':1,'name':'标间','number':104,'price': 90,'person':'张三','state':'自用','color':'#29e17f'},
-         {'id':1,'name':'普通','number':105,'price':120,'person':'张三','state':'修理','color':'#a49fb1'},
-         {'id':1,'name':'普通','number':106,'price':120,'person':'张三','state':'脏房','color':'#24282a'},
-         {'id':1,'name':'商务','number':107,'price':168,'person':'张三','state':'待查','color':'#070f7a'},
+         {'id':1,'name':'贵宾','number':103,'price':228,'person':'','state':'待查','color':'#070f7a'},
+         {'id':1,'name':'标间','number':104,'price': 90,'person':'','state':'自用','color':'#29e17f'},
+         {'id':1,'name':'普通','number':105,'price':120,'person':'','state':'修理','color':'#a49fb1'},
+         {'id':1,'name':'普通','number':106,'price':120,'person':'','state':'脏房','color':'#24282a'},
+         {'id':1,'name':'商务','number':107,'price':168,'person':'','state':'待查','color':'#070f7a'},
          {'id':1,'name':'贵宾','number':108,'price':228,'person':'张三','state':'预订','color':'#c9d329'},
-         {'id':1,'name':'标间','number':109,'price': 90,'person':'张三','state':'空房','color':'#2993cc'},
-         {'id':1,'name':'普通','number':110,'price':120,'person':'张三','state':'空房','color':'#2993cc'},
-         {'id':1,'name':'商务','number':111,'price':168,'person':'张三','state':'待查','color':'#070f7a'},
-         {'id':1,'name':'贵宾','number':112,'price':228,'person':'张三','state':'空房','color':'#2993cc'},
-         {'id':1,'name':'标间','number':113,'price': 90,'person':'张三','state':'空房','color':'#2993cc'},
-         {'id':2,'name':'普通','number':201,'price':120,'person':'张三','state':'空房','color':'#2993cc'},
+         {'id':1,'name':'标间','number':109,'price': 90,'person':'','state':'空房','color':'#2993cc'},
+         {'id':1,'name':'普通','number':110,'price':120,'person':'','state':'空房','color':'#2993cc'},
+         {'id':1,'name':'商务','number':111,'price':168,'person':'','state':'待查','color':'#070f7a'},
+         {'id':1,'name':'贵宾','number':112,'price':228,'person':'','state':'空房','color':'#2993cc'},
+         {'id':1,'name':'标间','number':113,'price': 90,'person':'','state':'空房','color':'#2993cc'},
+         {'id':2,'name':'普通','number':201,'price':120,'person':'','state':'空房','color':'#2993cc'},
          {'id':2,'name':'商务','number':202,'price':168,'person':'张三','state':'在住','color':'#d32945'},
-         {'id':2,'name':'贵宾','number':203,'price':228,'person':'张三','state':'待查','color':'#070f7a'},
-         {'id':2,'name':'标间','number':204,'price': 90,'person':'张三','state':'自用','color':'#29e17f'},
-         {'id':2,'name':'普通','number':205,'price':120,'person':'张三','state':'修理','color':'#a49fb1'},
-         {'id':2,'name':'普通','number':206,'price':120,'person':'张三','state':'脏房','color':'#24282a'},
-         {'id':2,'name':'商务','number':207,'price':168,'person':'张三','state':'待查','color':'#070f7a'},
+         {'id':2,'name':'贵宾','number':203,'price':228,'person':'','state':'待查','color':'#070f7a'},
+         {'id':2,'name':'标间','number':204,'price': 90,'person':'','state':'自用','color':'#29e17f'},
+         {'id':2,'name':'普通','number':205,'price':120,'person':'','state':'修理','color':'#a49fb1'},
+         {'id':2,'name':'普通','number':206,'price':120,'person':'','state':'脏房','color':'#24282a'},
+         {'id':2,'name':'商务','number':207,'price':168,'person':'','state':'待查','color':'#070f7a'},
          {'id':2,'name':'贵宾','number':208,'price':228,'person':'张三','state':'预订','color':'#c9d329'},
-         {'id':2,'name':'标间','number':209,'price': 90,'person':'张三','state':'空房','color':'#2993cc'},
-         {'id':3,'name':'普通','number':305,'price':120,'person':'张三','state':'修理','color':'#a49fb1'},
-         {'id':3,'name':'普通','number':306,'price':120,'person':'张三','state':'脏房','color':'#24282a'},
-         {'id':3,'name':'商务','number':307,'price':168,'person':'张三','state':'待查','color':'#070f7a'},
+         {'id':2,'name':'标间','number':209,'price': 90,'person':'','state':'空房','color':'#2993cc'},
+         {'id':3,'name':'普通','number':305,'price':120,'person':'','state':'修理','color':'#a49fb1'},
+         {'id':3,'name':'普通','number':306,'price':120,'person':'','state':'脏房','color':'#24282a'},
+         {'id':3,'name':'商务','number':307,'price':168,'person':'','state':'待查','color':'#070f7a'},
          {'id':3,'name':'贵宾','number':308,'price':228,'person':'张三','state':'预订','color':'#c9d329'},
-         {'id':3,'name':'标间','number':309,'price': 90,'person':'张三','state':'空房','color':'#2993cc'},
-         {'id':3,'name':'普通','number':310,'price':120,'person':'张三','state':'空房','color':'#2993cc'},
-         {'id':3,'name':'商务','number':311,'price':168,'person':'张三','state':'待查','color':'#070f7a'},
-         {'id':3,'name':'贵宾','number':312,'price':228,'person':'张三','state':'空房','color':'#2993cc'},
-         {'id':3,'name':'标间','number':313,'price': 90,'person':'张三','state':'空房','color':'#2993cc'},
+         {'id':3,'name':'标间','number':309,'price': 90,'person':'','state':'空房','color':'#2993cc'},
+         {'id':3,'name':'普通','number':310,'price':120,'person':'','state':'空房','color':'#2993cc'},
+         {'id':3,'name':'商务','number':311,'price':168,'person':'','state':'待查','color':'#070f7a'},
+         {'id':3,'name':'贵宾','number':312,'price':228,'person':'','state':'空房','color':'#2993cc'},
+         {'id':3,'name':'标间','number':313,'price': 90,'person':'','state':'空房','color':'#2993cc'},
         ];//房态显示
         $scope.roomdatas=[
                         {'name':'全部',},
@@ -993,7 +988,7 @@ section#three································
                   alert('请输入调整时间段')
               }
           };
-        };*/
+        }*/
 
 
       // end           房价调整
@@ -1051,8 +1046,7 @@ section#three································
               alert('请输入密码')
             }
             else{
-              $('#dialogbox').modal('close');
-             alert('您已登录成功！')
+              $('#shiftA').attr('href','index.html');
             }
         }
       // end  交班

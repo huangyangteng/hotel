@@ -1,155 +1,196 @@
 <!doctype html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="../css/index.css">
-    <link rel="stylesheet" type="text/css" href="../css/common.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/amazeui.min.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/jquery-ui-1.10.4.custom.min.css">
-    <script src="../assets/js/jquery.min.js"></script>
-    <script  src="../assets/js/amazeui.min.js"></script>
-    <script src="../assets/js/angular.min.js"></script>
-    <script src="../assets/js/jquery-ui-1.10.4.custom.min.js"></script>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>入住</title>
+    <style type="text/css">
+        #registe{
+            border: 2px solid #EAE8E8;
+            background: #fff;
+        }
+        #registe td{
+            border: 0px;
+            padding: 0.3em;
+        }
+        #registe td[colspan="4"]{
+            font-size: 20px;
+            letter-spacing: 15px;
+        }
+        #registe td[colspan="4"] span{
+            font-size: 14px;
+            float: right;
+            letter-spacing: 0px;
+        }
+        #registe td[colspan="4"] span input{
+            margin:0px 26px 0px 6px ;
+        }
+        #registe .re_main{
+            float: left;
+        }
+        #registe  hr{
+            border-color: #C6C6C6;
+            box-shadow: 0px 0px 1px #C6C6C6;
+            margin: 0px;
+        }
+        #registe td[colspan="3"] textarea{
+            width: 85%;
+            height: 80px
+        }
+        #registe td[colspan="3"] button{
+            float: right;
+            margin-right: 6%;
+            margin-bottom: 10px;
+        }
+        #registe .c_bottom p{
+            display: inline-block;
+            margin: 0px 0px 0px 20px;
+        }
+
+    </style>
 </head>
 <body>
-    <div class="table">
-        <table class="am-table am-table-bordered am-table-hover">
-            <thead>
-                <tr class="am-primary" >入住信息:</tr>
-            </thead>
-            <tr>
-                <td>
-                    <label>宾客类型：</label>
-                    <input type="text"  name="" >
-                <td>
-                    <label>电话：</label>
-                    <input type="text"  name="" >
-                </td>
-                <td>
-                    <label>姓名：</label>
-                    <input type="text" name="text">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label>国籍：</label>
-                    <input type="text" name="text">
-                </td>
-                <td>
-                    <label>证件种类：</label>
-                    <select data-am-selected>
-                        <option value="b" selected>身份证</option>
-                        <option value="o">驾驶证</option>
-                        <option value="m">士兵证</option>
-                    </select>
-                </td>
-                <td colspan="2">
-                    <label>证件号</label>
-                    <input type="text" name="text">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label>性别：</label>
-                    <label class="am-radio-inline" >
-                        <input type="radio"  value="" name="docInlineRadio" checked > 男
-                    </label>
-                    <label class="am-radio-inline">
-                        <input type="radio" name="docInlineRadio">女
-                    </label>
-                </td>
-                <td>
-                    <label>民族：</label>
-                    <select data-am-selected>
-                        <option value="b" selected>汉族</option>
-                        <option value="o">少数名族</option>
-                    </select>
-                </td>
-                <td>
-                    <label>生日</label>
-                    <input type="text" name="text" value="2017.4.10">
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div class="table">
-        <table class="am-table am-table-bordered am-table-hover">
-            <tr>
-                <td>
-                    <label style="width: 8%;">地区:</label>
-                    <input type="" name="" style="width: 20%;">
-                    <input type="" name="" style="width: 60%;">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label style="width: 8%;">单位名称:</label>
-                    <input type="" name="" style="width: 80%;">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label style="width: 8%;">住址:</label>
-                    <input type="" name="" style="width: 80%;">
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div class="table">
-        <table class="am-table am-table-bordered am-table-hover">
-            <tr>
-                <td><label >到店日期:</label>
-                    <input type="date" data-am-datepicker="" name="date">
-                </td>
-                <td>
-                    <input type="number" name="" style="width: 30px;">天
-                </td>
-                <td><label >离店日期:</label>
-                    <input type="date" data-am-datepicker="" name="date">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label>房型：</label>
-                    <input type="text" value="普通房" name="" disabled>
-                <td>
-                    <label>房号：</label>
-                    <input type="text" name="text" value="101" disabled>
-                </td>
-                <td>
-                    <label>支付方式：</label>
-                    <select data-am-selected>
-                        <option value="b" selected>现金</option>
-                        <option value="m">支付宝</option>
-                        <option value="o">刷卡</option>
-                        <option value="o">刷卡</option>
-                        <option value="o">刷卡</option>
-                        <option value="o">刷卡</option>
-                        <option value="o">刷卡</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label>房价：</label>
-                    <input type="text" name="text" value="168元" disabled>
-                </td>
-                <td>
-                    <label>服务费：</label>
-                    <input type="text" name="text">
-                </td>
-                <td>
-                    <label>加床费：</label>
-                    <input type="text" name="text">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label>房价类型：</label>
-                    <input type="text" name="text">
-                </td>
+    <table id="registe" class="am-table am-table-bordered">
+        <tr>
+            <td colspan="4">宾客登记表<span>长包 <input type="checkbox" name=""></span></td>
+        </tr>
+        <tr>
+            <td>
+                个人帐号：
+                <input type="text"  name="" >
+            </td>
+            <td class="re_main">
+                主帐号：
+                <input type="text"  name="" >
+            </td>
+            <td>
+                预订号：
+                <input type="text"  name="" value="00032" readonly>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3"><hr></td>
+        </tr>
+        <tr>
+            <td>
+                <label>姓名：</label>
+                <input type="text" name="text">
+            </td>
+            <td>
+                <label>宾客类型：</label>
+                <select data-am-selected>
+                    <option value="b" selected>个人</option>
+                    <option value="o">团体</option>
+                </select>
+
+            <td>
+                <label>电话：</label>
+                <input type="text"  name="" placeholder="内部电话" >
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>国籍：</label>
+                <input type="text" name="">
+
+            </td>
+            <td>
+                <label>证件种类：</label>
+                <input type="text" name="">
+            </td>
+            <td>
+                <label>证件号：</label>
+                <input type="text" name="text">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>性别：</label>
+                <label class="am-radio-inline sex_one" >
+                    <input type="radio"  value="" name="docInlineRadio" checked > 男
+                </label>
+                <label class="am-radio-inline sex_two">
+                    <input type="radio" name="docInlineRadio">女
+                </label>
+            </td>
+            <td>
+                <label>民族：</label>
+                <input type="" name="">
+            </td>
+            <td>
+                <label>生日：</label>
+                <input type="text" name="text" value="2017.4.10">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <label style="width: 8%;">地区：</label>
+                <input type="" name="" style="width: 20%;">
+                <input type="" name="" style="width: 60%;">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <label style="width: 8%;">单位名称：</label>
+                <input type="" name="" style="width: 80%;">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <label style="width: 8%;">住址：</label>
+                <input type="" name="" style="width: 80%;">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <label style="width: 8%;">手机号码：</label>
+                <input type="" name="" style="width: 80%;">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label >到店日期：</label>
+                <input type="date" data-am-datepicker="" name="date">
+            </td>
+            <td>
+                <label >住店天数：</label>
+                <input type="number" name="" >
+            </td>
+            <td>
+                <label >离店日期：</label>
+                <input type="date" data-am-datepicker="" name="date">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>房型：</label>
+                <input type="text" value="普通房" name="" disabled>
+            <td>
+                <label>房号：</label>
+                <input type="text" name="text" value="101" disabled>
+            </td>
+            <td>
+                <label>房价：</label>
+                <input type="text" name="text" value="168元" disabled>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>优惠价：</label>
+                <input type="text" name="text">
+            </td>
+            <td>
+                <label>服务费：</label>
+                <input type="text" name="text">
+            </td>
+            <td>
+                <label>加床费：</label>
+                <input type="text" name="text">
+            </td>
+        </tr>
+        <tr>
                 <td>
                     <label>折扣率：</label>
                     <input type="text" name="text">
@@ -158,8 +199,67 @@
                     <label>折扣类型：</label>
                     <input type="text" name="text">
                 </td>
-            </tr>
-        </table>
-    </div>
-
+                <td>
+                    <label>定金：</label>
+                    <input type="text" name="text">
+                </td>
+        </tr>
+        <tr>
+            <td>
+                <label>预付：</label>
+                <input type="text" name="text">
+            </td>
+            <td colspan="2">
+                <div class="am-form-group">
+                        <span><b>支付方式：</b></span>
+                        <label class="am-radio-inline">
+                            <input type="radio"  value="" name="docInlineRadio" checked> 现金
+                        </label>
+                        <label class="am-radio-inline">
+                            <input type="radio" name="docInlineRadio"> 刷卡
+                        </label>
+                        <label class="am-radio-inline">
+                            <input type="radio" name="docInlineRadio"> 支付宝
+                        </label>
+                        <label class="am-radio-inline">
+                            <input type="radio" name="docInlineRadio"> 微信
+                        </label>
+                        <label class="am-radio-inline">
+                            <input type="radio" name="docInlineRadio">挂账
+                        </label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>会员卡号：</label>
+                <input type="text" name="text">
+            </td>
+            <td>
+                <label>客源帐号：</label>
+                <input type="text" name="text">
+                <button>...</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <label>备注：</label>
+                <textarea></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3"  class="c_hr"><hr></td>
+        </tr>
+        <tr>
+            <td class="c_bottom">
+                <p>日期：<span>2017.04.10</span></p>
+                <p>营销员：<span>小张</span></p>
+                <p>接待人：<span>小王</span></p>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <button class="am-btn am-btn-secondary">入住</button>
+            </td>
+        </tr>
+    </table>
 </body>
