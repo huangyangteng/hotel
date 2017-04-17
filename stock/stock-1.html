@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/amazeui.min.css">
+    <script src="assets/js/jquery.min.js"></script>
+    <script  src="assets/js/amazeui.min.js"></script>
+    <script src="https://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script> 
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <script rel="jquery.min.js"></script>
+	<style>
+        .am-tabs-nav li {
+          position: relative;
+          z-index: 1;
+        }  
+
+        .am-tabs-nav .am-icon-close {
+          position: absolute;
+          top: 0;
+          right: 10px;
+          color: #888;
+          cursor: pointer;
+          z-index: 100;
+        }
+
+        .am-tabs-nav .am-icon-close:hover {
+          color: #333;
+        }
+      
+        .am-tabs-nav .am-icon-close ~ a {
+          padding-right: 25px!important;
+        }
+        .add0 am-active{
+            background-color: orange;
+            width: 100%;
+        }
+        .add0_child{
+            float: left;
+            border: 1px solid blue;
+            width: 10%;
+            height: 30px;
+            text-align: center;
+        }
+        .add{
+            background-color: azure;
+        }
+        .add_child{
+            float: left;
+            border: 1px solid blue;
+            width: 10%;
+            height: 28px;
+            text-align: center;
+        }
+	</style>
+</head>
+<body>
+   
+        <script>
+            $(function() {
+                var tabCounter = 2;
+                var $tab = $('#doc-tab-demo-1');
+                var $nav = $tab.find('.am-tabs-nav');
+                var $bd = $tab.find('.am-tabs-bd');
+
+                function addTab() {
+                  var nav = '<li><span class="am-icon-close"></span>' +
+                    '<a href="javascript: void(0)">商品 ' + tabCounter + '</a></li>';
+                  var content = ' <div class="add"><div class="add_child"><input type="number" placeholder="请输入数字" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="请输入是/否" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="格式：2017年5月20日" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="格式：8个月" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="请输入数字" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="格式：90元/个" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="格式：90元/个" style="width: 100%;text-align: center"></div></div>';
+            
+                  $nav.append(nav);
+                  $bd.append(content);
+                  tabCounter++;
+                  $tab.tabs('refresh');
+                }
+
+                // 动态添加标签页
+                $('.js-append-tab').on('click', function() {
+                  addTab();
+                });
+        
+                // 移除标签页
+                $nav.on('click', '.am-icon-close', function() {
+                  var $item = $(this).closest('li');
+                  var index = $nav.children('li').index($item);
+            
+                  $item.remove();
+                  $bd.find('.add').eq(index).remove();
+            
+                  $tab.tabs('open', index > 0 ? index - 1 : index + 1);
+                  $tab.tabs('refresh');
+                });
+            });
+        </script>
+
+            <div class="add-goods">
+                <table class="am-table">
+                    <tr class="am-primary">
+                        <td>
+                            <div class="am-tabs" data-am-tabs="{noSwipe: 1}" id="doc-tab-demo-1">
+                                <ul class="am-tabs-nav am-nav am-nav-tabs">
+                                  <li class="am-active"><a href="javascript: void(0)">商品信息</a></li>
+                                  <li><a href="javascript: void(0)">商品1</a></li>
+                                </ul>
+
+                                <div class="am-tabs-bd">
+                                  <div class="add am-active">
+                                    <div class="add0_child">排序</div>
+                                    <div class="add0_child">商品名称</div>
+                                    <div class="add0_child">商品编码</div>
+                                    <div class="add0_child">商品属性</div>
+                                    <div class="add0_child">是否预售</div>
+                                    <div class="add0_child">生产日期</div>
+                                    <div class="add0_child">保质期</div>
+                                    <div class="add0_child">库存数量</div>
+                                    <div class="add0_child">商品价格</div>
+                                    <div class="add0_child">会员价格</div>
+                                  </div>
+                                  <div class="add">
+                                    <div class="add_child"><input type="number" placeholder="请输入数字" style="width: 100%;text-align: center"></div>
+                                    <div class="add_child"><input type="text" style="width: 100%;text-align: center"></div>
+                                    <div class="add_child"><input type="text" style="width: 100%;text-align: center"></div>
+                                    <div class="add_child"><input type="text" style="width: 100%;text-align: center"></div>
+                                    <div class="add_child"><input type="text" placeholder="请输入是/否" style="width: 100%;text-align: center"></div>
+                                    <div class="add_child"><input type="text" placeholder="格式：2017年5月20日" style="width: 100%;text-align: center"></div>
+                                    <div class="add_child"><input type="text" placeholder="格式：8个月" style="width: 100%;text-align: center"></div>
+                                    <div class="add_child"><input type="number" placeholder="请输入数字" style="width: 100%;text-align: center"></div>
+                                    <div class="add_child"><input type="text" placeholder="格式：90元/个" style="width: 100%;text-align: center"></div>
+                                    <div class="add_child"><input type="text" placeholder="格式：90元/个" style="width: 100%;text-align: center"></div>
+                                  </div>
+                                </div>
+                            </div>
+                            <br />
+                            <button type="button" class="am-btn am-btn-primary js-append-tab">添加</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+</body>
+</html>
