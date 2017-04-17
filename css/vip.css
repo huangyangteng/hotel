@@ -45,12 +45,23 @@
 	width: 100%;
 	height: 70px;
 }
-.vips_selects label {
+.vips_selects label:nth-child(1) {
 	display: block;
 	text-align: center;
 	float: left;
 	line-height: 65px;
 	height: 65px;
+}
+.vips_selects label:last-child {
+	display: block;
+	text-align: center;
+	float: right;
+	line-height: 65px;
+	height: 65px;
+}
+.vips_selects .vips_serial_num{
+	float: right;
+	margin-right: 20px;
 }
 .vips_selects input {
 	display: block;
@@ -63,24 +74,20 @@
 }
 .vips_selects button {
 	float: left;
-	background: #0f0;
 	margin-left: 30px;
-	margin-top: 20px;
-	border: 1px solid #ccc;
-	width: 50px;
-	height: 30px;
+	margin-top: 15px;
 }
 /*vips_selects所有样式结束*/
 
 /*vips_imformations所有样式开始*/
 .vips_imformations {
+	overflow: auto;
 	width: 100%;
 	border: 1px solid #ccc;
 	background: rgb(239,239,239);
 }
 .vips_imformations ul {
 	padding-left: 0px !important;
-	overflow: auto;
 }
 .vips_imformations ul li {
 	list-style: none;
@@ -109,7 +116,8 @@
 }
 .vips_imformations_footers {
 	width: 100%;
-	height: 180px;
+	height:auto!important; 
+	min-height:140px; 
 	padding-top: 0px;
 }
 .vips_imformations_footers label {
@@ -132,8 +140,8 @@
 /*vips_moneys所有样式开始*/
 .vips_moneys {
 	width: 100%;
-	height: 140px;
 	border: 1px solid #ccc;
+	min-height: 70px;
 	padding-top: 20px;
 	margin-top: 10px;
 	background: rgb(239,239,239);
@@ -258,12 +266,29 @@
 	height: 70px;
 }
 #vips_integrals .shops_list{
+	line-height: 50px;
+	height: 300px;
 	margin-top: 10px;
 	width: 100%;
 	border: 1px solid #ccc;
+	position: relative;
 }
 #vips_integrals .shops_list table{
 	width: 100%;
+}
+#vips_integrals .shops_list .shops_list_tb1{
+	/*background: rgb(0,173,239);*/
+	height: 50px;
+	width: 100%;
+	padding-right: 17px;
+}
+#vips_integrals .shops_list .shops_list_tb2{
+	position: absolute;
+	top: 51px;
+	left: 0;
+	width: 100%;
+	height: 249px;
+	overflow: auto;
 }
 #vips_integrals .shops_list table tr th{
     height: 32px;

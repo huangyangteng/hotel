@@ -14,40 +14,34 @@
         <tr class="am-primary">
             <th>充值金额</th>
             <th>赠送金额</th>
-            <th>赠送积分</th>
-            <th style="width: 15%">操作</th>
+            <th style="width: 25%">操作</th>
         </tr>
         </thead>
         <tbody id="vips_in_money_tab">
         <tr>
             <td>1000</td>
             <td>50</td>
-            <td>50</td>
-            <td style="width: 15%"><button type="button" onclick="if(confirm('是否确认删除！！')) $(this).parent().parent().remove();" class="am-btn am-btn-primary vips_shop_cut"> 删除 </button></td></td>
+            <td style="width: 25%"><button type="button" onclick="if(confirm('是否确认删除！！')) $(this).parent().parent().remove();" class="am-btn am-btn-primary vips_shop_cut"> 删除 </button></td></td>
         </tr>
         <tr>
             <td>2000</td>
             <td>100</td>
-            <td>100</td>
-            <td style="width: 15%"><button type="button" onclick="if(confirm('是否确认删除！！')) $(this).parent().parent().remove();" class="am-btn am-btn-primary vips_shop_cut"> 删除 </button></td></td>
+            <td style="width: 25%"><button type="button" onclick="if(confirm('是否确认删除！！')) $(this).parent().parent().remove();" class="am-btn am-btn-primary vips_shop_cut"> 删除 </button></td></td>
         </tr>
         <tr>
             <td>3000</td>
             <td>200</td>
-            <td>200</td>
-            <td style="width: 15%"><button type="button" onclick="if(confirm('是否确认删除！！')) $(this).parent().parent().remove();" class="am-btn am-btn-primary vips_shop_cut"> 删除 </button></td></td>
+            <td style="width: 25%"><button type="button" onclick="if(confirm('是否确认删除！！')) $(this).parent().parent().remove();" class="am-btn am-btn-primary vips_shop_cut"> 删除 </button></td></td>
         </tr>
         <tr>
             <td>4000</td>
             <td>300</td>
-            <td>300</td>
-            <td style="width: 15%"><button type="button" onclick="if(confirm('是否确认删除！！')) $(this).parent().parent().remove();" class="am-btn am-btn-primary vips_shop_cut"> 删除 </button></td></td>
+            <td style="width: 25%"><button type="button" onclick="if(confirm('是否确认删除！！')) $(this).parent().parent().remove();" class="am-btn am-btn-primary vips_shop_cut"> 删除 </button></td></td>
         </tr>
         <tr>
             <td>5000</td>
             <td>400</td>
-            <td>400</td>
-            <td style="width: 15%"><button type="button" onclick="if(confirm('是否确认删除！！')) $(this).parent().parent().remove();" class="am-btn am-btn-primary vips_shop_cut"> 删除 </button></td></td>
+            <td style="width: 25%"><button type="button" onclick="if(confirm('是否确认删除！！')) $(this).parent().parent().remove();" class="am-btn am-btn-primary vips_shop_cut"> 删除 </button></td></td>
         </tr>
         </tbody>
     </table>
@@ -64,7 +58,6 @@
                                   <fieldset class="am-form-set">
                                     <input id="vips_in_money" type="text" placeholder="充值金额">
                                     <input id="vips_free_money" type="text" placeholder="赠送金额">
-                                    <input id="vips_free_point" type="text" placeholder="赠送积分">
                                   </fieldset>
                                   <button id="vips_add_inmoney" type="submit" class="am-btn am-btn-primary am-btn-block" data-am-modal-close>添加</button>
                                 </form>
@@ -74,7 +67,7 @@
                  </div>
            </div>
     <!-- ....................................会员商品添加弹出框结束...................... ......-->
-    <button id="vips_add_inmoney_box" class="am-btn am-btn-secondary" data-am-modal="{target: '#doc-modal-7', closeViaDimmer: 0, width:500, height: 260}">增加方案</button>
+    <button id="vips_add_inmoney_box" class="am-btn am-btn-secondary" data-am-modal="{target: '#doc-modal-7', closeViaDimmer: 0, width:500, height: 240}">增加方案</button>
 </body>
 <script type="text/javascript">
     $(function(){
@@ -85,13 +78,11 @@
             $("#vips_add_inmoney").click(function(){
                 var  pri1=$("#vips_in_money").val();
                 var  pri2=$("#vips_free_money").val();
-                var  pri3=$("#vips_free_point").val();
-                if (pri1!=""&&pri2!=""&&pri3!="") {
+                if (pri1!=""&&pri2!="") {
                     $("#vips_in_money_tab").append(
                     '<tr>'+
                     '<td>'+pri1+'</td>'+
                     '<td>'+pri2+'</td>'+
-                    '<td>'+pri3+'</td>'+
                     '<td style="width: 15%"><button type="button"'
                     +'onclick="'
                     +'if(confirm('

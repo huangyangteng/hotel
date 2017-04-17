@@ -43,8 +43,9 @@
                         <div id="vips_cards" class="alerts_headers">
                             <div class="vips_selects">
                                 <label>会员卡号：</label>
-                                <input class="vips_in_num" type="text" value="" name="vips_ID">
-                                <button>查询</button>
+                                <input class="vips_in_num input_no_warns" type="text" value="" name="vips_ID">
+                                <input class="vips_serial_num" type="text" name="" disabled="true">
+                                <label>手工单号：</label>
                             </div>
                             <div class="vips_imformations">
                                 <ul>
@@ -79,7 +80,7 @@
                                     </li>
                                     <li>
                                         <label>生日：</label>
-                                        <input type="text" name="vips_birthday"  placeholder="" data-am-datepicker/>
+                                        <input type="text" name="vips_birthday" placeholder="请选择日期" readonly required data-am-datepicker/>
                                         <label>卡密码：</label>
                                         <input class="input_no_warns" type="password"  name="cards_password">
                                     </li>
@@ -98,20 +99,18 @@
                                     <option value="">银行卡</option>
                                     <option value="">网上支付</option>
                                 </select>
-                                <label>收款金额：</label>
-                                <input type="text" class="vips_in_num input_no_warns" name="">
                                 <label>充值金额：</label>
-                                <input type="text" class="vips_in_num input_no_warns" name="">
-                                <label>赠送积分：</label>
-                                <input type="text" class="vips_in_num input_no_warns" name="">
-                                <label>手工单号：</label>
-                                <input type="text" name="">
+                                <input type="text" id="vips_in_howmoney" class="vips_in_num input_no_warns" name="">
+                                <label>赠送金额：</label>
+                                <input type="text" id="vips_give_money" class="vips_in_num" disabled="true" name="">
+                                <!-- <label>赠送积分：</label>
+                                <input type="text" id="vips_give_int" class="vips_in_num" disabled="true" name=""> -->
                             </div>
                             <div class="vips_footers">
-                                <input type="checkbox">
+                                <!-- <input type="checkbox">
                                 <span>卡免费</span>
                                 <input type="checkbox">
-                                <span>发不记名卡</span>
+                                <span>发不记名卡</span> -->
                                 <input id="vips_cards_btn" type="button" class="am-btn am-btn-secondary btn-loading-example" value="会员录入" data-am-loading="{loadingText: '请稍等...'}" />
                                 <input type="button" class="am-btn am-btn-secondary" value="关闭" data-am-modal-close/>
                             </div>
@@ -131,7 +130,7 @@
                            <div class="vips_selects">
                                <label>会员卡号：</label>
                                <input type="text" name="">
-                               <button>查询</button>
+                               <button type="button" class="am-btn am-btn-primary">查询</button>
                            </div>
                            <div class="vips_imformations">
                                <ul>
@@ -153,7 +152,7 @@
                                    </li>
                                    <li>
                                        <label>生日：</label>
-                                       <input type="text" disabled="true">
+                                       <input type="text" disabled="true" >
                                        <label>卡密码：</label>
                                        <input type="text" disabled="true">
                                    </li>
@@ -200,13 +199,13 @@
                                       </select>
                                   </li>
                                   <li class="col-sm-4 col-md-4">
-                                      <label>收款金额:</label>
+                                      <label>充值金额:</label>
                                       <input type="text" name="">
                                       元
                                   </li>
                                   <li class="col-sm-4 col-md-4">
-                                      <label>充值金额:</label>
-                                      <input type="text" name="">
+                                      <label>赠送金额:</label>
+                                      <input type="text" disabled="true" name="">
                                       元
                                   </li>
                                </ul>
@@ -223,7 +222,7 @@
 <!-- ....................................积分兑换弹出框开始.................... -->
 <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-3">
       <div class="am-modal-dialog">
-            <div class="am-modal-hd">会员充值
+            <div class="am-modal-hd">积分兑换
               <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
             </div>
             <div class="am-modal-bd">
@@ -231,7 +230,7 @@
                     <div class="vips_selects">
                         <label>会员卡号：</label>
                         <input type="text" name="">
-                        <button>查询</button>
+                        <button type="button" class="am-btn am-btn-primary">查询</button>
                     </div>
                     <div class="vips_imformations">
                         <ul>
@@ -272,62 +271,88 @@
                         </ul>
                     </div>
                     <div class="shops_list">
-                        <table>
-                                <tr>
-                                    <th style="width: 8%;">商品编号</th>
-                                    <th style="width: 18%;">商品名称</th>
-                                    <th style="width: 12%;">单位</th>
-                                    <th style="width: 10%;">商品价格</th>
-                                    <th style="width: 10%;">兑换积分</th>
-                                    <th style="width: 14%;">数量</th>
-                                    <th style="width: 8%;">金额</th>
-                                    <th style="width: 12%;">总积分</th>
-                                </tr>
-                        </table>
-                        <table>
-                            <tbody>
-                               <tr>
-                                    <td style="width: 8%;"></td>
-                                    <td style="width: 18%;"></td>
-                                    <td style="width: 12%;"></td>
-                                    <td style="width: 10%;"></td>
-                                    <td style="width: 10%;"></td>
-                                    <td style="width: 14%;"></td>
-                                    <td style="width: 8%;"></td>
-                                    <td style="width: 12%;"></td>
-                                </tr>
-                                <tr>
-                                    <td style="width: 8%;"></td>
-                                    <td style="width: 18%;"></td>
-                                    <td style="width: 12%;"></td>
-                                    <td style="width: 10%;"></td>
-                                    <td style="width: 10%;"></td>
-                                    <td style="width: 14%;"></td>
-                                    <td style="width: 8%;"></td>
-                                    <td style="width: 12%;"></td>
-                                </tr>
-                                <tr>
-                                    <td style="width: 8%;"></td>
-                                    <td style="width: 18%;"></td>
-                                    <td style="width: 12%;"></td>
-                                    <td style="width: 10%;"></td>
-                                    <td style="width: 10%;"></td>
-                                    <td style="width: 14%;"></td>
-                                    <td style="width: 8%;"></td>
-                                    <td style="width: 12%;"></td>
-                                </tr>
-                                <tr>
-                                    <td style="width: 8%;"></td>
-                                    <td style="width: 18%;"></td>
-                                    <td style="width: 12%;"></td>
-                                    <td style="width: 10%;"></td>
-                                    <td style="width: 10%;"></td>
-                                    <td style="width: 14%;"></td>
-                                    <td style="width: 8%;"></td>
-                                    <td style="width: 12%;"></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="shops_list_tb1" style="padding-right: 17px">
+                            <table>
+                                   <tr>
+                                       <th style="width: 8%;">商品编号</th>
+                                       <th style="width: 18%;">商品名称</th>
+                                       <th style="width: 12%;">单位</th>
+                                       <th style="width: 10%;">商品价格</th>
+                                       <th style="width: 10%;">兑换积分</th>
+                                       <th style="width: 14%;">数量</th>
+                                       <th style="width: 8%;">金额</th>
+                                       <th style="width: 12%;">总积分</th>
+                                   </tr>
+                            </table>
+                        </div>
+                          
+                        <div class="shops_list_tb2">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 8%;"></td>
+                                        <td style="width: 18%;"></td>
+                                        <td style="width: 12%;"></td>
+                                        <td style="width: 10%;"></td>
+                                        <td style="width: 10%;"></td>
+                                        <td style="width: 14%;"></td>
+                                        <td style="width: 8%;"></td>
+                                        <td style="width: 12%;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 8%;"></td>
+                                        <td style="width: 18%;"></td>
+                                        <td style="width: 12%;"></td>
+                                        <td style="width: 10%;"></td>
+                                        <td style="width: 10%;"></td>
+                                        <td style="width: 14%;"></td>
+                                        <td style="width: 8%;"></td>
+                                        <td style="width: 12%;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 8%;"></td>
+                                        <td style="width: 18%;"></td>
+                                        <td style="width: 12%;"></td>
+                                        <td style="width: 10%;"></td>
+                                        <td style="width: 10%;"></td>
+                                        <td style="width: 14%;"></td>
+                                        <td style="width: 8%;"></td>
+                                        <td style="width: 12%;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 8%;"></td>
+                                        <td style="width: 18%;"></td>
+                                        <td style="width: 12%;"></td>
+                                        <td style="width: 10%;"></td>
+                                        <td style="width: 10%;"></td>
+                                        <td style="width: 14%;"></td>
+                                        <td style="width: 8%;"></td>
+                                        <td style="width: 12%;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 8%;"></td>
+                                        <td style="width: 18%;"></td>
+                                        <td style="width: 12%;"></td>
+                                        <td style="width: 10%;"></td>
+                                        <td style="width: 10%;"></td>
+                                        <td style="width: 14%;"></td>
+                                        <td style="width: 8%;"></td>
+                                        <td style="width: 12%;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 8%;"></td>
+                                        <td style="width: 18%;"></td>
+                                        <td style="width: 12%;"></td>
+                                        <td style="width: 10%;"></td>
+                                        <td style="width: 10%;"></td>
+                                        <td style="width: 14%;"></td>
+                                        <td style="width: 8%;"></td>
+                                        <td style="width: 12%;"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
                     </div>
                     <div class="in_money_footers">
                         <input id="in_moneys_close" type="button" class="am-btn am-btn-secondary" value="关闭" data-am-modal-close/>
@@ -515,7 +540,6 @@
                                   });
                                 }
                               })
-                            
                         })
                         //判断选择框是否选择函数
                         function isChose(){
@@ -564,16 +588,48 @@
                             lostFocus(vips_necessary_inputs.eq(i));
                             getFocus(vips_necessary_inputs.eq(i));
                         }
+                        //充值金额和赠送金额和赠送积分的转换
+                        function setGiveMoney(){
+                          let bili=0.5;
+                          let vips_give_money=$("#vips_give_money");
+                          vips_give_money.val(" "+parseInt($("#vips_in_howmoney").val()*bili));
+                        }
+                        function setGiveMoney0(){
+                          let vips_give_money=$("#vips_give_money");
+                          vips_give_money.val("0");
+                        }
+                       /* function setGiveInt(){
+                          let bili=0.5;
+                          let vips_give_int=$("#vips_give_int");
+                          vips_give_int.val(" "+parseInt($("#vips_in_howmoney").val()*bili));
+                        }
+                        function setGiveInt0(){
+                          let vips_give_int=$("#vips_give_int");
+                          vips_give_int.val("0");
+                        }*/
+                        $("#vips_in_howmoney").change(function(){
+                          let vips_give_money=$("#vips_give_money");
+                         // let vips_give_int=$("#vips_give_int");
+                          isAllNum($("#vips_in_howmoney").val(),vips_give_money,setGiveMoney,setGiveMoney0);
+                          //isAllNum($("#vips_in_howmoney").val(),vips_give_int,setGiveInt,setGiveInt0);
+                        })
                         //需要输入数字的input判断开始
                         function isNum(){
                           var vips_nums_inputs=$(".vips_in_num");
                           vips_nums_inputs.each(function(){
-                            isAllNum($(this).val(),$(this))
+                            isAllNum($(this).val(),$(this),toYellow,addYellow)
                           })
                         }
                         //需要输入数字的input判断结束 
+                        function toYellow(obj){
+                          obj.removeClass("toyellow");
+                        }
+                        function addYellow(obj){
+                          obj.css("outline","none");
+                          obj.addClass("toyellow")//如果不是纯数字执行的代码
+                        }
                         //判断一个字符串是否由纯数字组成函数开始
-                        function isAllNum(obj,changeobj){
+                        function isAllNum(obj,changeobj,funName1,funName2){
                           var newStr= new Array();
                           var vips_nums_inputs=$(".vips_in_num");
                           for (var i = 0; i < obj.length; i++) {
@@ -582,15 +638,29 @@
                             }
                           }
                           if (newStr.length==obj.length) {
-                            changeobj.removeClass("toyellow")//如果是纯数字执行的代码
+                            funName1(changeobj);//如果是纯数字执行的代码
+                            //return true;
                           }
                           else{
-                            changeobj.css("outline","none")
-                            changeobj.addClass("toyellow")//如果不是纯数字执行的代码
+                           funName2(changeobj);//如果不是纯数字执行的代码
                           }
                         }
                         //判断一个字符串是否由纯数字组成函数结束
         /*.........................会员录入数据发送及页面效果代码结束....................*/
+   /*..............................会员充值数据接受ajax及页面效果代码开始....................*/
+          $.ajax({
+            type: "GET",
+            url: "vips_imformations.json",
+            //dateType:"josn",
+            success: function (data) {
+              console.dir(data.vip[0].name);
+            },
+            error: function (jqXHR) {
+                console.dir(jqXHR.status)
+               // alert(jqXHR.status)
+            }
+        })
+   /*..............................会员充值数据接受ajax及页面效果代码结束....................*/
             });
           /*.in_money_footers button按钮代码开始——amazingui*/
             $('.btn-loading-example').click(function () {
