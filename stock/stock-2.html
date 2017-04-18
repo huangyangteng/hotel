@@ -8,6 +8,342 @@
     <title>Document</title>
 </head>
 <body>
-<img src="image/classify.png" alt="分类的图片">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/amazeui.min.css">
+    <script src="assets/js/jquery.min.js"></script>
+    <script  src="assets/js/amazeui.min.js"></script>
+    <script src="https://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script> 
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <script rel="jquery.min.js"></script>
+	<style>
+    body{
+      padding: 0px;margin: 0px;
+    }
+    .am-tabs-nav li {
+        position: relative;
+        z-index: 1;
+    }
+    .am-tabs-nav .am-icon-close {
+      position: absolute;
+      top: 0;
+      right: 10px;
+      color: #888;
+      cursor: pointer;
+      z-index: 100;
+    }
+    .am-tabs-nav .am-icon-close:hover {
+      color: #333;
+    }
+  
+    .am-tabs-nav .am-icon-close ~ a {
+      padding-right: 25px!important;
+    }
+    .am-tabs-nav-2 li {
+        position: relative;
+        z-index: 1;
+    }  
+    .am-tabs-nav-2 .am-icon-close {
+      position: absolute;
+      top: 0;
+      right: 10px;
+      color: #888;
+      cursor: pointer;
+      z-index: 100;
+    }
+    .am-tabs-nav-2 .am-icon-close:hover {
+      color: #333;
+    }
+  
+    .am-tabs-nav-2 .am-icon-close ~ a {
+      padding-right: 25px!important;
+    }
+    .am-tabs-nav-3 li {
+        position: relative;
+        z-index: 1;
+    }  
+    .am-tabs-nav-3 .am-icon-close {
+      position: absolute;
+      top: 0;
+      right: 10px;
+      color: #888;
+      cursor: pointer;
+      z-index: 100;
+    }
+    .am-tabs-nav-3 .am-icon-close:hover {
+      color: #333;
+    }
+  
+    .am-tabs-nav-3 .am-icon-close ~ a {
+      padding-right: 25px!important;
+    }
+   .add0 am-active{
+        background-color: orange;
+        width: 100%;
+    }
+    .add{
+      background-color: azure;
+    }
+    #room{
+      border: 1px solid pink;
+    }
+    #room .room_header{
+      width: 8%;
+      height: 35px;
+      background-color: pink;
+      text-align: center;
+    }
+    #room .add0_child{
+        float: left;
+        border: 1px solid blue;
+        width: 25%;
+        height: 30px;
+        text-align: center;
+    }
+    #room .add_child{
+        float: left;
+        border: 1px solid blue;
+        width: 25%;
+        height: 28px;
+        text-align: center;
+    }
+    #food{
+      margin-top: 2px;
+      border: 1px solid pink;
+    }
+    #food .room_header{
+      width: 8%;
+      height: 35px;
+      background-color: pink;
+      text-align: center;
+    }
+    #food .add0_child{
+        float: left;
+        border: 1px solid blue;
+        width: 33.33%;
+        height: 30px;
+        text-align: center;
+    }
+    #food .add_child{
+        float: left;
+        border: 1px solid blue;
+        width: 33.33%;
+        height: 28px;
+        text-align: center;
+    }
+    #redWine{
+      margin-top: 2px;
+      border: 1px solid pink;
+    }
+    #redWine .room_header{
+      width: 8%;
+      height: 35px;
+      background-color: pink;
+      text-align: center;
+    }
+    #redWine .add0_child{
+        float: left;
+        border: 1px solid blue;
+        width: 20%;
+        height: 30px;
+        text-align: center;
+    }
+    #redWine .add_child{
+        float: left;
+        border: 1px solid blue;
+        width: 20%;
+        height: 28px;
+        text-align: center;
+    }
+	</style>
+</head>
+<body>
+  <div>
+    <div id="room">
+    	 <div class="room_header">客房</div>
+       <div class="add-goods">
+         <table class="am-table">
+             <tr class="am-primary">
+                 <td>
+                     <div class="am-tabs" data-am-tabs="{noSwipe: 1}" id="doc-tab-demo-1">
+                         <ul class="am-tabs-nav am-nav am-nav-tabs">
+                           <li class="am-active"><a href="javascript: void(0)">客房信息</a></li>
+                           <li><a href="javascript: void(0)">客房1</a></li>
+                         </ul>
+                         <div class="am-tabs-bd">
+                           <div class="add am-active">
+                             <div class="add0_child">房号</div>
+                             <div class="add0_child">类型</div>
+                             <div class="add0_child">会员价格</div>
+                             <div class="add0_child">价格</div>
+                           </div>
+                           <div class="add"><div class="add_child"><input type="number" placeholder="请输入数字" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="单间/双人间/标准间/豪华间" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="格式：90元/间" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="格式：90元/间" style="width: 100%;text-align: center"></div></div>
+                         </div>
+                     </div>
+                     <br />
+                     <button type="button" class="am-btn am-btn-primary js-append-tab">+添加客房</button>
+                 </td>
+             </tr>
+         </table>
+       </div>
+    </div>
+  
+    <div id="food">
+       <div class="room_header">小商品</div>
+       <div class="add-goods">
+         <table class="am-table">
+             <tr class="am-primary">
+                 <td>
+                     <div class="am-tabs" data-am-tabs="{noSwipe: 1}" id="doc-tab-demo-2">
+                         <ul class="am-tabs-nav-2 am-nav am-nav-tabs">
+                           <li class="am-active"><a href="javascript: void(0)">小商品信息</a></li>
+                           <li><a href="javascript: void(0)">小商品1</a></li>
+                         </ul>
+                         <div class="am-tabs-bd-2">
+                           <div class="add am-active">
+                             <div class="add0_child">小商品名</div>
+                             <div class="add0_child">会员价格</div>
+                             <div class="add0_child">价格</div>
+                           </div>
+                           <div class="add"><div class="add_child"><input type="text" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="格式：10元/包" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="格式：10元/包" style="width: 100%;text-align: center"></div></div>
+                         </div>
+                     </div>
+                     <br />
+                     <button type="button" class="am-btn am-btn-primary js-append-tab-2">+添加小商品</button>
+                 </td>
+             </tr>
+         </table>
+       </div>
+    </div>
+
+    <div id="redWine">
+       <div class="room_header">红酒</div>
+       <div class="add-goods">
+         <table class="am-table">
+             <tr class="am-primary">
+                 <td>
+                     <div class="am-tabs" data-am-tabs="{noSwipe: 1}" id="doc-tab-demo-3">
+                         <ul class="am-tabs-nav-3 am-nav am-nav-tabs">
+                           <li class="am-active"><a href="javascript: void(0)">红酒信息</a></li>
+                           <li><a href="javascript: void(0)">红酒1</a></li>
+                         </ul>
+                         <div class="am-tabs-bd-3">
+                           <div class="add am-active">
+                             <div class="add0_child">红酒名</div>
+                             <div class="add0_child">年份</div>
+                             <div class="add0_child">生产地</div>
+                             <div class="add0_child">会员价格</div>
+                             <div class="add0_child">价格</div>
+                           </div>
+                           <div class="add"><div class="add_child"><input type="text" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="格式：1999年" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="格式：900元/瓶" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="格式：900元/瓶" style="width: 100%;text-align: center"></div></div>
+                         </div>
+                     </div>
+                     <br />
+                     <button type="button" class="am-btn am-btn-primary js-append-tab-3">+添加红酒</button>
+                 </td>
+             </tr>
+         </table>
+       </div>
+    </div>
+  </div>
+  <script>
+    $(function() {
+      var tabCounter = 2;
+      var $tab = $('#doc-tab-demo-1');
+      var $nav = $tab.find('.am-tabs-nav');
+      var $bd = $tab.find('.am-tabs-bd');
+      function addTab() {
+        var nav = '<li><span class="am-icon-close"></span>' +
+                    '<a href="javascript: void(0)">客房 ' + tabCounter + '</a></li>';
+        var content = ' <div class="add"><div class="add_child"><input type="number" placeholder="请输入数字" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="单间/双人间/标准间/豪华间" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="格式：90元/间" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="格式：90元/间" style="width: 100%;text-align: center"></div></div>';            
+        $nav.append(nav);
+        $bd.append(content);
+        tabCounter++;
+        $tab.tabs('refresh');
+      }
+      // 动态添加标签页
+      $('.js-append-tab').on('click', function() {
+        addTab();
+      });       
+      // 移除标签页
+      $nav.on('click', '.am-icon-close', function() {
+        var $item = $(this).closest('li');
+        var index = $nav.children('li').index($item);
+  
+        $item.remove();
+        $bd.find('.add').eq(index).remove();
+  
+        $tab.tabs('open', index > 0 ? index - 1 : index + 1);
+        $tab.tabs('refresh');
+      });
+    });
+
+    $(function() {
+      var tabCounter = 2;
+      var $tab2 = $('#doc-tab-demo-2');
+      var $nav2 = $tab2.find('.am-tabs-nav-2');
+      var $bd2 = $tab2.find('.am-tabs-bd-2');
+      function addTab2() {
+        var nav2 = '<li><span class="am-icon-close"></span>' +
+                    '<a href="javascript: void(0)">小商品 ' + tabCounter + '</a></li>';
+        var content = ' <div class="add"><div class="add_child"><input type="text" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="格式：10元/包" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="格式：10元/包" style="width: 100%;text-align: center"></div></div>';            
+        $nav2.append(nav2);
+        $bd2.append(content);
+        tabCounter++;
+        $tab2.tabs('refresh');
+      }
+      // 动态添加标签页
+      $('.js-append-tab-2').on('click', function() {
+        addTab2();
+      });       
+      // 移除标签页
+      $nav2.on('click', '.am-icon-close', function() {
+        var $item = $(this).closest('li');
+        var index = $nav2.children('li').index($item);
+  
+        $item.remove();
+        $bd2.find('.add').eq(index).remove();
+  
+        $tab2.tabs('open', index > 0 ? index - 1 : index + 1);
+        $tab2.tabs('refresh');
+      });
+    });
+
+    $(function() {
+      var tabCounter = 2;
+      var $tab3 = $('#doc-tab-demo-3');
+      var $nav3 = $tab3.find('.am-tabs-nav-3');
+      var $bd3 = $tab3.find('.am-tabs-bd-3');
+      function addTab3() {
+        var nav3 = '<li><span class="am-icon-close"></span>' +
+                    '<a href="javascript: void(0)">红酒 ' + tabCounter + '</a></li>';
+        var content = '  <div class="add"><div class="add_child"><input type="text" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="格式：1999年" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="格式：900元/瓶" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="格式：900元/瓶" style="width: 100%;text-align: center"></div></div>';            
+        $nav3.append(nav3);
+        $bd3.append(content);
+        tabCounter++;
+        $tab3.tabs('refresh');
+      }
+      // 动态添加标签页
+      $('.js-append-tab-3').on('click', function() {
+        addTab3();
+      });       
+      // 移除标签页
+      $nav3.on('click', '.am-icon-close', function() {
+        var $item = $(this).closest('li');
+        var index = $nav3.children('li').index($item);
+  
+        $item.remove();
+        $bd3.find('.add').eq(index).remove();
+  
+        $tab3.tabs('open', index > 0 ? index - 1 : index + 1);
+        $tab3.tabs('refresh');
+      });
+    });
+  </script>
+</body>
+</html>
 </body>
 </html>

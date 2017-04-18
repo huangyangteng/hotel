@@ -94,9 +94,9 @@
               </div>
           </div>
     <!-- ·································end 外客购买·························· -->
-          <button type="button"  class="am-btn am-btn-secondary">团队服务</button>
+          <button type="button"  class="am-btn am-btn-secondary">团队预订</button>
     <!-- ·························时间输入框······················· -->
-          <input class="oc_time" type="text"  data-am-datepicker readonly required placeholder="请选择日期">
+          <input class="oc_time" type="text"  data-am-datepicker readonly required placeholder="请选择日期" >
     <!-- ·························反结账 start······························ -->
           <button
                   type="button"
@@ -179,7 +179,7 @@
           </div>
     <!-- ·························end 反结账······························ -->
     <!-- ·····················搜索框····························· -->
-          <input class="oc_search research" type="text" name="" placeholder ="请输入会员卡号/证件号码/房号" >
+          <input class="oc_search research" type="text" name="" placeholder ="请输入会员卡号/证件号码/房号" onKeyPress="unblur()">
         </form>
       </section>
     <!-- ···································房态图································· -->
@@ -384,9 +384,9 @@
                               <button id="checked-btn-one"  class="am-btn am-btn-secondary">点击结账</button>
                               <button id="checked-btn-two" class="am-btn am-btn-secondary">点击换房</button>
                               <button id="checked-btn-three" class="am-btn am-btn-secondary">点击续住</button>
-                              <button data-am-modal-close class="am-btn am-btn-secondary">返回主页</button>
+                              <a href="index.html" class="am-btn am-btn-secondary">返回主页</a>
                           </section>
-                          <div id="checked-right" style="width: 89%;float: right;">
+                          <div id="checked-right" style="width: 90%;float: right;">
                           </div>
                           <script>
                               $(document).ready(function(){
@@ -411,7 +411,7 @@
                           <section id="book-left" style="width: 8%;float:left;">
                               <button id="btn-book-one" class="am-btn am-btn-secondary">点击预定</button>
                               <button id="btn-book-two" class="am-btn am-btn-secondary">点击入住</button>
-                              <button data-am-modal-close class="am-btn am-btn-secondary">返回主页</button>
+                              <a href="index.html" class="am-btn am-btn-secondary">返回主页</a>
                           </section>
                           <section id="book-right" style="width: 90%;float: right;padding: 20px 8% 0px 2%;">
                           </section>

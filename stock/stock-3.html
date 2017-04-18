@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-<table class="am-table am-table-bordered">
+<table id="tableExcel" class="am-table am-table-bordered">
     <tr class="am-primary">
         <td>品名</td>
         <td>单价</td>
@@ -63,8 +63,22 @@
     </tr>
 
 </table>
-<button class="am-btn am-btn-secondary">添加</button>
-<button class="am-btn am-btn-secondary">打印</button>
-
+<button class="am-btn am-btn-secondary" type="button" onclick="ButtonClicked('tableExcel');" name="HelloButton">打印</button>
+<script type="text/javascript">
+    function ButtonClicked(position) {
+            var tags = document.getElementsByTagName('button');
+            for (i=0; i<tags.length; i++)
+            {
+                tags.item(i).style.display = 'none';
+            }
+            document.getElementById(position).style.display = 'block';
+            window.print();
+            for (i=0; i<tags.length; i++)
+            {
+                tags.item(i).style.display = 'block';
+            }
+            window.location.reload(); 
+        }
+</script>
 </body>
 </html>
