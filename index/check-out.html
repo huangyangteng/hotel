@@ -5,83 +5,335 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>结账</title>
+    <style type="text/css">
+        #check-out{
+            border: 2px solid #E8E8E8;
+            background: #fff;
+        }
+        #check-out table{
+            margin-bottom: 0em
+        }
+        #check-out hr{
+            margin-bottom: 0.6em;
+        }
+        #check-out #co_head table,#check-out #co_bottom table{
+            border: 0px;
+        }
+        #check-out #co_head td,#check-out #co_bottom td{
+            border: 0px;
+        }
+        #check-out #co_head td[colspan="4"]{
+            font-size: 20px;
+            letter-spacing: 15px;
+            margin: 0px;
+        }
+        #check-out #co_infor,#check-out #co_detail{
+            padding: 0px 30px;
+        }
+        #check-out #co_infor p,#check-out #co_detail p{
+            margin-top: 0px;
+            height: 10px;
+        }
+        #check-out #co_infor p span,#check-out #co_detail p span{
+            float: left;
+        }
+        #check-out p button{
+            float: right;
+        }
+        #check-out #co_infor div{
+            max-height: 150px;
+            overflow-y: auto;
+            border-top: 2px solid #f8f8f8;
+        }
+        #check-out #co_detail div{
+            max-height: 200px;
+            overflow-y: auto;
+            border-top: 2px solid #f8f8f8;
+            border-bottom: 2px solid #f8f8f8;
+        }
+        #check-out #co_bottom td{
+            padding: 0.3rem;
+        }
+        #check-out #co_bottom{
+            padding: 5px;
+        }
+        #check-out .cob_bottom p{
+            display: inline-block;
+            margin: 0px 0px 0px 20px;
+        }
+        #check-out #co_bottom td[colspan="3"] button{
+             float: right;
+             margin-right: 3%;
+         }
+
+
+    </style>
 </head>
 <body>
-
-
-
-    <p><span style="text-align: left;font-size: 30px;">结账：</span><span style="float: right; margin-top:2%;">入住单号：201607231013</span><hr></p>
-    <table class="am-table am-table-bordered ">
-        <thead>
-        <tr class="am-primary">
-            <th>房号</th>
-            <th>项目名称</th>
-            <th>消费金额</th>
-            <th>备注</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>&nbsp;</td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td colspan="2" style="text-align:right">总计：</td>
-            <td>0</td>
-            <td></td>
-        </tr>
-        </tbody>
-
-    </table>
-    <table class="am-table am-table-bordered ">
-        <tr>
-            <td>消费金额：<input type="text"></td>
-            <td>已收金额: <input type="text"></td>
-            <td>本次应收： <input type="text"></td>
-        </tr>
-        <tr>
-            <td>
-                <div class="am-form-group">
-                    <span>支付方式：</span>
-                    <label class="am-radio-inline">
-                        <input type="radio"  value="" name="docInlineRadio" checked> 现金
-                    </label>
-                    <label class="am-radio-inline">
-                        <input type="radio" name="docInlineRadio"> 刷卡
-                    </label>
-                    <label class="am-radio-inline">
-                        <input type="radio" name="docInlineRadio"> 支付宝
-                    </label>
-                    <label class="am-radio-inline">
-                        <input type="radio" name="docInlineRadio"> 微信
-                    </label>
-                    <label class="am-radio-inline">
-                        <input type="radio" name="docInlineRadio">挂账
-                    </label>
-                </div>
-            </td>
-            <td colspan="2">
-                收款金额：
-                <input type="text">
-            </td>
-        </tr>
-        <tr>
-            <td colspan="3"style="text-align: right;">
-                <button class="am-btn am-btn-secondary">结账</button>
-                <button class="am-btn am-btn-secondary" style="margin-right: 5px">打印</button>
-            </td>
-        </tr>
-    </table>
-
-
+    <div id="check-out">
+        <div id="co_head">
+            <table class="am-table am-table-bordered ">
+                <tr>
+                    <td  colspan="4">结账</td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>帐号：</label>
+                        <input type="" name="">
+                    </td>
+                    <td>
+                        <label>姓名：</label>
+                        <input type="" name="">
+                    </td>
+                    <td>
+                        <label>宾客数：</label>
+                        <input type="" name="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>总房价：</label>
+                        <input type="" name="">
+                    </td>
+                    <td>
+                        <label>支付方式：</label>
+                        <input type="" name="">
+                    </td>
+                    <td>
+                        <label>折扣率：</label>
+                        <input type="" name="">
+                        <button>全部退房</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="co_infor">
+            <hr>
+            <p><span>宾客帐号</span><button>退房</button></p>
+            <div>
+                <table class="am-table am-table-bordered am-table-hover">
+                    <thead>
+                        <tr class="am-primary" >
+                            <td><input type="checkbox" name=""></td>
+                            <td>帐号</td>
+                            <td>房号</td>
+                            <td>房型</td>
+                            <td>姓名</td>
+                            <td>房价</td>
+                            <td>天数</td>
+                            <td>到店日期</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox" name=""></td>
+                            <td>00032</td>
+                            <td>102</td>
+                            <td>普通</td>
+                            <td>小王</td>
+                            <td>168</td>
+                            <td>天数</td>
+                            <td>04/16 17:00</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name=""></td>
+                            <td>00032</td>
+                            <td>102</td>
+                            <td>普通</td>
+                            <td>小王</td>
+                            <td>168</td>
+                            <td>天数</td>
+                            <td>04/16 17:00</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name=""></td>
+                            <td>00032</td>
+                            <td>102</td>
+                            <td>普通</td>
+                            <td>小王</td>
+                            <td>168</td>
+                            <td>天数</td>
+                            <td>04/16 17:00</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name=""></td>
+                            <td>00032</td>
+                            <td>102</td>
+                            <td>普通</td>
+                            <td>小王</td>
+                            <td>168</td>
+                            <td>天数</td>
+                            <td>04/16 17:00</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name=""></td>
+                            <td>00032</td>
+                            <td>102</td>
+                            <td>普通</td>
+                            <td>小王</td>
+                            <td>168</td>
+                            <td>天数</td>
+                            <td>04/16 17:00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="co_detail">
+            <hr>
+            <p><span>账务明细</span></p>
+            <div>
+                <table class="am-table am-table-bordered am-table-hover">
+                    <thead>
+                        <tr class="am-primary" >
+                            <td>帐号</td>
+                            <td>姓名</td>
+                            <td>状态</td>
+                            <td>房号</td>
+                            <td>时间</td>
+                            <td>类型</td>
+                            <td>支付方式</td>
+                            <td>账项</td>
+                            <td>金额</td>
+                            <td>备注</td>
+                            <td>工号</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0032</td>
+                            <td>小王</td>
+                            <td>在店</td>
+                            <td>102</td>
+                            <td>2017.4.16</td>
+                            <td>预付</td>
+                            <td>现金</td>
+                            <td>房费</td>
+                            <td>168</td>
+                            <td></td>
+                            <td>002</td>
+                        </tr>
+                        <tr>
+                            <td>0032</td>
+                            <td>小王</td>
+                            <td>在店</td>
+                            <td>102</td>
+                            <td>2017.4.16</td>
+                            <td>预付</td>
+                            <td>现金</td>
+                            <td>房费</td>
+                            <td>168</td>
+                            <td></td>
+                            <td>002</td>
+                        </tr>
+                        <tr>
+                            <td>0032</td>
+                            <td>小王</td>
+                            <td>在店</td>
+                            <td>102</td>
+                            <td>2017.4.16</td>
+                            <td>预付</td>
+                            <td>现金</td>
+                            <td>房费</td>
+                            <td>168</td>
+                            <td></td>
+                            <td>002</td>
+                        </tr>
+                        <tr>
+                            <td>0032</td>
+                            <td>小王</td>
+                            <td>在店</td>
+                            <td>102</td>
+                            <td>2017.4.16</td>
+                            <td>预付</td>
+                            <td>现金</td>
+                            <td>房费</td>
+                            <td>168</td>
+                            <td></td>
+                            <td>002</td>
+                        </tr>
+                        <tr>
+                            <td>0032</td>
+                            <td>小王</td>
+                            <td>在店</td>
+                            <td>102</td>
+                            <td>2017.4.16</td>
+                            <td>预付</td>
+                            <td>现金</td>
+                            <td>房费</td>
+                            <td>168</td>
+                            <td></td>
+                            <td>002</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <hr>
+        </div>
+        <div id="co_bottom">
+            <table class="am-table am-table-bordered ">
+                <tr>
+                    <td>
+                        <label>费用合计：</label>
+                        <input type="" name="">
+                    </td>
+                    <td>
+                        <label>付款合计：</label>
+                        <input type="" name="">
+                    </td>
+                    <td>
+                        <label>客账余额：</label>
+                        <input type="" name="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>应收：</label>
+                        <input type="" name="">元
+                    </td>
+                    <td>
+                        <label>应退：</label>
+                        <input type="" name="">元
+                    </td>
+                    <td>
+                        <div class="am-form-group">
+                            <span><b>支付方式：</b></span>
+                            <label class="am-radio-inline">
+                                <input type="radio" name="docInlineRadio"  checked>储值
+                            </label>
+                            <label class="am-radio-inline">
+                                <input type="radio" name="docInlineRadio">挂账
+                            </label>
+                            <label class="am-radio-inline">
+                                <input type="radio"  value="" name="docInlineRadio" checked> 现金
+                            </label>
+                            <label class="am-radio-inline">
+                                <input type="radio" name="docInlineRadio"> 刷卡
+                            </label>
+                            <label class="am-radio-inline">
+                                <input type="radio" name="docInlineRadio"> 支付宝
+                            </label>
+                            <label class="am-radio-inline">
+                                <input type="radio" name="docInlineRadio"> 微信
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr><td colspan="3"><hr></td></tr>
+                <tr>
+                    <td class="cob_bottom" colspan="2">
+                        <p>预订日期：<span>2017.04.10</span></p>
+                        <p>工号：<span>003</span></p>
+                        <p>营销员：<span>小张</span></p>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <button class="am-btn am-btn-secondary">结账</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
