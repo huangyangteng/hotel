@@ -5,64 +5,71 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>换房</title>
+    <style type="text/css">
+        #continue{
+            border: 2px solid #EAE8E8;
+            background: #fff;
+        }
+        #continue td[colspan="4"]{
+            font-size: 20px;
+            letter-spacing: 15px;
+            margin: 0px;
+        }
+        #continue td{
+            border: 0px;
+            padding: 0.6em;
+        }
+        #continue td[colspan="3"] button{
+            float: right;
+            margin-right: 6%;
+        }
+        #continue  p{
+            display: inline-block;
+            margin: 0px 0px 0px 20px;
+        }
+        #continue  hr{
+            margin: 0px;
+        }
+    </style>
 </head>
 <body>
-
-    <p><span style="text-align: left;font-size: 25px; color: black">续住：</span><span style="float: right; margin-top:2%; color: black">入住单号：201607231013</span><hr></p>
-    <table class="am-table am-table-bordered">
+    <table id="continue" class="am-table am-table-bordered">
         <tr>
-            <td>原定离期：<input type="text"></td>
-            <td>续住天数: <input type="text"></td>
-            <td>现订离期：<input type="text"></td>
+            <td colspan="4">续住</td>
+        </tr>
+        <tr>
+            <td colspan="3"><hr></td>
         </tr>
         <tr>
             <td>
-                <div class="am-form-group">
-                    <label>支付方式：</label>
-                    <label class="am-radio-inline">
-                        <input type="radio"  value="" name="docInlineRadio"> 现金
-                    </label>
-                    <label class="am-radio-inline">
-                        <input type="radio" name="docInlineRadio"> 刷卡
-                    </label>
-                    <label class="am-radio-inline">
-                        <input type="radio" name="docInlineRadio"> 支付宝
-                    </label>
-                    <label class="am-radio-inline">
-                        <input type="radio" name="docInlineRadio"> 微信
-                    </label>
-                    <label class="am-radio-inline">
-                        <input type="radio" name="docInlineRadio">挂账
-                    </label>
-                </div>
+                <label>原定离期：</label>
+                <input type="text" value="2017.4.18" disabled="">
             </td>
-            <td colspan="2">
-                收款金额：
+            <td>
+                <label>续住天数：</label>
+                <input type="text" onKeyPress="if(window.event.keyCode==13){this.blur()}"  onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" >天
+            </td>
+            <td>
+                <label>离店日期：</label>
                 <input type="text">
             </td>
         </tr>
         <tr>
-            <td colspan="3">备注： <input type="text"></td>
+            <td colspan="3"><hr></td>
+        </tr>
+        <tr>
+            <td class="c_bottom">
+                <p>日期：<span>2017.04.10</span></p>
+                <p>工号：<span>003</span></p>
+                <p>营销员：<span>小张</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <button class="am-btn am-btn-secondary">确定</button>
+            </td>
         </tr>
     </table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
+</html>

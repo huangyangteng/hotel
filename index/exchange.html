@@ -2,52 +2,76 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="assets/css/amazeui.min.css">
-    <script src="assets/js/jquery.min.js"></script>
-    <script  src="assets/js/amazeui.min.js"></script>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>换房</title>
+    <style type="text/css">
+        #exchange{
+            border: 2px solid #EAE8E8;
+            background: #fff;
+        }
+        #exchange td[colspan="4"]{
+            font-size: 20px;
+            letter-spacing: 15px;
+            margin: 0px;
+        }
+        #exchange td{
+            border: 0px;
+            padding: 0.2em;
+        }
+        #exchange td[colspan="3"] button{
+            float: right;
+            margin-right: 6%;
+        }
+        #exchange  p{
+            display: inline-block;
+            margin: 0px 0px 0px 20px;
+        }
+        #exchange  hr{
+            margin: 0px;
+        }
+    </style>
 </head>
 
 <body>
-    <table class="am-table am-table-bordered" style="text-align: center">
+    <table id="exchange" class="am-table am-table-bordered">
         <tr>
-            <td>
-                原住房：
-                <input type="text">
-            </td>
+            <td colspan="4">换房</td>
+        </tr>
+        <tr>
+            <td colspan="3"><hr></td>
         </tr>
         <tr>
             <td>
-                换到：
+                <label>原住房：</label>
+                <input type="text" value="102" disabled="">
+            </td>
+            <td>
+                <label>换到：</label>
                 <input type="text">
+                <button>...</button>
+            </td>
+            <td colspan="2">
+                <label>备注：</label>
+                <textarea></textarea>
             </td>
         </tr>
-        <tr style="width:100%;height:400px;">
-            <td>
-                此处显示空房房态
-
+        <tr>
+            <td colspan="3"><hr></td>
+        </tr>
+        <tr>
+            <td class="c_bottom">
+                <p>日期：<span>2017.04.10</span></p>
+                <p>工号：<span>003</span></p>
+                <p>营销员：<span>小张</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <button class="am-btn am-btn-secondary">确定</button>
             </td>
         </tr>
     </table>
-    <button class="am-btn am-btn-secondary" style="margin-left:80%">提交</button>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
+</html>
