@@ -5,6 +5,7 @@ html,body{
 }
 body{
     overflow: hidden;
+    font-size: 1.6rem;
 }
 footer{
     width: 100%;

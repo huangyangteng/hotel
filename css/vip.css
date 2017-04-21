@@ -9,7 +9,6 @@
 	margin: 5px;
 }
 #two {
-
 	width: 100%;
 	height: 835px;
 	margin: 10px;
@@ -192,18 +191,20 @@
 }
 .marks_imformations ul{
 	display: block;
+	min-height: 80px;
 	width: 100%;
 }
 .marks_imformations ul li{
-	display: block;
 	text-align: left;
 	list-style: none;
 	padding-top: 10px;
+	width: 33%;
+	float: left;
 }
 .marks_imformations ul li label{
 	display: block;
 	float: left;
-	width: 20%;
+	width: 30%;
 	margin-right: 5%;
 	height: 30px;
 	line-height: 30px;
@@ -213,7 +214,7 @@
 .marks_imformations ul li input{
 	display: block;
 	float: left;
-	width: 70%;
+	width: 60%;
 	height: 30px;
 	margin-right: 5%;
 	margin-bottom: 10px;
@@ -223,16 +224,21 @@
 	background: rgb(239,239,239);
 	margin-top: 10px;
 }
+.in_money_by ul{
+	min-height: 60px;
+}
 .in_money_by ul li{
 	display: block;
 	text-align: left;
 	list-style: none;
 	padding-top: 20px;
+	width: 33%;
+	float: left;
 }
 .in_money_by ul li label{
 	display: block;
 	float: left;
-	width: 20%;
+	width: 30%;
 	margin-right: 5%;
 	height: 30px;
 	line-height: 30px;
@@ -242,15 +248,18 @@
 .in_money_by ul li input {
 	display: block;
 	float: left;
-	width: 60%;
+	width: 55%;
 	height: 30px;
 	margin-right: 5%;
 	margin-bottom: 10px;
 }
+.in_money_by ul li span{
+	line-height: 30px;
+}
 .in_money_by ul li select {
     display: block;
 	float: left;
-	width: 60%;
+	width: 50%;
 	height: 30px;
 	margin-right: 5%;
 	margin-bottom: 10px;
