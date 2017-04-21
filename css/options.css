@@ -3,6 +3,7 @@
     height: 835px;
 }
 #options-left{
+	margin-top: 6%;
     width: 8%;
     height:835px;
     background: #eaf7f0;
@@ -12,6 +13,13 @@
     width: 88%;
     float: right;
     height:835px;
+}
+
+/*room-status.html的样式*/
+.blank{
+	margin-bottom: 5px;
+	background: #bfd6e2;
+	padding: 2%;
 }
 
 
