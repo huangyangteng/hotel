@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script type="text/javascript" src="jquery-1.12.1.min.js"></script>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+$(function(){
+	load_success();
+	function load_success(){
+	   $.ajax({
+	     type:"GET",
+	     url:"demo.json",
+	     //dataType:"json",
+	     success:function(){
+	       alert("成功")
+	     },
+	     error:function(xhr){
+	       alert("失败" + xhr.status)
+	     }
+	   })
+	}
+})
+</script>
+</html>

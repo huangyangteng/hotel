@@ -452,7 +452,7 @@
 
         <div id="rightone">
             <div class="vips_all_imformations_btn">
-               <div class="am-scrollable-horizontal">
+               <div class="am-scrollable-horizontal am-scrollable-vertical" >
                  <table class="am-table am-table-bordered am-table-striped am-text-nowrap">
                     <thead>
                         <tr class="am-primary">
@@ -472,31 +472,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                          <td>123456456456</td>
-                          <td>12456456453</td>
-                          <td>1265464563</td>
-                          <td>1265464563</td>
-                          <td>16546423</td>
-                          <td>1654623</td>
-                          <td>16546423</td>
-                          <td>1654623</td>
-                          <td>1654623</td>
-                          <td>1654623</td>
-                          <td>1654623</td>
-                          <td>1654623</td>
-                          <td>1654623</td>
-                        </tr>
-                    </tbody>
+                      </tbody>
                  </table>
+                      
                </div>
             </div>
 
             <div id="top">
-                <button class="am-btn am-btn-success" data-am-modal="{target: '#doc-modal-1', closeViaDimmer: 0, width:1300, height: 800}">会员导入</button>
-                <button class="am-btn am-btn-success" data-am-modal="{target: '#doc-modal-2', closeViaDimmer: 0, width:1300, height: 800}">会员充值</button>
-                <button class="am-btn am-btn-success" data-am-modal="{target: '#doc-modal-3', closeViaDimmer: 0, width:1300, height: 800}">积分兑换</button>
-                <button class="am-btn am-btn-success" data-am-modal="{target: '#doc-modal-4', closeViaDimmer: 0, width:1300, height: 800}">会员导出</button>
+                <button class="am-btn am-btn-success" data-am-modal="{target: '#doc-modal-1', closeViaDimmer: 0, width:1100, height: 600}">会员导入</button>
+                <button class="am-btn am-btn-success" data-am-modal="{target: '#doc-modal-2', closeViaDimmer: 0, width:1100, height: 700}">会员充值</button>
+                <button class="am-btn am-btn-success" data-am-modal="{target: '#doc-modal-3', closeViaDimmer: 0, width:1100, height: 700}">积分兑换</button>
+                <button class="am-btn am-btn-success" data-am-modal="{target: '#doc-modal-4', closeViaDimmer: 0, width:1100, height: 600}">会员导出</button>
             </div>
         </div>
     </section>
@@ -528,16 +514,22 @@
 /*..............................会员充值数据接受ajax及页面效果代码开始....................*/
        $.ajax({
          type: "GET",
-         url: "vips_imformations.json",
+         url: "/vips_imformations.json",
          //dataType:"json",
          success: function (data) {
-            console.dir(data);
-         },
-         error: function (jqXHR,data) {
+           var vips_personal=[];
+           for (var j = 0; j < data.vip.length; j++) {
+             vips_personal[j]=data.vip[j];
+           }
+           //tbody下添加tr
+           var tr_num=data.vip.length;
+           for (var i = 0; i < tr_num; i++) {
+              $("#rightone table tbody").append("<tr><td>"+ vips_personal[i].card+"</td><td>"+vips_personal[i].card_type+"</td><td>"+vips_personal[i].name+"</td><td>"+vips_personal[i].tel+"</td><td>"+vips_personal[i].free_num+"</td><td>"+vips_personal[i].card_money+"</td><td>"+vips_personal[i].sex+"</td><td>"+vips_personal[i].bir+"</td><td>"+vips_personal[i].id_name+"</td><td>"+vips_personal[i].id+"</td><td>"+vips_personal[i].give_card_time+"</td><td>"+vips_personal[i].player+"</td><td></td></tr>")
+           }
+          
+         }, 
+         error: function (jqXHR) {
              console.dir(jqXHR.status);
-         },
-         complete: function(jqXHR){
-            console.dir(jqXHR.status)
          }
      })
 /*..............................会员充值数据接受ajax及页面效果代码结束....................*/

@@ -6,7 +6,7 @@ $(function(){
                      $.post("hotel.php",{
                          ID:vips_ID,
                      },function(data,status){
-                        alert("数据：\n" + data +"状态：\n"+ status); 
+                        //alert("数据：\n" + data +"状态：\n"+ status); 
                      });
                 })
                 //会员卡号查询数据发送结束
@@ -76,6 +76,21 @@ $(function(){
                              }
                            })
                      })
+                     //数据提交成功后执行的代码
+                     load_success();
+                     function load_success(){
+                        $.ajax({
+                          type:"GET",
+                          url:"/vips_imformations.json",
+                          dataType:"json",
+                          success:function(){
+                            
+                          },
+                          error:function(xhr){
+                            
+                          }
+                        })
+                     }
                      //判断选择框是否选择函数
                      function isChose(){
                        var vips_all_chose=$(".vips_imformations .vips_chose");
