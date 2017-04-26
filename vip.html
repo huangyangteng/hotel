@@ -43,7 +43,7 @@
                         <div id="vips_cards" class="alerts_headers">
                             <div class="vips_selects">
                                 <label>会员卡号：</label>
-                                <input class="vips_in_num input_no_warns" type="text" value="" name="vips_ID">
+                                <input class="vips_in_num input_no_warns" type="text" value="" name="vips_ID" autofocus>
                                 <input class="vips_serial_num" type="text" name="" disabled="true">
                                 <label>手工单号：</label>
                             </div>
@@ -123,8 +123,8 @@
                        <div id="in_moneys" class="alerts_headers">
                            <div class="vips_selects">
                                <label>会员卡号：</label>
-                               <input type="text" name="">
-                               <button type="button" class="am-btn am-btn-primary">查询</button>
+                               <input type="text" id="vips_in_moneys_select_input" name="" autofocus>
+                               <button type="button" id="vips_in_moneys_select" class="am-btn am-btn-primary">查询</button>
                            </div>
                            <div class="vips_imformations">
                                <ul>
@@ -141,14 +141,13 @@
                                        <input type="text" disabled="true" name="">
                                        <label>类型：</label>
                                        <input type="text" disabled="true" name="">
-                                       <label>证件：</label>
-                                       <input type="text" disabled="true" name="">
+                                      
                                    </li>
                                    <li>
                                        <label>生日：</label>
                                        <input type="text" disabled="true" >
-                                       <label>卡密码：</label>
-                                       <input type="text" disabled="true">
+                                        <label>证件：</label>
+                                       <input type="text" disabled="true" name="">
                                    </li>
                                </ul>
                                <div class="vips_imformations_footers">
@@ -531,6 +530,48 @@
              console.dir(jqXHR.status);
          }
      })
+    //点击会员充值页面查询
+    var select_input=$("#vips_in_moneys_select_input");
+    var vips_imformations_input=$(".vips_imformations").eq(1).find("ul li input");
+     select_input.on("change",function(){
+        vips_imformations_input.each(function(){
+          $(this).val("");
+        })
+     })
+    $("#vips_in_moneys_select").click(function(){
+        
+        var logn=1;
+         var num=0;
+        if (select_input=="") {
+          alert("会员卡号不能为空！！！");
+          logn=0;
+        }
+        if (logn==1) {
+          $.ajax({
+            type:"GET",
+            url:"vips_imformations.json",
+            success: function(data){
+              for (var i = 0; i < data.vip.length; i++) {
+                num++;
+                if (data.vip[i].card==select_input.val()) {
+                  var arr_in_money=[data.vip[i].name,data.vip[i].id,data.vip[i].tel,data.vip[i].sex,data.vip[i].card_type,data.vip[i].bir,data.vip[i].id_name];
+                   for (var j = 0; j < arr_in_money.length; j++) {
+                     vips_imformations_input.eq(j).val(arr_in_money[j]);
+                   }
+                  break;
+                }
+              }
+              if (num>=data.vip.length){
+                  alert("未找到此会员！！");
+                  select_input.val("");
+              }
+            },
+            error: function(xhr){
+              alert("加载失败！！")
+            }
+          })
+        }
+    })
 /*..............................会员充值数据接受ajax及页面效果代码结束....................*/
  });
      </script>
