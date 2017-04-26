@@ -119,5 +119,55 @@
 		"card_money":"5010元",
 		"card":"61842456456134"
 		}
+	],
+	"vips_setting" : [
+		{
+			"grade":"1",
+			"vip_type":"s会员",
+			"need_spend_money":"1000元",
+			"discount":"9",
+			"type_state":"已启用",
+			"btn_type_state":"禁用"
+		},
+		{
+			"grade":"2",
+			"vip_type":"ss会员",
+			"need_spend_money":"2000元",
+			"discount":"8",
+			"type_state":"已启用",
+			"btn_type_state":"禁用"
+		},
+		{
+			"grade":"3",
+			"vip_type":"sss会员",
+			"need_spend_money":"3000元",
+			"discount":"7",
+			"type_state":"已禁用",
+			"btn_type_state":"启用"
+		},
+		{
+			"grade":"4",
+			"vip_type":"ssss会员",
+			"need_spend_money":"4000元",
+			"discount":"6.5",
+			"type_state":"已禁用",
+			"btn_type_state":"启用"
+		},
+		{
+			"grade":"5",
+			"vip_type":"sssss会员",
+			"need_spend_money":"5000元",
+			"discount":"6",
+			"type_state":"已启用",
+			"btn_type_state":"禁用"
+		},
+		{
+			"grade":"6",
+			"vip_type":"ssssss会员",
+			"need_spend_money":"60000元",
+			"discount":"5",
+			"type_state":"已禁用",
+			"btn_type_state":"启用"
+		}
 	]
 }

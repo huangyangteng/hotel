@@ -100,10 +100,10 @@
                <form class="am-form-inline am-form pure-form pure-form-stacked" role="form">
                  <div class="am-form-group">
                      <div>
-                       <select class="am-form-field">
+                       <select class="am-form-field vips_search_status">
                          <option>启用</option>
                          <option>禁用</option>
-                         <option>状态</option>
+                         <option selected="selected">状态</option>
                        </select>
                      </div>
                  </div>
@@ -111,8 +111,7 @@
                  <div class="am-form-group">
                    <input type="text" class="am-form-field" placeholder="请输入搜索内容...">
                  </div>
-
-                 <button type="button" class="am-btn am-btn-default">搜索</button>
+                 <button type="button" class="am-btn am-btn-default vips_grade_search">搜索</button>
                </form>
             </div>
         </div>
@@ -142,17 +141,6 @@
                            <td style="width: 16%">已启用</td>
                            <td style="width: 16%">
                            <button class="am-btn am-btn-primary" id="vips_add_viptype_modify_box" data-am-modal="{target: '#doc-modal-9', closeViaDimmer: 0, width:700, height: 420}">修改</button>
-                           </td>
-                       </tr>
-                        <tr>
-                           <td>2</td>
-                           <td>sss会员</td>
-                           <td>500元</td>
-                           <td>8折</td>
-                           <td>已启用</td>
-                           <td>
-                           <button type="button" onclick="removeTr($(this))" class="am-btn am-btn-primary vips_shop_cut"> 删除 </button>
-                           <button type="button"  class="am-btn am-btn-primary to_start"> 禁用 </button>
                            </td>
                        </tr>
                     </tbody>
@@ -196,7 +184,7 @@
                            <div class="am-form-group">
                              <label for="doc-ipt-pwd-2" class="am-u-sm-3 am-form-label">所需消费金额</label>
                              <div class="am-u-sm-9">
-                               <input id="vips_need_inmoney_modify" type="text"  placeholder="所需消费金额">
+                               <input id="vips_need_inmoney_modify" type="text" disabled="true"  placeholder="所需消费金额">
                              </div>
                            </div>
 
@@ -486,14 +474,124 @@
                 $(".vips_list .vips_list_tb1").removeClass("reducepad");
           }
         })
-        //获取到表格中所有tr的都和
+        //获取到表格中所有tr高度的都和
         function getHeight(){
           var trh=0;
           for (var i = 0; i < $("#vips_set_money_tab tr").length; i++) {
             trh+=$("#vips_set_money_tab tr").eq(i).height();
           }
-          console.dir(trh);
           return trh;
         }
+        //页面加载数据
+        $.ajax({
+          type:"GET",
+          url:"/vips_imformations.json",
+          success: function(data){
+            for (var i = 0; i < data.vips_setting.length; i++) {
+                $("#vips_set_money_tab").append(
+                '<tr>'+
+                '<td>'+data.vips_setting[i].grade+'</td>'+
+                '<td>'+data.vips_setting[i].vip_type+'</td>'+
+                '<td>'+data.vips_setting[i].need_spend_money+'</td>'+
+                '<td>'+data.vips_setting[i].discount+'折'+'</td>'+
+                '<td>'+data.vips_setting[i].type_state+'</td>'+
+                '<td style="width: 15%"><button type="button"'
+                +'onclick="'
+                +'removeTr($(this));" class="am-btn am-btn-primary vips_shop_cut"> 删除 </button> <button type="button" onclick="" class="am-btn am-btn-primary to_start">'+ data.vips_setting[i].btn_type_state +'</button></td>'
+                +'</tr>'
+              ) 
+                //给动态添加的表格添加点击事件
+                 $("#vips_set_money_tab tr").find("td").last().delegate(".to_start","click",changeStart);
+                //
+                if (getHeight()>330) {
+                    $(".vips_list .vips_list_tb1").eq(0).addClass("reducepad");
+                }
+            }  
+          },
+          error: function(xhr){
+            alert(xhr.status);
+          }
+        })
+        //
+        $(".vips_set_grade .vips_set_grade_right .vips_grade_search").eq(0).click(function(){
+            var vips_search_status=$(".vips_set_grade .vips_set_grade_right .vips_search_status").eq(0).val();
+            if (vips_search_status=="启用") {
+                $.ajax({
+                  type:"GET",
+                  url:"/vips_imformations.json",
+                  success: function(data){
+                    $("#vips_set_money_tab tr:gt(0)").remove()
+                    if (getHeight()<330) {
+                          $(".vips_list .vips_list_tb1").removeClass("reducepad");
+                    }
+                    for (var i = 0; i < data.vips_setting.length; i++) {
+                      if (data.vips_setting[i].type_state=="已启用") {
+                            $("#vips_set_money_tab").append(
+                                '<tr>'+
+                                '<td>'+data.vips_setting[i].grade+'</td>'+
+                                '<td>'+data.vips_setting[i].vip_type+'</td>'+
+                                '<td>'+data.vips_setting[i].need_spend_money+'</td>'+
+                                '<td>'+data.vips_setting[i].discount+'折'+'</td>'+
+                                '<td>'+data.vips_setting[i].type_state+'</td>'+
+                                '<td style="width: 15%"><button type="button"'
+                                +'onclick="'
+                                +'removeTr($(this));" class="am-btn am-btn-primary vips_shop_cut"> 删除 </button> <button type="button" onclick="" class="am-btn am-btn-primary to_start">'+ data.vips_setting[i].btn_type_state +'</button></td>'
+                                +'</tr>'
+                            ) 
+                            //给动态添加的表格添加点击事件
+                            $("#vips_set_money_tab tr").find("td").last().delegate(".to_start","click",changeStart);
+                            //
+                            if (getHeight()>330) {
+                                $(".vips_list .vips_list_tb1").eq(0).addClass("reducepad");
+                            }
+                      }
+                    }
+                  },
+                  error: function(xhr){
+                    alert("加载失败！！！");
+                  }
+                })
+            }
+            else if(vips_search_status=="禁用"){
+                $.ajax({
+                  type:"GET",
+                  url:"/vips_imformations.json",
+                  success: function(data){
+                    $("#vips_set_money_tab tr:gt(0)").remove()
+                    if (getHeight()<330) {
+                          $(".vips_list .vips_list_tb1").removeClass("reducepad");
+                    }
+                    for (var i = 0; i < data.vips_setting.length; i++) {
+                      if (data.vips_setting[i].type_state=="已禁用") {
+                            $("#vips_set_money_tab").append(
+                                '<tr>'+
+                                '<td>'+data.vips_setting[i].grade+'</td>'+
+                                '<td>'+data.vips_setting[i].vip_type+'</td>'+
+                                '<td>'+data.vips_setting[i].need_spend_money+'</td>'+
+                                '<td>'+data.vips_setting[i].discount+'折'+'</td>'+
+                                '<td>'+data.vips_setting[i].type_state+'</td>'+
+                                '<td style="width: 15%"><button type="button"'
+                                +'onclick="'
+                                +'removeTr($(this));" class="am-btn am-btn-primary vips_shop_cut"> 删除 </button> <button type="button" onclick="" class="am-btn am-btn-primary to_start">'+ data.vips_setting[i].btn_type_state +'</button></td>'
+                                +'</tr>'
+                            ) 
+                            //给动态添加的表格添加点击事件
+                            $("#vips_set_money_tab tr").find("td").last().delegate(".to_start","click",changeStart);
+                            //
+                            if (getHeight()>330) {
+                                $(".vips_list .vips_list_tb1").eq(0).addClass("reducepad");
+                            }
+                      }
+                    }
+                  },
+                  error: function(xhr){
+                    alert("加载失败！！！");
+                  }
+                })
+            }
+            else{
+
+            }
+        })
 </script>
 </html>
