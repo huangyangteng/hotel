@@ -5,433 +5,360 @@
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="assets/css/amazeui.min.css">
     <script src="assets/js/jquery.min.js"></script>
-    <script  src="assets/js/amazeui.min.js"></script>
+    <script src="assets/js/amazeui.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <script rel="jquery.min.js"></script>
-    <style>
-        #stock{
-            width: 100%;
-            height: 835px;
-            margin: 0 5px 0;
-        }
-        #column-left{
-            width: 8%;
-            height:835px;
-            background: #eaf7f0;
-            float: left;
-        }
-        #column-right{
-            width: 90%;
-            float: right;
-            height:835px;
-        }
-        .am-tabs-nav li {
-          position: relative;
-          z-index: 1;
-        }  
-
-        .am-tabs-nav .am-icon-close {
-          position: absolute;
-          top: 0;
-          right: 10px;
-          color: #888;
-          cursor: pointer;
-          z-index: 100;
-        }
-
-        .am-tabs-nav .am-icon-close:hover {
-          color: #333;
-        }
-      
-        .am-tabs-nav .am-icon-close ~ a {
-          padding-right: 25px!important;
-        }
-        .add am-active{
-            background-color: orange;
-            width: 100%;
-        }
-        .add0_child{
-            float: left;
-            border: 1px solid blue;
-            width: 10%;
-            height: 30px;
-            text-align: center;
-        }
-        .add{
-            background-color: azure;
-        }
-        .add_child{
-            float: left;
-            border: 1px solid blue;
-            width: 10%;
-            height: 28px;
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/vip.css">
 </head>
+<style type="text/css">
+    .stocks_in {
+        margin-left: 50px;
+        padding-top: 13px;
+        width: 500px;
+        height: 50px;
+    }
+
+    .stocks_in_change {
+        margin-left: 50px;
+        padding-top: 13px;
+        width: 500px;
+        height: 50px;
+    }
+
+    .stocks_in_cha {
+        width: 30%;
+    }
+
+    .stocks_in_cha_change {
+        width: 30%;
+    }
+
+    .stocks_in_chb {
+        width: 70%;
+        text-align: center;
+        margin-left: 50px;
+    }
+
+    .stocks_in_chb_change {
+        width: 70%;
+        text-align: center;
+        margin-left: 50px;
+    }
+
+    .stocks_in_chbb {
+        width: 70%;
+        text-align: center;
+        margin-left: 50px;
+    }
+
+    .stocks_in_chbb_change {
+        width: 70%;
+        text-align: center;
+        margin-left: 50px;
+    }
+    .turnRed{
+        border: 1px solid red;
+    }
+</style>
 <body>
-    <header class="am-topbar">
+<header class="am-topbar">
     <h1 class="am-topbar-brand" style="margin-left:20%;margin-right:2%;">
         <a href="#" style="color:white;">酒店管理系统</a>
     </h1>
 
-    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#doc-topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only"
+            data-am-collapse="{target: '#doc-topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span
+            class="am-icon-bars"></span></button>
 
     <div class="am-collapse am-topbar-collapse am-topbar-inverse" id="doc-topbar-collapse">
         <ul class="am-nav am-nav-pills am-topbar-nav">
-            <li class="am-active"><a href="room-status.html">房态图</a></li>
+            <li><a href="index.html">房态图</a></li>
             <li><a href="guest.html">客人</a></li>
             <li><a href="vip.html">会员</a></li>
             <li><a href="company.html">协议单位</a></li>
             <li><a href="report-forms.html">报表</a></li>
-            <li><a href="stock.html">库存</a></li>
+            <li class="am-active"><a href="stock.html">库存</a></li>
             <li><a href="options.html">设置</a></li>
         </ul>
     </div>
+    <!-- .......................................添加商品弹出框开始.................................... -->
+    <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-1">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">添加商品
+                <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+            </div>
+            <div class="am-modal-bd">
+                <div class="stocks_bodys">
+                    <div class="stocks_in">
+                        <span class="stocks_in_cha">排序</span>
+                        <input class="stocks_in_chb" type="number" name="paixu">
+                    </div>
+                    <div class="stocks_in">
+                        <span class="stocks_in_cha" style="margin-right: -29px;">商品名称</span>
+                        <input class="stocks_in_chb" type="text" name="names">
+                    </div>
+                    <div class="stocks_in">
+                        <span class="stocks_in_cha">类别</span>
+                        <select class="stocks_in_chb" name="stocks_lei" class="stocks_chose">
+                            <option selected value="">请选择</option>
+                            <option value="一级分类">一级分类</option>
+                            <option value="二级分类">二级分类</option>
+                        </select>
+                    </div>
+                    <div class="stocks_in">
+                        <span class="stocks_in_cha" style="margin-right: -29px;">生产日期</span>
+                        <input class="stocks_in_chbb" type="text" name="stocks_born" placeholder="请选择日期" readonly
+                               required data-am-datepicker/>
+                    </div>
+                    <div class="stocks_in">
+                        <span class="stocks_in_cha" style="margin-right: -16px;">保质期</span>
+                        <input class="stocks_in_chb" type="number" name="stocks_save" placeholder="请输入数字">
+                    </div>
+                    <div class="stocks_in">
+                        <span class="stocks_in_cha">库存</span>
+                        <input class="stocks_in_chb" type="number" name="stocks_allnumber" placeholder="请输入数字">
+                    </div>
+                    <div class="stocks_in">
+                        <span class="stocks_in_cha">状态</span>
+                        <select class="stocks_in_chb" name="stocks_zhuantai" class="stocks_chose">
+                            <option selected value="">请选择</option>
+                            <option value="上架">上架</option>
+                            <option value="下架">下架</option>
+                        </select>
+                    </div>
+                    <div class="stocks_in">
+                        <span class="stocks_in_cha">价格</span>
+                        <input class="stocks_in_chb" type="number" name="stocks_money" placeholder="请输入数字">
+                    </div>
+                    <div class="stocks_in">
+                        <span class="stocks_in_cha">会员价</span>
+                        <input class="stocks_in_chb" type="number" name="stocks_moneys" placeholder="请输入数字">
+                    </div>
+                </div>
+                <div class="stocks_footers">
+                    <input id="stocks_cards_btn" type="button" class="am-btn am-btn-secondary btn-loading-example"
+                           value="添加" data-am-loading="{loadingText: '请稍等...'}"/>
+                    <input type="button" class="am-btn am-btn-secondary" value="取消" data-am-modal-close/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ....................................添加商品弹出框结束 ............................-->
+    <!-- ....................................修改商品弹出框开始 ............................-->
+    <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-2">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">添加商品
+                <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+            </div>
+            <div class="am-modal-bd">
+                <div class="stocks_bodys_change">
+                    <div class="stocks_in_change">
+                        <span class="stocks_in_cha_change">排序</span>
+                        <input class="stocks_in_chb_change stocks_get_a" type="number" name="paixu">
+                    </div>
+                    <div class="stocks_in_change">
+                        <span class="stocks_in_cha_change" style="margin-right: -29px;">商品名称</span>
+                        <input class="stocks_in_chb_change stocks_get_a" type="text" name="names">
+                    </div>
+                    <div class="stocks_in_change">
+                        <span class="stocks_in_cha_change">类别</span>
+                        <select class="stocks_in_chb_change stocks_get_a" name="stocks_lei" class="stocks_chose">
+                            <option selected value="">请选择</option>
+                            <option value="一级分类">一级分类</option>
+                            <option value="二级分类">二级分类</option>
+                        </select>
+                    </div>
+                    <div class="stocks_in_change">
+                        <span class="stocks_in_cha_change" style="margin-right: -29px;">生产日期</span>
+                        <input class="stocks_in_chbb_change stocks_get_a" type="text" name="stocks_born"
+                               placeholder="请选择日期" readonly required data-am-datepicker/>
+                    </div>
+                    <div class="stocks_in_change">
+                        <span class="stocks_in_cha_change" style="margin-right: -16px;">保质期</span>
+                        <input class="stocks_in_chb_change stocks_get_a" type="text" name="stocks_save"
+                               placeholder="格式：8/个月">
+                    </div>
+                    <div class="stocks_in_change">
+                        <span class="stocks_in_cha_change">库存</span>
+                        <input class="stocks_in_chb_change stocks_get_a" type="number" name="stocks_allnumber"
+                               placeholder="请输入数字">
+                    </div>
+                    <div class="stocks_in_change">
+                        <span class="stocks_in_cha_change">状态</span>
+                        <select class="stocks_in_chb_change stocks_get_a" name="stocks_zhuantai" class="stocks_chose">
+                            <option selected value="">请选择</option>
+                            <option value="上架">上架</option>
+                            <option value="下架">下架</option>
+                        </select>
+                    </div>
+                    <div class="stocks_in_change">
+                        <span class="stocks_in_cha_change">价格</span>
+                        <input class="stocks_in_chb_change stocks_get_a" type="text" name="stocks_money"
+                               placeholder="格式:50元">
+                    </div>
+                    <div class="stocks_in_change">
+                        <span class="stocks_in_cha_change">会员价</span>
+                        <input class="stocks_in_chb_change stocks_get_a" type="text" name="stocks_moneys"
+                               placeholder="格式:50元">
+                    </div>
+                </div>
+                <div class="stocks_footers">
+                    <input id="stocks_cards_btn_change" type="button"
+                           class="am-btn am-btn-secondary btn-loading-example stocks_to_change" value="修改"
+                           data-am-loading="{loadingText: '请稍等...'}" data-am-modal-close/>
+                    <input type="button" class="am-btn am-btn-secondary" value="取消" data-am-modal-close/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ....................................修改商品弹出框结束 ............................-->
 </header>
-    <section id="stock">
-        <div id="column-left">
-            <button class="am-btn am-btn-secondary am-btn-group-lg" style="width: 100px">出售中</button>
-            <button class="am-btn am-btn-secondary am-btn-group-lg" style="width: 100px">已售罄</button>
-            <button class="am-btn am-btn-secondary am-btn-group-lg" style="width: 100px">仓库中</button>
-            <button class="am-btn am-btn-secondary am-btn-group-lg" style="width: 100px">回收站</button>
-            <button class="am-btn am-btn-secondary am-btn-group-lg" style="width: 100px">商品分类</button>
-            <button class="am-btn am-btn-secondary am-btn-group-lg" style="width: 100px">商品组</button>
+<section id="two">
+    <div id="leftone">
+        <button class="am-btn am-btn-secondary" style="width: 100%" id="column-one">商品</button>
+        <button class="am-btn am-btn-secondary" style="width: 100%" id="column-two">商品分类</button>
+        <button class="am-btn am-btn-secondary" style="width: 100%" id="column-three">入库</button>
+        <button class="am-btn am-btn-secondary" style="width: 100%" id="column-four">商品转移</button>
+    </div>
+
+    <div id="rightone">
+        <table class="am-table am-table-bordered am-table-hover ">
+            <thead>
+            <tr class="am-primary">
+                <th>排序</th>
+                <th>商品名称</th>
+                <th>类别</th>
+                <th>生产日期</th>
+                <th>保质期</th>
+                <th>库存</th>
+                <th>状态</th>
+                <th>价格</th>
+                <th>会员价</th>
+                <th>编辑</th>
+            </tr>
+            </thead>
+            <tbody id="stock_tab">
+            <tr>
+                <td>1</td>
+                <td>辣条</td>
+                <td>二级分类</td>
+                <td>2015-09-14</td>
+                <td>8个月</td>
+                <td>3000</td>
+                <td>下架</td>
+                <td>5元</td>
+                <td>3元</td>
+                <td style="width: 25%">
+                    <button type="button" onclick="if(confirm('是否确认删除！！')) $(this).parent().parent().remove();"
+                            class="am-btn am-btn-primary">删除
+                    </button>
+                    <button style="margin-left: 0px;" type="button" class="am-btn am-btn-primary stocks_to_get_1"
+                            data-am-modal="{target: '#doc-modal-2', closeViaDimmer: 0, width:600, height: 600}">修改
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div id="top">
+            <button id="stocks_add_goods" class="am-btn am-btn-primary"
+                    data-am-modal="{target: '#doc-modal-1', closeViaDimmer: 0, width:600, height: 600}">+添加商品
+            </button>
         </div>
-        <script>
-            $('#column-left button:eq(0)').click(function () {
-               window.location.reload()
-            }).next().click(function () {
-                $('#column-right').load('stock/stock-1.html')
-            }).next().click(function () {
-                $('#column-right').load('stock/stock-1.html')
-            }).next().click(function () {
-                $('#column-right').load('stock/stock-3.html')
-            }).next().click(function () {
-                $('#column-right').load('stock/stock-2.html')
-            }).next().click(function () {
-                $('#column-right').load('stock/stock-1.html')
-            });
-            $(function() {
-                var tabCounter = 2;
-                var $tab = $('#doc-tab-demo-1');
-                var $nav = $tab.find('.am-tabs-nav');
-                var $bd = $tab.find('.am-tabs-bd');
-
-                function addTab() {
-                  var nav = '<li><span class="am-icon-close"></span>' +
-                    '<a href="javascript: void(0)">商品 ' + tabCounter + '</a></li>';
-                  var content = ' <div class="add"><div class="add_child"><input type="number" placeholder="请输入数字" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="请输入是/否" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="格式：2017年5月20日" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="格式：8个月" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="请输入数字" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="格式：90元/个" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="格式：90元/个" style="width: 100%;text-align: center"></div></div>';
-            
-                  $nav.append(nav);
-                  $bd.append(content);
-                  tabCounter++;
-                  $tab.tabs('refresh');
-                }
-
-                // 动态添加标签页
-                $('.js-append-tab').on('click', function() {
-                  addTab();
-                });
-        
-                // 移除标签页
-                $nav.on('click', '.am-icon-close', function() {
-                  var $item = $(this).closest('li');
-                  var index = $nav.children('li').index($item);
-            
-                  $item.remove();
-                  $bd.find('.add').eq(index).remove();
-            
-                  $tab.tabs('open', index > 0 ? index - 1 : index + 1);
-                  $tab.tabs('refresh');
-                });
-            });
-        </script>
-
-        <div id="column-right">
-            <div class="select">
-                <table class="am-table">
-                    <tr class="am-primary">
-                        <td>筛选</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label >关键字：</label>
-                            <input type="text" class="">
-                            <label>状态：</label>
-                            <select name="status" id="status" class="am-form">
-                                <option >上架</option>
-                                <option >下架</option>
-                            </select>
-                            <label>分类：</label>
-                            <select name="status" id="classify" class="am-form">
-                                <option >客房</option>
-                                <option >茶座</option>
-                                <option >红酒</option>
-                                <option >小商品</option>
-                            </select>
-                            <label>请选择分类：</label>
-                            <select name="status" id="classify-again" class="am-form">
-                                <option >根据一级分类</option>
-                                <option >根据二级分类</option>
-                            </select>
-
-                            <button class="am-btn" style="height: 25px;padding-top: 0px;margin-left: 30px">搜索</button>
-                        </td>
-                        <!-- <td>
-                            <button class="am-btn" style="height: 25px;padding-top: 0px;">搜索</button>
-                        </td> -->
-                    </tr>
-                </table>
-            </div>
-            <div class="add-goods">
-                <table class="am-table">
-                    <tr class="am-primary">
-                        <td>
-                            <div class="am-tabs" data-am-tabs="{noSwipe: 1}" id="doc-tab-demo-1">
-                                <ul class="am-tabs-nav am-nav am-nav-tabs">
-                                  <li class="am-active"><a href="javascript: void(0)">固定商品</a></li>
-                                  <li><a href="javascript: void(0)">商品1</a></li>
-                                </ul>
-
-                                <div class="am-tabs-bd">
-                                  <div class="add am-active">
-                                    <div class="add0_child">排序</div>
-                                    <div class="add0_child">商品名称</div>
-                                    <div class="add0_child">商品编码</div>
-                                    <div class="add0_child">商品属性</div>
-                                    <div class="add0_child">是否预售</div>
-                                    <div class="add0_child">生产日期</div>
-                                    <div class="add0_child">保质期</div>
-                                    <div class="add0_child">库存数量</div>
-                                    <div class="add0_child">商品价格</div>
-                                    <div class="add0_child">会员价格</div>
-                                  </div>
-                                  <div class="add">
-                                    <div class="add_child"><input type="number" placeholder="请输入数字" style="width: 100%;text-align: center"></div>
-                                    <div class="add_child"><input type="text" style="width: 100%;text-align: center"></div>
-                                    <div class="add_child"><input type="text" style="width: 100%;text-align: center"></div>
-                                    <div class="add_child"><input type="text" style="width: 100%;text-align: center"></div>
-                                    <div class="add_child"><input type="text" placeholder="请输入是/否" style="width: 100%;text-align: center"></div>
-                                    <div class="add_child"><input type="text" placeholder="格式：2017年5月20日" style="width: 100%;text-align: center"></div>
-                                    <div class="add_child"><input type="text" placeholder="格式：8个月" style="width: 100%;text-align: center"></div>
-                                    <div class="add_child"><input type="number" placeholder="请输入数字" style="width: 100%;text-align: center"></div>
-                                    <div class="add_child"><input type="text" placeholder="格式：90元/个" style="width: 100%;text-align: center"></div>
-                                    <div class="add_child"><input type="text" placeholder="格式：90元/个" style="width: 100%;text-align: center"></div>
-                                  </div>
-                                </div>
-                            </div>
-                            <br />
-                            <button type="button" class="am-btn am-btn-primary js-append-tab">+添加商品</button>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </section>
-    <footer>
-        <div id="left">
-            <span class="foot">酒店名称：斯纳格田园酒店</span>
-            <span class="foot">用户名：18990180707</span>
-            <span class="foot">班次：早班</span>
-        </div>
-
-        <div id="right">
-            <a href="#" class="foot" data-am-modal="{target: '#doc-modal-shiftexchange', closeViaDimmer: 0, width:1200, height:800}">交班</a>
-            <span>|</span>
-            <a href="#" class="foot">版本更新</a>
-            <span>|</span>
-            <a href="#" class="foot">退出</a>
-            <span>|</span>
-            <a href="#" class="foot"><img src="image/message.gif"> </a>
-        </div>
-        <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-shiftexchange">
-            <div class="am-modal-dialog">
-                <div class="am-modal-hd">交班报表
-                    <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
-                </div>
-                <div class="am-modal-bd">
-                    <span  style="float: left" >本班时间:</span>
-                    <table class="am-table am-table-bordered">
-                        <tr class="am-primary">
-                            <td>项目</td>
-                            <td colspan="11">支付方式</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>现金</td>
-                            <td>银行卡</td>
-                            <td>网上支付</td>
-                            <td>储值卡</td>
-                            <td>微信支付</td>
-                            <td>协议挂账</td>
-                            <td>支付宝扫码</td>
-                            <td>携程</td>
-                            <td>糯米</td>
-                            <td>美团</td>
-                            <td>盖网</td>
-                            <td>小计</td>
-                        </tr>
-                        <tr>
-                            <td>订金</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>押金</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>非住客帐</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>结账收款</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>结账退款</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>卡充值</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>消费付现</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>挂账结算</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>协议单位充值</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>合计</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </table>
-                    <span  style="float: left">交班人签字</span>
-                    <button class="am-btn am-btn-secondary">交班</button>
-                    <button class="am-btn am-btn-secondary">打印</button>
-
-
-                </div>
-            </div>
-        </div><!--交班报表的模态窗口-->
-
-    </footer>
+    </div>
+</section>
 </body>
+<script>
+    //页面加载
+    $(function () {
+        $('#column-two').click(function () {
+            $('#rightone').load('stock/stock-1.html')
+        });
+        $('#column-three').click(function () {
+            $('#rightone').load('stock/stock-2.html')
+        });
+        $('#column-four').click(function () {
+            $('#rightone').load('stock/stock-3.html')
+        });
+        $('#column-one').click(function () {
+            window.location.reload()
+        });
+        var stocks_necessary_inputs=$(".stocks_bodys .stocks_in_chb");
+        var stocks_necessary_datas=$(".stocks_bodys .stocks_in_chbb");
+        //添加商品设置
+        $("#stocks_cards_btn").click(function () {
+            var stocks_in_chb = $(".stocks_in_chb").eq(0).val();
+            var stocks_in_chb1 = $(".stocks_in_chb").eq(1).val();
+            var stocks_in_chb2 = $(".stocks_in_chb").eq(2).val();
+            var stocks_in_chb3 = $(".stocks_in_chbb").val();
+            var stocks_in_chb4 = $(".stocks_in_chb").eq(3).val();
+            var stocks_in_chb5 = $(".stocks_in_chb").eq(4).val();
+            var stocks_in_chb6 = $(".stocks_in_chb").eq(5).val();
+            var stocks_in_chb7 = $(".stocks_in_chb").eq(6).val();
+            var stocks_in_chb8 = $(".stocks_in_chb").eq(7).val();
+            if (stocks_in_chb==""||stocks_in_chb1==""||stocks_in_chb2==""||stocks_in_chb3==""||stocks_in_chb4==""||stocks_in_chb5==""||stocks_in_chb6==""||stocks_in_chb7==""||stocks_in_chb8=="") {
+                alert("请填写完整后在提交!!!");
+                shouldToWrite();
+            }
+            else{
+                $('#doc-modal-1').modal(close);
+                $("#stock_tab").append('<tr>' + '<td>' + stocks_in_chb + '</td>' + '<td>' + stocks_in_chb1 + '</td>' + '<td>' + stocks_in_chb2 + '</td>' + '<td>' + stocks_in_chb3 + '</td>' + '<td>' + stocks_in_chb4 + "个月" + '</td>' + '<td>' + stocks_in_chb5 + '</td>' + '<td>' + stocks_in_chb6 + '</td>' + '<td>' + stocks_in_chb7 + "元" + '</td>' + '<td>' + stocks_in_chb8 + "元" + '</td>' + '<td style="width: 15%"><button type="button"' + 'onclick="' + 'if(confirm(' + "'" + '是否确认删除！！' + "'" + ')) $(this).parent().parent().remove();" class="am-btn am-btn-primary"> 删除 </button><button style="margin-left: 5px;" type="button" class="am-btn am-btn-primary stocks_to_get_1" data-am-modal="{target:' + "'" + '#doc-modal-2' + "'" + ', closeViaDimmer: 0, width:600, height: 600}">修改</button></td>' + '</tr>');
+                stocks_necessary_datas.eq(0).removeClass("turnRed");
+                stocks_necessary_inputs.each(function(){
+                  $(this).removeClass("turnRed");
+            })
+            }    
+        })
+        //添加模态框中未填写的边框变红
+        function shouldToWrite(){
+            if (stocks_necessary_datas.eq(0).val()=="") {
+                stocks_necessary_datas.eq(0).addClass("turnRed");
+            }
+            else{
+                stocks_necessary_datas.eq(0).removeClass("turnRed");
+            }
+            stocks_necessary_inputs.each(function(){
+                if ($(this).val()=="") {
+                  $(this).addClass("turnRed");
+                }
+                else{
+                  $(this).removeClass("turnRed");
+                }
+            })
+        }
+        var all_td = {};
+        //修改商品设置
+        //获取当前列表内容到修改模态框
+        $("#stock_tab").delegate("tr td .stocks_to_get_1", "click", function () {
+            all_td = $(this).parent().siblings();
+            var stock_xiugai = $(".stocks_get_a");
+            for (var i = 0; i < stock_xiugai.length; i++) {
+                stock_xiugai.eq(i).val(all_td.eq(i).html());
+            }
+        });
+
+        //将修改模态框中内容重新传入当前列表列表（我觉得错误在这里，但不知道怎么改）
+        $(".stocks_to_change").click(function () {
+            var stocks_in_chb_change = $(".stocks_in_chb_change").eq(0).val();
+            var stocks_in_chb_change_1 = $(".stocks_in_chb_change").eq(1).val();
+            var stocks_in_chb_change_2 = $(".stocks_in_chb_change").eq(2).val();
+            var stocks_in_chb_change_3 = $(".stocks_in_chbb_change").val();
+            var stocks_in_chb_change_4 = $(".stocks_in_chb_change").eq(3).val();
+            var stocks_in_chb_change_5 = $(".stocks_in_chb_change").eq(4).val();
+            var stocks_in_chb_change_6 = $(".stocks_in_chb_change").eq(5).val();
+            var stocks_in_chb_change_7 = $(".stocks_in_chb_change").eq(6).val();
+            var stocks_in_chb_change_8 = $(".stocks_in_chb_change").eq(7).val();
+            var change_imformation_arr = [stocks_in_chb_change, stocks_in_chb_change_1, stocks_in_chb_change_2, stocks_in_chb_change_3, stocks_in_chb_change_4, stocks_in_chb_change_5, stocks_in_chb_change_6, stocks_in_chb_change_7, stocks_in_chb_change_8];
+            for (var i = 0; i < all_td.length; i++) {
+                all_td.eq(i).html(change_imformation_arr[i]);
+            }
+        })
+
+        //清空添加模态框内容
+        $("#stocks_add_goods").click(function () {
+            $(".stocks_in_chb").each(function () {
+                $(this).val("");
+            })
+        })
+    });
+</script>
 </html>

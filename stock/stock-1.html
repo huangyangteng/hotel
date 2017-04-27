@@ -1,140 +1,629 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<link rel="stylesheet" type="text/css" href="assets/css/amazeui.min.css">
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="assets/css/amazeui.min.css">
     <script src="assets/js/jquery.min.js"></script>
     <script  src="assets/js/amazeui.min.js"></script>
     <script src="https://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script> 
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <script rel="jquery.min.js"></script>
-	<style>
-        .am-tabs-nav li {
-          position: relative;
-          z-index: 1;
-        }  
+  <style>
+    body{
+      padding: 0px;margin: 0px;
+    }
+    #firstFenLei{
+      border: 1px solid pink;
+    }
+    #firstFenLei .firstFenLei_header{
+      width: 8%;
+      height: 35px;
+      background-color: pink;
+      text-align: center;
+    }
+    #secondFenLei{
+      margin-top: 2px;
+      border: 1px solid pink;
+    }
+    #secondFenLei .secondFenLei_header{
+      width: 8%;
+      height: 35px;
+      background-color: pink;
+      text-align: center;
+    }
+    .stocks_in {
+        margin-left: 50px;
+        padding-top: 13px;
+        width: 500px;
+        height: 50px;
+    }
+    .stocks_in_1 {
+        margin-left: 50px;
+        padding-top: 13px;
+        width: 500px;
+        height: 50px;
+    }
+    .stocks_in_change {
+        margin-left: 50px;
+        padding-top: 13px;
+        width: 500px;
+        height: 50px;
+    }
+    .stocks_in_change_1 {
+        margin-left: 50px;
+        padding-top: 13px;
+        width: 500px;
+        height: 50px;
+    }
 
-        .am-tabs-nav .am-icon-close {
-          position: absolute;
-          top: 0;
-          right: 10px;
-          color: #888;
-          cursor: pointer;
-          z-index: 100;
-        }
+    .stocks_in_cha {
+        width: 30%;
+    }
+    .stocks_in_cha_1 {
+        width: 30%;
+    }
 
-        .am-tabs-nav .am-icon-close:hover {
-          color: #333;
-        }
-      
-        .am-tabs-nav .am-icon-close ~ a {
-          padding-right: 25px!important;
-        }
-        .add0 am-active{
-            background-color: orange;
-            width: 100%;
-        }
-        .add0_child{
-            float: left;
-            border: 1px solid blue;
-            width: 10%;
-            height: 30px;
-            text-align: center;
-        }
-        .add{
-            background-color: azure;
-        }
-        .add_child{
-            float: left;
-            border: 1px solid blue;
-            width: 10%;
-            height: 28px;
-            text-align: center;
-        }
-	</style>
+    .stocks_in_cha_change {
+        width: 30%;
+    }
+    .stocks_in_cha_change_1 {
+        width: 30%;
+    }
+
+    .stocks_in_chb {
+        width: 70%;
+        text-align: center;
+        margin-left: 50px;
+    }
+    .stocks_in_chb_1 {
+        width: 70%;
+        text-align: center;
+        margin-left: 50px;
+    }
+
+    .stocks_in_chb_change {
+        width: 70%;
+        text-align: center;
+        margin-left: 50px;
+    }
+    .stocks_in_chb_change_1 {
+        width: 70%;
+        text-align: center;
+        margin-left: 50px;
+    }
+
+    .stocks_in_chbb {
+        width: 70%;
+        text-align: center;
+        margin-left: 50px;
+    }
+    .stocks_in_chbb_1 {
+        width: 70%;
+        text-align: center;
+        margin-left: 50px;
+    }
+
+    .stocks_in_chbb_change {
+        width: 70%;
+        text-align: center;
+        margin-left: 50px;
+    }
+    .stocks_in_chbb_change_1 {
+        width: 70%;
+        text-align: center;
+        margin-left: 50px;
+    }
+    .turnRed{
+        border: 1px solid red;
+    }
+  </style>
 </head>
 <body>
-   
-        <script>
-            $(function() {
-                var tabCounter = 2;
-                var $tab = $('#doc-tab-demo-1');
-                var $nav = $tab.find('.am-tabs-nav');
-                var $bd = $tab.find('.am-tabs-bd');
-
-                function addTab() {
-                  var nav = '<li><span class="am-icon-close"></span>' +
-                    '<a href="javascript: void(0)">商品 ' + tabCounter + '</a></li>';
-                  var content = ' <div class="add"><div class="add_child"><input type="number" placeholder="请输入数字" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="请输入是/否" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="格式：2017年5月20日" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="格式：8个月" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="请输入数字" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="格式：90元/个" style="width: 100%;text-align: center"></div><div class="add_child"><input type="text" placeholder="格式：90元/个" style="width: 100%;text-align: center"></div></div>';
-            
-                  $nav.append(nav);
-                  $bd.append(content);
-                  tabCounter++;
-                  $tab.tabs('refresh');
-                }
-
-                // 动态添加标签页
-                $('.js-append-tab').on('click', function() {
-                  addTab();
-                });
-        
-                // 移除标签页
-                $nav.on('click', '.am-icon-close', function() {
-                  var $item = $(this).closest('li');
-                  var index = $nav.children('li').index($item);
-            
-                  $item.remove();
-                  $bd.find('.add').eq(index).remove();
-            
-                  $tab.tabs('open', index > 0 ? index - 1 : index + 1);
-                  $tab.tabs('refresh');
-                });
-            });
-        </script>
-
-            <div class="add-goods">
-                <table class="am-table">
-                    <tr class="am-primary">
-                        <td>
-                            <div class="am-tabs" data-am-tabs="{noSwipe: 1}" id="doc-tab-demo-1">
-                                <ul class="am-tabs-nav am-nav am-nav-tabs">
-                                  <li class="am-active"><a href="javascript: void(0)">商品信息</a></li>
-                                  <li><a href="javascript: void(0)">商品1</a></li>
-                                </ul>
-
-                                <div class="am-tabs-bd">
-                                  <div class="add am-active">
-                                    <div class="add0_child">排序</div>
-                                    <div class="add0_child">商品名称</div>
-                                    <div class="add0_child">商品编码</div>
-                                    <div class="add0_child">商品属性</div>
-                                    <div class="add0_child">是否预售</div>
-                                    <div class="add0_child">生产日期</div>
-                                    <div class="add0_child">保质期</div>
-                                    <div class="add0_child">库存数量</div>
-                                    <div class="add0_child">商品价格</div>
-                                    <div class="add0_child">会员价格</div>
-                                  </div>
-                                  <div class="add">
-                                    <div class="add_child"><input type="number" placeholder="请输入数字" style="width: 100%;text-align: center"></div>
-                                    <div class="add_child"><input type="text" style="width: 100%;text-align: center"></div>
-                                    <div class="add_child"><input type="text" style="width: 100%;text-align: center"></div>
-                                    <div class="add_child"><input type="text" style="width: 100%;text-align: center"></div>
-                                    <div class="add_child"><input type="text" placeholder="请输入是/否" style="width: 100%;text-align: center"></div>
-                                    <div class="add_child"><input type="text" placeholder="格式：2017年5月20日" style="width: 100%;text-align: center"></div>
-                                    <div class="add_child"><input type="text" placeholder="格式：8个月" style="width: 100%;text-align: center"></div>
-                                    <div class="add_child"><input type="number" placeholder="请输入数字" style="width: 100%;text-align: center"></div>
-                                    <div class="add_child"><input type="text" placeholder="格式：90元/个" style="width: 100%;text-align: center"></div>
-                                    <div class="add_child"><input type="text" placeholder="格式：90元/个" style="width: 100%;text-align: center"></div>
-                                  </div>
-                                </div>
-                            </div>
-                            <br />
-                            <button type="button" class="am-btn am-btn-primary js-append-tab">添加</button>
-                        </td>
-                    </tr>
-                </table>
+    <!-- .......................................一级分类添加商品弹出框开始.................................... -->
+    <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-3">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">添加商品
+                <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
             </div>
+            <div class="am-modal-bd">
+                <div class="stocks_bodys">
+                    <div class="stocks_in">
+                        <span class="stocks_in_cha">排序</span>
+                        <input class="stocks_in_chb" type="number" name="paixu">
+                    </div>
+                    <div class="stocks_in">
+                        <span class="stocks_in_cha" style="margin-right: -29px;">商品名称</span>
+                        <input class="stocks_in_chb" type="text" name="names">
+                    </div>
+                    <div class="stocks_in">
+                        <span class="stocks_in_cha" style="margin-right: -29px;">生产日期</span>
+                        <input class="stocks_in_chbb" type="text" name="stocks_born" placeholder="请选择日期" readonly
+                               required data-am-datepicker/>
+                    </div>
+                    <div class="stocks_in">
+                        <span class="stocks_in_cha" style="margin-right: -16px;">保质期</span>
+                        <input class="stocks_in_chb" type="number" name="stocks_save" placeholder="请输入数字">
+                    </div>
+                    <div class="stocks_in">
+                        <span class="stocks_in_cha">库存</span>
+                        <input class="stocks_in_chb" type="number" name="stocks_allnumber" placeholder="请输入数字">
+                    </div>
+                    <div class="stocks_in">
+                        <span class="stocks_in_cha">状态</span>
+                        <select class="stocks_in_chb" name="stocks_zhuantai" class="stocks_chose">
+                            <option selected value="">请选择</option>
+                            <option value="上架">上架</option>
+                            <option value="下架">下架</option>
+                        </select>
+                    </div>
+                    <div class="stocks_in">
+                        <span class="stocks_in_cha">价格</span>
+                        <input class="stocks_in_chb" type="number" name="stocks_money" placeholder="请输入数字">
+                    </div>
+                    <div class="stocks_in">
+                        <span class="stocks_in_cha">会员价</span>
+                        <input class="stocks_in_chb" type="number" name="stocks_moneys" placeholder="请输入数字">
+                    </div>
+                </div>
+                <div class="stocks_footers">
+                    <input id="stocks_cards_btn" type="button" class="am-btn am-btn-secondary btn-loading-example"
+                           value="添加" data-am-loading="{loadingText: '请稍等...'}"/>
+                    <input type="button" class="am-btn am-btn-secondary" value="取消" data-am-modal-close/>
+                </div>
+            </div>
+        </div>
+    </div>
+   <!-- ....................................一级分类添加商品弹出框结束 ............................-->
+   <!-- .......................................二级分类添加商品弹出框开始.................................... -->
+    <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-5">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">添加商品
+                <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+            </div>
+            <div class="am-modal-bd">
+                <div class="stocks_bodys">
+                    <div class="stocks_in_1">
+                        <span class="stocks_in_cha_1">排序</span>
+                        <input class="stocks_in_chb_1" type="number" name="paixu">
+                    </div>
+                    <div class="stocks_in_1">
+                        <span class="stocks_in_cha_1" style="margin-right: -29px;">商品名称</span>
+                        <input class="stocks_in_chb_1" type="text" name="names">
+                    </div>
+                    <div class="stocks_in_1">
+                        <span class="stocks_in_cha_1" style="margin-right: -29px;">生产日期</span>
+                        <input class="stocks_in_chbb_1" type="text" name="stocks_born" placeholder="请选择日期" readonly
+                               required data-am-datepicker/>
+                    </div>
+                    <div class="stocks_in_1">
+                        <span class="stocks_in_cha_1" style="margin-right: -16px;">保质期</span>
+                        <input class="stocks_in_chb_1" type="number" name="stocks_save" placeholder="请输入数字">
+                    </div>
+                    <div class="stocks_in_1">
+                        <span class="stocks_in_cha_1">库存</span>
+                        <input class="stocks_in_chb_1" type="number" name="stocks_allnumber" placeholder="请输入数字">
+                    </div>
+                    <div class="stocks_in_1">
+                        <span class="stocks_in_cha_1">状态</span>
+                        <select class="stocks_in_chb_1" name="stocks_zhuantai" class="stocks_chose">
+                            <option selected value="">请选择</option>
+                            <option value="上架">上架</option>
+                            <option value="下架">下架</option>
+                        </select>
+                    </div>
+                    <div class="stocks_in_1">
+                        <span class="stocks_in_cha_1">价格</span>
+                        <input class="stocks_in_chb_1" type="number" name="stocks_money" placeholder="请输入数字">
+                    </div>
+                    <div class="stocks_in_1">
+                        <span class="stocks_in_cha_1">会员价</span>
+                        <input class="stocks_in_chb_1" type="number" name="stocks_moneys" placeholder="请输入数字">
+                    </div>
+                </div>
+                <div class="stocks_footers">
+                    <input id="stocks_cards_btn-1" type="button" class="am-btn am-btn-secondary btn-loading-example"
+                           value="添加" data-am-loading="{loadingText: '请稍等...'}"/>
+                    <input type="button" class="am-btn am-btn-secondary" value="取消" data-am-modal-close/>
+                </div>
+            </div>
+        </div>
+    </div>
+   <!-- ....................................二级分类添加商品弹出框结束 ............................-->
+   <!-- ....................................一级分类修改商品弹出框开始 ............................-->
+    <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-4">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">添加商品
+                <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+            </div>
+            <div class="am-modal-bd">
+                <div class="stocks_bodys_change">
+                    <div class="stocks_in_change">
+                        <span class="stocks_in_cha_change">排序</span>
+                        <input class="stocks_in_chb_change stocks_get_a" type="number" name="paixu">
+                    </div>
+                    <div class="stocks_in_change">
+                        <span class="stocks_in_cha_change" style="margin-right: -29px;">商品名称</span>
+                        <input class="stocks_in_chb_change stocks_get_a" type="text" name="names">
+                    </div>
+                    <div class="stocks_in_change">
+                        <span class="stocks_in_cha_change" style="margin-right: -29px;">生产日期</span>
+                        <input class="stocks_in_chbb_change stocks_get_a" type="text" name="stocks_born"
+                               placeholder="请选择日期" readonly required data-am-datepicker/>
+                    </div>
+                    <div class="stocks_in_change">
+                        <span class="stocks_in_cha_change" style="margin-right: -16px;">保质期</span>
+                        <input class="stocks_in_chb_change stocks_get_a" type="text" name="stocks_save"
+                               placeholder="格式：8/个月">
+                    </div>
+                    <div class="stocks_in_change">
+                        <span class="stocks_in_cha_change">库存</span>
+                        <input class="stocks_in_chb_change stocks_get_a" type="number" name="stocks_allnumber"
+                               placeholder="请输入数字">
+                    </div>
+                    <div class="stocks_in_change">
+                        <span class="stocks_in_cha_change">状态</span>
+                        <select class="stocks_in_chb_change stocks_get_a" name="stocks_zhuantai" class="stocks_chose">
+                            <option selected value="">请选择</option>
+                            <option value="上架">上架</option>
+                            <option value="下架">下架</option>
+                        </select>
+                    </div>
+                    <div class="stocks_in_change">
+                        <span class="stocks_in_cha_change">价格</span>
+                        <input class="stocks_in_chb_change stocks_get_a" type="text" name="stocks_money"
+                               placeholder="格式:50元">
+                    </div>
+                    <div class="stocks_in_change">
+                        <span class="stocks_in_cha_change">会员价</span>
+                        <input class="stocks_in_chb_change stocks_get_a" type="text" name="stocks_moneys"
+                               placeholder="格式:50元">
+                    </div>
+                </div>
+                <div class="stocks_footers">
+                    <input id="stocks_cards_btn_change" type="button"
+                           class="am-btn am-btn-secondary btn-loading-example stocks_to_change" value="修改"
+                           data-am-loading="{loadingText: '请稍等...'}" data-am-modal-close/>
+                    <input type="button" class="am-btn am-btn-secondary" value="取消" data-am-modal-close/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ....................................一级分类修改商品弹出框结束 ............................-->
+    <!-- ....................................二级分类修改商品弹出框开始 ............................-->
+    <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-6">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">添加商品
+                <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+            </div>
+            <div class="am-modal-bd">
+                <div class="stocks_bodys_change_1">
+                    <div class="stocks_in_change_1">
+                        <span class="stocks_in_cha_change_1">排序</span>
+                        <input class="stocks_in_chb_change_1 stocks_get_a_a" type="number" name="paixu">
+                    </div>
+                    <div class="stocks_in_change_1">
+                        <span class="stocks_in_cha_change_1" style="margin-right: -29px;">商品名称</span>
+                        <input class="stocks_in_chb_change_1 stocks_get_a_a" type="text" name="names">
+                    </div>
+                    <div class="stocks_in_change_1">
+                        <span class="stocks_in_cha_change_1" style="margin-right: -29px;">生产日期</span>
+                        <input class="stocks_in_chbb_change_1 stocks_get_a_a" type="text" name="stocks_born"
+                               placeholder="请选择日期" readonly required data-am-datepicker/>
+                    </div>
+                    <div class="stocks_in_change_1">
+                        <span class="stocks_in_cha_change_1" style="margin-right: -16px;">保质期</span>
+                        <input class="stocks_in_chb_change_1 stocks_get_a_a" type="text" name="stocks_save"
+                               placeholder="格式：8/个月">
+                    </div>
+                    <div class="stocks_in_change_1">
+                        <span class="stocks_in_cha_change_1">库存</span>
+                        <input class="stocks_in_chb_change_1 stocks_get_a_a" type="number" name="stocks_allnumber"
+                               placeholder="请输入数字">
+                    </div>
+                    <div class="stocks_in_change_1">
+                        <span class="stocks_in_cha_change_1">状态</span>
+                        <select class="stocks_in_chb_change_1 stocks_get_a_a" name="stocks_zhuantai" class="stocks_chose">
+                            <option selected value="">请选择</option>
+                            <option value="上架">上架</option>
+                            <option value="下架">下架</option>
+                        </select>
+                    </div>
+                    <div class="stocks_in_change_1">
+                        <span class="stocks_in_cha_change_1">价格</span>
+                        <input class="stocks_in_chb_change_1 stocks_get_a_a" type="text" name="stocks_money"
+                               placeholder="格式:50元">
+                    </div>
+                    <div class="stocks_in_change_1">
+                        <span class="stocks_in_cha_change_1">会员价</span>
+                        <input class="stocks_in_chb_change_1 stocks_get_a_a" type="text" name="stocks_moneys"
+                               placeholder="格式:50元">
+                    </div>
+                </div>
+                <div class="stocks_footers">
+                    <input id="stocks_cards_btn_change_1" type="button"
+                           class="am-btn am-btn-secondary btn-loading-example stocks_to_change_1" value="修改"
+                           data-am-loading="{loadingText: '请稍等...'}" data-am-modal-close/>
+                    <input type="button" class="am-btn am-btn-secondary" value="取消" data-am-modal-close/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ....................................二级分类修改商品弹出框结束 ............................-->
+  <div>
+    <div id="firstFenLei">
+       <div class="firstFenLei_header">一级分类</div>
+       <div class="add-goods">
+         <table class="am-table">
+             <tr>
+                 <td>
+                      <table class="am-table am-table-bordered am-table-hover ">
+                          <thead>
+                          <tr class="am-primary">
+                              <th>排序</th>
+                              <th>商品名称</th>
+                              <th>生产日期</th>
+                              <th>保质期</th>
+                              <th>库存</th>
+                              <th>状态</th>
+                              <th>价格</th>
+                              <th>会员价</th>
+                              <th>编辑</th>
+                          </tr>
+                          </thead>
+                          <tbody id="stock_tab">
+                          <tr>
+                              <td>1</td>
+                              <td>辣条</td>
+                              <td>2015-09-14</td>
+                              <td>8个月</td>
+                              <td>3000</td>
+                              <td>下架</td>
+                              <td>5元</td>
+                              <td>3元</td>
+                              <td style="width: 25%">
+                                  <button type="button" onclick="if(confirm('是否确认删除！！')) $(this).parent().parent().remove();"
+                                          class="am-btn am-btn-primary">删除
+                                  </button>
+                                  <button style="margin-left: 0px;" type="button" class="am-btn am-btn-primary stocks_to_get_1"
+                                          data-am-modal="{target: '#doc-modal-4', closeViaDimmer: 0, width:600, height: 600}">修改
+                                  </button>
+                              </td>
+                          </tr>
+                          </tbody>
+                      </table>
+                      <div id="top">
+                          <button id="stocks_add_goods" class="am-btn am-btn-primary"
+                                  data-am-modal="{target: '#doc-modal-3', closeViaDimmer: 0, width:600, height: 600}">+添加商品
+                          </button>
+                      </div>
+                 </td>
+             </tr>
+         </table>
+       </div>
+    </div>
+  
+    <div id="secondFenLei">
+       <div class="secondFenLei_header">二级分类</div>
+       <div class="add-goods">
+         <table class="am-table">
+             <tr>
+                 <td>
+                     <table class="am-table am-table-bordered am-table-hover ">
+                          <thead>
+                          <tr class="am-primary">
+                              <th>排序</th>
+                              <th>商品名称</th>
+                              <th>生产日期</th>
+                              <th>保质期</th>
+                              <th>库存</th>
+                              <th>状态</th>
+                              <th>价格</th>
+                              <th>会员价</th>
+                              <th>编辑</th>
+                          </tr>
+                          </thead>
+                          <tbody id="stock_tab_1">
+                          <tr>
+                              <td>1</td>
+                              <td>辣条</td>
+                              <td>2015-09-14</td>
+                              <td>8个月</td>
+                              <td>3000</td>
+                              <td>下架</td>
+                              <td>5元</td>
+                              <td>3元</td>
+                              <td style="width: 25%">
+                                  <button type="button" onclick="if(confirm('是否确认删除！！')) $(this).parent().parent().remove();"
+                                          class="am-btn am-btn-primary">删除
+                                  </button>
+                                  <button style="margin-left: 0px;" type="button" class="am-btn am-btn-primary stocks_to_get_1_a"
+                                          data-am-modal="{target: '#doc-modal-6', closeViaDimmer: 0, width:600, height: 600}">修改
+                                  </button>
+                              </td>
+                          </tr>
+                          </tbody>
+                      </table>
+                      <div id="top">
+                          <button id="stocks_add_goods_1" class="am-btn am-btn-primary"
+                                  data-am-modal="{target: '#doc-modal-5', closeViaDimmer: 0, width:600, height: 600}">+添加商品
+                          </button>
+                      </div>
+                 </td>
+             </tr>
+         </table>
+       </div>
+    </div>
+  </div>
+  <script>
+//一级分类JS代码
+     $(function () {
+        var stocks_necessary_inputs=$(".stocks_bodys .stocks_in_chb");
+        var stocks_necessary_datas=$(".stocks_bodys .stocks_in_chbb");
+        //添加商品设置
+        $("#stocks_cards_btn").click(function () {
+            var stocks_in_chb = $(".stocks_in_chb").eq(0).val();
+            var stocks_in_chb1 = $(".stocks_in_chb").eq(1).val();
+            var stocks_in_chb2 = $(".stocks_in_chbb").val();
+            var stocks_in_chb3 = $(".stocks_in_chb").eq(2).val();
+            var stocks_in_chb4 = $(".stocks_in_chb").eq(3).val();
+            var stocks_in_chb5 = $(".stocks_in_chb").eq(4).val();
+            var stocks_in_chb6 = $(".stocks_in_chb").eq(5).val();
+            var stocks_in_chb7 = $(".stocks_in_chb").eq(6).val();
+            if (stocks_in_chb==""||stocks_in_chb1==""||stocks_in_chb2==""||stocks_in_chb3==""||stocks_in_chb4==""||stocks_in_chb5==""||stocks_in_chb6==""||stocks_in_chb7=="") {
+                alert("请填写完整后在提交!!!");
+                shouldToWrite();
+            }
+            else{
+                $('#doc-modal-3').modal(close);
+                $("#stock_tab").append('<tr>' + '<td>' + stocks_in_chb + '</td>' + '<td>' + stocks_in_chb1 + '</td>' + '<td>' + stocks_in_chb2 + '</td>' + '<td>' + stocks_in_chb3+ "个月" + '</td>' + '<td>' + stocks_in_chb4 + '</td>' + '<td>' + stocks_in_chb5 + '</td>' + '<td>' + stocks_in_chb6+ "元" + '</td>' + '<td>' + stocks_in_chb7+ "元" + '</td>' + '<td style="width: 15%"><button type="button"' + 'onclick="' + 'if(confirm(' + "'" + '是否确认删除！！' + "'" + ')) $(this).parent().parent().remove();" class="am-btn am-btn-primary"> 删除 </button><button style="margin-left: 5px;" type="button" class="am-btn am-btn-primary stocks_to_get_1" data-am-modal="{target:' + "'" + '#doc-modal-4' + "'" + ', closeViaDimmer: 0, width:600, height: 600}">修改</button></td>' + '</tr>');
+                stocks_necessary_datas.eq(0).removeClass("turnRed");
+                stocks_necessary_inputs.each(function(){
+                  $(this).removeClass("turnRed");
+            })
+            }    
+        })
+        //添加模态框中未填写的边框变红
+        function shouldToWrite(){
+            if (stocks_necessary_datas.eq(0).val()=="") {
+                stocks_necessary_datas.eq(0).addClass("turnRed");
+            }
+            else{
+                stocks_necessary_datas.eq(0).removeClass("turnRed");
+            }
+            stocks_necessary_inputs.each(function(){
+                if ($(this).val()=="") {
+                  $(this).addClass("turnRed");
+                }
+                else{
+                  $(this).removeClass("turnRed");
+                }
+            })
+        }
+        var all_td = {};
+        //修改商品设置
+        //获取当前列表内容到修改模态框
+        $("#stock_tab").delegate("tr td .stocks_to_get_1", "click", function () {
+            all_td = $(this).parent().siblings();
+            var stock_xiugai = $(".stocks_get_a");
+            for (var i = 0; i < stock_xiugai.length; i++) {
+                stock_xiugai.eq(i).val(all_td.eq(i).html());
+            }
+        });
+
+        //将修改模态框中内容重新传入当前列表列表（我觉得错误在这里，但不知道怎么改）
+        $(".stocks_to_change").click(function () {
+            var stocks_in_chb_change = $(".stocks_in_chb_change").eq(0).val();
+            var stocks_in_chb_change_1 = $(".stocks_in_chb_change").eq(1).val();
+            var stocks_in_chb_change_2 = $(".stocks_in_chbb_change").val();
+            var stocks_in_chb_change_3 = $(".stocks_in_chb_change").eq(2).val();
+            var stocks_in_chb_change_4 = $(".stocks_in_chb_change").eq(3).val();
+            var stocks_in_chb_change_5 = $(".stocks_in_chb_change").eq(4).val();
+            var stocks_in_chb_change_6 = $(".stocks_in_chb_change").eq(5).val();
+            var stocks_in_chb_change_7 = $(".stocks_in_chb_change").eq(6).val();
+            var change_imformation_arr = [stocks_in_chb_change, stocks_in_chb_change_1, stocks_in_chb_change_2, stocks_in_chb_change_3, stocks_in_chb_change_4, stocks_in_chb_change_5, stocks_in_chb_change_6, stocks_in_chb_change_7];
+            for (var i = 0; i < all_td.length; i++) {
+                all_td.eq(i).html(change_imformation_arr[i]);
+            }
+        })
+
+        //清空添加模态框内容
+        $("#stocks_add_goods").click(function () {
+            $(".stocks_in_chb").each(function () {
+                $(this).val("");
+            })
+        })
+    });
+//二级分类JS代码
+    $(function () {
+        var stocks_necessary_inputs_1=$(".stocks_bodys .stocks_in_chb_1");
+        var stocks_necessary_datas_1=$(".stocks_bodys .stocks_in_chbb_1");
+        //添加商品设置
+        $("#stocks_cards_btn-1").click(function () {
+            var stocks_in_chb_1 = $(".stocks_in_chb_1").eq(0).val();
+            var stocks_in_chb1_1 = $(".stocks_in_chb_1").eq(1).val();
+            var stocks_in_chb2_1 = $(".stocks_in_chbb_1").val();
+            var stocks_in_chb3_1 = $(".stocks_in_chb_1").eq(2).val();
+            var stocks_in_chb4_1 = $(".stocks_in_chb_1").eq(3).val();
+            var stocks_in_chb5_1 = $(".stocks_in_chb_1").eq(4).val();
+            var stocks_in_chb6_1 = $(".stocks_in_chb_1").eq(5).val();
+            var stocks_in_chb7_1 = $(".stocks_in_chb_1").eq(6).val();
+            if (stocks_in_chb_1==""||stocks_in_chb1_1==""||stocks_in_chb2_1==""||stocks_in_chb3_1==""||stocks_in_chb4_1==""||stocks_in_chb5_1==""||stocks_in_chb6_1==""||stocks_in_chb7_1=="") {
+                alert("请填写完整后在提交!!!");
+                shouldToWrite();
+            }
+            else{
+                $('#doc-modal-5').modal(close);
+                $("#stock_tab_1").append('<tr>' + '<td>' + stocks_in_chb_1 + '</td>' + '<td>' + stocks_in_chb1_1 + '</td>' + '<td>' + stocks_in_chb2_1 + '</td>' + '<td>' + stocks_in_chb3_1+ "个月" + '</td>' + '<td>' + stocks_in_chb4_1 + '</td>' + '<td>' + stocks_in_chb5_1 + '</td>' + '<td>' + stocks_in_chb6_1+ "元" + '</td>' + '<td>' + stocks_in_chb7_1+ "元" + '</td>' + '<td style="width: 15%"><button type="button"' + 'onclick="' + 'if(confirm(' + "'" + '是否确认删除！！' + "'" + ')) $(this).parent().parent().remove();" class="am-btn am-btn-primary"> 删除 </button><button style="margin-left: 5px;" type="button" class="am-btn am-btn-primary stocks_to_get_1_a" data-am-modal="{target:' + "'" + '#doc-modal-6' + "'" + ', closeViaDimmer: 0, width:600, height: 600}">修改</button></td>' + '</tr>');
+                stocks_necessary_datas_1.eq(0).removeClass("turnRed");
+                stocks_necessary_inputs_1.each(function(){
+                  $(this).removeClass("turnRed");
+            })
+            }    
+        })
+        //添加模态框中未填写的边框变红
+        function shouldToWrite(){
+            if (stocks_necessary_datas_1.eq(0).val()=="") {
+                stocks_necessary_datas_1.eq(0).addClass("turnRed");
+            }
+            else{
+                stocks_necessary_datas_1.eq(0).removeClass("turnRed");
+            }
+            stocks_necessary_inputs_1.each(function(){
+                if ($(this).val()=="") {
+                  $(this).addClass("turnRed");
+                }
+                else{
+                  $(this).removeClass("turnRed");
+                }
+            })
+        }
+        var all_td_1 = {};
+        //修改商品设置
+        //获取当前列表内容到修改模态框
+        $("#stock_tab_1").delegate("tr td .stocks_to_get_1_a", "click", function () {
+            all_td_1 = $(this).parent().siblings();
+            var stock_xiugai = $(".stocks_get_a_a");
+            for (var i = 0; i < stock_xiugai.length; i++) {
+                stock_xiugai.eq(i).val(all_td_1.eq(i).html());
+            }
+        });
+
+        //将修改模态框中内容重新传入当前列表列表（我觉得错误在这里，但不知道怎么改）
+        $(".stocks_to_change_1").click(function () {
+            var stocks_in_chb_change_1 = $(".stocks_in_chb_change_1").eq(0).val();
+            var stocks_in_chb_change_1_1 = $(".stocks_in_chb_change_1").eq(1).val();
+            var stocks_in_chb_change_2_1 = $(".stocks_in_chbb_change_1").val();
+            var stocks_in_chb_change_3_1 = $(".stocks_in_chb_change_1").eq(2).val();
+            var stocks_in_chb_change_4_1 = $(".stocks_in_chb_change_1").eq(3).val();
+            var stocks_in_chb_change_5_1 = $(".stocks_in_chb_change_1").eq(4).val();
+            var stocks_in_chb_change_6_1 = $(".stocks_in_chb_change_1").eq(5).val();
+            var stocks_in_chb_change_7_1 = $(".stocks_in_chb_change_1").eq(6).val();
+            var change_imformation_arr_1 = [stocks_in_chb_change_1, stocks_in_chb_change_1_1, stocks_in_chb_change_2_1, stocks_in_chb_change_3_1, stocks_in_chb_change_4_1, stocks_in_chb_change_5_1, stocks_in_chb_change_6_1, stocks_in_chb_change_7_1];
+            for (var i = 0; i < all_td_1.length; i++) {
+                all_td_1.eq(i).html(change_imformation_arr_1[i]);
+            }
+        })
+
+        //清空添加模态框内容
+        $("#stocks_add_goods_1").click(function () {
+            $(".stocks_in_chb_1").each(function () {
+                $(this).val("");
+            })
+        })
+    });
+  </script>
+</body>
+</html>
 </body>
 </html>
