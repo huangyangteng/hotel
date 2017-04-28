@@ -6,13 +6,11 @@
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" type="text/css" href="assets/css/amazeui.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/jquery-ui-1.10.4.custom.min.css">
+    <link rel="stylesheet" type="text/css" href="http://apps.bdimg.com/libs/jqueryui/1.9.2/themes/base/jquery-ui.css">
     <script src="assets/js/jquery.min.js"></script>
     <script  src="assets/js/amazeui.min.js"></script>
     <script src="assets/js/angular.min.js"></script>
-    <script src="assets/js/jquery-ui-1.10.4.custom.min.js"></script>
-<script src="https://cdn.bootcss.com/angular-ui-router/1.0.0-alpha0/angular-ui-router.min.js"></script>
-
+    <script src="http://apps.bdimg.com/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
 </head>
 <!--
   header········································导航条
@@ -36,7 +34,7 @@
                       <li><a href="guest.html">客人</a></li>
                       <li><a href="vip.html">会员</a></li>
                       <li><a href="company.html">协议单位</a></li>
-                      <li><a href="report-forms.html">报表</a></li>
+                      <li><a href="index.html">报表</a></li>
                       <li><a href="stock.html">库存</a></li>
                       <li><a href="options.html">设置</a></li>
               </ul>
@@ -96,7 +94,7 @@
     <!-- ·································end 外客购买·························· -->
           <button type="button"  class="am-btn am-btn-secondary">团队预订</button>
     <!-- ·························时间输入框······················· -->
-          <input class="oc_time" type="text"  data-am-datepicker readonly required placeholder="请选择日期" >
+          <input class="oc_time datepicker" type="text">
     <!-- ·························反结账 start······························ -->
           <button
                   type="button"
@@ -378,9 +376,12 @@
                   </div>
               </div><!--预订的模态窗口-->
               <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-getout">
-                  <div class="am-modal-dialog">
+                  <div class="am-modal-dialog" style="margin-top: 30px;margin-bottom: 20px;">
+                      <div class="am-modal-hd">
+                          <a href="javascript: void(0)" class="am-close" data-am-modal-close>&times;</a>
+                      </div>
                       <div class="am-modal-bd">
-                          <section id="checked-left" style="width: 8%; float: left;">
+                          <section id="checked-left" style="width: 8%; float: left;margin-top: 85px;">
                               <button id="checked-btn-one"  class="am-btn am-btn-secondary">点击结账</button>
                               <button id="checked-btn-two" class="am-btn am-btn-secondary">点击换房</button>
                               <button id="checked-btn-three" class="am-btn am-btn-secondary">点击续住</button>
@@ -406,14 +407,17 @@
                   </div>
               </div>   <!-- 已入住房间的模态窗口-->
               <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-empty">
-                  <div class="am-modal-dialog">
+                  <div class="am-modal-dialog" style="margin-top: 30px;margin-bottom: 20px;">
+                      <div class="am-modal-hd">
+                          <a href="javascript: void(0)" class="am-close" data-am-modal-close>&times;</a>
+                      </div>
                       <div class="am-modal-bd">
-                          <section id="book-left" style="width: 8%;float:left;">
+                          <section id="book-left" style="width: 8%;float:left;margin-top: 85px;">
                               <button id="btn-book-one" class="am-btn am-btn-secondary">点击预定</button>
                               <button id="btn-book-two" class="am-btn am-btn-secondary">点击入住</button>
                               <a href="index.html" class="am-btn am-btn-secondary">返回主页</a>
                           </section>
-                          <section id="book-right" style="width: 90%;float: right;padding: 20px 8% 0px 2%;">
+                          <section id="book-right" style="width: 90%;float: right;">
                           </section>
                           <script>
                               $(document).ready(function(){
@@ -476,9 +480,6 @@
           <!-- ···············右侧边栏··························· -->
           <div id="bar">
             <!-- ···············房态 start·················· -->
-              <!-- <label>房态 :</label>
-                <select ng-init="roomData=roomdatas[0]" ng-model="roomData" ng-options="x as x.name for x in roomdatas"></select>
-              <br> -->
               <label>房型 :</label>
                 <select ng-init="roomShape=roomshapes[0]" ng-model="roomShape" ng-options="x as x.name for x in roomshapes"></select>
               <br>
@@ -490,7 +491,8 @@
               <button
                       type="button"
                       class="am-btn am-btn-primary"
-                      data-am-modal="{target: '#doc-modal-5', closeViaDimmer: 0, width: 1200, height: 800}">
+                      data-am-modal="{target: '#doc-modal-5', closeViaDimmer: 0, width: 1200, height: 800}"
+                      ng-click="initial()">
                   房价调整
               </button>
               <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-5">
@@ -499,28 +501,33 @@
                           <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
                       </div>
                       <div class="am-modal-bd">
+                          <div class="amb_big">
+                              <div>
+                                   <table class="am-table am-table-bordered">
+                                      <thead id="b_thead">
+                                        <tr class="am-primary">
+                                            <th class="t1" ">房间类型</th>
+                                            <th class="t2">基准价</th>
+                                            <th class="t3">调整方式</th>
+                                            <th class="t4">调整</th>
+                                            <th class="t5">调整时间段</th>
+                                        </tr>
+                                      </thead>
+                                  </table>
+                              </div>
+                          <div>
                           <table class="am-table am-table-bordered am-table-hover">
-                              <thead id="b_thead">
-                              <tr class="am-primary">
-                                  <th>房间类型</th>
-                                  <th>基准价</th>
-                                  <th>调整方式</th>
-                                  <th>调整</th>
-                                  <th colspan="2">调整时间段</th>
-                              </tr>
-                              </thead>
                               <tbody id="b_tbody">
                               <tr ng-repeat='v in roomshapes'>
-                                  <td><input type="" name="" ng-model='v.name' disabled> </td>
-                                  <td><input type="" name="" ng-model="v.price" disabled></td>
-                                  <td ng-click="exmethod($event)">
-                                      <select ng-init="exMethod=exmethods[0]" ng-model="exMethod" ng-options="v for v in exmethods ">
+                                  <td class="t1"><input type="" name="" ng-model='v.name' disabled> </td>
+                                  <td class="t2"><input type="" name="" ng-model="v.price" disabled></td>
+                                  <td class="t3">
+                                      <select ng-init="exMethod=exmethods[0]" ng-model="exMethod" ng-options="v for v in exmethods"  ng-click="exmethod($event)">
                                       </select>
                                   </td>
-                                  <td><input type="" name="" class="bt_merber" placeholder="请输入调整比例"></td>
-                                  <td colspan="2" id="bt_time"><input type="text" class="datepicker"  readonly required placeholder="请选择开始日期"> ---- <input type="text" class="datepicker"  readonly required placeholder="请选择结束日期"></td>
+                                  <td class="t4"><input type="" name="" class="initial" placeholder="请输入调整比例" ng-click="newprice($event)" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"></td>
+                                  <td id="bt_time"><input type="text"  placeholder="请选择开始日期" required readonly> ---- <input type="text" placeholder="请选择结束日期" required readonly></td>
                               </tr>
-
                               <tr class="oct_last">
                                   <td><input type="" name="" disabled></td>
                                   <td><input type="" name="" disabled></td>
@@ -530,9 +537,10 @@
                               </tr>
                               </tbody>
                           </table>
+                          </div>
+                          </div>
                           <button class="am-btn am-btn-success" ng-click='savePrice()'>保存</button>
                       </div>
-
                   </div>
               </div>
             <!-- ·····················end 房价调整················· -->
@@ -729,7 +737,7 @@
                       <div class="am-modal am-modal-prompt" tabindex="-1" id="dialogbox" >
                         <div class="am-modal-dialog" id="dialogbox1">
                           <div class="am-modal-hd">交班确认
-                              <a href="javascript: void(0)" class="am-close" data-am-modal-close>&times;</a>
+                              <a href="javascript: void(0)" class="am-close" ng-click="shifclose()">&times;</a>
                           </div>
                           <div class="am-modal-bd">
                             请你仔细核对信息，确认无误后请登录您的账户：
@@ -760,7 +768,7 @@
   //end   获取本地时间
   // jquery ui 的日历插件 start
     $(function() {
-      $( ".datepicker" ).datepicker();
+        $( ".datepicker" ).datepicker({ minDate: 0});
     });
   // end   jquery ui 的日历插件
   // msg start
@@ -781,6 +789,7 @@
        $('div#title span:eq(0)').show()
     });
   // end msg
+
     function cancelcheckout(){
         var mymessage=  confirm("是否确认反结账")   ;
         if(mymessage==true)
@@ -837,6 +846,11 @@
       });
     // end 页面渲染完的自定义指令
     app.controller('Ctrl', ["$scope","$http",function($scope,$http) {
+      // 点击按钮弹出模态框初始化    start
+        $scope.initial=function(){
+          $('input.initial').val('');
+        }
+      // end   点击按钮弹出模态框初始化
       // 模拟数据  start
         $scope.shop=[
                   {'name':'牙膏','numbers':'100','price':'12'},
@@ -844,7 +858,7 @@
                   {'name':'酒','numbers':'10','price':'200'},
                   {'name':'纸','numbers':'1000','price':'3'},
         ];//商品购买
-        $scope.exmethods=['按比例调整','按差价调整','基准价调整'];//房价调整的方法
+        $scope.exmethods=['按比例调整','按基准价调整','按差价调整'];//房价调整的方法
         $scope.paymethods=["现金","支付宝","微信","刷卡","挂账"];// 商品购买的支付方式
         $scope.data=[
          {'id':1,'name':'普通','number':101,'price':120,'person':'','state':'空房','color':'#2993cc'},
@@ -950,59 +964,11 @@
                }
           });
       // end        选择房型 楼层
-
-
-
-
-
-
-
-
       // 房价调整     start
-        // $scope.roomPrice=function(){
-        //   if ($scope.newPrice<0 ||  isNaN($('.bt_new').val())) {
-        //     $scope.newPrice='';
-        //     alert('请输入大于0的数字')
-        //   } else {
-        //     $scope.memberPrice=$('.bt_new').val()*8/10;
-        //   }
-        // };
-        // $scope.savePrice=function(){
-          /*$scope.$watch("roomShapes", function(n){
-              for (var i = 0; i < $scope.roomshapes.length; i++) {
-                  if (n.name==$scope.roomshapes[i].name) {
-                      $scope.roomshapes[i].price=$('.bt_new').val();
-                  };
-                  if (n.name=='全部'){
-                      $scope.roomshapes[i].price=$('.bt_new').val();
-                  };
-                }
-          });*/
-    /*      if ($scope.newPrice>0 && ! isNaN($('.bt_new').val()) && !$('#bt_time input').val()==''){
-              $("#doc-modal-5").modal("close");
-          }
-          else{
-              if ($('.bt_new').val()=='') {
-                alert('请输入调整后的价格')
-              }else {
-                  alert('请输入调整时间段')
-              }
-          };
-        }*/
-
-
+        $scope.savePrice=function(){
+         $('#doc-modal-5').modal('close')
+        }
       // end           房价调整
-
-
-
-
-
-
-
-
-
-
-
       // 房态图下边栏计算剩余房间 start
         var count1=0;var count2=0;var count3=0;var count4=0;
         var count5=0;var count6=0;var count7=0;
@@ -1048,21 +1014,24 @@
             else{
               $('#shiftA').attr('href','index.html');
             }
-        }
+        };
+        $scope.shifclose=function(){
+           $("#dialogbox").modal("close");
+        };
       // end  交班
       // 点击(页面渲染完执行) start
         $scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {
             $scope.click=function($event){
                 if ($($event.target).html()=='空房'){
-                    $($event.target).attr("data-am-modal","{target: '#doc-modal-empty', closeViaDimmer: 0, width: 1300,height: 850}");
+                    $($event.target).attr("data-am-modal","{target: '#doc-modal-empty', closeViaDimmer: 0, width: 1100,height: 850}");
                 }
                 else if($($event.target).html()=='预订'){
                     if(confirm("此房已被预订，查看预订信息吗？")){
-                        $($event.target).attr("data-am-modal","{target: '#doc-modal-book', closeViaDimmer: 0, width: 1300,height: 850}");
+                        $($event.target).attr("data-am-modal","{target: '#doc-modal-book', closeViaDimmer: 0, width: 1100,height: 850}");
                     }
                 }
                 else if($($event.target).html()=='在住'){
-                    $($event.target).attr("data-am-modal","{target: '#doc-modal-getout', closeViaDimmer: 0, width: 1300,height: 850}");
+                    $($event.target).attr("data-am-modal","{target: '#doc-modal-getout', closeViaDimmer: 0, width: 1100,height: 850}");
                 }
                 else if($($event.target).html()=='待查'){
                     if(confirm("确定使用待查房吗？")){
@@ -1071,17 +1040,17 @@
                 }
                 else if($($event.target).html()=='自用'){
                     if(confirm("确定使用自用房吗？")){
-                        $($event.target).attr("data-am-modal","{target: '#doc-modal-empty', closeViaDimmer: 0, width: 1300,height: 850}");
+                        $($event.target).attr("data-am-modal","{target: '#doc-modal-empty', closeViaDimmer: 0, width: 1100,height: 850}");
                     }
                 }
                 else if($($event.target).html()=='脏房'){
                     if(confirm("确定使用脏房吗？")){
-                        $($event.target).attr("data-am-modal","{target: '#doc-modal-empty', closeViaDimmer: 0, width: 1300,height: 850}");
+                        $($event.target).attr("data-am-modal","{target: '#doc-modal-empty', closeViaDimmer: 0, width: 1100,height: 850}");
                     }
                 }
                 else if($($event.target).html()=='修理'){
                     if(confirm("确定使用未修理的房间吗？")){
-                        $($event.target).attr("data-am-modal","{target: '#doc-modal-empty', closeViaDimmer: 0, width: 1300,height: 850}");
+                        $($event.target).attr("data-am-modal","{target: '#doc-modal-empty', closeViaDimmer: 0, width: 1100,height: 850}");
                     }
                 }
             };// 房态图的点击
@@ -1094,38 +1063,33 @@
                     }
                  }
             };//下边栏房态的点击
-
-
-
-
-
-
-
-
-              $scope.exmethod=function($event){
-                  $($event.target).children().show();
-
-                  $($event.target).next().children().show();
-              };
-
-
-            $scope.$watch("exMethod", function(n){
-                    // console.log()
-                        console.log(n)
-
-                    if(n=='按比例调整'){
-                    };
-            });
-
-
-
-
-
-
-
-
-
-
+            $scope.exmethod=function($event){
+                var text = $($event.target).val();
+                if (text == "string:按比例调整" ) {
+                  $($event.target).parent().next().children().attr('placeholder','请输入调整比例');
+                }
+                else if(text == "string:按差价调整"){
+                  $($event.target).parent().next().children().attr('placeholder','请输入差价');
+                }
+                else if(text == "string:按基准价调整"){
+                  $($event.target).parent().next().children().attr('placeholder','请输入基准价');
+                };
+            };//房价调整选择框
+            $scope.newprice=function($event){
+                var time1=$($event.target).parent().next().children("input:eq(0)");
+                var time2=$($event.target).parent().next().children("input:eq(1)");
+                time1.datepicker({
+                    minDate: 0,
+                    onClose: function( selectedDate ) {
+                      time2.datepicker( "option", "minDate", selectedDate );
+                    }
+                  });
+                time2.datepicker({
+                  onClose: function( selectedDate ) {
+                    time1.datepicker( "option", "maxDate", selectedDate );
+                  }
+                });
+            };//控制房价调整的时间输入
 
         });
       // end  点击(页面渲染完执行)

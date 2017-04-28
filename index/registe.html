@@ -8,6 +8,7 @@
     <title>入住</title>
     <style type="text/css">
         #registe{
+            margin-top: 25px;
             border: 2px solid #EAE8E8;
             background: #fff;
         }
@@ -35,20 +36,49 @@
             box-shadow: 0px 0px 1px #C6C6C6;
             margin: 0px;
         }
-        #registe td[colspan="3"] textarea{
-            width: 85%;
-            height: 80px
+        #registe td textarea{
+            width: 65%;
+            height: 60px
         }
         #registe td[colspan="3"] button{
             float: right;
-            margin-right: 6%;
+            margin-right: 3%;
             margin-bottom: 10px;
         }
         #registe .c_bottom p{
             display: inline-block;
             margin: 0px 0px 0px 20px;
         }
-
+        #daccount{
+            border: 1px solid #C6C6C6;
+            background: #fff;
+            box-shadow: 1px 1px 10px #C6C6C6;
+            padding: 10px;
+            padding-top: 0px;
+        }
+        #daccount td{
+            border-left: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+        #daccount div.da_body{
+            max-height:400px;
+            width:100%;
+            overflow-y: auto;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        #daccount div table{
+            margin-bottom: 0px;
+        }
+        #daccount .t1{
+            width: 100px;
+        }
+        #daccount .t2{
+            width: 200px;
+        }
+        #daccount .t3{
+            width: 150px;
+        }
     </style>
 </head>
 <body>
@@ -133,34 +163,34 @@
         </tr>
         <tr>
             <td colspan="3">
-                <label style="width: 8%;">单位名称：</label>
+                <label style="width: 10%;">单位名称：</label>
                 <input type="" name="" style="width: 80%;">
             </td>
         </tr>
         <tr>
             <td colspan="3">
-                <label style="width: 8%;">住址：</label>
+                <label style="width: 10%;">住址：</label>
                 <input type="" name="" style="width: 80%;">
             </td>
         </tr>
         <tr>
             <td colspan="3">
-                <label style="width: 8%;">手机号码：</label>
+                <label style="width: 10%;">手机号码：</label>
                 <input type="" name="" style="width: 80%;">
             </td>
         </tr>
         <tr>
             <td>
                 <label >到店日期：</label>
-                <input type="date" data-am-datepicker="" name="date">
+                <input class="datepicker1" type="text">
             </td>
             <td>
-                <label >住店天数：</label>
-                <input type="number" name="" >
+                <label>住店天数：</label>
+                <input type="number" name=""  class="renumber">
             </td>
             <td>
                 <label >离店日期：</label>
-                <input type="date" data-am-datepicker="" name="date">
+                <input class="datepicker2" type="text">
             </td>
         </tr>
         <tr>
@@ -173,41 +203,97 @@
             </td>
             <td>
                 <label>房价：</label>
-                <input type="text" name="text" value="168元" disabled>
+                <input type="text" name="text" value="168">元
             </td>
         </tr>
         <tr>
             <td>
                 <label>优惠价：</label>
-                <input type="text" name="text">
+                <input type="text" name="text">元
             </td>
             <td>
                 <label>服务费：</label>
-                <input type="text" name="text">
+                <input type="text" name="text">元
             </td>
             <td>
                 <label>加床费：</label>
-                <input type="text" name="text">
+                <input type="text" name="text">元
             </td>
         </tr>
         <tr>
-                <td>
-                    <label>折扣率：</label>
-                    <input type="text" name="text">
-                </td>
-                <td>
-                    <label>折扣类型：</label>
-                    <input type="text" name="text">
-                </td>
-                <td>
-                    <label>定金：</label>
-                    <input type="text" name="text">
-                </td>
+            <td>
+                <label>折扣率：</label>
+                <input type="text" name="text">
+            </td>
+            <td>
+                <label>折扣类型：</label>
+                <input type="text" name="text">
+            </td>
+            <td>
+                <label>定金：</label>
+                <input type="text" name="text">元
+            </td>
         </tr>
         <tr>
             <td>
                 <label>预付：</label>
+                <input type="text" name="text">元
+            </td>
+            <td>
+                <label>会员卡号：</label>
                 <input type="text" name="text">
+            </td>
+            <td>
+                <label>客源帐号：</label>
+                <input type="text" name="text">
+                <button data-am-modal="{target: '#dialogboxaccount',    closeViaDimmer: 0, width:900, height:600}">...</button>
+                <div class="am-modal am-modal-prompt" tabindex="-1" id="dialogboxaccount" >
+                  <div class="am-modal-dialog" id="daccount">
+                    <div class="am-modal-hd">客源账号
+                        <a href="javascript: void(0)" class="am-close accountclose">&times;</a>
+                    </div>
+                    <input type="" name="" placeholder="请输入查询信息">
+                    <table class="am-table am-table-bordered" style="margin-top: 10px;margin-bottom: 0px;">
+                        <thead >
+                            <tr class="am-primary">
+                                <td class="t1">姓名</td>
+                                <td class="t2">单位</td>
+                                <td class="t3">联系方式</td>
+                                <td>地址</td>
+                            </tr>
+                        </thead>
+                    </table>
+                    <div class="da_body">
+                        <table class="am-table am-table-bordered  am-table-hover" >
+                            <tbody >
+                                <tr>
+                                    <td class="t1">小王</td>
+                                    <td class="t2">九次方科技有限公司</td>
+                                    <td class="t3">18683660949</td>
+                                    <td>四川 绵阳 涪城区 青义镇</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <button class="am-btn am-btn-success">确定</button>
+                  </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>备注：</label>
+                <textarea></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3"  class="c_hr"><hr></td>
+        </tr>
+        <tr>
+            <td class="c_bottom">
+                <p>日期：<span>2017.04.10</span></p>
+                <p>营销员：<span>小张</span></p>
+                <p>接待人：<span>小王</span></p>
             </td>
             <td colspan="2">
                 <div class="am-form-group">
@@ -231,36 +317,42 @@
             </td>
         </tr>
         <tr>
-            <td>
-                <label>会员卡号：</label>
-                <input type="text" name="text">
-            </td>
-            <td>
-                <label>客源帐号：</label>
-                <input type="text" name="text">
-                <button>...</button>
-            </td>
-        </tr>
-        <tr>
             <td colspan="3">
-                <label>备注：</label>
-                <textarea></textarea>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="3"  class="c_hr"><hr></td>
-        </tr>
-        <tr>
-            <td class="c_bottom">
-                <p>日期：<span>2017.04.10</span></p>
-                <p>营销员：<span>小张</span></p>
-                <p>接待人：<span>小王</span></p>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="3">
-                <button class="am-btn am-btn-secondary">入住</button>
+                <button class="am-btn am-btn-secondary registe">入住</button>
             </td>
         </tr>
     </table>
+    <script>
+        // jquery ui 的日历插件 start
+        $('.datepicker1').datepicker({
+            minDate: 0,
+            onClose: function( selectedDate ) {
+               $('.datepicker2').datepicker( "option", "minDate", selectedDate );
+            }
+        });
+
+        $("input.renumber").change(function(){
+            var re_number1=$('.datepicker1').val();
+            var re_number2=$("input.renumber").val();
+            console.log(re_number1);
+            console.log(re_number2);
+
+        });
+        $('.datepicker2').datepicker({
+                minDate: 0,
+                onClose: function( selectedDate ) {
+                   $('.datepicker1').datepicker( "option", "maxDate", selectedDate );
+                }
+            });
+        // end   jquery ui 的日历插件
+        $("button.registe").click(function(){
+            $("#doc-modal-empty").modal('close');
+        });
+        $("a.accountclose").click(function(){
+            $("#dialogboxaccount").modal('close');
+        });
+        $("#daccount button").click(function(){
+            $("#dialogboxaccount").modal('close');
+        });
+    </script>
 </body>

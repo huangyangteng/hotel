@@ -10,6 +10,7 @@
         #check-out{
             border: 2px solid #E8E8E8;
             background: #fff;
+            margin-top: 25px;
         }
         #check-out table{
             margin-bottom: 0em
@@ -53,10 +54,10 @@
             border-bottom: 2px solid #f8f8f8;
         }
         #check-out #co_bottom td{
-            padding: 0.3rem;
+            padding: 0.1rem;
         }
         #check-out #co_bottom{
-            padding: 5px;
+            padding: 1px;
         }
         #check-out .cob_bottom p{
             display: inline-block;
@@ -65,8 +66,28 @@
         #check-out #co_bottom td[colspan="3"] button{
              float: right;
              margin-right: 3%;
-         }
-
+             margin-bottom: 10px;
+        }
+        #dacheckout{
+            border: 1px solid #C6C6C6;
+            background: #fff;
+            box-shadow: 1px 1px 10px #C6C6C6;
+            padding: 10px;
+            padding-top: 0px;
+        }
+        #dacheckout tr:first-child td{
+            text-align: right;
+        }
+        #dacheckout p{
+            display: inline-block;
+            margin: 0px 0px 0px 10px;
+        }
+        #dacheckout td {
+            padding: 1.6rem
+        }
+        #dacheckout textarea{
+            width: 75%;
+        }
 
     </style>
 </head>
@@ -94,10 +115,6 @@
                 <tr>
                     <td>
                         <label>总房价：</label>
-                        <input type="" name="">
-                    </td>
-                    <td>
-                        <label>支付方式：</label>
                         <input type="" name="">
                     </td>
                     <td>
@@ -142,7 +159,7 @@
         </div>
         <div id="co_detail">
             <hr>
-            <p><span>账务明细</span></p>
+            <p><span>账务明细</span><button>编辑账单</button><button>打印账单</button><button>费用记账</button></p>
             <div>
                 <table class="am-table am-table-bordered am-table-hover">
                     <thead>
@@ -236,27 +253,36 @@
                 <tr>
                     <td>
                         <label>费用合计：</label>
-                        <input type="" name="">
+                        <input type="" name="">元
                     </td>
                     <td>
                         <label>付款合计：</label>
-                        <input type="" name="">
+                        <input type="" name="">元
                     </td>
                     <td>
-                        <label>客账余额：</label>
-                        <input type="" name="">
+                        <label>客帐余额：</label>
+                        <input type="" name="">元
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td  style="width: 40%">
                         <label>应收：</label>
                         <input type="" name="">元
                     </td>
-                    <td>
+                    <td  style="width: 30%">
                         <label>应退：</label>
                         <input type="" name="">元
                     </td>
-                    <td>
+                    <td style="width: 30%"></td>
+                </tr>
+                <tr><td colspan="3"><hr></td></tr>
+                <tr>
+                    <td class="cob_bottom">
+                        <p>日期：<span>2017.04.10</span></p>
+                        <p>工号：<span>003</span></p>
+                        <p>营销员：<span>小张</span></p>
+                    </td>
+                    <td colspan="2">
                         <div class="am-form-group">
                             <span><b>支付方式：</b></span>
                             <label class="am-radio-inline">
@@ -280,21 +306,90 @@
                         </div>
                     </td>
                 </tr>
-                <tr><td colspan="3"><hr></td></tr>
-                <tr>
-                    <td class="cob_bottom" colspan="2">
-                        <p>日期：<span>2017.04.10</span></p>
-                        <p>工号：<span>003</span></p>
-                        <p>营销员：<span>小张</span></p>
-                    </td>
-                </tr>
                 <tr>
                     <td colspan="3">
-                        <button class="am-btn am-btn-secondary">结账</button>
+                        <button class="am-btn am-btn-secondary" data-am-modal="{target: '#dialogboxcheck-out',    closeViaDimmer: 0, width:700, height:360}">结账</button>
+                        <div class="am-modal am-modal-prompt" tabindex="-1" id="dialogboxcheck-out" >
+                          <div class="am-modal-dialog" id="dacheckout">
+                            <div class="am-modal-hd">结账
+                                <a href="javascript: void(0)" class="am-close">&times;</a>
+                            </div>
+                            <div class="am-modal-bd">
+                                <table class="am-table am-table-bordered" >
+                                    <tr>
+                                        <td colspan="3">
+                                            单号：<span>201604282455</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3"><hr></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                           帐号：<span>00032</span>
+                                        </td>
+                                        <td>
+                                           姓名：<span>小王</span>
+                                        </td>
+                                        <td>
+                                            费用合计：<span>168</span>元
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            付款合计：<span>100</span>元
+                                        </td>
+                                        <td>
+                                            客帐余额：<span>0</span>元
+
+                                        </td>
+                                        <td>
+                                            应收：<span>68</span>元
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            应退：<span>0</span>元
+                                        </td>
+                                        <td>
+                                            实收：
+                                            <input type="" name="">元
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            备注：
+                                            <textarea></textarea>
+                                        </td>
+                                    </tr>
+                                    <tr><td colspan="3"><hr></td></tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <p>预订日期：<span>2017.04.10</span></p>
+                                            <p>工号：<span>003</span></p>
+                                            <p>营销员：<span>小张</span></p>
+                                        </td>
+                                        <td>
+                                            支付方式：<span>现金</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <button class="am-btn am-btn-success">确定</button>
+                          </div>
+                        </div>
                     </td>
                 </tr>
             </table>
         </div>
     </div>
+    <script>
+        $("#dacheckout a").click(function(){
+            $("#dialogboxcheck-out").modal('close')
+        });
+        $("#dacheckout button").click(function(){
+            $("#dialogboxcheck-out").modal('close')
+        });
+    </script>
 </body>
 </html>

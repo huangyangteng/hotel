@@ -31,6 +31,10 @@
         #exchange  hr{
             margin: 0px;
         }
+        .ex_view{
+           max-height: 600px;
+           overflow-y: auto;
+        }
     </style>
 </head>
 
@@ -50,7 +54,7 @@
             <td>
                 <label>换到：</label>
                 <input type="text">
-                <button>...</button>
+                <button id="ex_view">...</button>
             </td>
             <td colspan="2">
                 <label>备注：</label>
@@ -73,5 +77,15 @@
             </td>
         </tr>
     </table>
+    <div class="ex_view">
+    </div>
+    <script >
+        $(document).ready(function(){
+            $('#ex_view').click(function(){
+                $('.ex_view').load('index/exchange2.html')
+            });
+        });
+    </script>
+
 </body>
 </html>
