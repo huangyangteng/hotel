@@ -6,13 +6,203 @@
     <link rel="stylesheet" type="text/css" href="assets/css/amazeui.min.css">
     <script src="assets/js/jquery.min.js"></script>
     <script  src="assets/js/amazeui.min.js"></script>
-
+	<style type="text/css">
+		
+        .vips_2_table{
+            line-height: 50px;
+            margin-top: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+        .vips_2_table table{
+            width: 100%;
+        }
+        .vips_2_table .vips_2_table_tb1{
+            /*background: rgb(0,173,239);*/
+            height: 50px;
+            width: 100%;
+            /*padding-right: 0px;*/
+        }
+        .vips_2_table .vips_2_table_tb2{
+            position: absolute;
+            top: 51px;
+            left: 0;
+            width: 100%;
+            height: 300px;
+            overflow: auto;
+        }
+        .vips_2_table table tr th{
+            height: 32px;
+            font-size: 14px;
+            text-align: center;
+            border-bottom: 1px #0789be solid;
+            border-right: 1px #66d5ff solid;
+            background: #00adef;
+            color: #fff;
+        }
+        .vips_2_table table tr{
+        	border-left: 1px solid #ddd;
+        }
+        .vips_2_table table tr td{
+            border-bottom: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            text-align: center;
+            padding: 2px 5px;
+            height: 50px;
+        }
+        .reducepad{
+            padding-right: 17px;
+        }
+        #vips_header table:first-child{
+			border: none;
+			background: white;
+			margin-bottom: 0;
+        }
+        #vips_header table tr td{
+        	border: none;
+        	background: white;
+        	height: 50px;
+        	padding-bottom: 0;
+        }
+	</style>
 </head>
 <body>
-    <form class="am-form">
-        <input type="text" placeholder="请输入手机号/会员卡号/身份证号">
-        <p><button type="submit" class="am-btn am-btn-default">查询</button></p>
-    </form>
-
+	<div id="vips_header">
+        <table class="am-table am-table-bordered am-table-radius am-table-striped">
+			<tr>
+				<td>
+					<div class="am-form-group">
+					  <input id="start_date" type="text" class="am-form-field" placeholder="请选择开始日期" readonly required data-am-datepicker am-text-inout-justify>
+					</div>
+				</td>
+				<td>到</td>
+				<td>
+					<div class="am-form-group">
+					  <input id="end_date" type="text" class="am-form-field" placeholder="请选择开始日期" readonly required data-am-datepicker am-text-inout-justify>
+					</div>
+				</td>
+				<td>
+					<select multiple data-am-selected>
+					  <optgroup label="等级">
+					    <option value="a">1</option>
+					    <option value="b">2</option>
+					    <option value="o">3</option>
+					    <option value="m">4</option>
+					  </optgroup>
+					  <optgroup label="类型">
+					    <option value="phone">白金</option>
+					    <option value="im">黄金</option>
+					    <option value="mbp">白银</option>
+					  </optgroup>
+					</select>
+				</td>
+				<td>
+					<select id="js-selected" data-am-selected>
+					  <option value="a" selected>消费</option>
+					  <option value="b">较多消费总额</option>
+					  <option value="o">较多卡余额</option>
+					  <option value="m">较多成交订单</option>
+					</select>
+				</td>
+				<td>
+					<input type="text" class="am-form-field" placeholder="请输入查询数量" name="">
+				</td>
+				<td>
+					<button id="vips_2_search" type="submit" class="am-btn am-btn-default">查询</button>
+				</td>
+			</tr>
+   		</table>
+	</div>
+	<div id="vips_content">
+		<div class="vips_2_table">
+            <div class="vips_2_table_tb1">
+                <table>
+                       <tr>
+                           <th style="width: 14%;">会员卡号</th>
+                           <th style="width: 14%;">会员姓名</th>
+                           <th style="width: 14%;">会员等级</th>
+                           <th style="width: 14%;">会员类型</th>
+                           <th style="width: 14%;">会员标签</th>
+                           <th style="width: 14%;">上次消费时间</th>
+                           <th style="width: 14%;">消费金额</th>
+                       </tr>
+                </table>
+            </div>
+            <div class="vips_2_table_tb2">
+                <table>
+                    <tbody id="vips_set_money_tab">
+                        <tr>
+                           <td style="width: 14%">001</td>
+                           <td style="width: 14%">黎肖</td>
+                           <td style="width: 14%">5</td>
+                           <td style="width: 14%">白金会员</td>
+                           <td style="width: 14%">喜欢吃肉</td>
+                           <td style="width: 14%">12/12/12</td>
+                           <td style="width: 14%">5000元</td>
+                       </tr>
+                       <tr>
+                           <td style="width: 14%">001</td>
+                           <td style="width: 14%">黎肖</td>
+                           <td style="width: 14%">5</td>
+                           <td style="width: 14%">白金会员</td>
+                           <td style="width: 14%">喜欢吃肉</td>
+                           <td style="width: 14%">12/12/12</td>
+                           <td style="width: 14%">5000元</td>
+                       </tr>
+                       <tr>
+                           <td style="width: 14%">001</td>
+                           <td style="width: 14%">黎肖</td>
+                           <td style="width: 14%">5</td>
+                           <td style="width: 14%">白金会员</td>
+                           <td style="width: 14%">喜欢吃肉</td>
+                           <td style="width: 14%">12/12/12</td>
+                           <td style="width: 14%">5000元</td>
+                       </tr>
+                       <tr>
+                           <td style="width: 14%">001</td>
+                           <td style="width: 14%">黎肖</td>
+                           <td style="width: 14%">5</td>
+                           <td style="width: 14%">白金会员</td>
+                           <td style="width: 14%">喜欢吃肉</td>
+                           <td style="width: 14%">12/12/12</td>
+                           <td style="width: 14%">5000元</td>
+                       </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+	</div>
 </body>
+<script type="text/javascript">
+	//获取到表格中所有tr高度的都和
+        function getHeight(){
+          var trh=0;
+          for (var i = 0; i < $("#vips_set_money_tab tr").length; i++) {
+            trh+=$("#vips_set_money_tab tr").eq(i).height();
+          }
+          return trh;
+        }
+    //
+    $("#vips_2_search").click(function(){
+    	if (getHeight()>300) {
+        $(".vips_2_table .vips_2_table_tb1").eq(0).addClass("reducepad");
+        }
+        var start_date=$("#start_date").val();
+        var newStrArr=new Array();
+        var newstr="";
+        for (var i = 0; i < 10; i++) {
+        	if (i==4 || i==7) {
+        		
+        	}
+        	else{
+        		newStrArr.push(start_date[i]);
+        	}
+        }
+        for (var i = 0; i < newStrArr.length; i++) {
+        	newstr+=newStrArr[i];
+        }
+        alert(parseInt(newstr));
+    })
+</script>
 </html>

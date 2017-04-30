@@ -20,7 +20,6 @@
         }
         .vips_list{
             line-height: 50px;
-            height: 380px;
             margin-top: 10px;
             width: 100%;
             border: 1px solid #ccc;
@@ -42,6 +41,9 @@
             width: 100%;
             height: 330px;
             overflow: auto;
+        }
+        .vips_list table tr{
+          border-left: 1px solid #ddd;
         }
         .vips_list table tr th{
             height: 32px;
@@ -69,7 +71,7 @@
     <!-- 主要显示区域开始 -->
         <!-- 主要显示区域头部开始 -->
         <div class="vips_set_grade">
-            <button class="am-btn am-btn-default">
+            <button id="vips_6_refersh" class="am-btn am-btn-default">
               <i class="am-icon-repeat"></i>
             </button>
             
@@ -374,7 +376,6 @@
                 if (getHeight()>330) {
                     $(".vips_list .vips_list_tb1").eq(0).addClass("reducepad");
                 }
-               // getHeight();
             } 
         })
         //清空添加表单框
@@ -593,5 +594,9 @@
 
             }
         })
+//
+$('#vips_6_refersh').click(function() {
+                 $('#rightone').load('vip/vip-6.html')
+             });
 </script>
 </html>

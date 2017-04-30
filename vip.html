@@ -7,18 +7,72 @@
     <link rel="stylesheet" type="text/css" href="assets/css/amazeui.min.css">
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/amazeui.min.js"></script>
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <script src="assets/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/vip.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <script rel="jquery.min.js"></script>
 </head>
+<style>
+  #vips_first_top{
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    border: 1px solid #ccc;
+  }
+  #vips_first_top h1{
+    text-align: center;
+  }
+  #vips_information_pic{
+    width: 100%;
+    height: 900px;
+    border: 1px solid #ccc;
+  }
+  #vips_information_pic .vips_information_pic_1st{
+    width: 50%;
+    height: 350px;
+    border: 1px solid orange;
+    float: left;
+    position: relative;
+  }
+  #vips_information_pic .vips_information_pic_1st p{
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+  #vips_information_pic .vips_information_pic_1st ul{
+    display: block;
+    margin:0;
+  }
+  #vips_information_pic .vips_information_pic_1st ul li{
+    position: absolute;
+    list-style: none;
+    text-align: center;
+    width: 60px;
+    height: 30px;
+    top: 230px;
+    left: 90px;
+  }
+  #vips_information_pic .vips_information_pic_1st table{
+    width: 400px;
+    height: 40px;
+    margin:0 auto;
+  }
+  #vips_information_pic h1{
+    text-align: center;
+  }
+  #vips_information_pic .vips_information_pic_1st table tr td{
+    width: 25%;
+    height: 40px;
+    margin:0 auto;
+    text-align: center;
+  }
 </style>
 <body>
     <header class="am-topbar">
         <h1 class="am-topbar-brand" style="margin-left:20%;margin-right:2%;">
-        <a href="#" style="color:white;">酒店管理系统</a>
-    </h1>
+          <a href="#" style="color:white;">酒店管理系统</a>
+        </h1>
 
         <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#doc-topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
 
@@ -33,6 +87,7 @@
                 <li><a href="options.html">设置</a></li>
             </ul>
         </div>
+    </header>
 <!-- .......................................会员录入弹出框开始.................................... -->
        <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-1">
              <div class="am-modal-dialog">
@@ -126,7 +181,7 @@
                                <input type="text" id="vips_in_moneys_select_input" name="" autofocus>
                                <button type="button" id="vips_in_moneys_select" class="am-btn am-btn-primary">查询</button>
                            </div>
-                           <div class="vips_imformations">
+                           <div id="vips_imformations_inmoney" class="vips_imformations">
                                <ul>
                                    <li>
                                        <label>姓名：</label>
@@ -150,14 +205,6 @@
                                        <input type="text" disabled="true" name="">
                                    </li>
                                </ul>
-                               <div class="vips_imformations_footers">
-                                   <label>喜好：</label>
-                                   <input type="text" disabled="true">
-                                   <label>地址：</label>
-                                   <input type="text" disabled="true">
-                                   <label>备注：</label>
-                                   <input type="text" disabled="true">
-                               </div> 
                            </div>
                            <div class="marks_imformations">
                                <ul>
@@ -193,12 +240,12 @@
                                   </li>
                                   <li>
                                       <label>充值金额:</label>
-                                      <input type="text" name="">
+                                      <input id="in_money_num" type="text" name="">
                                       <span>元</span>
                                   </li>
                                   <li>
                                       <label>赠送金额:</label>
-                                      <input type="text" disabled="true" name="">
+                                      <input type="text" id="in_money_num_free" disabled="true" name="">
                                       <span>元</span>
                                   </li>
                                </ul>
@@ -225,7 +272,7 @@
                         <input type="text" name="">
                         <button type="button" class="am-btn am-btn-primary">查询</button>
                     </div>
-                    <div class="vips_imformations">
+                    <div id="vips_imformations_free_mark" class="vips_imformations">
                         <ul>
                             <li>
                                 <label>姓名：</label>
@@ -441,47 +488,48 @@
     <section id="two">
         <div id="leftone">
             <button class="am-btn am-btn-secondary" id="column-one">会员信息</button>
-            <button class="am-btn am-btn-secondary" id="column-two">精确查询</button>
-            <button class="am-btn am-btn-secondary" id="column-three">粗略查询</button>
+            <button class="am-btn am-btn-secondary" id="column-two">条件查询</button>
             <button class="am-btn am-btn-secondary" id="column-four">会员储值</button>
             <button class="am-btn am-btn-secondary" id="column-five">积分商城</button>
             <button class="am-btn am-btn-secondary" id="column-six">会员设置</button>
         </div>
 
         <div id="rightone">
-            <div class="vips_all_imformations_btn">
-               <div class="am-scrollable-horizontal am-scrollable-vertical" >
-                 <table class="am-table am-table-bordered am-table-striped am-text-nowrap">
-                    <thead>
-                        <tr class="am-primary">
-                            <th>卡号</th>
-                            <th>类型</th>
-                            <th>姓名</th>
-                            <th>电话</th>
-                            <th>卡内积分</th>
-                            <th>卡余额</th>
-                            <th>性别</th>
-                            <th>生日</th>
-                            <th>证件类型</th>
-                            <th>证件号码</th>
-                            <th>发卡时间</th>
-                            <th>操作员</th>
-                            <th>操作</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                      </tbody>
-                 </table>
-                      
-               </div>
-            </div>
 
-            <div id="top">
+            <div id="vips_first_top">
+                <h1>会员功能</h1>
                 <button class="am-btn am-btn-success" data-am-modal="{target: '#doc-modal-1', closeViaDimmer: 0, width:1100, height: 600}">会员导入</button>
-                <button class="am-btn am-btn-success" data-am-modal="{target: '#doc-modal-2', closeViaDimmer: 0, width:1100, height: 700}">会员充值</button>
+                <button class="am-btn am-btn-success" data-am-modal="{target: '#doc-modal-2', closeViaDimmer: 0, width:1100, height: 600}">会员充值</button>
                 <button class="am-btn am-btn-success" data-am-modal="{target: '#doc-modal-3', closeViaDimmer: 0, width:1100, height: 650}">积分兑换</button>
                 <button class="am-btn am-btn-success" data-am-modal="{target: '#doc-modal-4', closeViaDimmer: 0, width:1100, height: 600}">会员导出</button>
             </div>
+            
+            <div id="vips_information_pic">
+            <h1>会员信息示意图</h1>
+              <div class="vips_information_pic_1st">
+                  <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                  </ul>
+                  <p>会员消费情况示意图</p>
+                  <canvas id="spend_money_pic" style="border: 1px solid green;display: block; margin:0 auto;margin-top: 0;">
+                  </canvas>
+                  <table>
+                    <tr>
+                      <td>3000元以下</td>
+                      <td>3000~1w元</td>
+                      <td>1w~2w元</td>
+                      <td>大于2w</td>
+                    </tr>
+                  </table>
+              </div>
+              <div class="vips_information_pic_1st">
+                  <p>会员性别情况示意图</p>
+              </div>
+            </div>
+
         </div>
     </section>
     <footer>
@@ -489,12 +537,73 @@
 </body>
       <script type="text/javascript" src="js/vip.js"></script>
      <script>
+          //canvas绘图开始
+          window.onload=function(){
+            ctt=document.getElementById("spend_money_pic");
+            cxt=ctt.getContext("2d");
+            const CANVAS_W =440;
+            const CANVAS_H =250;
+            ctt.width=CANVAS_W;
+            ctt.height=CANVAS_H; 
+            cxt.fillStyle="green";
+            cxt.fill();
+            drawPic(250,60,70,40,80);
+            //画统计图h表示整个容器的高度h1,h2,h3,h4分别表示条形图的高度
+            function drawPic(h,h1,h2,h3,h4){
+              var ali=document.getElementById("vips_information_pic").getElementsByTagName('li');
+              var vips_information_pic_1st_W=document.getElementsByClassName('vips_information_pic_1st')[0].offsetWidth;
+              var vips_information_pic_1st_W_B;
+              if (vips_information_pic_1st_W>CANVAS_W) {
+                  vips_information_pic_1st_W_B=(vips_information_pic_1st_W-CANVAS_W)/2;
+              }
+              else if(vips_information_pic_1st_W<CANVAS_W){
+                  vips_information_pic_1st_W_B=0;
+              }
+            for (var i = 0; i < 4; i++) {
+              ali[i].style.left=(vips_information_pic_1st_W_B+(i*100+40)) + "px";
+              switch(i){
+                case 0:
+                  cxt.fillRect(40,h-h1,60,h1); 
+                  ali[i].style.top=(h-h1+50-30) + "px";
+                  ali[i].innerHTML=(h1/h)*100 + "%";
+                  break;
+                case 1:
+                  cxt.fillRect(140,h-h2,60,h2);
+                  ali[i].style.top=(h-h2+50-30) + "px"; 
+                  ali[i].innerHTML=parseInt((h2/h)*100 )+ "%";
+                  break;
+                case 2:
+                  cxt.fillRect(240,h-h3,60,h3); 
+                  ali[i].style.top=(h-h3+50-30) + "px";
+                  ali[i].innerHTML=(h3/h)*100 + "%";
+                  break;
+                case 3:
+                  cxt.fillRect(340,h-h4,60,h4); 
+                  ali[i].style.top=(h-h4+50-30) + "px";
+                  ali[i].innerHTML=(h4/h)*100 + "%";
+                  break;
+              }
+            }
+            
+           
+          }
+          //定位对应百分比
+          // var ali=document.getElementById("vips_information_pic").getElementsByTagName('li');
+          // var vips_information_pic_1st_W=document.getElementsByClassName('vips_information_pic_1st')[0].offsetWidth;
+          // var vips_information_pic_1st_W_B;
+          // if (vips_information_pic_1st_W>CANVAS_W) {
+          //     vips_information_pic_1st_W_B=(vips_information_pic_1st_W-CANVAS_W)/2;
+          // }
+          // for (var i = 0; i < ali.length; i++) {
+          //   ali[i].style.left=(vips_information_pic_1st_W_B+(i*100+40)) + "px";
+          // }
+           }
+         
+
+          //canvas绘图结束
          $(document).ready(function() {
              $('#column-two').click(function() {
                  $('#rightone').load('vip/vip-2.html')
-             });
-             $('#column-three').click(function() {
-                 $('#rightone').load('vip/vip-3.html')
              });
              $('#column-four').click(function() {
                  $('#rightone').load('vip/vip-4.html')
@@ -510,7 +619,7 @@
              });
              
 /*..............................会员充值数据接受ajax及页面效果代码开始....................*/
-       $.ajax({
+       /*$.ajax({
          type: "GET",
          url: "/vips_imformations.json",
          //dataType:"json",
@@ -529,7 +638,7 @@
          error: function (jqXHR) {
              console.dir(jqXHR.status);
          }
-     })
+     })*/
     //点击会员充值页面查询
     var select_input=$("#vips_in_moneys_select_input");
     var vips_imformations_input=$(".vips_imformations").eq(1).find("ul li input");
@@ -539,7 +648,6 @@
         })
      })
     $("#vips_in_moneys_select").click(function(){
-        
         var logn=1;
          var num=0;
         if (select_input=="") {

@@ -1,5 +1,6 @@
+
 $(function(){
-/*.....................会员录入数据发送代码及页面效果开始..................*/
+  /*.....................会员录入数据发送代码及页面效果开始..................*/
                  //会员卡号查询数据发送开始
                 $("#vips_cards .vips_selects button").click(function(){
                      var vips_ID=$("#vips_cards .vips_selects input").eq(0).val();
@@ -141,9 +142,24 @@ $(function(){
                        let vips_give_money=$("#vips_give_money");
                        vips_give_money.val("0");
                      }
+                      function setGiveMoney1(){
+                       let bili=0.5;
+                       let vips_give_money=$("#in_money_num");
+                       vips_give_money.val(" "+parseInt($("#vips_in_howmoney").val()*bili));
+                     }
+                     function setGiveMoney2(){
+                       let vips_give_money=$("#in_money_num");
+                       vips_give_money.val("0");
+                     }
+                     //
                      $("#vips_in_howmoney").change(function(){
                        let vips_give_money=$("#vips_give_money");
                        isAllNum($("#vips_in_howmoney").val(),vips_give_money,setGiveMoney,setGiveMoney0);
+                     })
+                     //
+                     $("#in_money_num").change(function(){
+                      let in_money_num_free=$("#in_money_num_free");
+                      isAllNum($("#in_money_num").val(),in_money_num_free,setGiveMoney1,setGiveMoney2);
                      })
                      //需要输入数字的input判断开始
                      function isNum(){
@@ -177,9 +193,10 @@ $(function(){
                         funName2(changeobj);//如果不是纯数字执行的代码
                        }
                      }
+})
                      //判断一个字符串是否由纯数字组成函数结束
      /*.........................会员录入数据发送及页面效果代码结束....................*/
-   });
+   
 
  /*.in_money_footers button按钮代码开始——amazingui*/
    $('.btn-loading-example').click(function () {

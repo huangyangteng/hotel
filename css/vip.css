@@ -23,9 +23,11 @@
 #rightone {
 	width: 80%;
 	float: right;
+	overflow: auto;
+	height: 700px;
 	margin-right: 10%;
 }
-#top {
+#vips_first_top {
 	margin-bottom: 5px;
 }
 .alerts_headers{
@@ -80,14 +82,18 @@
 /*vips_selects所有样式结束*/
 
 /*vips_imformations所有样式开始*/
+#vips_imformations_inmoney{
+	min-height: 170px;
+}
+#vips_imformations_free_mark{
+	min-height: 60px;
+}
 .vips_imformations {
-	overflow: auto;
+	height: auto;
+	min-height: 310px;
 	width: 100%;
 	border: 1px solid #ccc;
 	background: rgb(239,239,239);
-}
-.vips_imformations ul {
-	padding-left: 0px !important;
 }
 .vips_imformations ul li {
 	list-style: none;
