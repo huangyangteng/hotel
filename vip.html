@@ -527,6 +527,7 @@
               </div>
               <div class="vips_information_pic_1st">
                   <p>会员性别情况示意图</p>
+                  <canvas id="vips_sex_pic" style="border: 1px solid green;display: block; margin:0 auto;margin-top: 0;"></canvas>
               </div>
             </div>
 
@@ -537,16 +538,16 @@
 </body>
       <script type="text/javascript" src="js/vip.js"></script>
      <script>
-          //canvas绘图开始
+          //canvas第一副图绘图开始
           window.onload=function(){
-            ctt=document.getElementById("spend_money_pic");
-            cxt=ctt.getContext("2d");
+            ctt1=document.getElementById("spend_money_pic");
+            cxt1=ctt1.getContext("2d");
             const CANVAS_W =440;
             const CANVAS_H =250;
-            ctt.width=CANVAS_W;
-            ctt.height=CANVAS_H; 
-            cxt.fillStyle="green";
-            cxt.fill();
+            ctt1.width=CANVAS_W;
+            ctt1.height=CANVAS_H; 
+            cxt1.fillStyle="green";
+            cxt1.fill();
             drawPic(250,60,70,40,80);
             //画统计图h表示整个容器的高度h1,h2,h3,h4分别表示条形图的高度
             function drawPic(h,h1,h2,h3,h4){
@@ -559,48 +560,94 @@
               else if(vips_information_pic_1st_W<CANVAS_W){
                   vips_information_pic_1st_W_B=0;
               }
-            for (var i = 0; i < 4; i++) {
-              ali[i].style.left=(vips_information_pic_1st_W_B+(i*100+40)) + "px";
-              switch(i){
-                case 0:
-                  cxt.fillRect(40,h-h1,60,h1); 
-                  ali[i].style.top=(h-h1+50-30) + "px";
-                  ali[i].innerHTML=(h1/h)*100 + "%";
-                  break;
-                case 1:
-                  cxt.fillRect(140,h-h2,60,h2);
-                  ali[i].style.top=(h-h2+50-30) + "px"; 
-                  ali[i].innerHTML=parseInt((h2/h)*100 )+ "%";
-                  break;
-                case 2:
-                  cxt.fillRect(240,h-h3,60,h3); 
-                  ali[i].style.top=(h-h3+50-30) + "px";
-                  ali[i].innerHTML=(h3/h)*100 + "%";
-                  break;
-                case 3:
-                  cxt.fillRect(340,h-h4,60,h4); 
-                  ali[i].style.top=(h-h4+50-30) + "px";
-                  ali[i].innerHTML=(h4/h)*100 + "%";
-                  break;
+              for (var i = 0; i < 4; i++) {
+                ali[i].style.left=(vips_information_pic_1st_W_B+(i*100+40)) + "px";
+                switch(i){
+                  case 0:
+                    cxt1.fillRect(40,h-h1,60,h1); 
+                    ali[i].style.top=(h-h1+50-30) + "px";
+                    ali[i].innerHTML=(h1/h)*100 + "%";
+                    break;
+                  case 1:
+                    cxt1.fillRect(140,h-h2,60,h2);
+                    ali[i].style.top=(h-h2+50-30) + "px"; 
+                    ali[i].innerHTML=parseInt((h2/h)*100 )+ "%";
+                    break;
+                  case 2:
+                    cxt1.fillRect(240,h-h3,60,h3); 
+                    ali[i].style.top=(h-h3+50-30) + "px";
+                    ali[i].innerHTML=(h3/h)*100 + "%";
+                    break;
+                  case 3:
+                    cxt1.fillRect(340,h-h4,60,h4); 
+                    ali[i].style.top=(h-h4+50-30) + "px";
+                    ali[i].innerHTML=(h4/h)*100 + "%";
+                    break;
+                }
               }
             }
-            
-           
-          }
-          //定位对应百分比
-          // var ali=document.getElementById("vips_information_pic").getElementsByTagName('li');
-          // var vips_information_pic_1st_W=document.getElementsByClassName('vips_information_pic_1st')[0].offsetWidth;
-          // var vips_information_pic_1st_W_B;
-          // if (vips_information_pic_1st_W>CANVAS_W) {
-          //     vips_information_pic_1st_W_B=(vips_information_pic_1st_W-CANVAS_W)/2;
-          // }
-          // for (var i = 0; i < ali.length; i++) {
-          //   ali[i].style.left=(vips_information_pic_1st_W_B+(i*100+40)) + "px";
-          // }
-           }
-         
+            //canvas绘图第一幅图结束
+            //第二幅性别图绘制
+            var ctt2=document.getElementById("vips_sex_pic");
+            var cxt2=ctt2.getContext("2d");
+            ctt2.width=CANVAS_W;
+            ctt2.height=CANVAS_H;
+            cxt2.translate(CANVAS_W*0.5,CANVAS_H*0.5);
+           // cxt2.rotate(1);
+            //绘制扇形图
+            cxt2.fillStyle="pink";
+            cxt2.save();
+            cxt2.fillStyle="blue";
+            cxt2.save();
+            cxt2.fillStyle="red";
+            cxt2.save();
+            drawPic1(80,0,0.7*Math.PI,cxt2);
+            drawPic1(80,0.7*Math.PI,1.5*Math.PI,cxt2);
+            drawPic1(80,1.5*Math.PI,2*Math.PI,cxt2);
+            //绘制图例
+            cxt2.beginPath();
+            cxt2.moveTo(0,0);
+            cxt2.fillStyle="pink";
+            cxt2.fillRect(-200,60,20,20);
+            cxt2.font="bold 14px Arial";
+            cxt2.textAlign="center";
+            cxt2.textBaseline="middle";
+            cxt2.fillText("女",-160,70);
+            cxt2.closePath();
+            //
+            cxt2.beginPath();
+            cxt2.moveTo(0,0);
+            cxt2.fillStyle="red";
+            cxt2.fillRect(-200,90,20,20);
+            cxt2.font="bold 14px Arial";
+            cxt2.textAlign="center";
+            cxt2.textBaseline="middle";
+            cxt2.fillText("其他",-160,100);
+            cxt2.closePath();
+            //
+            cxt2.beginPath();
+            cxt2.moveTo(0,0);
+            cxt2.fillStyle="blue";
+            cxt2.fillRect(-200,30,20,20);
+            cxt2.font="bold 14px Arial";
+            cxt2.textAlign="center";
+            cxt2.textBaseline="middle";
+            cxt2.fillText("男",-160,40);
+            cxt2.closePath();
 
-          //canvas绘图结束
+          }
+          //绘制扇形的方法参数为半径，起始弧度，结束弧度，上下文环境
+          function drawPic1(radius,startAngle,endAngle,cxt){
+                cxt.beginPath();
+                cxt.moveTo(0,0);
+                cxt.arc(0,0,radius,startAngle,endAngle,false);
+                cxt.lineTo(0,0);
+                cxt.lineTo(80,0);
+                cxt.closePath();
+                cxt.restore();
+                cxt.fill();
+            }
+          //加载vip各个页面
          $(document).ready(function() {
              $('#column-two').click(function() {
                  $('#rightone').load('vip/vip-2.html')
