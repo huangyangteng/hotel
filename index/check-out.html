@@ -43,15 +43,49 @@
             float: right;
         }
         #check-out #co_infor div{
-            max-height: 150px;
+            max-height: 100px;
             overflow-y: auto;
-            border-top: 2px solid #f8f8f8;
+            font-size: 14px;
+        }
+        #check-out #co_infor td:nth-child(1),#check-out #co_infor td:nth-child(2),#check-out #co_infor td:nth-child(3),#check-out #co_infor td:nth-child(4),#check-out #co_infor td:nth-child(5),#check-out #co_infor td:nth-child(6),#check-out #co_infor td:nth-child(7){
+            width: 100px;
+
         }
         #check-out #co_detail div{
-            max-height: 200px;
+            font-size: 14px;
+            max-height: 150px;
             overflow-y: auto;
-            border-top: 2px solid #f8f8f8;
-            border-bottom: 2px solid #f8f8f8;
+            border-bottom: 2px solid #EBEBEB;
+        }
+        #check-out #co_detail tr td:first-child{
+            width: 100px;
+        }
+        #check-out #co_detail tr td:nth-child(2){
+            width: 100px;
+        }
+        #check-out #co_detail tr td:nth-child(3){
+            width: 50px;
+        }
+        #check-out #co_detail tr td:nth-child(4){
+            width: 60px;
+        }
+        #check-out #co_detail tr td:nth-child(5){
+            width: 100px;
+        }
+        #check-out #co_detail tr td:nth-child(6){
+            width: 80px;
+        }
+        #check-out #co_detail tr td:nth-child(7){
+            width: 100px;
+        }
+        #check-out #co_detail tr td:nth-child(8){
+            width: 80px;
+        }
+        #check-out #co_detail tr td:nth-child(9){
+            width: 80px;
+        }
+        #check-out #co_detail tr td:nth-child(10){
+            width: 60px;
         }
         #check-out #co_bottom td{
             padding: 0.1rem;
@@ -65,7 +99,7 @@
         }
         #check-out #co_bottom td[colspan="3"] button{
              float: right;
-             margin-right: 3%;
+             margin-right: 6%;
              margin-bottom: 10px;
         }
         #dacheckout{
@@ -88,7 +122,6 @@
         #dacheckout textarea{
             width: 75%;
         }
-
     </style>
 </head>
 <body>
@@ -128,9 +161,8 @@
         <div id="co_infor">
             <hr>
             <p><span>宾客帐号</span><button>退房</button></p>
-            <div>
-                <table class="am-table am-table-bordered am-table-hover">
-                    <thead>
+            <table class="am-table am-table-bordered">
+                <thead>
                         <tr class="am-primary" >
                             <td><input type="checkbox" name=""></td>
                             <td>帐号</td>
@@ -142,7 +174,50 @@
                             <td>到店日期</td>
                         </tr>
                     </thead>
+            </table>
+            <div>
+                <table class="am-table am-table-bordered am-table-hover">
                     <tbody>
+                        <tr>
+                            <td><input type="checkbox" name="">在店</td>
+                            <td>00032</td>
+                            <td>102</td>
+                            <td>普通</td>
+                            <td>小王</td>
+                            <td>168</td>
+                            <td>3</td>
+                            <td>04/16 17:00</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="">在店</td>
+                            <td>00032</td>
+                            <td>102</td>
+                            <td>普通</td>
+                            <td>小王</td>
+                            <td>168</td>
+                            <td>3</td>
+                            <td>04/16 17:00</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="">在店</td>
+                            <td>00032</td>
+                            <td>102</td>
+                            <td>普通</td>
+                            <td>小王</td>
+                            <td>168</td>
+                            <td>3</td>
+                            <td>04/16 17:00</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="">在店</td>
+                            <td>00032</td>
+                            <td>102</td>
+                            <td>普通</td>
+                            <td>小王</td>
+                            <td>168</td>
+                            <td>3</td>
+                            <td>04/16 17:00</td>
+                        </tr>
                         <tr>
                             <td><input type="checkbox" name="">在店</td>
                             <td>00032</td>
@@ -160,10 +235,9 @@
         <div id="co_detail">
             <hr>
             <p><span>账务明细</span><button>编辑账单</button><button>打印账单</button><button>费用记账</button></p>
-            <div>
-                <table class="am-table am-table-bordered am-table-hover">
-                    <thead>
-                        <tr class="am-primary" >
+            <table class="am-table am-table-bordered">
+                <thead>
+                    <tr class="am-primary">
                             <td>帐号</td>
                             <td>姓名</td>
                             <td>状态</td>
@@ -175,8 +249,11 @@
                             <td>金额</td>
                             <td>备注</td>
                             <td>工号</td>
-                        </tr>
-                    </thead>
+                    </tr>
+                </thead>
+            </table>
+            <div>
+                <table class="am-table am-table-bordered am-table-hover">
                     <tbody>
                         <tr>
                             <td>0032</td>
@@ -353,7 +430,7 @@
                                         </td>
                                         <td>
                                             实收：
-                                            <input type="" name="">元
+                                            <input type="" name="" value="68">元
                                         </td>
                                     </tr>
                                     <tr>
@@ -390,6 +467,7 @@
         $("#dacheckout button").click(function(){
             $("#dialogboxcheck-out").modal('close')
         });
+
     </script>
 </body>
 </html>

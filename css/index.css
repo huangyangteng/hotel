@@ -37,7 +37,10 @@ section#three································不
     text-align: center;
     background-color:#eaf7f0;
 }
-
+    .modal_location{
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
 /*外客购买 start*/
     .one_content{
         width: 98%;
@@ -90,6 +93,86 @@ section#three································不
         border:1px solid #ccc ;
         font-size: 14px;
         margin-right: 10%;
+    }
+    #recheckout div.first_child{
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+    }
+    #recheckout div.first_child span,#recheckout div.first_child button{
+        margin-left: 20px;
+    }
+    #bookgroup{
+        background: #fff;
+    }
+    #bookgroup table,#bookgroup table td {
+        border: 0px;
+        margin-bottom: 0px;
+    }
+    #empty_states #main{
+        width: 100%;
+        height: auto;
+        border-bottom: 1px solid #ddd;
+    }
+    #empty_states b{
+        float: left;
+        padding-left: 10px;
+    }
+    #empty_states #main ul li{
+        width: 120px;
+        height: 80px;
+        position: relative;
+    }
+    #empty_states #main ul li div{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background: rgba(0,0,0,.4);
+    }
+
+    #empty_states #main ul li div.nohide{
+        background: rgba(0,0,0,.1);
+    }
+    #empty_states #main ul li div.hide{
+        display: none;
+    }
+    #empty_states #main ul li div span:first-child{
+        width: 20px;
+        height: 3px;
+        display: block;
+        background: #fff;
+        transform:rotate(50deg);
+        position: absolute;
+        top: 45px;
+        left: 30px;
+    }
+    #empty_states #main ul li div span:nth-child(2){
+        width: 40px;
+        height: 4px;
+        display: block;
+        background: #fff;
+        transform:rotate(-40deg);
+        position: absolute;
+        top: 40px;
+        left: 40px;
+    }
+    #empty_states #main ul li dd.main_two{
+        margin-top: 10px;
+    }
+    #bookgroup table p{
+        float: left;
+        margin-top: 0px;
+        display: inline-block;
+        margin-right: 30px;
+    }
+    #bookgroup table p.am-form-group{
+        float: right;
+    }
+    #bookgroup a.am-btn-primary {
+        float: right;
+        margin-right: 6%;
     }
 /*end 外客购买*/
 /*房态显示 start*/
@@ -160,7 +243,6 @@ section#three································不
     #bar select option{
         font-size: 14px;
     }
-
     #b_thead th{
         text-align: center;
     }
@@ -172,20 +254,12 @@ section#three································不
         text-align: center;
         background: inherit;
     }
-    #b_tbody tr button{
-        outline: none;
-        border: 0px;
-        background: inherit;
-    }
-    #b_tbody tr button:hover{
-        background: #D5D4D4;
-    }
     .amb_big{
         border: 1px solid #C5C0C0;
         margin-bottom: 20px;
     }
     .amb_big div:nth-child(2){
-        max-height: 700px;
+        max-height: 680px;
         overflow-y: auto;
     }
     .amb_big table{
@@ -195,10 +269,10 @@ section#three································不
         width:140px;;
     }
     .amb_big .t2{
-        width:140px;
+        width:120px;
     }
     .amb_big .t3{
-        width:200px;
+        width:180px;
     }
     .amb_big .t4{
         width: 219px;

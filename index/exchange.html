@@ -10,6 +10,7 @@
         #exchange{
             border: 2px solid #EAE8E8;
             background: #fff;
+            margin-top: 25px;
         }
         #exchange td[colspan="4"]{
             font-size: 20px;
@@ -54,7 +55,6 @@
             <td>
                 <label>换到：</label>
                 <input type="text">
-                <button id="ex_view">...</button>
             </td>
             <td colspan="2">
                 <label>备注：</label>
@@ -77,14 +77,10 @@
             </td>
         </tr>
     </table>
-    <div class="ex_view">
-    </div>
     <script >
-        $(document).ready(function(){
-            $('#ex_view').click(function(){
-                $('.ex_view').load('index/exchange2.html')
-            });
-        });
+        $("#exchange button").click(function(){
+        $("#dialogboxcheck-out").modal('close');
+    });
     </script>
 
 </body>
