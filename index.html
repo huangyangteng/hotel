@@ -23,7 +23,14 @@
  -->
 <body  ng-app="myApp" ng-controller="Ctrl">
     <!-- nav start -->
-
+        <nav>
+            <ul>
+              <li>道理·九次方</li>
+              <li>斯纳格田园酒店</li>
+              <li><a href="index.html" >退出</a></li>
+              <li>用户名：<span>18683660949<span></li>
+            </ul>
+        </nav>
         <header class="am-topbar">
             <h1 class="am-topbar-brand" style="margin-left:20%;margin-right:2%;">
               <a href="#" style="color:white;">酒店管理系统</a>
@@ -383,53 +390,13 @@
                       </div>
                   </div>
               </div>   <!-- 空房的模态窗口-->
-            <!-- ··············提示框 start······························· -->
-              <div id="msg">
-                  <div id="title">
-                      <span>提示框</span>
-                      <span>
-                          <button class=" am-btn-xs am-close ">&times;</button>
-                      </span>
-                  </div>
-                  <div id="mainmsg">
-                      <br>
-                      <p>1 . 我想在这个城市
-                      有个小家 有爸爸有妈妈
-                      陪着他们走在 铺满鹅卵石的道上
-                      夕阳的余晖
-                      </p>
-                      <div class="nowTime"></div>
-                      <p>2 . 我想在这个城市
-                      有一群 可爱的朋友
-                      可以陪着我 在
-                      车水马龙中疯狂
-                      也可以 穿着淑女装
-                      在小桥流水的
-                      古镇里 优雅</p>
-                      <div class="nowTime"></div>
-                      <p>3 . 我想在这个城市
-                      邂逅 迟迟归来的他
-                      可以没有 海誓山盟
-                      但愿从此 在他眼中
-                      慢慢老去
-                      却始终 是他喜欢的
-                      样子</p>
-                      <div class="nowTime"></div>
-                      <p>4 . 有一群 可爱的朋友
-                      可以陪着我 在
-                      车水马龙中疯狂
-                      也可以 穿着淑女装
-                      在小桥流水的
-                      古镇里 优雅</p>
-                      <div class="nowTime"></div>
-                      <p class="mm_a"><a href="#">更多&raquo;</a></p>
-                  </div>
-              </div>
-            <!-- ··············end 提示框 ······························ -->
+
           </div>
           <!-- ···············右侧边栏··························· -->
+
           <div id="bar">
             <!-- ···············房态 start·················· -->
+              <br>
               <label>房型 :</label>
                 <select ng-init="roomShape=roomshapes[0]" ng-model="roomShape" ng-options="x as x.name for x in roomshapes"></select>
               <br>
@@ -501,6 +468,26 @@
                   </div>
               </div>
             <!-- ·························end 今日房价······················ -->
+            <!-- ··············提示框 start······························· -->
+              <div id="msg">
+                <p>温馨提示</p>
+                <ul>
+                  <li>
+                    <p>需要一个吹风</p>
+                    <div>
+                       <p>房号：<span>101</span></p>
+                       <p>2017/5/5</p>
+                    </div>
+
+                  </li>
+                  <li>
+                    <p>需要一个吹风</p>
+                    <p>房号：<span>101</span></p>
+                    <p>2017/5/5</p>
+                  </li>
+                </ul>
+              </div>
+            <!-- ··············end 提示框 ······························ -->
           </div>
       </section>
     <!-- ·················不同颜色对应不同房间······································· -->
@@ -512,19 +499,15 @@
     <!-- ·································页脚································ -->
       <footer>
           <div id="left">
-            <span class="foot">酒店名称：斯纳格田园酒店</span>
-            <span class="foot">用户名：18990180707</span>
-            <span class="foot">班次：早班</span>
-          </div>
-          <div id="right">
+              <p>用户名：<span>1001<span></p>
+              <span>|</span>
+              <p>班次：<span>早班</span></p>
+              <span>|</span>
               <a href="#" class="foot" data-am-modal="{target: '#doc-modal-shiftexchange',    closeViaDimmer: 0, width:1100, height:800}">交班</a>
               <span>|</span>
-              <a href="#" class="foot">版本更新</a>
+              <a href="#" class="foot">当班报表</a>
               <span>|</span>
               <a href="#" class="foot">退出</a>
-              <span>|</span>
-              <a href="#" class="foot"><img src="image/message.gif"></a>
-              <span class="prompt" >温馨提示</span>
           </div>
           <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-shiftexchange">
               <div class="am-modal-dialog modal_location">
@@ -699,6 +682,12 @@
                   </div>
               </div>
           </div><!--交班报表的模态窗口-->
+          <div id="right">
+            <p>交谈：</p>
+            <p>QQ</p>
+            <p>微信</p>
+            <p>电话：<span>18683660949</span></p>
+          </div>
       </footer>
 <script>
   // 获取本地时间  start

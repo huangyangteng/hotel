@@ -21,6 +21,7 @@ section#three································不
     width: 100%;
     height: 700px;
     margin: 10px;
+    position: relative;
 }
 #main{
     width: 90%;
@@ -30,16 +31,58 @@ section#three································不
 #bar{
     width: 10%;
     min-width: 129px;
-    padding: 10px;
     user-select: none;
     position: absolute;
+    top: 10px;
     right: 0px;
+
     text-align: center;
     background-color:#eaf7f0;
 }
     .modal_location{
         margin-top: 30px;
         margin-bottom: 20px;
+    }
+    nav{
+        color: #EAE9E9;
+        background: #000;
+
+    }
+    nav ul{
+        margin: 0px;
+        width: 80%;
+        margin-left: 8%;
+        position: relative;
+    }
+    nav ul li{
+        display: inline-block;
+        list-style: none;
+        padding: 6px;
+    }
+    nav ul li:first-child{
+        font-size: 1.2em;
+        letter-spacing: 2px;
+        font-weight: bold;
+    }
+    nav ul li:nth-child(2){
+        width: 30%;
+        font-size: 1.2em;
+        letter-spacing: 2px;
+        position: absolute;
+        left: 35%;
+    }
+    nav ul li:nth-child(3){
+        float: right;
+    }
+    nav ul li:nth-child(4){
+        float: right;
+    }
+    nav ul li:nth-child(3) a{
+        font-size: 14px;
+        color: #EAE9E9;
+    }
+    nav ul li:nth-child(3) a:hover{
+        color: #fff;
     }
 /*外客购买 start*/
     .one_content{
@@ -302,9 +345,13 @@ section#three································不
         width: 40%;
         border: 1px solid #E3E1E1;
     }
+    .todayprice{
+        padding: 10px;
+    }
     .todayprice p{
         font-size: 14px;
         text-align: left;
+        margin-bottom: 10px;
     }
     .todayprice b{
         font-size: 16px;
@@ -313,57 +360,37 @@ section#three································不
         line-height: 50px;
         display: block;
     }
+    #msg{
+        background: #C6E1FC;
+    }
+    #msg p{
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
+    #msg ul{
+        padding: 0px;
+        margin: 0px;
+    }
+    #msg ul li{
+        list-style: none;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+    }
+    #msg ul li p{
+        font-size: 12px;
+    }
+    #msg ul li div p:nth-child(1){
+        float: left;
+
+        margin: 0px;
+    }
+    #msg ul li div p:nth-child(2){
+        float: right;
+
+        margin: 0px;
+    }
 
 /*end       房态的右边栏 */
-/*msg start*/
-    #msg{
-        width: 20%;
-        height: 40%;
-        border: 1px solid cornflowerblue;
-        background: cornflowerblue;
-        position: absolute;
-        bottom: 35px;
-        right: 10%;
-
-    }
-    #title{
-        width: 100%;
-        height: 30px;
-        line-height: 30px;
-        color:black;
-        background: cornflowerblue;
-        position: absolute;
-    }
-    #title button{
-        font-size: 32px;
-        float: right;
-    }
-    #mainmsg{
-        width: 100%;
-        height: 100%;
-        padding: 10px;
-        text-align: justify;
-        background: lightgoldenrodyellow;
-        overflow-y: scroll;
-    }
-    #mainmsg p{
-        font-size: 14px;
-        margin-bottom: 0px;
-        cursor: pointer;
-    }
-    #mainmsg p.mm_a{
-        text-align: right;
-    }
-    #mainmsg div{
-        font-size: 12px;
-        text-align: right;
-        border-bottom: 1px #C9CACA solid
-    }
-    #mainmsg a{
-        color: #0e90d2;
-        }
-/* end msg*/
-
 /*房态图的下边烂 start*/
     #three{
         position: absolute;
@@ -420,13 +447,20 @@ section#three································不
         letter-spacing: 1px;
         padding: 0 1%;
     }
+    footer p{
+        display: inline-block;
+        padding: 0px;
+        margin: 0px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
     #left{
         color:#F0EEEE;
-        width: 60% !important;
+        width: 40% !important;
         float: left;
     }
     #right{
-        width: 40% !important;
+        width: 60% !important;
         float: right;
         color:#F0EEEE;
         text-align: center;
@@ -437,8 +471,8 @@ section#three································不
     }
     .foot{
         color:#E7E5E5;
-
     }
+
     #dialogbox1{
         border: 1px solid #C6C5C5;
         box-shadow: 0px 10px 30px #C6C5C5;
@@ -448,11 +482,6 @@ section#three································不
         display: inline-block;
     }
 /*end foot */
-
-a{
-    text-decoration: none;
-}
-a:visited{color:white;}
 @media ( max-width:1300px ){
     #msg{
         right: 130px;
