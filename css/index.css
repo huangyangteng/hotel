@@ -238,6 +238,27 @@ section#three································不
         top: 0;
         left: 0;
     }
+    #main dd.main_three{
+        width:140px;
+        height: 100px;
+        background: rgba(0,0,0,.3);
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    #main dd.main_five{
+        width:40px;
+        height: 20px;
+        background: rgb(301,211,41);
+        position: absolute;
+        top: 3px;
+        right: 3px;
+        border-radius: 3px;
+        font-size: 12px;
+        color: #595959;
+        letter-spacing: 1px;
+        overflow:hidden;
+    }
 /*end 房态显示*/
 /*房态的右边栏    start */
     #bar select option{

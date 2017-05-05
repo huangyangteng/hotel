@@ -385,7 +385,7 @@
                 </tr>
                 <tr>
                     <td colspan="3">
-                        <button class="am-btn am-btn-secondary" data-am-modal="{target: '#dialogboxcheck-out',    closeViaDimmer: 0, width:700, height:360}">结账</button>
+                        <button class="am-btn am-btn-secondary cobb_btn" >结账</button>
                         <div class="am-modal am-modal-prompt" tabindex="-1" id="dialogboxcheck-out" >
                           <div class="am-modal-dialog" id="dacheckout">
                             <div class="am-modal-hd">结账
@@ -467,7 +467,10 @@
         $("#dacheckout button").click(function(){
             $("#dialogboxcheck-out").modal('close')
         });
-
+        $('.cobb_btn').click(function(){
+            $(this).attr("data-am-modal","{target: '#dialogboxcheck-out', closeViaDimmer: 0, width: 700,height: 360}");
+        });
     </script>
 </body>
 </html>
+

@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>预订</title>
+    <style type="text/css">
+        #checkin{
+            margin-top: 25px;
+            border: 2px solid #EAE8E8;
+            background: #fff;
+        }
+        #checkin td{
+            border: 0px;
+            padding-left: 0px;
+        }
+        #checkin td[colspan="4"]{
+            font-size: 20px;
+            letter-spacing: 15px;
+            margin: 0px;
+        }
+        #checkin td[colspan="3"] input{
+            width: 85%;
+        }
+        #checkin td textarea{
+            width: 65%;
+            height: 80px
+        }
+        #checkin .c_hr hr{
+            margin: 0px;
+            margin-top: 10px;
+        }
+        #checkin td[colspan="3"] button{
+            float: right;
+            margin-right: 6%;
+        }
+        #checkin .c_bottom p{
+            display: inline-block;
+            margin: 0px 0px 0px 20px;
+        }
+        #checkin hr{
+            border-color: #C6C6C6;
+            box-shadow: 0px 0px 1px #C6C6C6;
+        }
+        #daccount{
+            border: 1px solid #C6C6C6;
+            background: #fff;
+            box-shadow: 1px 1px 10px #C6C6C6;
+            padding: 10px;
+            padding-top: 0px;
+        }
+        #daccount td{
+            border-left: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+        #daccount div.da_body{
+            max-height:400px;
+            width:100%;
+            overflow-y: auto;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        #daccount table{
+            margin-bottom: 0px;
+        }
+        #daccount .t1{
+            width: 100px;
+        }
+        #daccount .t2{
+            width: 200px;
+        }
+        #daccount .t3{
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <table class="am-table am-table-bordered" id="checkin" >
+        <tr><td colspan="4">预订单</td></tr>
+        <tr>
+            <td colspan="3"><hr></td>
+        </tr>
+        <tr>
+            <td>
+                <label>房型：</label>
+                <input type="text" value="普通房" name="" disabled>
+            <td>
+                <label>房号：</label>
+                <input type="text" name="text" value="101" disabled>
+            </td>
+            <td>
+                <label>房价：</label>
+                <input type="text" name="text" value="168">元
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>预订人：</label>
+                <input type="text" name="text">
+            </td>
+            <td>
+                <label>电话：</label>
+                <input type="num" name="">
+            </td>
+            <td>
+                <label>客源帐号：</label>
+                <input type="text" name="text">
+                <button data-am-modal="{target: '#dialogboxaccount',    closeViaDimmer: 0, width:900, height:600}">...</button>
+                <div class="am-modal am-modal-prompt" tabindex="-1" id="dialogboxaccount" >
+                  <div class="am-modal-dialog" id="daccount">
+                    <div class="am-modal-hd">客源账号
+                        <a href="javascript: void(0)" class="am-close accountclose">&times;</a>
+                    </div>
+                    <div  class="am-modal-hd">
+                        <input type="" name="" placeholder="请输入查询信息">
+                    </div>
+                    <table class="am-table am-table-bordered">
+                        <thead >
+                            <tr class="am-primary">
+                                <td class="t1">姓名</td>
+                                <td class="t2">单位</td>
+                                <td class="t3">联系方式</td>
+                                <td>地址</td>
+                            </tr>
+                        </thead>
+                    </table>
+                    <div class="da_body">
+                        <table class="am-table am-table-bordered  am-table-hover" >
+                            <tbody >
+                                <tr>
+                                    <td class="t1">小王</td>
+                                    <td class="t2">九次方科技有限公司</td>
+                                    <td class="t3">18683660949</td>
+                                    <td>四川 绵阳 涪城区 青义镇</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <button class="am-btn am-btn-success">确定</button>
+                  </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td><label >到店日期：</label>
+                <input class="datepicker1" type="text">
+            </td>
+            <td><label >离店日期：</label>
+                <input class="datepicker2" type="text">
+            </td>
+            <td>
+                <label>订金：</label>
+                <input type="text" name="text">元
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <label>地址：</label>
+                <input type="text" name="">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <label>公司：</label>
+                <input type="text" name="">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>备注：</label>
+                <textarea></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3"  class="c_hr"><hr></td>
+        </tr>
+        <tr>
+            <td class="c_bottom">
+                <p>预订日期：<span>2017.04.10</span></p>
+                <p>工号：<span>003</span></p>
+                <p>营销员：<span>小张</span></p>
+            </td>
+            <td colspan="2">
+                <div class="am-form-group">
+                    <span><b>支付方式：</b></span>
+                    <label class="am-radio-inline">
+                        <input type="radio"  value="" name="docInlineRadio" checked> 现金
+                    </label>
+                    <label class="am-radio-inline">
+                        <input type="radio" name="docInlineRadio"> 刷卡
+                    </label>
+                    <label class="am-radio-inline">
+                        <input type="radio" name="docInlineRadio"> 支付宝
+                    </label>
+                    <label class="am-radio-inline">
+                        <input type="radio" name="docInlineRadio"> 微信
+                    </label>
+                    <label class="am-radio-inline">
+                        <input type="radio" name="docInlineRadio">挂账
+                    </label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <button class="am-btn am-btn-secondary checkin">修改</button>
+            </td>
+        </tr>
+    </table>
+<script>
+    // jquery ui 的日历插件 start
+        $('.datepicker1').datepicker({
+            minDate: 0,
+            onClose: function( selectedDate ) {
+               $('.datepicker2').datepicker( "option", "minDate", selectedDate );
+            }
+        });
+        $('.datepicker2').datepicker({
+            minDate: 0,
+            onClose: function( selectedDate ) {
+               $('.datepicker1').datepicker( "option", "maxDate", selectedDate );
+            }
+        });
+    // end   jquery ui 的日历插件
+    $("button.checkin").click(function(){
+        $("#doc-modal-empty").modal('close');
+    });
+    $("a.accountclose").click(function(){
+        $("#dialogboxaccount").modal('close');
+    });
+    $("#daccount button").click(function(){
+        $("#dialogboxaccount").modal('close');
+    });
+</script>
+</body>
+</html>

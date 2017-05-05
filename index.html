@@ -23,6 +23,7 @@
  -->
 <body  ng-app="myApp" ng-controller="Ctrl">
     <!-- nav start -->
+
         <header class="am-topbar">
             <h1 class="am-topbar-brand" style="margin-left:20%;margin-right:2%;">
               <a href="#" style="color:white;">酒店管理系统</a>
@@ -34,9 +35,9 @@
                       <li><a href="guest.html">客人</a></li>
                       <li><a href="vip.html">会员</a></li>
                       <li><a href="company.html">协议单位</a></li>
-                      <li><a href="index.html">报表</a></li>
+                      <li><a href="index.html">财务</a></li>
                       <li><a href="stock.html">库存</a></li>
-                      <li><a href="options.html">设置</a></li>
+                      <li><a href="options.html">订单</a></li>
               </ul>
             </div>
         </header>
@@ -44,7 +45,7 @@
       <section id="one">
         <form class="one_content">
     <!-- ·································外客购买 start·························· -->
-          <button type="button"  class="am-btn am-btn-secondary"  data-am-modal="{target: '#doc-modal-3', closeViaDimmer: 0, width: 1100, height: 800}">外客购买</button>
+          <button type="button"  class="am-btn am-btn-secondary"  data-am-modal="{target: '#doc-modal-3', closeViaDimmer: 0, width: 1100, height: 600}">外客购买</button>
           <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-3">
               <div class="am-modal-dialog  modal_location">
                   <div class="am-modal-hd">外客购买
@@ -264,7 +265,6 @@
                             </tr>
                           </tbody>
                       </table>
-                      <div id="load"></div>
                   </div>
               </div>
           </div>
@@ -283,8 +283,9 @@
                       <dl>
                         <dd class="main_one"><b>{{v.number}}</b>&nbsp;<p>{{v.name}}房</p></dd>
                         <dd class="main_two"><span>{{v.person}}</span><p>{{v.price}}元</p></dd>
-                        <dd class="main_three"></dd>
+                        <dd class="main_three" ng-show="v.state=='在住'"></dd>
                         <dd class="main_four">{{v.state}}</dd>
+                        <dd class="main_five draggable ui-widget-content" id="draggable1" ng-show="v.state=='在住'">顾晓云</dd>
                       </dl>
                     </li>
                   </ul>
@@ -295,176 +296,32 @@
                           <a href="javascript: void(0)" class="am-close am-close-spin refresh">&times;</a>
                       </div>
                       <div class="am-modal-bd">
-                          <div class="table">
-                              <table class="am-table am-table-bordered am-table-hover">
-                                  <tr>
-                                      <td>
-                                          <label>房型：</label>
-                                          <select data-am-selected>
-                                              <option value="a" selected>全部</option>
-                                              <option value="b">2</option>
-                                              <option value="o">3</option>
-                                              <option value="m">4</option>
-                                          </select></td>
-                                      <td>
-                                          <label>房号：</label>
-                                          <input type="text" name="text">
-                                      </td>
-                                      <td colspan="2">
-                                          <label>会员卡号：</label>
-                                          <input type="text" name="text">
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          <label>来源：</label>
-                                          <select data-am-selected>
-                                              <option value="b" selected>客人自入</option>
-                                              <option value="o">会员</option>
-                                              <option value="m">协议单位</option>
-                                          </select>
+                          <section id="checked-left" style="width: 8%; float: left;margin-top: 85px;">
+                              <button id="booked-btn-one"  class="am-btn am-btn-secondary">预订信息</button>
+                              <button id="booked-btn-two" class="am-btn am-btn-secondary">点击入住</button>
+                              <button id="booked-btn-three" class="am-btn am-btn-secondary">取消预订</button>
+                              <a class="am-btn am-btn-secondary refresh">返回主页</a>
+                          </section>
+                          <div id="booked-right" style="width: 90%;float: right;">
+                          </div>
+                          <script>
+                              $(document).ready(function(){
+                                  $('#booked-right').load('index/booked.html');
+                                  $('#booked-btn-one').click(function(){
+                                      $('#booked-right').load('index/booked.html')
+                                  });
+                                  $('#booked-btn-two').click(function(){
+                                      $('#booked-right').load('index/registe.html')
+                                  });
+                                  $('#booked-btn-three').click(function(){
+                                      if (confirm("确定取消预订吗")) {
+                                          alert("您已取消对该房的预订");
+                                          refresh();
 
-                                      </td>
-                                      <td>
-                                          <label>房价方案</label>
-                                          <input type="text" name="text">
-                                      </td>
-                                      <td>
-                                          <label>开房方式</label>
-                                          <select data-am-selected>
-                                              <option value="b" selected>天房</option>
-                                              <option value="o">钟点房</option>
-                                              <option value="m">自用房</option>
-                                          </select>
-                                      </td>
-                                      <td>
-                                          <label>房价：</label>
-                                          <input type="text" name="text">
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          <label>时间：</label>
-                                          <input type="date" data-am-datepicker="" name="date">
-                                      </td>
-                                      <td>
-                                          <label>预住天数：</label>
-                                          <input type="num" name="">
-                                      </td>
-                                      <td><label >欲离时间:</label></td>
-                                      <input type="date" data-am-datepicker="" name="date">
-                                  </tr>
-                              </table>
-                          </div>
-                          <div class="table">
-                              <table class="am-table  am-table-hover">
-                                  <tr>
-                                      <td>
-                                          <label>姓名：</label>
-                                          <input type="text" name="text">
-                                      </td>
-                                      <td>
-                                          <label>证件类型：</label>
-                                          <select data-am-selected>
-                                              <option value="a" selected>身份证</option>
-                                              <option value="b">驾驶证</option>
-                                              <option value="o">士兵证</option>
-                                              <option value="m">士官证</option>
-                                          </select>
-
-                                      </td>
-                                      <td>
-                                          <label>证件号码：</label>
-                                          <input type="text" name="text">
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          <label>电话：</label>
-                                          <input type="text" name="text">
-                                      </td>
-                                      <td>
-                                          <label>出生年月：</label>
-                                          <input type="text" data-am-datepicker="" name="text">
-                                      </td>
-                                      <td>
-                                          <label>性别：</label>
-                                          <select data-am-selected>
-                                              <option value="a" selected>全部</option>
-                                              <option value="b">男</option>
-                                              <option value="o">女</option>
-                                          </select>
-                                      </td>
-                                      <td>
-                                          <label>民族：</label>
-                                          <select data-am-selected>
-                                              <option value="a" selected>汉</option>
-                                              <option value="b">2</option>
-                                              <option value="o">3</option>
-                                              <option value="m">4</option>
-                                          </select>
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td colspan="4">
-                                          <label>地址：</label>
-                                          <input type="text" name="text" style="width: 40%">
-                                      </td>
-                                  </tr>
-                              </table>
-                          </div>
-                          <div class="table">
-                              <table class="am-table am-table-bordered am-table-hover">
-                                  <tr>
-                                      <td>
-                                          <div class="am-form-group">
-                                              <label>支付方式：</label>
-                                              <label class="am-radio-inline" >
-                                                  <input type="radio"  value="" name="docInlineRadio" checked > 现金
-                                              </label>
-                                              <label class="am-radio-inline">
-                                                  <input type="radio" name="docInlineRadio"> 刷卡
-                                              </label>
-                                              <label class="am-radio-inline">
-                                                  <input type="radio" name="docInlineRadio"> 支付宝
-                                              </label>
-                                              <label class="am-radio-inline">
-                                                  <input type="radio" name="docInlineRadio"> 微信
-                                              </label>
-                                              <label class="am-radio-inline">
-                                                  <input type="radio" name="docInlineRadio">挂账
-                                              </label>
-                                          </div>
-                                      </td>
-                                      <td>
-                                          <label>押金：</label>
-                                          <input type="text" name="text">
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          <label>业务员：</label>
-                                          <span>张三</span>
-                                      </td>
-                                      <td>
-                                          <label>总房价：</label>
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          <label>单号：</label>
-                                          <input type="text" name="text">
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          <label>备注：</label>
-                                          <input type="textarea" name="textarea" style="width:50s%; ">
-                                      </td>
-                                  </tr>
-                              </table>
-                              <button class="am-btn am-btn-secondarys">保存</button>
-                          </div>
+                                      }
+                                  });
+                              });
+                          </script>
                       </div>
                   </div>
               </div><!--预订的模态窗口-->
@@ -478,7 +335,7 @@
                               <button id="checked-btn-one"  class="am-btn am-btn-secondary">点击结账</button>
                               <button id="checked-btn-two" class="am-btn am-btn-secondary">点击换房</button>
                               <button id="checked-btn-three" class="am-btn am-btn-secondary">点击续住</button>
-                              <a href="index.html" class="am-btn am-btn-secondary">返回主页</a>
+                              <a class="am-btn am-btn-secondary refresh">返回主页</a>
                           </section>
                           <div id="checked-right" style="width: 90%;float: right;">
                           </div>
@@ -508,7 +365,7 @@
                           <section id="book-left" style="width: 8%;float:left;margin-top: 85px;">
                               <button id="btn-book-one" class="am-btn am-btn-secondary">点击预定</button>
                               <button id="btn-book-two" class="am-btn am-btn-secondary">点击入住</button>
-                              <a href="index.html" class="am-btn am-btn-secondary">返回主页</a>
+                              <a class="am-btn am-btn-secondary refresh">返回主页</a>
                           </section>
                           <section id="book-right" style="width: 90%;float: right;">
                           </section>
@@ -878,6 +735,12 @@
         }
     });
   // end   jquery ui 的日历插件
+    $(document).ready(function(){
+      $( "#draggable1" ).draggable({ containment: "#main", scroll: false });
+    })
+
+
+
   // msg start
     $('div#title span button').click(function () {
         $('#msg').animate({
@@ -896,13 +759,14 @@
        $('div#title span:eq(0)').show()
     });
   // end msg
+  //
     function cancelcheckout(){
         var mymessage= confirm("是否确认反结账?");
         if(mymessage==true)
         {
             $('#recheckout').load('index/recheck-out.html');
         }
-    }/*反结账操作*/
+    };/*反结账操作*/
   // 自动检索关键词 start
     $(function() {
        var shopdatas = [
@@ -916,12 +780,14 @@
        });
      });
   // end 自动检索关键词
-  // 去掉模态框后刷新页面start
+  // 刷新页面     start
     $("a.refresh").click(function(){
-      window.location.reload()
+        window.location.reload()
     })
-  // end去掉模态框后刷新页面
-
+    function refresh(){
+        window.location.reload()
+    };
+  // end   刷新页面
   // 鼠标移上li显示 start
     $(function() {
        $('#main .main li').popover({
@@ -1051,28 +917,28 @@
           else if($($event.target).html()=='预订'){
               if(confirm("此房已被预订，查看预订信息吗？")){
                   $($event.target).attr("data-am-modal","{target: '#doc-modal-book', closeViaDimmer: 0, width: 1100,height: 850}");
-              }
+              };
           }
           else if($($event.target).html()=='在住'){
               $($event.target).attr("data-am-modal","{target: '#doc-modal-getout', closeViaDimmer: 0, width: 1100,height: 850}");
           }
           else if($($event.target).html()=='待查'){
-              if(confirm("确定使用待查房吗？")){
+              if(confirm("确定使用待查房吗？使用前请修改房态")){
                   $($event.target).attr("data-am-modal","{target: '#doc-modal-empty',   closeViaDimmer: 0, width: 1300,height: 850}");
               }
           }
           else if($($event.target).html()=='自用'){
-              if(confirm("确定使用自用房吗？")){
+              if(confirm("确定使用自用房吗？使用前请修改房态")){
                   $($event.target).attr("data-am-modal","{target: '#doc-modal-empty', closeViaDimmer: 0, width: 1100,height: 850}");
               }
           }
           else if($($event.target).html()=='脏房'){
-              if(confirm("确定使用脏房吗？")){
+              if(confirm("确定使用脏房吗？使用前请修改房态")){
                   $($event.target).attr("data-am-modal","{target: '#doc-modal-empty', closeViaDimmer: 0, width: 1100,height: 850}");
               }
           }
           else if($($event.target).html()=='修理'){
-              if(confirm("确定使用未修理的房间吗？")){
+              if(confirm("确定使用未修理的房间吗？使用前请修改房态")){
                   $($event.target).attr("data-am-modal","{target: '#doc-modal-empty', closeViaDimmer: 0, width: 1100,height: 850}");
               }
           }
