@@ -33,9 +33,8 @@ section#three································不
     min-width: 129px;
     user-select: none;
     position: absolute;
-    top: 10px;
+    top: 0px;
     right: 0px;
-
     text-align: center;
     background-color:#eaf7f0;
 }
@@ -79,11 +78,8 @@ section#three································不
     }
     nav ul li:nth-child(3) a{
         font-size: 14px;
-        color: #EAE9E9;
     }
-    nav ul li:nth-child(3) a:hover{
-        color: #fff;
-    }
+
 /*外客购买 start*/
     .one_content{
         width: 98%;
@@ -162,7 +158,6 @@ section#three································不
         padding-left: 10px;
     }
     #empty_states #main ul li{
-        width: 120px;
         height: 80px;
         position: relative;
     }
@@ -219,9 +214,13 @@ section#three································不
     }
 /*end 外客购买*/
 /*房态显示 start*/
+    #main .main{
+        padding-right: 5px;
+    }
     #main .main ul{
+        width: 10%;
         height: auto;
-        padding:8px 0px;
+        padding:1px 0px;
         margin: 0;
         display: inline-block;
         float: left;
@@ -234,8 +233,7 @@ section#three································不
         cursor: pointer;
         overflow: hidden;
         border: 2px solid #A8A7A7;
-        margin-left: 4px;
-        width:140px;
+        margin-left: 1px;
         height: 100px;
         font-size: 18px;
         position: relative;
@@ -273,7 +271,7 @@ section#three································不
     #main dd.main_four{
         text-align: right;
         font-size: 0.7px;
-        width:140px;
+        width:100%;
         height: 100px;
         line-height: 135px;
         padding: 15px;
@@ -361,11 +359,10 @@ section#three································不
         display: block;
     }
     #msg{
-        background: #C6E1FC;
+        border-top: 1px solid #C9C7C7;
     }
-    #msg p{
-        margin-bottom: 5px;
-        margin-top: 5px;
+    #msg p,#bar .slid p{
+        margin: 0px;
     }
     #msg ul{
         padding: 0px;
@@ -373,23 +370,50 @@ section#three································不
     }
     #msg ul li{
         list-style: none;
-        border-top: 1px solid #ddd;
-        border-bottom: 1px solid #ddd;
-    }
-    #msg ul li p{
+        border-bottom: 1px solid #E0E0E0;
         font-size: 12px;
     }
-    #msg ul li div p:nth-child(1){
-        float: left;
-
+    #msg ul li a{
+        margin-bottom: 10px;
+        cursor: pointer;
+    }
+    #msg ul li a:visited,#bar .slid a:visited{
+        color: #0e90d2;
+    }
+    #msg ul li a:hover,#bar .slid a:hover{
+        color: black;
+    }
+    #msg ul li p span{
+        padding-right: 10px;
+    }
+    #msg span{
+        font-size: 14px;
+    }
+    #bar .slid{
+        padding-left: 2px;
+        border: 1px solid #dedede;
+        width: 200px;
+        position: absolute;
+        right: -200px;
+        top: 0px;
+        background: #fff;
+    }
+    #bar .slid p a,#msg span a{
+        cursor: pointer;
+    }
+    #bar .slid p a{
+        font-size: 26px;
+    }
+    #bar .slid ul{
         margin: 0px;
     }
-    #msg ul li div p:nth-child(2){
-        float: right;
-
-        margin: 0px;
+    #bar .slid li{
+        padding-right: 10px;
+        font-size: 14px;
     }
-
+    #bar .slid span{
+        padding-right: 20px;
+    }
 /*end       房态的右边栏 */
 /*房态图的下边烂 start*/
     #three{
@@ -428,10 +452,6 @@ section#three································不
         float: left;
     }
 /* end 房态图的下边烂 */
-
-
-
-
 /*foot start*/
     footer{
         width: 100%;
@@ -465,14 +485,9 @@ section#three································不
         color:#F0EEEE;
         text-align: center;
     }
-    #right .prompt{
-        cursor: pointer;
-
+    #right p i:hover{
+        color: #0e90d2;
     }
-    .foot{
-        color:#E7E5E5;
-    }
-
     #dialogbox1{
         border: 1px solid #C6C5C5;
         box-shadow: 0px 10px 30px #C6C5C5;
