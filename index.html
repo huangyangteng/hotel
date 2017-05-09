@@ -32,19 +32,18 @@
             </ul>
         </nav>
         <header class="am-topbar">
-            <h1 class="am-topbar-brand" style="margin-left:20%;margin-right:2%;">
+            <h1 class="am-topbar-brand" style=" margin-left:20%;margin-right:2%;">
               <a href="#" style="color:white;">酒店管理系统</a>
             </h1>
-            <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#doc-topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
-            <div class="am-collapse am-topbar-collapse am-topbar-inverse" id="doc-topbar-collapse">
-              <ul class="am-nav am-nav-pills am-topbar-nav">
+            <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#doc-topbar-collapse'}"></button>
+            <div class=" am-topbar-collapse am-topbar-inverse" id="doc-topbar-collapse">
+              <ul class="am-topbar-nav">
                       <li class="am-active"><a href="index.html">房态图</a></li>
                       <li><a href="guest.html">客人</a></li>
                       <li><a href="vip.html">会员</a></li>
                       <li><a href="company.html">协议单位</a></li>
                       <li><a href="index.html">财务</a></li>
                       <li><a href="stock.html">库存</a></li>
-                      <li><a href="options.html">订单</a></li>
               </ul>
             </div>
         </header>
@@ -283,7 +282,7 @@
     <!-- ···································房态图································· -->
       <section id="two">
         <!-- ························主要房态图······························· -->
-          <div id="main">
+          <div id="main" ng-style="{height:size+'px'}">
               <div class="main">
                   <ul  ng-repeat='v in data' ng-if='v.show=="" && v.show2!=="" && v.show3==""'>
                     <li  ng-style="{background:v.color}"  ng-click='click($event)'>
@@ -521,8 +520,6 @@
               <span>|</span>
               <a href="#" class="foot" data-am-modal="{target: '#doc-modal-shiftexchange',    closeViaDimmer: 0, width:1100, height:800}">交班</a>
               <span>|</span>
-              <a href="#" class="foot"  data-am-modal="{target: '#doc-modal-thisexchange',    closeViaDimmer: 0, width:1100, height:800}">当班报表</a>
-              <span>|</span>
               <a href="#" class="foot">退出</a>
           </div>
           <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-shiftexchange">
@@ -698,168 +695,10 @@
                   </div>
               </div>
           </div><!--交班报表的模态窗口-->
-          <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-thisexchange">
-              <div class="am-modal-dialog modal_location">
-                  <div class="am-modal-hd">当班报表
-                      <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
-                  </div>
-                  <div class="am-modal-bd">
-                      <span  style="float: left" >本班时间: <input type="text" name="" class="nowTime" disabled> 至 <input type="text" name="" class="nowTime" disabled></span><span>负责人：001</span>
-                      <table class="am-table am-table-bordered">
-                          <tr class="am-primary">
-                              <td></td>
-                              <td>现金</td>
-                              <td>银行卡</td>
-                              <td>支付宝</td>
-                              <td>微信</td>
-                              <td>挂账</td>
-                              <td>携程</td>
-                              <td>美团</td>
-                              <td>网上支付</td>
-                              <td>小计</td>
-                          </tr>
-                          <tr>
-                              <td class="am-primary">交班余额</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td class="am-primary">定金</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td class="am-primary">押金</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td class="am-primary">结账收款</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td class="am-primary">结账退款</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td class="am-primary">挂账结算</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td class="am-primary">反结账</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-
-                          <tr>
-                              <td class="am-primary">外客购买</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td class="am-primary">借出</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td class="am-primary">收账</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr>
-                              <td class="am-primary">合计</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                      </table>
-                  </div>
-              </div>
-          </div><!--当班报表的模态窗口-->
           <div id="right">
             <p>交谈：</p>
-            <p><i class="am-icon-qq"></i></p>
-            <p><i class="am-icon-weixin"></i></p>
-            <p><i class="am-icon-phone">：</i><span>18683660949</span></p>
+            <p><i class="am-icon-qq">&nbsp;</i>1815642007</p>
+            <p><i class="am-icon-phone">&nbsp;</i><span>18683660949</span></p>
           </div>
       </footer>
 <script>
@@ -1227,6 +1066,9 @@
            $("#dialogbox").modal("close");
         };
       // end  交班
+      // 房态图的高度  start
+        $scope.size=$(document.body).height()-$('#three').height()-$('nav').height()-$('footer').height()-$('header').height()-$('#one').height()-$('#one').height();
+      // end 房态图的高度
       // 点击(页面渲染完执行) start
         $scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {
 

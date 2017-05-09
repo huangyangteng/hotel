@@ -25,8 +25,9 @@ section#three································不
 }
 #main{
     width: 90%;
-    height: 700px;
     float: left;
+    overflow-y: auto;
+    padding-right: 5px;
 }
 #bar{
     width: 10%;
@@ -42,21 +43,23 @@ section#three································不
         margin-top: 30px;
         margin-bottom: 20px;
     }
+/*导航更改*/
     nav{
         color: #EAE9E9;
         background: #000;
-
     }
     nav ul{
+        padding: 0px;
         margin: 0px;
         width: 80%;
-        margin-left: 8%;
+        margin-left: 10%;
         position: relative;
     }
     nav ul li{
         display: inline-block;
         list-style: none;
-        padding: 6px;
+        padding: 5px;
+        line-height: 30px;
     }
     nav ul li:first-child{
         font-size: 1.2em;
@@ -65,8 +68,8 @@ section#three································不
     }
     nav ul li:nth-child(2){
         width: 30%;
-        font-size: 1.2em;
-        letter-spacing: 2px;
+        font-size: 1.3em;
+        /*letter-spacing: 2px;*/
         position: absolute;
         left: 35%;
     }
@@ -79,12 +82,25 @@ section#three································不
     nav ul li:nth-child(3) a{
         font-size: 14px;
     }
-
+    header ul{
+        width: 40%;
+        margin: 0px;
+        padding: 0px;
+        height: 50px;
+        text-align: justify;
+    }
+    header ul:after {width: 100%;height: 0;margin: 0;display: inline-block;overflow: hidden;content: '';}
+    header ul li{
+        display: inline-block;
+    }
+     header ul li a{
+        height: 100%;
+        display: inline-block;
+    }
+/*导航更改*/
 /*外客购买 start*/
     .one_content{
         width: 98%;
-        min-width: 830px;
-        height: 3px;
         line-height: 35px;
         margin: 0 auto;
         text-align: justify;
@@ -214,9 +230,6 @@ section#three································不
     }
 /*end 外客购买*/
 /*房态显示 start*/
-    #main .main{
-        padding-right: 5px;
-    }
     #main .main ul{
         width: 10%;
         height: auto;
@@ -484,9 +497,6 @@ section#three································不
         float: right;
         color:#F0EEEE;
         text-align: center;
-    }
-    #right p i:hover{
-        color: #0e90d2;
     }
     #dialogbox1{
         border: 1px solid #C6C5C5;
