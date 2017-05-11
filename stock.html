@@ -107,8 +107,7 @@
                     </div>
                     <div class="stocks_in">
                         <span class="stocks_in_cha" style="margin-right: -29px;">生产日期</span>
-                        <input class="stocks_in_chbb" type="text" name="stocks_born" placeholder="请选择日期" readonly
-                               required data-am-datepicker/>
+                        <input id="datepicker_0" class="stocks_in_chbb" type="text" name="stocks_born" placeholder="请选择日期"/>
                     </div>
                     <div class="stocks_in">
                         <span class="stocks_in_cha" style="margin-right: -16px;">保质期</span>
@@ -170,8 +169,8 @@
                     </div>
                     <div class="stocks_in_change">
                         <span class="stocks_in_cha_change" style="margin-right: -29px;">生产日期</span>
-                        <input class="stocks_in_chbb_change stocks_get_a" type="text" name="stocks_born"
-                               placeholder="请选择日期" readonly required data-am-datepicker/>
+                        <input id="datepicker_0" class="stocks_in_chbb_change stocks_get_a" type="text" name="stocks_born"
+                               placeholder="请选择日期"/>
                     </div>
                     <div class="stocks_in_change">
                         <span class="stocks_in_cha_change" style="margin-right: -16px;">保质期</span>
@@ -359,6 +358,9 @@
                 $(this).val("");
             })
         })
+        $(function() {
+          $( "#datepicker_0" ).datepicker();
+        });
     });
 </script>
 </html>

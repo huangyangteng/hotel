@@ -3,9 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="../assets/css/amazeui.min.css">
-    <script src="../assets/js/jquery.min.js"></script>
-    <script  src="../assets/js/amazeui.min.js"></script>
 	  <style>
       body{
         padding: 0px;margin: 0px;
@@ -91,8 +88,7 @@
                     </div>
                     <div class="stocks_in_2">
                         <span class="stocks_in_cha_2" style="margin-right: -29px;">生产日期</span>
-                        <input class="stocks_in_chbb_2" type="text" name="stocks_born" placeholder="请选择日期" readonly
-                               required data-am-datepicker/>
+                        <input id="datepicker_2" class="stocks_in_chbb_2" type="text" name="stocks_born" placeholder="请选择日期"/>
                     </div>
                     <div class="stocks_in_2">
                         <span class="stocks_in_cha_2" style="margin-right: -16px;">保质期</span>
@@ -121,7 +117,7 @@
                 </div>
                 <div class="stocks_footers">
                     <input id="stocks_cards_btn_2" type="button" class="am-btn am-btn-primary"
-                           value="添加" data-am-modal-close/>
+                           value="添加"/>
                     <input type="button" class="am-btn am-btn-secondary" value="取消" data-am-modal-close/>
                 </div>
             </div>
@@ -154,8 +150,7 @@
                     </div>
                     <div class="stocks_in_change_2">
                         <span class="stocks_in_cha_change_2" style="margin-right: -29px;">生产日期</span>
-                        <input class="stocks_in_chbb_change_2 stocks_get_a_a" type="text" name="stocks_born"
-                               placeholder="请选择日期" readonly required data-am-datepicker/>
+                        <input id="datepicker_2" class="stocks_in_chbb_change_2 stocks_get_a_a" type="text" name="stocks_born" placeholder="请选择日期"/>
                     </div>
                     <div class="stocks_in_change_2">
                         <span class="stocks_in_cha_change_2" style="margin-right: -16px;">保质期</span>
@@ -255,8 +250,8 @@
   <script>
     //二级分类JS代码
     $(function () {
-        var stocks_necessary_inputs_1=$(".stocks_bodys_2 .stocks_in_chb_2");
-        var stocks_necessary_datas_1=$(".stocks_bodys_2 .stocks_in_chbb_2");
+        var stocks_necessary_inputs_2=$(".stocks_bodys_2 .stocks_in_chb_2");
+        var stocks_necessary_datas_2=$(".stocks_bodys_2 .stocks_in_chbb_2");
         //添加商品设置
         $("#stocks_cards_btn_2").click(function () {
             var stocks_in_chb_2 = $(".stocks_in_chb_2").eq(0).val();
@@ -332,6 +327,9 @@
                 $(this).val("");
             })
         })
+        $(function() {
+          $( "#datepicker_2" ).datepicker();
+        });
     }); 
   </script>
 </body>

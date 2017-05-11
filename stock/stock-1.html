@@ -3,9 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="../assets/css/amazeui.min.css">
-    <script src="../assets/js/jquery.min.js"></script>
-    <script  src="../assets/js/amazeui.min.js"></script>
   <style>
     #secondFenLei{
       margin-top: 2px;
@@ -64,7 +61,7 @@
 </head>
 <body>
    <!-- .......................................二级分类添加商品弹出框开始.................................... -->
-    <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-100">
+    <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-22">
         <div class="am-modal-dialog">
             <div class="am-modal-hd">添加商品
                 <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
@@ -89,8 +86,7 @@
                     </div>
                     <div class="stocks_in_1">
                         <span class="stocks_in_cha_1" style="margin-right: -29px;">生产日期</span>
-                        <input class="stocks_in_chbb_1" type="text" name="stocks_born" placeholder="请选择日期" readonly
-                               required data-am-datepicker/>
+                        <input id="datepicker" class="stocks_in_chbb_1" type="text" name="stocks_born" placeholder="请选择日期"/>
                     </div>
                     <div class="stocks_in_1">
                         <span class="stocks_in_cha_1" style="margin-right: -16px;">保质期</span>
@@ -152,8 +148,8 @@
                     </div>
                     <div class="stocks_in_change_1">
                         <span class="stocks_in_cha_change_1" style="margin-right: -29px;">生产日期</span>
-                        <input class="stocks_in_chbb_change_1 stocks_get_a_a" type="text" name="stocks_born"
-                               placeholder="请选择日期" readonly required data-am-datepicker/>
+                        <input id="datepicker" class="stocks_in_chbb_change_1 stocks_get_a_a" type="text" name="stocks_born"
+                               placeholder="请选择日期"/>
                     </div>
                     <div class="stocks_in_change_1">
                         <span class="stocks_in_cha_change_1" style="margin-right: -16px;">保质期</span>
@@ -240,7 +236,7 @@
                       </table>
                       <div id="top">
                           <button id="stocks_add_goods_1" class="am-btn am-btn-primary"
-                                  data-am-modal="{target: '#doc-modal-100', closeViaDimmer: 0, width:600, height: 600}">+添加商品
+                                  data-am-modal="{target: '#doc-modal-22', closeViaDimmer: 0, width:600, height: 600}">+添加商品
                           </button>
                       </div>
                  </td>
@@ -270,7 +266,8 @@
                 shouldToWrite();
             }
             else{
-                $('#doc-modal-100').modal(close);
+                $("#doc-modal-22").modal("close");
+                $("#doc-modal-22").css("display","none");
                 $("#stock_tab_1").append('<tr>' + '<td>' + stocks_in_chb_1 + '</td>' + '<td>' + stocks_in_chb1_1 + '</td>' + '<td>' + stocks_in_chb2_1 + '</td>' + '<td>' + stocks_in_chb3_1 + '</td>' + '<td>' + stocks_in_chb4_1+ "个月" + '</td>' + '<td>' + stocks_in_chb5_1 + '</td>' + '<td>' + stocks_in_chb6_1 + '</td>' + '<td>' + stocks_in_chb7_1+ "元" + '</td>' + '<td>' + stocks_in_chb8_1+ "元" + '</td>' +'<td style="width: 15%"><button type="button"' + 'onclick="' + 'if(confirm(' + "'" + '是否确认删除！！' + "'" + ')) $(this).parent().parent().remove();" class="am-btn am-btn-primary"> 删除 </button><button style="margin-left: 5px;" type="button" class="am-btn am-btn-primary stocks_to_get_1_a" data-am-modal="{target:' + "'" + '#doc-modal-6' + "'" + ', closeViaDimmer: 0, width:600, height: 600}">修改</button></td>' + '</tr>');
                 stocks_necessary_datas_1.eq(0).removeClass("turnRed");
                 stocks_necessary_inputs_1.each(function(){
@@ -329,6 +326,9 @@
                 $(this).val("");
             })
         })
+        $(function() {
+          $( "#datepicker" ).datepicker();
+        });
     });
   </script>
 </body>
