@@ -1,0 +1,62 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'D:\\nodejs\\node.exe',
+1 verbose cli   'D:\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'express' ]
+2 info using npm@3.10.10
+3 info using node@v6.10.2
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData express@^4.15.2
+8 silly fetchNamedPackageData express
+9 silly mapToRegistry name express
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'express',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   escapedName: 'express',
+12 silly mapToRegistry   name: 'express',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri https://registry.npmjs.org/express
+14 verbose request uri https://registry.npmjs.org/express
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 19:20:18
+17 verbose request id 75ee4c6897b64ae1
+18 verbose etag W/"5909e56f-8bd7d"
+19 verbose lastModified Wed, 03 May 2017 14:13:03 GMT
+20 http request GET https://registry.npmjs.org/express
+21 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 151.101.72.162:443
+22 info attempt registry request try #2 at 19:20:49
+23 verbose etag W/"5909e56f-8bd7d"
+24 verbose lastModified Wed, 03 May 2017 14:13:03 GMT
+25 http request GET https://registry.npmjs.org/express
+26 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 151.101.72.162:443
+27 info attempt registry request try #3 at 19:22:10
+28 verbose etag W/"5909e56f-8bd7d"
+29 verbose lastModified Wed, 03 May 2017 14:13:03 GMT
+30 http request GET https://registry.npmjs.org/express
+31 verbose stack Error: kill ENOSYS
+31 verbose stack     at exports._errnoException (util.js:1018:11)
+31 verbose stack     at process.kill (internal/process.js:190:13)
+31 verbose stack     at process.listener (D:\nodejs\node_modules\npm\node_modules\npmlog\node_modules\gauge\node_modules\signal-exit\index.js:86:15)
+31 verbose stack     at emitNone (events.js:91:20)
+31 verbose stack     at process.emit (events.js:185:7)
+31 verbose stack     at processEmit (D:\nodejs\node_modules\npm\node_modules\npmlog\node_modules\gauge\node_modules\signal-exit\index.js:146:32)
+31 verbose stack     at processEmit (D:\nodejs\node_modules\npm\node_modules\npm-registry-client\node_modules\npmlog\node_modules\gauge\node_modules\signal-exit\index.js:146:32)
+31 verbose stack     at Signal.wrap.onsignal (internal/process.js:217:44)
+32 verbose cwd C:\Users\Administrator\Desktop\hotel
+33 error Windows_NT 10.0.14393
+34 error argv "D:\\nodejs\\node.exe" "D:\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "express"
+35 error node v6.10.2
+36 error npm  v3.10.10
+37 error code ENOSYS
+38 error errno ENOSYS
+39 error syscall kill
+40 error kill ENOSYS
+41 error If you need help, you may report this error at:
+41 error     <https://github.com/npm/npm/issues>
+42 verbose exit [ 1, true ]
