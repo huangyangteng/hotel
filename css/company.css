@@ -1,0 +1,17 @@
+#company_left{
+	margin-top: 45px;
+	width: 8%;
+	float: left;
+    height: 835px;
+	background: #eaf7f0;
+}
+#company_right{
+	width: 82%;
+	height: 835px;
+	margin-left: 2%;
+	float: left;
+	border: 1px solid #ddd;
+}
+#company_left button{
+	margin-left: 10px;
+}

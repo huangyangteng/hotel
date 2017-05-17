@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" type="text/css" href="assets/css/amazeui.min.css">
+    <link rel="stylesheet" type="text/css" href="css/company.css">
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/amazeui.min.js"></script>
     <style>
@@ -14,14 +15,131 @@
             height: 835px;
             margin: 0 5px 0;
         }
+
+
+        #company_1_header{
+            width: 100%;
+            height: 80px;
+        }
+        #company_1_header table{
+            width: 100%;
+            height: 100%;
+            border-bottom: 1px solid #ddd;
+        }
+        #company_1_header tr td button{
+            margin-left: 80px;
+        }
+        #company_1_header tr td:last-child{
+            text-align: right;
+            margin-right: 80px;
+        }
+        #company_1_header tr td:last-child input{
+            height: 41px;
+            padding-left: 10px;
+        }
+        #company_1_header tr td:last-child button{
+            margin-left: 20px;
+            margin-right: 50px;
+        }
+        .add_company table{
+            width: 100%;
+        }
+        .add_company tr{
+            height: 50px;
+            width: 100%;
+        }
+        .add_company table tr td{
+            padding: 3px;
+        }
+        /*修改amaze ui*/
+        #company_1_body{
+            line-height: 50px;
+            height: 250px;
+            margin-top: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+
+        #company_1_body table{
+            width: 100%;
+        }
+        #company_1_body .shops_list_tb1{
+            height: 50px;
+            width: 100%;
+            padding-right: 17px;
+        }
+        #company_1_body .shops_list_tb2{
+            position: absolute;
+            top: 51px;
+            left: 0;
+            width: 100%;
+            height: 199px;
+            overflow: auto;
+        }
+        #company_1_body .shops_list_tb2 table tr td div{
+            width: 100%;
+            height: 50px;
+        }
+        #company_1_body .shops_list_tb2 table tr td:nth-child(4) div span{
+            padding-left: 5px;
+            text-align: left;
+            line-height: 25px;
+            display: block;
+            float: left;
+            width: 100%;
+            height: 25px;
+            font-size: 0.5em;
+            overflow: hidden;
+            border-radius: 3px;
+        }
+        #company_1_body .shops_list_tb2 table tr td:nth-child(5) div span{
+            padding-left: 5px;
+            text-align: left;
+            line-height: 25px;
+            display: block;
+            float: left;
+            width: 50%;
+            height: 25px;
+            font-size: 0.5em;
+            overflow: hidden;
+            background: pink;
+            border: 1px solid orange;
+            border-radius: 3px;
+        }
+        #company_1_body table tr th{
+            height: 32px;
+            font-size: 14px;
+            text-align: center;
+            border-bottom: 1px #0789be solid;
+            border-right: 1px #66d5ff solid;
+            background: #00adef;
+            color: #fff;
+        }
+        #company_1_body table tr td{
+            border-bottom: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            overflow: hidden;
+            text-align: center;
+            padding: 2px 5px;
+            height: 50px;
+            font-size: 0.5em;
+        }
+        /*footer*/
+        #company_1_footer{
+            margin:10px 20px;
+        }
+        #company_1_footer button{
+            float: right;
+        }
     </style>
 </head>
 
 <body>
     <header class="am-topbar">
         <h1 class="am-topbar-brand" style="margin-left:20%;margin-right:2%;">
-        <a href="#" style="color:white;">酒店管理系统</a>
-    </h1>
+            <a href="#" style="color:white;">酒店管理系统</a>
+        </h1>
 
         <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#doc-topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
 
@@ -37,238 +155,295 @@
             </ul>
         </div>
     </header>
-    <section id="one">
-        <input type="text" placeholder="请输入手机号码">
-        <input type="button" value="查询" class="am-btn am-btn-secondary ">
-        <br>
-        <table class="am-table am-table-bordered am-table-hover">
-            <thead>
-                <tr class="am-primary">
-                    <td>协议单位名称</td>
-                    <td>可签单人姓名</td>
-                    <td>联系电话</td>
-                    <td>协议内容</td>
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-        <button class="am-btn am-btn-secondary">添加协议单位</button>
-    </section>
-    <footer>
-        <div id="left">
-            <span class="foot">酒店名称：斯纳格田园酒店</span>
-            <span class="foot">用户名：18990180707</span>
-            <span class="foot">班次：早班</span>
-        </div>
-
-        <div id="right">
-            <a href="#" class="foot" data-am-modal="{target: '#doc-modal-shiftexchange', closeViaDimmer: 0, width:1200, height:800}">交班</a>
-            <span>|</span>
-            <a href="#" class="foot">版本更新</a>
-            <span>|</span>
-            <a href="#" class="foot">退出</a>
-            <span>|</span>
-            <a href="#" class="foot"><img src="image/message.gif"> </a>
-        </div>
-        <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-shiftexchange">
-            <div class="am-modal-dialog">
-                <div class="am-modal-hd">交班报表
-                    <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
-                </div>
-                <div class="am-modal-bd">
-                    <span style="float: left">本班时间:</span>
-                    <table class="am-table am-table-bordered">
-                        <tr class="am-primary">
-                            <td>项目</td>
-                            <td colspan="11">支付方式</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>现金</td>
-                            <td>银行卡</td>
-                            <td>网上支付</td>
-                            <td>储值卡</td>
-                            <td>微信支付</td>
-                            <td>协议挂账</td>
-                            <td>支付宝扫码</td>
-                            <td>携程</td>
-                            <td>糯米</td>
-                            <td>美团</td>
-                            <td>盖网</td>
-                            <td>小计</td>
-                        </tr>
-                        <tr>
-                            <td>订金</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>押金</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>非住客帐</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>结账收款</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>结账退款</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>卡充值</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>消费付现</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>挂账结算</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>协议单位充值</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>合计</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+    <div id="company_left">
+        <button type="button" class="am-btn am-btn-primary" id="com_mangment">协议管理</button>
+        <button type="button" class="am-btn am-btn-primary">财务管理</button>
+    </div>
+    <div id="company_right">
+            <div id="company_1_header">
+                <table>
+                    <tr>
+                        <td>
+                            <button type="submit" class="am-btn am-btn-primary am-btn-lg am-btn-inline" data-am-modal="{target: '#doc-modal-1', closeViaDimmer: 0, width: 800, height: 500}">&nbsp;&nbsp;添加单位&nbsp;&nbsp;</button>
+                        </td>
+                        <td>
+                            <input type="text" placeholder="请输入..." />
+                            <button type="submit" class="am-btn am-btn-primary am-btn-lg am-btn-inline"><i class="am-icon-search"></i>&nbsp;查询&nbsp;</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="company_1_body">
+                <div class="shops_list_tb1" style="padding-right: 17px">
+                    <table>
+                           <tr>
+                               <th style="width: 18%;">单位名称</th>
+                               <th style="width: 8%;">联系人</th>
+                               <th style="width: 12%;">联系方式</th>
+                               <th style="width: 16%;">协议时间</th>
+                               <th style="width: 17%;">特殊房价</th>
+                               <th style="width: 20%;">操作</th>
+                           </tr>
                     </table>
-                    <span style="float: left">交班人签字</span>
-                    <button class="am-btn am-btn-secondary">交班</button>
-                    <button class="am-btn am-btn-secondary">打印</button>
-
-
+                </div>
+                  
+                <div class="shops_list_tb2">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td style="width: 18%;overflow: hidden;">四川绵阳旅游公司</td>
+                                <td style="width: 8%;">肖</td>
+                                <td style="width: 12%;">13598458896</td>
+                                <td style="width: 16%;">
+                                    <div>
+                                        <span>开始时间：2017/12/12</span>
+                                        <span>结束时间：2018/12/12</span>
+                                    </div>
+                                </td>
+                                <td style="width: 17%;">
+                                    <div>
+                                        <span>贵宾:8折</span>
+                                        <span>商务:456元</span>
+                                        <span>普通:789元</span>
+                                        <span>更多...</span>
+                                    </div>
+                                </td>
+                                <td style="width: 20%;">
+                                    <button type="submit" class="am-btn am-btn-success am-btn-inline-block"><i class="am-icon-edit"></i>&nbsp;编辑</button>
+                                    <button type="submit" class="am-btn am-btn-danger am-btn-inline-block"><i class="am-icon-trash"></i>&nbsp;删除</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 18%;"></td>
+                                <td style="width: 8%;"></td>
+                                <td style="width: 12%;"></td>
+                                <td style="width: 16%;"></td>
+                                <td style="width: 17%;"></td>
+                                <td style="width: 20%;"></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 18%;"></td>
+                                <td style="width: 8%;"></td>
+                                <td style="width: 12%;"></td>
+                                <td style="width: 16%;"></td>
+                                <td style="width: 17%;"></td>
+                                <td style="width: 20%;"></td>
+                            </tr>
+                             <tr>
+                                <td style="width: 18%;"></td>
+                                <td style="width: 8%;"></td>
+                                <td style="width: 12%;"></td>
+                                <td style="width: 16%;"></td>
+                                <td style="width: 17%;"></td>
+                                <td style="width: 20%;"></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        </div>
-        <!--交班报表的模态窗口-->
+            <div id="company_1_footer">
+                <button type="submit" class="am-btn am-btn-primary am-btn-inline" data-am-modal="{target: '#doc-modal-2', closeViaDimmer: 0, width: 700, height: 400}">导出</button>
+            </div>
+            <!-- amazeui 模态框 -->
+            <!-- 导出模态框开始 -->
+                <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-2">
+                  <div class="am-modal-dialog">
+                    <div class="am-modal-hd">导出内容
+                      <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+                    </div>
+                    <div class="am-modal-bd">
+                      
+                    </div>
+                  </div>
+                </div>
+            <!-- 导出模态框结束 -->
+            <!-- 添加模态框开始 -->
+                <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-1">
+                  <div class="am-modal-dialog">
+                    <div class="am-modal-hd">添加单位
+                      <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+                    </div>
+                    <div class="am-modal-bd add_company">
+                        <table>
+                            <tr>
+                                <td colspan="2">
+                                    <form class="am-form am-form-horizontal">
+                                      <div class="am-form-group">
+                                        <label for="doc-ipt-3" class="am-u-sm-2 am-form-label">单位名称：</label>
+                                        <div class="am-u-sm-10">
+                                          <input type="email" id="doc-ipt-1" placeholder="请输入单位名称">
+                                        </div>
+                                      </div>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <form class="am-form am-form-horizontal">
+                                      <div class="am-form-group">
+                                        <label for="doc-ipt-3" class="am-u-sm-4 am-form-label">联系人：</label>
+                                        <div class="am-u-sm-8">
+                                          <input type="email" id="doc-ipt-2" placeholder="">
+                                        </div>
+                                      </div>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form class="am-form am-form-horizontal">
+                                      <div class="am-form-group">
+                                        <label for="doc-ipt-3" class="am-u-sm-4 am-form-label">联系电话：</label>
+                                        <div class="am-u-sm-8">
+                                          <input type="email" id="doc-ipt-3" placeholder="">
+                                        </div>
+                                      </div>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <form class="am-form am-form-horizontal">
+                                      <div class="am-form-group">
+                                        <label for="doc-ipt-3" class="am-u-sm-4 am-form-label">协议时间：</label>
+                                        <div class="am-u-sm-8">
+                                          <input type="email" id="doc-ipt-3" placeholder="请输入协议的时间">
+                                        </div>
+                                      </div>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form class="am-form am-form-horizontal">
+                                      <div class="am-form-group">
+                                        <label for="doc-ipt-3" class="am-u-sm-4 am-form-label">结束日期：</label>
+                                        <div class="am-u-sm-8">
+                                          <input type="email" id="doc-ipt-3" placeholder="" disabled="">
+                                        </div>
+                                      </div>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <form class="am-form-inline" role="form">
+                                      <div class="am-form-group">
+                                        <label for="doc-ipt-3" class="am-form-label">标间房：</label>
+                                      </div>
+                                        
+                                      <div class="am-form-group">
+                                        <div class="am-form-group">
+                                          <label class="am-radio-inline">
+                                            <input type="radio" name="radio10" value="male" data-am-ucheck> 打折
+                                          </label>
+                                          <label class="am-radio-inline">
+                                            <input type="radio" name="radio10" value="female" data-am-ucheck> 自设房价
+                                          </label>
+                                        </div>
+                                      </div>
 
-    </footer>
+                                      <div class="am-form-group">
+                                        <input type="email" id="doc-ipt-3" placeholder="">
+                                      </div>
 
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <form class="am-form-inline" role="form">
+                                      <div class="am-form-group">
+                                        <label for="doc-ipt-3" class="am-form-label">贵宾房：</label>
+                                      </div>
+                                    
+                                      <div class="am-form-group">
+                                        <div class="am-form-group">
+                                          <label class="am-radio-inline">
+                                            <input type="radio" name="radio10" value="male" data-am-ucheck> 打折
+                                          </label>
+                                          <label class="am-radio-inline">
+                                            <input type="radio" name="radio10" value="female" data-am-ucheck> 自设房价
+                                          </label>
+                                        </div>
+                                      </div>
 
+                                      <div class="am-form-group">
+                                        <input type="email" id="doc-ipt-3" placeholder="">
+                                      </div>
 
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <form class="am-form-inline" role="form">
+                                      <div class="am-form-group">
+                                        <label for="doc-ipt-3" class="am-form-label">普通房：</label>
+                                      </div>
+                                    
+                                      <div class="am-form-group">
+                                        <div class="am-form-group">
+                                          <label class="am-radio-inline">
+                                            <input type="radio" name="radio10" value="male" data-am-ucheck> 打折
+                                          </label>
+                                          <label class="am-radio-inline">
+                                            <input type="radio" name="radio10" value="female" data-am-ucheck> 自设房价
+                                          </label>
+                                        </div>
+                                      </div>
 
+                                      <div class="am-form-group">
+                                        <input type="email" id="doc-ipt-3" placeholder="">
+                                      </div>
+
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <form class="am-form-inline" role="form">
+                                      <div class="am-form-group">
+                                        <label for="doc-ipt-3" class="am-form-label">商务房：</label>
+                                      </div>
+                                    
+                                      <div class="am-form-group">
+                                        <div class="am-form-group">
+                                          <label class="am-radio-inline">
+                                            <input type="radio" name="radio10" value="male" data-am-ucheck> 打折
+                                          </label>
+                                          <label class="am-radio-inline">
+                                            <input type="radio" name="radio10" value="female" data-am-ucheck> 自设房价
+                                          </label>
+                                        </div>
+                                      </div>
+
+                                      <div class="am-form-group">
+                                        <input type="email" id="doc-ipt-3" placeholder="">
+                                      </div>
+
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
+                        <button type="button" class="am-btn am-btn-primary">添加</button>
+                    </div>
+                  </div>
+                </div>
+            <!-- 添加模态框结束 -->
+    </div>
+    <div id="company_footer">
+        
+    </div>
 </body>
+<script type="text/javascript">
+    $(function(){
+            $("#company_left button").eq(0).click(function(){
+                $("#company_right").load("company/company_1.html");
+            })
+            $("#company_left button").eq(1).click(function(){
+                $("#company_right").load("company/company_2.html");
+            })
+            $("#com_mangment").click(function() {
+                 window.location.reload()
+             });
+            
+        })
+</script>
+</html>

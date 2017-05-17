@@ -14,7 +14,6 @@
 <style>
   #vips_first_top{
     width: 100%;
-    height: 100px;
     text-align: center;
     border: 1px solid #ccc;
   }
@@ -23,7 +22,7 @@
   }
   #vips_information_pic{
     width: 100%;
-    height: 900px;
+    height: 1000px;
     border: 1px solid #ccc;
   }
   #vips_information_pic .vips_information_pic_1st{
@@ -33,7 +32,7 @@
     float: left;
     position: relative;
   }
-  #vips_information_pic .vips_information_pic_1st p{
+  #vips_information_pic p{
     height: 50px;
     line-height: 50px;
     text-align: center;
@@ -67,27 +66,39 @@
     margin:0 auto;
     text-align: center;
   }
+  .vips_imformations_pic_0{
+    width: 100%;
+    height: 400px;
+    border:1px solid #ccc;
+  }
 </style>
 <body>
-    <header class="am-topbar">
-        <h1 class="am-topbar-brand" style="margin-left:20%;margin-right:2%;">
-          <a href="#" style="color:white;">酒店管理系统</a>
-        </h1>
-
-        <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#doc-topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
-
-        <div class="am-collapse am-topbar-collapse am-topbar-inverse" id="doc-topbar-collapse">
-            <ul class="am-nav am-nav-pills am-topbar-nav">
-                <li><a href="index.html">房态图</a></li>
-                <li><a href="guest.html">客人</a></li>
-                <li class="am-active"><a href="vip.html">会员</a></li>
-                <li><a href="company.html">协议单位</a></li>
-                <li><a href="report-forms.html">报表</a></li>
-                <li><a href="stock.html">库存</a></li>
-                <li><a href="options.html">设置</a></li>
+        <nav>
+            <ul>
+              <li>道理·九次方</li>
+              <li>斯纳格田园酒店</li>
+              <li><a href="index.html" class="foot">退出</a></li>
+              <li>用户名：<span>18683660949<span></li>
             </ul>
-        </div>
-    </header>
+        </nav>
+        <header class="am-topbar">
+            <h1 class="am-topbar-brand" style="margin-left:20%;margin-right:2%;">
+              <a href="#" style="color:white;">酒店管理系统</a>
+            </h1>
+            <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#doc-topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+            <div class="am-collapse am-topbar-collapse am-topbar-inverse" id="doc-topbar-collapse">
+              <ul class="am-nav am-nav-pills am-topbar-nav">
+                      <li class="am-active"><a href="index.html">房态图</a></li>
+                      <li><a href="guest.html">客人</a></li>
+                      <li><a href="vip.html">会员</a></li>
+                      <li><a href="company.html">协议单位</a></li>
+                      <li><a href="index.html">财务</a></li>
+                      <li><a href="stock.html">库存</a></li>
+                      <li><a href="options.html">订单</a></li>
+              </ul>
+            </div>
+        </header>
+    <!-- end nav -->
 <!-- .......................................会员录入弹出框开始.................................... -->
        <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-1">
              <div class="am-modal-dialog">
@@ -348,37 +359,7 @@
                                         <td style="width: 8%;"></td>
                                         <td style="width: 12%;"></td>
                                     </tr>
-                                    <tr>
-                                        <td style="width: 8%;"></td>
-                                        <td style="width: 18%;"></td>
-                                        <td style="width: 12%;"></td>
-                                        <td style="width: 10%;"></td>
-                                        <td style="width: 10%;"></td>
-                                        <td style="width: 14%;"></td>
-                                        <td style="width: 8%;"></td>
-                                        <td style="width: 12%;"></td>
-                                    </tr>
-                                    <tr>
-                                        <td style="width: 8%;"></td>
-                                        <td style="width: 18%;"></td>
-                                        <td style="width: 12%;"></td>
-                                        <td style="width: 10%;"></td>
-                                        <td style="width: 10%;"></td>
-                                        <td style="width: 14%;"></td>
-                                        <td style="width: 8%;"></td>
-                                        <td style="width: 12%;"></td>
-                                    </tr>
-                                    <tr>
-                                        <td style="width: 8%;"></td>
-                                        <td style="width: 18%;"></td>
-                                        <td style="width: 12%;"></td>
-                                        <td style="width: 10%;"></td>
-                                        <td style="width: 10%;"></td>
-                                        <td style="width: 14%;"></td>
-                                        <td style="width: 8%;"></td>
-                                        <td style="width: 12%;"></td>
-                                    </tr>
-                        
+                              
                                     <tr>
                                         <td style="width: 8%;"></td>
                                         <td style="width: 18%;"></td>
@@ -506,6 +487,10 @@
             
             <div id="vips_information_pic">
             <h1>会员信息示意图</h1>
+              <div class="vips_imformations_pic_0">
+                 <p>近日会员增减情况示意图</p>
+                 <canvas id="vips_theseday_num" style="border: 1px solid green;display: block; margin:0 auto;margin-top: 0;"></canvas>
+              </div>
               <div class="vips_information_pic_1st">
                   <ul>
                     <li></li>
@@ -538,8 +523,92 @@
 </body>
       <script type="text/javascript" src="js/vip.js"></script>
      <script>
-          //canvas第一副图绘图开始
+
+          //canvas第二副图绘图开始
           window.onload=function(){
+            //第一幅图绘制开始
+            //坐标轴
+            ctt0=document.getElementById("vips_theseday_num");
+            cxt0=ctt0.getContext("2d");
+            ctt0.width=700;
+            ctt0.height=300;
+            cxt0.beginPath();
+            cxt0.moveTo(50,250);
+            cxt0.lineTo(650,250);
+            cxt0.lineTo(640,240);
+            cxt0.moveTo(650,250);
+            cxt0.lineTo(640,260);
+            cxt0.moveTo(50,250);
+            cxt0.lineTo(50,10);
+            cxt0.lineTo(40,20);
+            cxt0.moveTo(50,10);
+            cxt0.lineTo(60,20);
+            cxt0.strokeStyle="green";
+            cxt0.stroke()
+            //折线
+            var vip_num = [70,80,48,310,460,107,478];
+            var pointArr=[];
+            var py;
+            for (var i = 0; i < vip_num.length; i++) {
+              var point={};
+              py=250-parseInt((vip_num[i]/600)*240);
+              point.x=50+i*80;
+              point.y=py;
+              pointArr.push(point);
+            }
+            
+            //获取近七日日期
+            var myDate = new Date(); //获取今天日期
+            myDate.setDate(myDate.getDate() - 7);
+            var dateArray = []; 
+            var dateTemp; 
+            var flag = 1; 
+            for (var i = 0; i < 7; i++) {
+                dateTemp = (myDate.getMonth()+1)+"-"+myDate.getDate();
+                dateArray.push(dateTemp);
+                myDate.setDate(myDate.getDate() + flag);
+            }
+            //画横坐标上面的点和日期
+            for (var i = 0; i < 7; i++) {
+              if (i!=0) {
+                drawSmallLine(cxt0,80*i+50,247,80*i+50,253);
+                
+              }
+                drawDate(cxt0,dateArray[i],80*i+50,265);
+            }
+            //画纵坐标上面的点和树目
+            for (var i = 0; i < 7; i++) {
+              if (i!=0&&i!=6) {
+                drawSmallLine(cxt0,53,40*i+10,47,40*i+10);
+              }
+              drawDate(cxt0,700-(i+1)*100,30,40*i+10);
+            }
+            //绘制折线
+            cxt0.beginPath();
+            cxt0.strokeStyle="red";
+            cxt0.lineWidth=3;
+            cxt0.lineCap="round";
+            for (var i = 0; i < pointArr.length; i++) {
+             cxt0.lineTo(pointArr[i].x,pointArr[i].y);
+            }
+            cxt0.stroke();
+            //获取鼠标在canvas中的位置
+            var body1=document.getElementsByTagName("body");
+            var rightone_t=document.getElementById("rightone").scrollTop;
+            var vips_first_top_t=document.getElementById("vips_first_top").scrollTop;
+            var canvas_l=ctt0.clientLeft;
+            var canvas_h=ctt0.clientTop;
+            ctt0.onclick=getMousePos;
+            function getMousePos(e){
+              var e=e||window.event;
+              console.log(canvas_l);
+              console.log(canvas_h);
+              console.log(vips_first_top_t);
+              alert(e.clientX);
+              alert(e.clientY);
+            }
+
+            //第一幅图绘制结束
             ctt1=document.getElementById("spend_money_pic");
             cxt1=ctt1.getContext("2d");
             const CANVAS_W =440;
@@ -549,6 +618,10 @@
             cxt1.fillStyle="green";
             cxt1.fill();
             drawPic(250,60,70,40,80);
+            window.onresize = function(){
+              cxt1.clearRect(0,0,CANVAS_W,CANVAS_H);
+              drawPic(250,60,70,40,80);
+            };
             //画统计图h表示整个容器的高度h1,h2,h3,h4分别表示条形图的高度
             function drawPic(h,h1,h2,h3,h4){
               var ali=document.getElementById("vips_information_pic").getElementsByTagName('li');
@@ -557,7 +630,7 @@
               if (vips_information_pic_1st_W>CANVAS_W) {
                   vips_information_pic_1st_W_B=(vips_information_pic_1st_W-CANVAS_W)/2;
               }
-              else if(vips_information_pic_1st_W<CANVAS_W){
+              else{
                   vips_information_pic_1st_W_B=0;
               }
               for (var i = 0; i < 4; i++) {
@@ -586,8 +659,8 @@
                 }
               }
             }
-            //canvas绘图第一幅图结束
-            //第二幅性别图绘制
+            //canvas绘图第二幅图结束
+            //第三幅性别图绘制
             var ctt2=document.getElementById("vips_sex_pic");
             var cxt2=ctt2.getContext("2d");
             ctt2.width=CANVAS_W;
@@ -595,58 +668,77 @@
             cxt2.translate(CANVAS_W*0.5,CANVAS_H*0.5);
            // cxt2.rotate(1);
             //绘制扇形图
-            cxt2.fillStyle="pink";
-            cxt2.save();
-            cxt2.fillStyle="blue";
-            cxt2.save();
-            cxt2.fillStyle="red";
-            cxt2.save();
-            drawPic1(80,0,0.7*Math.PI,cxt2);
-            drawPic1(80,0.7*Math.PI,1.5*Math.PI,cxt2);
-            drawPic1(80,1.5*Math.PI,2*Math.PI,cxt2);
+            drawPic1(80,0,0.7*Math.PI,cxt2,"purple");
+            drawPic1(80,0.7*Math.PI,1.5*Math.PI,cxt2,"blue");
+            drawPic1(80,1.5*Math.PI,2*Math.PI,cxt2,"pink");
             //绘制图例
+            drawPicExample(cxt2,-200,30,20,20,"男",-160,"blue");
+            drawPicExample(cxt2,-200,60,20,20,"女",-160,"pink");
+            drawPicExample(cxt2,-200,90,20,20,"其他",-160,"purple");
+            
             cxt2.beginPath();
-            cxt2.moveTo(0,0);
-            cxt2.fillStyle="pink";
-            cxt2.fillRect(-200,60,20,20);
-            cxt2.font="bold 14px Arial";
-            cxt2.textAlign="center";
-            cxt2.textBaseline="middle";
-            cxt2.fillText("女",-160,70);
-            cxt2.closePath();
-            //
-            cxt2.beginPath();
-            cxt2.moveTo(0,0);
-            cxt2.fillStyle="red";
-            cxt2.fillRect(-200,90,20,20);
-            cxt2.font="bold 14px Arial";
-            cxt2.textAlign="center";
-            cxt2.textBaseline="middle";
-            cxt2.fillText("其他",-160,100);
-            cxt2.closePath();
-            //
-            cxt2.beginPath();
-            cxt2.moveTo(0,0);
+            cxt2.translate(-190,50);
+            drawPartCircle(cxt2,10,20);
             cxt2.fillStyle="blue";
-            cxt2.fillRect(-200,30,20,20);
-            cxt2.font="bold 14px Arial";
-            cxt2.textAlign="center";
-            cxt2.textBaseline="middle";
-            cxt2.fillText("男",-160,40);
-            cxt2.closePath();
+            cxt2.fill();
 
+            cxt2.beginPath();
+            cxt2.translate(0,33);
+            drawPartCircle(cxt2,10,20);
+            cxt2.fillStyle="pink";
+            cxt2.fill();
+
+            cxt2.beginPath();
+            cxt2.translate(0,30);
+            drawPartCircle(cxt2,10,20);
+            cxt2.fillStyle="purple";
+            cxt2.fill();
+          }
+          //绘制点
+          function drawSmallLine(cxt,x,y,x1,y1){
+            cxt.beginPath();
+            cxt.moveTo(x,y);
+            cxt.lineTo(x1,y1);
+            cxt.stroke();
+          }
+          //绘制日期文本
+          function drawDate(cxt,obj,x,y){
+            cxt.font="微软雅黑";
+            cxt.textAlign="center";
+            cxt.textBaseline="middle";
+            cxt.fillText(obj,x,y);
+          }
+          //绘制图例函数
+          function drawPicExample(cxt,x,y,w,h,content,cx,fillColor){
+            cxt.beginPath();
+            cxt.fillStyle=fillColor;
+            cxt.font="bold 14px Arial";
+            cxt.textAlign="center";
+            cxt.textBaseline="middle";
+            cxt.moveTo(0,0);
+            //cxt.fillRect(x,y,w,h);
+            cxt.fillText(content,cx,y+w*0.5);
           }
           //绘制扇形的方法参数为半径，起始弧度，结束弧度，上下文环境
-          function drawPic1(radius,startAngle,endAngle,cxt){
+          function drawPic1(radius,startAngle,endAngle,cxt,color){
                 cxt.beginPath();
+                cxt.fillStyle=color;
                 cxt.moveTo(0,0);
                 cxt.arc(0,0,radius,startAngle,endAngle,false);
                 cxt.lineTo(0,0);
                 cxt.lineTo(80,0);
-                cxt.closePath();
                 cxt.restore();
                 cxt.fill();
             }
+          //绘制部分环形
+          function drawPartCircle(cxt0,r,R){
+            cxt0.beginPath();
+            cxt0.moveTo(-Math.sqrt(2)*0.5*r,-Math.sqrt(2)*0.5*r);
+            cxt0.lineTo(-Math.sqrt(2)*0.5*R,-Math.sqrt(2)*0.5*R);
+            cxt0.arc(0,0,R,1.25*Math.PI,1.75*Math.PI);
+            cxt0.lineTo(Math.sqrt(2)*0.5*r,-Math.sqrt(2)*0.5*r);
+            cxt0.quadraticCurveTo(0,-r,-Math.sqrt(2)*0.5*r,-Math.sqrt(2)*0.5*r)
+          }
           //加载vip各个页面
          $(document).ready(function() {
              $('#column-two').click(function() {
@@ -666,26 +758,6 @@
              });
              
 /*..............................会员充值数据接受ajax及页面效果代码开始....................*/
-       /*$.ajax({
-         type: "GET",
-         url: "/vips_imformations.json",
-         //dataType:"json",
-         success: function (data) {
-           var vips_personal=[];
-           for (var j = 0; j < data.vip.length; j++) {
-             vips_personal[j]=data.vip[j];
-           }
-           //tbody下添加tr
-           var tr_num=data.vip.length;
-           for (var i = 0; i < tr_num; i++) {
-              $("#rightone table tbody").append("<tr><td>"+ vips_personal[i].card+"</td><td>"+vips_personal[i].card_type+"</td><td>"+vips_personal[i].name+"</td><td>"+vips_personal[i].tel+"</td><td>"+vips_personal[i].free_num+"</td><td>"+vips_personal[i].card_money+"</td><td>"+vips_personal[i].sex+"</td><td>"+vips_personal[i].bir+"</td><td>"+vips_personal[i].id_name+"</td><td>"+vips_personal[i].id+"</td><td>"+vips_personal[i].give_card_time+"</td><td>"+vips_personal[i].player+"</td><td></td></tr>")
-           }
-          
-         }, 
-         error: function (jqXHR) {
-             console.dir(jqXHR.status);
-         }
-     })*/
     //点击会员充值页面查询
     var select_input=$("#vips_in_moneys_select_input");
     var vips_imformations_input=$(".vips_imformations").eq(1).find("ul li input");
@@ -696,7 +768,7 @@
      })
     $("#vips_in_moneys_select").click(function(){
         var logn=1;
-         var num=0;
+        var num=0;
         if (select_input=="") {
           alert("会员卡号不能为空！！！");
           logn=0;
