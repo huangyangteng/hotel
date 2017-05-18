@@ -1,83 +1,91 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>预订</title>
+    <title>已预订</title>
     <style type="text/css">
-        #checkin{
+        #booked{
             margin-top: 25px;
             border: 2px solid #EAE8E8;
             background: #fff;
         }
-        #checkin td{
+        #booked td{
             border: 0px;
             padding-left: 0px;
         }
-        #checkin td[colspan="4"]{
+        #booked td[colspan="4"]{
             font-size: 20px;
             letter-spacing: 15px;
             margin: 0px;
         }
-        #checkin td[colspan="3"] input{
+        #booked td[colspan="3"] input{
             width: 85%;
         }
-        #checkin td textarea{
+        #booked td textarea{
             width: 65%;
             height: 80px
         }
-        #checkin .c_hr hr{
+        #booked .c_hr hr{
             margin: 0px;
             margin-top: 10px;
         }
-        #checkin td[colspan="3"] button{
+        #booked td[colspan="3"] button{
             float: right;
             margin-right: 6%;
         }
-        #checkin .c_bottom p{
+        #booked .c_bottom p{
             display: inline-block;
             margin: 0px 0px 0px 20px;
         }
-        #checkin hr{
+        #booked td.charge{
+            float: right;
+            margin-right: -47%;
+            width: 120%;
+        }
+        #booked div.am-form-group{
+            margin-top: -15px;
+        }
+        #booked hr{
             border-color: #C6C6C6;
             box-shadow: 0px 0px 1px #C6C6C6;
         }
-        #daccount{
+        #daccount2{
             border: 1px solid #C6C6C6;
             background: #fff;
             box-shadow: 1px 1px 10px #C6C6C6;
             padding: 10px;
             padding-top: 0px;
         }
-        #daccount td{
+        #daccount2 td{
             border-left: 1px solid #ddd;
             border-bottom: 1px solid #ddd;
         }
-        #daccount div.da_body{
+        #daccount2 div.da_body{
             max-height:400px;
             width:100%;
             overflow-y: auto;
             border-bottom: 1px solid #ddd;
             margin-bottom: 20px;
         }
-        #daccount table{
+        #daccount2 table{
             margin-bottom: 0px;
         }
-        #daccount .t1{
+        #daccount2 .t1{
             width: 100px;
         }
-        #daccount .t2{
+        #daccount2 .t2{
             width: 200px;
         }
-        #daccount .t3{
+        #daccount2 .t3{
             width: 150px;
         }
     </style>
 </head>
-<body>
-    <table class="am-table am-table-bordered" id="checkin" >
+<body> -->
+    <table class="am-table am-table-bordered" id="booked" >
         <tr><td colspan="4">预订单</td></tr>
         <tr>
             <td colspan="3"><hr></td>
@@ -107,11 +115,11 @@
             <td>
                 <label>客源帐号：</label>
                 <input type="text" name="text">
-                <button data-am-modal="{target: '#dialogboxaccount',    closeViaDimmer: 0, width:900, height:600}">...</button>
-                <div class="am-modal am-modal-prompt" tabindex="-1" id="dialogboxaccount" >
-                  <div class="am-modal-dialog" id="daccount">
+                <button data-am-modal="{target: '#dialogboxaccount2',    closeViaDimmer: 0, width:900, height:600}">...</button>
+                <div class="am-modal am-modal-prompt" tabindex="-1" id="dialogboxaccount2" >
+                  <div class="am-modal-dialog" id="daccount2">
                     <div class="am-modal-hd">客源账号
-                        <a href="javascript: void(0)" class="am-close accountclose">&times;</a>
+                        <a href="javascript: void(0)" class="am-close accountclose2">&times;</a>
                     </div>
                     <div  class="am-modal-hd">
                         <input type="" name="" placeholder="请输入查询信息">
@@ -145,14 +153,10 @@
         </tr>
         <tr>
             <td><label >到店日期：</label>
-                <input class="datepicker1" type="text">
+                <input class="datepicker1" type="text" readonly required>
             </td>
             <td><label >离店日期：</label>
-                <input class="datepicker2" type="text">
-            </td>
-            <td>
-                <label>订金：</label>
-                <input type="text" name="text">元
+                <input class="datepicker2" type="text" readonly required>
             </td>
         </tr>
         <tr>
@@ -182,9 +186,16 @@
                 <p>工号：<span>003</span></p>
                 <p>营销员：<span>小张</span></p>
             </td>
+            <td class="charge">
+                订金：
+                <input type="text" name="text">元
+            </td>
+        </tr>
+        <tr>
+            <td></td>
             <td colspan="2">
                 <div class="am-form-group">
-                    <span><b>支付方式：</b></span>
+                    <span>支付方式：</span>
                     <label class="am-radio-inline">
                         <input type="radio"  value="" name="docInlineRadio" checked> 现金
                     </label>
@@ -205,34 +216,35 @@
         </tr>
         <tr>
             <td colspan="3">
-                <button class="am-btn am-btn-secondary checkin">修改</button>
+                <button class="am-btn am-btn-secondary booked">修改</button>
             </td>
         </tr>
     </table>
-<script>
-    // jquery ui 的日历插件 start
-        $('.datepicker1').datepicker({
-            minDate: 0,
-            onClose: function( selectedDate ) {
-               $('.datepicker2').datepicker( "option", "minDate", selectedDate );
-            }
+    <script>
+        // jquery ui 的日历插件 start
+            $('.datepicker1').datepicker({
+                minDate: 0,
+                onClose: function( selectedDate ) {
+                   $('.datepicker2').datepicker( "option", "minDate", selectedDate );
+                }
+            });
+            $('.datepicker2').datepicker({
+                minDate: 0,
+                onClose: function( selectedDate ) {
+                   $('.datepicker1').datepicker( "option", "maxDate", selectedDate );
+                }
+            });
+        // end   jquery ui 的日历插件
+        $("button.booked").click(function(){
+            $("#doc-modal-empty").modal('close');
         });
-        $('.datepicker2').datepicker({
-            minDate: 0,
-            onClose: function( selectedDate ) {
-               $('.datepicker1').datepicker( "option", "maxDate", selectedDate );
-            }
+        $("a.accountclose2").click(function(){
+            $("#dialogboxaccount2").modal('close');
         });
-    // end   jquery ui 的日历插件
-    $("button.checkin").click(function(){
-        $("#doc-modal-empty").modal('close');
-    });
-    $("a.accountclose").click(function(){
-        $("#dialogboxaccount").modal('close');
-    });
-    $("#daccount button").click(function(){
-        $("#dialogboxaccount").modal('close');
-    });
-</script>
-</body>
-</html>
+        $("#daccount2 button").click(function(){
+            $("#dialogboxaccount2").modal('close');
+        });
+    </script>
+<!-- </body>
+</html> -->
+

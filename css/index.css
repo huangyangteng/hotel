@@ -1,7 +1,5 @@
 html,body{
     height: 100%;
-    user-select:none;
-
 }
 li{list-style: none;}
 /*
@@ -19,7 +17,6 @@ section#three································不
     }
 #two{
     width: 100%;
-    height: 700px;
     margin: 10px;
     position: relative;
 }
@@ -106,7 +103,6 @@ section#three································不
         text-align: justify;
     }
     .one_content:after {width: 100%;height: 0;margin: 0;display: inline-block;overflow: hidden;content: '';}
-
     #oc_thead th{
         text-align: center;
     }
@@ -131,13 +127,9 @@ section#three································不
     #oc_tbody select option{
         text-align: center;
     }
-     #oc_tbody .oct_tr td{
-        padding: 10px;
-     }
     .oct_last{
         background: #F0EFEF;
     }
-
     .oc_time{
         width:20%;
     }
@@ -223,6 +215,7 @@ section#three································不
     }
     #bookgroup table p.am-form-group{
         float: right;
+        margin-top: -30px
     }
     #bookgroup a.am-btn-primary {
         float: right;
@@ -313,6 +306,295 @@ section#three································不
         letter-spacing: 1px;
         overflow:hidden;
     }
+    #main .tm_left{
+        width: 8%;
+        float: left;
+        margin-top: 85px;
+    }
+    #main .tm_right{
+        width: 90%;
+        float: right;
+    }
+/* 空房的模态框  start*/
+    #checkin{
+        margin-top: 25px;
+        border: 2px solid #EAE8E8;
+        background: #fff;
+    }
+    #checkin td{
+        border: 0px;
+        padding-left: 0px;
+    }
+    #checkin td[colspan="4"]{
+        font-size: 20px;
+        letter-spacing: 15px;
+        margin: 0px;
+    }
+    #checkin td[colspan="3"] input{
+        width: 85%;
+    }
+    #checkin td textarea{
+        width: 65%;
+        height: 80px
+    }
+    #checkin .c_hr hr{
+        margin: 0px;
+        margin-top: 10px;
+    }
+    #checkin td[colspan="3"] button{
+        float: right;
+        margin-right: 6%;
+    }
+    #checkin .c_bottom p{
+        display: inline-block;
+        margin: 0px 0px 0px 20px;
+    }
+    #checkin td.charge{
+        float: right;
+        margin-right: -47%;
+        width: 120%;
+    }
+    #checkin div.am-form-group{
+        margin-top: -15px;
+    }
+    #checkin hr{
+        border-color: #C6C6C6;
+        box-shadow: 0px 0px 1px #C6C6C6;
+    }
+    #daccount{
+        border: 1px solid #C6C6C6;
+        background: #fff;
+        box-shadow: 1px 1px 10px #C6C6C6;
+        padding: 10px;
+        padding-top: 0px;
+    }
+    #daccount td{
+        border-left: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+    }
+    #daccount div.da_body{
+        max-height:400px;
+        width:100%;
+        overflow-y: auto;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 20px;
+    }
+    #daccount table{
+        margin-bottom: 0px;
+    }
+    #daccount .t1{
+        width: 100px;
+    }
+    #daccount .t2{
+        width: 200px;
+    }
+    #daccount .t3{
+        width: 150px;
+    }
+    .book-right{
+        display: none;
+    }
+/*end 空房的模态框  */
+/*已入住的模态框   start*/
+    #check-out{
+        border: 2px solid #E8E8E8;
+        background: #fff;
+        margin-top: 25px;
+    }
+    #check-out table{
+        margin-bottom: 0em
+    }
+    #check-out hr{
+        margin-bottom: 0.6em;
+    }
+    #check-out #co_head table,#check-out #co_bottom table{
+        border: 0px;
+    }
+    #check-out #co_head td,#check-out #co_bottom td{
+        border: 0px;
+    }
+    #check-out #co_head td[colspan="4"]{
+        font-size: 20px;
+        letter-spacing: 15px;
+        margin: 0px;
+    }
+    #check-out #co_infor,#check-out #co_detail{
+        padding: 0px 30px;
+    }
+    #check-out #co_infor p,#check-out #co_detail p{
+        margin-top: 0px;
+        height: 10px;
+    }
+    #check-out #co_infor p span,#check-out #co_detail p span{
+        float: left;
+    }
+    #check-out p button{
+        float: right;
+    }
+    #check-out #co_infor div{
+        max-height: 100px;
+        overflow-y: auto;
+        font-size: 14px;
+    }
+    #check-out #co_infor td:nth-child(1),#check-out #co_infor td:nth-child(2),#check-out #co_infor td:nth-child(3),#check-out #co_infor td:nth-child(4),#check-out #co_infor td:nth-child(5),#check-out #co_infor td:nth-child(6),#check-out #co_infor td:nth-child(7){
+        width: 100px;
+    }
+    #check-out #co_detail div{
+        font-size: 14px;
+        max-height: 150px;
+        overflow-y: auto;
+        border-bottom: 2px solid #EBEBEB;
+    }
+    #check-out #co_detail tr td:first-child{
+        width: 100px;
+    }
+    #check-out #co_detail tr td:nth-child(2){
+        width: 100px;
+    }
+    #check-out #co_detail tr td:nth-child(3){
+        width: 50px;
+    }
+    #check-out #co_detail tr td:nth-child(4){
+        width: 60px;
+    }
+    #check-out #co_detail tr td:nth-child(5){
+        width: 100px;
+    }
+    #check-out #co_detail tr td:nth-child(6){
+        width: 80px;
+    }
+    #check-out #co_detail tr td:nth-child(7){
+        width: 100px;
+    }
+    #check-out #co_detail tr td:nth-child(8){
+        width: 80px;
+    }
+    #check-out #co_detail tr td:nth-child(9){
+        width: 80px;
+    }
+    #check-out #co_detail tr td:nth-child(10){
+        width: 60px;
+    }
+    #check-out #co_bottom td{
+        padding: 0.1rem;
+    }
+    #check-out #co_bottom{
+        padding: 1px;
+    }
+    #check-out .cob_bottom p{
+        display: inline-block;
+        margin: 0px 0px 0px 20px;
+    }
+    #check-out #co_bottom td[colspan="3"] button{
+         float: right;
+         margin-right: 6%;
+         margin-bottom: 10px;
+    }
+    #dacheckout{
+        border: 1px solid #C6C6C6;
+        background: #fff;
+        box-shadow: 1px 1px 10px #C6C6C6;
+        padding: 10px;
+        padding-top: 0px;
+    }
+    #dacheckout tr:first-child td{
+        text-align: right;
+    }
+    #dacheckout p{
+        display: inline-block;
+        margin: 0px 0px 0px 10px;
+    }
+    #dacheckout td {
+        padding: 1.6rem
+    }
+    #dacheckout textarea{
+        width: 75%;
+    }
+    .checked-right{
+        display: none;
+    }
+/*end 已入住的模态框  */
+/*已预订的模态框  start*/
+/*已预订的模态框  start*/
+    #booked{
+        margin-top: 25px;
+        border: 2px solid #EAE8E8;
+        background: #fff;
+    }
+    #booked td{
+        border: 0px;
+        padding-left: 0px;
+    }
+    #booked td[colspan="4"]{
+        font-size: 20px;
+        letter-spacing: 15px;
+        margin: 0px;
+    }
+    #booked td[colspan="3"] input{
+        width: 85%;
+    }
+    #booked td textarea{
+        width: 65%;
+        height: 80px
+    }
+    #booked .c_hr hr{
+        margin: 0px;
+        margin-top: 10px;
+    }
+    #booked td[colspan="3"] button{
+        float: right;
+        margin-right: 6%;
+    }
+    #booked .c_bottom p{
+        display: inline-block;
+        margin: 0px 0px 0px 20px;
+    }
+    #booked td.charge{
+        float: right;
+        margin-right: -47%;
+        width: 120%;
+    }
+    #booked div.am-form-group{
+        margin-top: -15px;
+    }
+    #booked hr{
+        border-color: #C6C6C6;
+        box-shadow: 0px 0px 1px #C6C6C6;
+    }
+    #daccount2{
+        border: 1px solid #C6C6C6;
+        background: #fff;
+        box-shadow: 1px 1px 10px #C6C6C6;
+        padding: 10px;
+        padding-top: 0px;
+    }
+    #daccount2 td{
+        border-left: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+    }
+    #daccount2 div.da_body{
+        max-height:400px;
+        width:100%;
+        overflow-y: auto;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 20px;
+    }
+    #daccount2 table{
+        margin-bottom: 0px;
+    }
+    #daccount2 .t1{
+        width: 100px;
+    }
+    #daccount2 .t2{
+        width: 200px;
+    }
+    #daccount2 .t3{
+        width: 150px;
+    }
+    .booked-right{
+        display: none;
+    }
+/*end  已预订的模态框*/
 /*end 房态显示*/
 /*房态的右边栏    start */
     #bar select option{
@@ -486,6 +768,12 @@ section#three································不
         margin: 0px;
         margin-left: 10px;
         margin-right: 10px;
+    }
+    .shiftexchange span.left{
+        float: left;
+    }
+    .shiftexchange p.zm{
+        width: 100%;
     }
     #left{
         color:#F0EEEE;

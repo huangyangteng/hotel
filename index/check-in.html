@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -40,6 +40,14 @@
             display: inline-block;
             margin: 0px 0px 0px 20px;
         }
+        #checkin td.charge{
+            float: right;
+            margin-right: -47%;
+            width: 120%;
+        }
+        #checkin div.am-form-group{
+            margin-top: -15px;
+        }
         #checkin hr{
             border-color: #C6C6C6;
             box-shadow: 0px 0px 1px #C6C6C6;
@@ -76,7 +84,7 @@
         }
     </style>
 </head>
-<body>
+<body> -->
     <table class="am-table am-table-bordered" id="checkin" >
         <tr><td colspan="4">预订单</td></tr>
         <tr>
@@ -145,14 +153,10 @@
         </tr>
         <tr>
             <td><label >到店日期：</label>
-                <input class="datepicker1" type="text">
+                <input class="datepicker1" type="text" readonly required>
             </td>
             <td><label >离店日期：</label>
-                <input class="datepicker2" type="text">
-            </td>
-            <td>
-                <label>订金：</label>
-                <input type="text" name="text">元
+                <input class="datepicker2" type="text" readonly required>
             </td>
         </tr>
         <tr>
@@ -182,9 +186,15 @@
                 <p>工号：<span>003</span></p>
                 <p>营销员：<span>小张</span></p>
             </td>
+            <td class="charge">
+                订金：
+                <input type="text" name="text">元
+            </td>
+        </tr>
+            <td></td>
             <td colspan="2">
                 <div class="am-form-group">
-                    <span><b>支付方式：</b></span>
+                    <span>支付方式：</span>
                     <label class="am-radio-inline">
                         <input type="radio"  value="" name="docInlineRadio" checked> 现金
                     </label>
@@ -202,7 +212,6 @@
                     </label>
                 </div>
             </td>
-        </tr>
         <tr>
             <td colspan="3">
                 <button class="am-btn am-btn-secondary checkin">预定</button>
@@ -234,5 +243,5 @@
         $("#dialogboxaccount").modal('close');
     });
 </script>
-</body>
-</html>
+<!-- </body>
+</html> -->

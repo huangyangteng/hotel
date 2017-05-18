@@ -1,12 +1,12 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>结账</title>
-    <style type="text/css">
+    <title>结账</title> -->
+  <!--   <style type="text/css">
         #check-out{
             border: 2px solid #E8E8E8;
             background: #fff;
@@ -49,7 +49,6 @@
         }
         #check-out #co_infor td:nth-child(1),#check-out #co_infor td:nth-child(2),#check-out #co_infor td:nth-child(3),#check-out #co_infor td:nth-child(4),#check-out #co_infor td:nth-child(5),#check-out #co_infor td:nth-child(6),#check-out #co_infor td:nth-child(7){
             width: 100px;
-
         }
         #check-out #co_detail div{
             font-size: 14px;
@@ -122,10 +121,10 @@
         #dacheckout textarea{
             width: 75%;
         }
-    </style>
-</head>
-<body>
-    <div id="check-out">
+    </style> -->
+<!-- </head> -->
+<!-- <body> -->
+    <div id="check-out" >
         <div id="co_head">
             <table class="am-table am-table-bordered ">
                 <tr>
@@ -160,11 +159,14 @@
         </div>
         <div id="co_infor">
             <hr>
-            <p><span>宾客帐号</span><button>退房</button></p>
+            <p><span>宾客帐号</span><button ng-click="checkOut()"> 退房</button></p>
             <table class="am-table am-table-bordered">
                 <thead>
                         <tr class="am-primary" >
-                            <td><input type="checkbox" name=""></td>
+                            <td>
+                                <input type="checkbox" ng-model="all" ng-disabled="mySwitch">
+                                <span ng-bind="all?'取消':'全选'"></span>
+                            </td>
                             <td>帐号</td>
                             <td>房号</td>
                             <td>房型</td>
@@ -178,55 +180,15 @@
             <div>
                 <table class="am-table am-table-bordered am-table-hover">
                     <tbody>
-                        <tr>
-                            <td><input type="checkbox" name="">在店</td>
-                            <td>00032</td>
-                            <td>102</td>
-                            <td>普通</td>
-                            <td>小王</td>
-                            <td>168</td>
-                            <td>3</td>
-                            <td>04/16 17:00</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="">在店</td>
-                            <td>00032</td>
-                            <td>102</td>
-                            <td>普通</td>
-                            <td>小王</td>
-                            <td>168</td>
-                            <td>3</td>
-                            <td>04/16 17:00</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="">在店</td>
-                            <td>00032</td>
-                            <td>102</td>
-                            <td>普通</td>
-                            <td>小王</td>
-                            <td>168</td>
-                            <td>3</td>
-                            <td>04/16 17:00</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="">在店</td>
-                            <td>00032</td>
-                            <td>102</td>
-                            <td>普通</td>
-                            <td>小王</td>
-                            <td>168</td>
-                            <td>3</td>
-                            <td>04/16 17:00</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="">在店</td>
-                            <td>00032</td>
-                            <td>102</td>
-                            <td>普通</td>
-                            <td>小王</td>
-                            <td>168</td>
-                            <td>3</td>
-                            <td>04/16 17:00</td>
+                        <tr ng-repeat="v in data">
+                            <td><input type="checkbox" name="" ng-checked="all">{{v.state}}</td>
+                            <td>{{v.number}}</td>
+                            <td>{{v.price}}</td>
+                            <td>{{v.person}}</td>
+                            <td>{{v.name}}</td>
+                            <td>{{v.price}}</td>
+                            <td>{{v.color}}</td>
+                            <td>{{v.id}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -255,17 +217,17 @@
             <div>
                 <table class="am-table am-table-bordered am-table-hover">
                     <tbody>
-                        <tr>
-                            <td>0032</td>
-                            <td>小王</td>
-                            <td>在店</td>
-                            <td>102</td>
-                            <td>2017.4.16</td>
-                            <td>预付</td>
-                            <td>现金</td>
-                            <td>房费</td>
-                            <td>168</td>
-                            <td>002</td>
+                        <tr ng-repeat="v in data">
+                            <td>{{v.number}}</td>
+                            <td>{{v.price}}</td>
+                            <td>{{v.state}}</td>
+                            <td>{{v.person}}</td>
+                            <td>{{v.price}}</td>
+                            <td>{{v.color}}</td>
+                            <td>{{v.id}}</td>
+                            <td>{{v.person}}</td>
+                            <td>{{v.name}}</td>
+                            <td>{{v.price}}</td>
                             <td></td>
                         </tr>
                         <tr>
@@ -361,15 +323,15 @@
                     </td>
                     <td colspan="2">
                         <div class="am-form-group">
-                            <span><b>支付方式：</b></span>
+                            <span>支付方式：</span>
                             <label class="am-radio-inline">
-                                <input type="radio" name="docInlineRadio"  checked>储值
+                                <input type="radio"  value="" name="docInlineRadio"  checked>储值
                             </label>
                             <label class="am-radio-inline">
                                 <input type="radio" name="docInlineRadio">挂账
                             </label>
                             <label class="am-radio-inline">
-                                <input type="radio"  value="" name="docInlineRadio" checked> 现金
+                                <input type="radio"  name="docInlineRadio"> 现金
                             </label>
                             <label class="am-radio-inline">
                                 <input type="radio" name="docInlineRadio"> 刷卡
@@ -467,7 +429,12 @@
         $("#dacheckout button").click(function(){
             $("#dialogboxcheck-out").modal('close')
         });
+        app.controller('Ctrl', ["$scope","$http",function($scope,$http) {
+            $scope.checkOut=function(){
+                console.log(1)
+            };
+        }])
 
     </script>
-</body>
-</html>
+<!-- </body>
+</html> -->

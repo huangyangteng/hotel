@@ -28,6 +28,60 @@ footer{
 }
 a{
     text-decoration: none;
-
 }
 a:visited{color:white;}
+/*导航更改*/
+    nav{
+        color: #EAE9E9;
+        background: #000;
+    }
+    nav ul{
+        padding: 0px;
+        margin: 0px;
+        width: 80%;
+        margin-left: 10%;
+        position: relative;
+    }
+    nav ul li{
+        display: inline-block;
+        list-style: none;
+        padding: 5px;
+        line-height: 30px;
+    }
+    nav ul li:first-child{
+        font-size: 1.2em;
+        letter-spacing: 2px;
+        font-weight: bold;
+    }
+    nav ul li:nth-child(2){
+        width: 30%;
+        font-size: 1.3em;
+        /*letter-spacing: 2px;*/
+        position: absolute;
+        left: 35%;
+    }
+    nav ul li:nth-child(3){
+        float: right;
+    }
+    nav ul li:nth-child(4){
+        float: right;
+    }
+    nav ul li:nth-child(3) a{
+        font-size: 14px;
+    }
+    header ul{
+        width: 40%;
+        margin: 0px;
+        padding: 0px;
+        height: 50px;
+        text-align: justify;
+    }
+    header ul:after {width: 100%;height: 0;margin: 0;display: inline-block;overflow: hidden;content: '';}
+    header ul li{
+        display: inline-block;
+    }
+     header ul li a{
+        height: 100%;
+        display: inline-block;
+    }
+/*导航更改*/

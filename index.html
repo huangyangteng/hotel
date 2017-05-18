@@ -9,7 +9,8 @@
     <link rel="stylesheet" type="text/css" href="http://apps.bdimg.com/libs/jqueryui/1.9.2/themes/base/jquery-ui.css">
     <script src="assets/js/jquery.min.js"></script>
     <script  src="assets/js/amazeui.min.js"></script>
-    <script src="assets/js/angular.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
     <script src="http://apps.bdimg.com/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
 </head>
 <!--
@@ -38,7 +39,7 @@
             <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#doc-topbar-collapse'}"></button>
             <div class=" am-topbar-collapse am-topbar-inverse" id="doc-topbar-collapse">
               <ul class="am-topbar-nav">
-                      <li class="am-active"><a href="index.html">房态图</a></li>
+                      <li class="am-active"><a class="refresh">房态图</a></li>
                       <li><a href="guest.html">客人</a></li>
                       <li><a href="vip.html">会员</a></li>
                       <li><a href="company.html">协议单位</a></li>
@@ -55,7 +56,7 @@
           <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-3">
               <div class="am-modal-dialog  modal_location">
                   <div class="am-modal-hd">外客购买
-                      <a href="javascript: void(0)" class="am-close am-close-spin refresh">&times;</a>
+                      <a href="javascript: void(0)" class="am-close inits" data-am-modal-close>&times;</a>
                   </div>
                   <div class="am-modal-bd" class="oc-shop">
                       <table class="am-table am-table-bordered am-table-hover">
@@ -74,11 +75,11 @@
                               <td><select ng-init="Shop=shop[0]" ng-model="Shop" ng-options="x as x.name for x in shop"></select></td>
                               <td><input type="" name=""  disabled ng-model='shopNumbers'></td>
                               <td><input class="oct_price" type="" name=""  disabled ng-model='shopPrice'></td>
-                              <td><input class="oct_number" type="number" name="" ng-model='octNumber' ng-change='change()'></td>
+                              <td><input class="oct_number initial" type="number" name="" ng-model='octNumber' ng-change='change()'></td>
                               <td>
                                 <select ng-init="selectedName=paymethods[0]" ng-model="selectedName" ng-options="x for x in paymethods"></select>
                               </td>
-                              <td><input class="oct_totalPrice" type="" name="" disabled ng-value='totalPrice'></td>
+                              <td><input class="oct_totalPrice initial" type="" name="" disabled ng-value='totalPrice'></td>
                           </tr>
                           <tr class="oct_last">
                               <td><input type="" name="" disabled></td>
@@ -87,10 +88,6 @@
                               <td><input type="" name="" disabled></td>
                               <td><input type="" name="" disabled></td>
                               <td><input type="" name="" disabled></td>
-                          </tr>
-                          <tr class="oct_tr">
-                              <td colspan="5">总计：</td>
-                              <td></td>
                           </tr>
                           </tbody>
                       </table>
@@ -107,23 +104,22 @@
           <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-bookgroup">
               <div class="am-modal-dialog modal_location" id="bookgroup">
                   <div class="am-modal-hd">团队预订
-                      <a href="javascript: void(0)" class="am-close am-close-spin refresh">&times;</a>
+                      <a href="javascript: void(0)" class="am-close inits" data-am-modal-close ng-click="inits()">&times;</a>
                   </div>
                   <div class="am-modal-bd">
                       <table class="am-table am-table-bordered">
                           <tr>
-                            <td>到店日期：<input type="" name="" class="datepicker3"></td>
-                            <td>离店日期：<input type="" name="" class="datepicker4"></td>
-                            <td>姓名：<input type="" name=""></td>
+                            <td>到店日期：<input type="" name="" class="datepicker3 initial" readonly required></td>
+                            <td>离店日期：<input type="" name="" class="datepicker4 initial" readonly required></td>
+                            <td>姓名：<input type="" name="" class="initial"></td>
                           </tr>
                           <tr>
-                            <td>联系方式：<input type="" name=""></td>
-                            <td>宾客数：<input type="" name=""></td>
+                            <td>联系方式：<input type="" name="" class="initial"></td>
+                            <td>宾客数：<input type="" name="" class="initial"></td>
                             <td>房间数：<input type="text" name="" ng-model="bookgrouproom" disabled></td>
                           </tr>
                           <tr>
-                            <td>定金：<input type="" name="">元</td>
-                            <td>备注：<textarea></textarea>
+                            <td>备注：<textarea class="initial"></textarea>
                           </tr>
                       </table>
                       <div id="empty_states">
@@ -137,8 +133,7 @@
                               <dd class="main_two"><span>{{v.person}}</span><p>{{v.price}}元</p></dd>
                             </dl>
                             <div class="nohide" ng-click="click_bookgroup1($event)"></div>
-
-                            <div ng-click="click_bookgroup2($event)" class="hide">
+                            <div ng-click="click_bookgroup2($event)" class="hide initial2">
                               <span></span>
                               <span></span>
                             </div>
@@ -154,8 +149,13 @@
                                 <p>营销员：<span>小张</span></p>
                             </td>
                             <td>
+                              <p>定金：<input type="" name="" class="initial">元</p>
+                            </td>
+                          </tr>
+                          <tr >
+                            <td colspan="3">
                                 <p class="am-form-group">
-                                    <span><b>支付方式：</b></span>
+                                    <span>支付方式：</span>
                                     <label class="am-radio-inline">
                                         <input type="radio" name="docInlineRadio"  checked>储值
                                     </label>
@@ -187,7 +187,6 @@
               </div>
           </div>
     <!-- ·································end 团队预订························· -->
-
     <!-- ·························时间输入框······················· -->
           <input class="oc_time datepicker" type="text">
     <!-- ·························反结账 start······························ -->
@@ -200,14 +199,14 @@
           <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-checkout">
               <div class="am-modal-dialog modal_location">
                   <div class="am-modal-hd ">
-                      <a href="javascript: void(0)" class="am-close am-close-spin refresh" >&times;</a>
+                      <a href="javascript: void(0)" class="am-close inits" data-am-modal-close>&times;</a>
                   </div>
                   <div class="am-modal-bd" id="recheckout">
                       <div class="first_child">
                           <h5>反结账</h5>
-                          <span>离店日期：</span><input type="" name="" class="datepicker2">
-                          <span>付款金额：</span><input type="" name="">元
-                          <span>单号：</span><input type="" name="">
+                          <span>结账日期：</span><input type="" name="" class="datepicker2 initial">
+                          <span>付款金额：</span><input type="" name="" class="initial">元
+                          <span>单号：</span><input type="" name="" class="initial">
                           <button>搜索</button>
                       </div>
                       <table class="am-table am-table-bordered am-table-hover">
@@ -299,93 +298,689 @@
               <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-book">
                   <div class="am-modal-dialog  modal_location" >
                       <div class="am-modal-hd">
-                          <a href="javascript: void(0)" class="am-close am-close-spin refresh">&times;</a>
+                          <a href="javascript: void(0)" class="am-close refresh" href="index.html">&times;</a>
                       </div>
                       <div class="am-modal-bd">
-                          <section id="checked-left" style="width: 8%; float: left;margin-top: 85px;">
-                              <button id="booked-btn-one"  class="am-btn am-btn-secondary">预订信息</button>
-                              <button id="booked-btn-two" class="am-btn am-btn-secondary">点击入住</button>
-                              <button id="booked-btn-three" class="am-btn am-btn-secondary">取消预订</button>
-                              <a class="am-btn am-btn-secondary refresh">返回主页</a>
+                          <section id="booked-left" class="tm_left">
+                              <button  class="am-btn am-btn-secondary" ui-sref="booked" ng-click="bookLeft()">预订信息</button>
+                              <button class="am-btn am-btn-secondary" ui-sref="registe" ng-click="bookLeft()">点击入住</button>
+                              <button class="am-btn am-btn-secondary" id="booked-three"> 取消预订</button>
+                              <a class="am-btn am-btn-secondary refresh" href="index.html">返回主页</a>
                           </section>
-                          <div id="booked-right" style="width: 90%;float: right;">
-                          </div>
+                          <div id="booked-right" class="tm_right" >
+                          <table class="am-table am-table-bordered" id="booked" >
+                              <tr><td colspan="4">预订单</td></tr>
+                              <tr>
+                                  <td colspan="3"><hr></td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                      <label>房型：</label>
+                                      <input type="text" value="普通房" name="" disabled>
+                                  <td>
+                                      <label>房号：</label>
+                                      <input type="text" name="text" value="101" disabled>
+                                  </td>
+                                  <td>
+                                      <label>房价：</label>
+                                      <input type="text" name="text" value="168">元
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                      <label>预订人：</label>
+                                      <input type="text" name="text">
+                                  </td>
+                                  <td>
+                                      <label>电话：</label>
+                                      <input type="num" name="">
+                                  </td>
+                                  <td>
+                                      <label>客源帐号：</label>
+                                      <input type="text" name="text">
+                                      <button data-am-modal="{target: '#dialogboxaccount2',    closeViaDimmer: 0, width:900, height:600}">...</button>
+                                      <div class="am-modal am-modal-prompt" tabindex="-1" id="dialogboxaccount2" >
+                                        <div class="am-modal-dialog" id="daccount2">
+                                          <div class="am-modal-hd">客源账号
+                                              <a href="javascript: void(0)" class="am-close accountclose2">&times;</a>
+                                          </div>
+                                          <div  class="am-modal-hd">
+                                              <input type="" name="" placeholder="请输入查询信息">
+                                          </div>
+                                          <table class="am-table am-table-bordered">
+                                              <thead >
+                                                  <tr class="am-primary">
+                                                      <td class="t1">姓名</td>
+                                                      <td class="t2">单位</td>
+                                                      <td class="t3">联系方式</td>
+                                                      <td>地址</td>
+                                                  </tr>
+                                              </thead>
+                                          </table>
+                                          <div class="da_body">
+                                              <table class="am-table am-table-bordered  am-table-hover" >
+                                                  <tbody >
+                                                      <tr>
+                                                          <td class="t1">小王</td>
+                                                          <td class="t2">九次方科技有限公司</td>
+                                                          <td class="t3">18683660949</td>
+                                                          <td>四川 绵阳 涪城区 青义镇</td>
+                                                      </tr>
+                                                  </tbody>
+                                              </table>
+                                          </div>
+                                          <button class="am-btn am-btn-success">确定</button>
+                                        </div>
+                                      </div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td><label >到店日期：</label>
+                                      <input class="datepicker1" type="text" readonly required>
+                                  </td>
+                                  <td><label >离店日期：</label>
+                                      <input class="datepicker2" type="text" readonly required>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td colspan="3">
+                                      <label>地址：</label>
+                                      <input type="text" name="">
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td colspan="3">
+                                      <label>公司：</label>
+                                      <input type="text" name="">
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                      <label>备注：</label>
+                                      <textarea></textarea>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td colspan="3"  class="c_hr"><hr></td>
+                              </tr>
+                              <tr>
+                                  <td class="c_bottom">
+                                      <p>预订日期：<span>2017.04.10</span></p>
+                                      <p>工号：<span>003</span></p>
+                                      <p>营销员：<span>小张</span></p>
+                                  </td>
+                                  <td class="charge">
+                                      订金：
+                                      <input type="text" name="text">元
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td></td>
+                                  <td colspan="2">
+                                      <div class="am-form-group">
+                                          <span>支付方式：</span>
+                                          <label class="am-radio-inline">
+                                              <input type="radio"  value="" name="docInlineRadio" checked> 现金
+                                          </label>
+                                          <label class="am-radio-inline">
+                                              <input type="radio" name="docInlineRadio"> 刷卡
+                                          </label>
+                                          <label class="am-radio-inline">
+                                              <input type="radio" name="docInlineRadio"> 支付宝
+                                          </label>
+                                          <label class="am-radio-inline">
+                                              <input type="radio" name="docInlineRadio"> 微信
+                                          </label>
+                                          <label class="am-radio-inline">
+                                              <input type="radio" name="docInlineRadio">挂账
+                                          </label>
+                                      </div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td colspan="3">
+                                      <button class="am-btn am-btn-secondary booked">修改</button>
+                                  </td>
+                              </tr>
+                          </table>
                           <script>
-                              $(document).ready(function(){
-                                  $('#booked-right').load('index/booked.html');
-                                  $('#booked-btn-one').click(function(){
-                                      $('#booked-right').load('index/booked.html')
-                                  });
-                                  $('#booked-btn-two').click(function(){
-                                      $('#booked-right').load('index/registe.html')
-                                  });
-                                  $('#booked-btn-three').click(function(){
-                                      if (confirm("确定取消预订吗")) {
-                                          alert("您已取消对该房的预订");
-                                          refresh();
-
+                              // jquery ui 的日历插件 start
+                                  $('.datepicker1').datepicker({
+                                      minDate: 0,
+                                      onClose: function( selectedDate ) {
+                                         $('.datepicker2').datepicker( "option", "minDate", selectedDate );
                                       }
                                   });
+                                  $('.datepicker2').datepicker({
+                                      minDate: 0,
+                                      onClose: function( selectedDate ) {
+                                         $('.datepicker1').datepicker( "option", "maxDate", selectedDate );
+                                      }
+                                  });
+                              // end   jquery ui 的日历插件
+                              $("button.booked").click(function(){
+                                  $("#doc-modal-empty").modal('close');
+                              });
+                              $("a.accountclose2").click(function(){
+                                  $("#dialogboxaccount2").modal('close');
+                              });
+                              $("#daccount2 button").click(function(){
+                                  $("#dialogboxaccount2").modal('close');
+                              });
+                          </script>
+                          </div>
+                          <div class="tm_right" ui-view>
+                          </div>
+                          <script type="text/javascript">
+                              $('#booked-three').click(function(){
+                                if(confirm("确定要取消预订吗"))
+                                {
+                                  alert('您已取消成功！');
+                                  refresh();
+                                }
                               });
                           </script>
                       </div>
                   </div>
-              </div><!--预订的模态窗口-->
+              </div><!--已预订的模态窗口-->
               <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-getout">
-                  <div class="am-modal-dialog  modal_location" >
+                  <div class="am-modal-dialog  modal_location">
                       <div class="am-modal-hd">
-                          <a href="javascript: void(0)" class="am-close refresh">&times;</a>
+                          <a class="am-close refresh"  href="index.html" style="color: #000">&times;</a>
                       </div>
                       <div class="am-modal-bd">
-                          <section id="checked-left" style="width: 8%; float: left;margin-top: 85px;">
-                              <button id="checked-btn-one"  class="am-btn am-btn-secondary">点击结账</button>
-                              <button id="checked-btn-two" class="am-btn am-btn-secondary">点击换房</button>
-                              <button id="checked-btn-three" class="am-btn am-btn-secondary">点击续住</button>
-                              <a class="am-btn am-btn-secondary refresh">返回主页</a>
+                          <section id="checked-left" class="tm_left">
+                              <button class="am-btn am-btn-secondary" ui-sref="check-out" ng-click="bookLeft()">点击结账</button>
+                              <button class="am-btn am-btn-secondary" ui-sref="exchange" ng-click="bookLeft()">点击换房</button>
+                              <button class="am-btn am-btn-secondary" ui-sref="continue" ng-click="bookLeft()">点击续住</button>
+                              <a class="am-btn am-btn-secondary refresh" href="index.html">返回主页</a>
                           </section>
-                          <div id="checked-right" style="width: 90%;float: right;">
+                          <div id="checked-right" class="tm_right">
+                          <div id="check-out">
+                              <div id="co_head">
+                                  <table class="am-table am-table-bordered ">
+                                      <tr>
+                                          <td  colspan="4">结账</td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <label>帐号：</label>
+                                              <input type="" name="">
+                                          </td>
+                                          <td>
+                                              <label>姓名：</label>
+                                              <input type="" name="">
+                                          </td>
+                                          <td>
+                                              <label>宾客数：</label>
+                                              <input type="" name="">
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <label>总房价：</label>
+                                              <input type="" name="">
+                                          </td>
+                                          <td>
+                                              <label>折扣率：</label>
+                                              <input type="" name="">
+                                              <button>全部退房</button>
+                                          </td>
+                                      </tr>
+                                  </table>
+                              </div>
+                              <div id="co_infor">
+                                  <hr>
+                                  <p><span>宾客帐号</span><button>退房</button></p>
+                                  <table class="am-table am-table-bordered">
+                                      <thead>
+                                              <tr class="am-primary" >
+                                                  <td>
+                                                    <input type="checkbox" ng-model="all">
+                                                    <span ng-bind="all?'取消':'全选'"></span>
+                                                  </td>
+                                                  <td>帐号</td>
+                                                  <td>房号</td>
+                                                  <td>房型</td>
+                                                  <td>姓名</td>
+                                                  <td>房价</td>
+                                                  <td>天数</td>
+                                                  <td>到店日期</td>
+                                              </tr>
+                                          </thead>
+                                  </table>
+                                  <div>
+                                      <table class="am-table am-table-bordered am-table-hover">
+                                          <tbody>
+                                              <tr ng-repeat="v in data">
+                                                  <td><input type="checkbox" name="" ng-checked="all">{{v.name}}</td>
+                                                  <td>{{v.number}}</td>
+                                                  <td>{{v.price}}</td>
+                                                  <td>{{v.person}}</td>
+                                                  <td>{{v.state}}</td>
+                                                  <td>{{v.price}}</td>
+                                                  <td>{{v.color}}</td>
+                                                  <td>{{v.id}}</td>
+                                              </tr>
+                                          </tbody>
+                                      </table>
+                                  </div>
+                              </div>
+                              <div id="co_detail">
+                                  <hr>
+                                  <p><span>账务明细</span><button>编辑账单</button><button>打印账单</button><button>费用记账</button></p>
+                                  <table class="am-table am-table-bordered">
+                                      <thead>
+                                          <tr class="am-primary">
+                                                  <td>帐号</td>
+                                                  <td>姓名</td>
+                                                  <td>状态</td>
+                                                  <td>房号</td>
+                                                  <td>时间</td>
+                                                  <td>类型</td>
+                                                  <td>支付方式</td>
+                                                  <td>账项</td>
+                                                  <td>金额</td>
+                                                  <td>工号</td>
+                                                  <td>备注</td>
+                                          </tr>
+                                      </thead>
+                                  </table>
+                                  <div>
+                                      <table class="am-table am-table-bordered am-table-hover">
+                                          <tbody>
+                                              <tr>
+                                                  <td>0032</td>
+                                                  <td>小王</td>
+                                                  <td>在店</td>
+                                                  <td>102</td>
+                                                  <td>2017.4.16</td>
+                                                  <td>预付</td>
+                                                  <td>现金</td>
+                                                  <td>房费</td>
+                                                  <td>168</td>
+                                                  <td>002</td>
+                                                  <td></td>
+                                              </tr>
+                                              <tr>
+                                                  <td>0032</td>
+                                                  <td>小王</td>
+                                                  <td>在店</td>
+                                                  <td>102</td>
+                                                  <td>2017.4.16</td>
+                                                  <td>预付</td>
+                                                  <td>现金</td>
+                                                  <td>房费</td>
+                                                  <td>168</td>
+                                                  <td>002</td>
+                                                  <td></td>
+                                              </tr>
+                                              <tr>
+                                                  <td>0032</td>
+                                                  <td>小王</td>
+                                                  <td>在店</td>
+                                                  <td>102</td>
+                                                  <td>2017.4.16</td>
+                                                  <td>预付</td>
+                                                  <td>现金</td>
+                                                  <td>房费</td>
+                                                  <td>168</td>
+                                                  <td>002</td>
+                                                  <td></td>
+                                              </tr>
+                                              <tr>
+                                                  <td>0032</td>
+                                                  <td>小王</td>
+                                                  <td>在店</td>
+                                                  <td>102</td>
+                                                  <td>2017.4.16</td>
+                                                  <td>预付</td>
+                                                  <td>现金</td>
+                                                  <td>房费</td>
+                                                  <td>168</td>
+                                                  <td>002</td>
+                                                  <td></td>
+                                              </tr>
+                                              <tr>
+                                                  <td>0032</td>
+                                                  <td>小王</td>
+                                                  <td>在店</td>
+                                                  <td>102</td>
+                                                  <td>2017.4.16</td>
+                                                  <td>预付</td>
+                                                  <td>现金</td>
+                                                  <td>房费</td>
+                                                  <td>168</td>
+                                                  <td>002</td>
+                                                  <td></td>
+                                              </tr>
+                                          </tbody>
+                                      </table>
+                                  </div>
+                                  <hr>
+                              </div>
+                              <div id="co_bottom">
+                                  <table class="am-table am-table-bordered ">
+                                      <tr>
+                                          <td>
+                                              <label>费用合计：</label>
+                                              <input type="" name="">元
+                                          </td>
+                                          <td>
+                                              <label>付款合计：</label>
+                                              <input type="" name="">元
+                                          </td>
+                                          <td>
+                                              <label>客帐余额：</label>
+                                              <input type="" name="">元
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td  style="width: 40%">
+                                              <label>应收：</label>
+                                              <input type="" name="">元
+                                          </td>
+                                          <td  style="width: 30%">
+                                              <label>应退：</label>
+                                              <input type="" name="">元
+                                          </td>
+                                          <td style="width: 30%"></td>
+                                      </tr>
+                                      <tr><td colspan="3"><hr></td></tr>
+                                      <tr>
+                                          <td class="cob_bottom">
+                                              <p>日期：<span>2017.04.10</span></p>
+                                              <p>工号：<span>003</span></p>
+                                              <p>营销员：<span>小张</span></p>
+                                          </td>
+                                          <td colspan="2">
+                                              <div class="am-form-group">
+                                                  <span>支付方式：</span>
+                                                  <label class="am-radio-inline">
+                                                      <input type="radio"  value="" name="docInlineRadio"  checked>储值
+                                                  </label>
+                                                  <label class="am-radio-inline">
+                                                      <input type="radio" name="docInlineRadio">挂账
+                                                  </label>
+                                                  <label class="am-radio-inline">
+                                                      <input type="radio"  name="docInlineRadio"> 现金
+                                                  </label>
+                                                  <label class="am-radio-inline">
+                                                      <input type="radio" name="docInlineRadio"> 刷卡
+                                                  </label>
+                                                  <label class="am-radio-inline">
+                                                      <input type="radio" name="docInlineRadio"> 支付宝
+                                                  </label>
+                                                  <label class="am-radio-inline">
+                                                      <input type="radio" name="docInlineRadio"> 微信
+                                                  </label>
+                                              </div>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td colspan="3">
+                                              <button class="am-btn am-btn-secondary" data-am-modal="{target: '#dialogboxcheck-out',    closeViaDimmer: 0, width:700, height:360}">结账</button>
+                                              <div class="am-modal am-modal-prompt" tabindex="-1" id="dialogboxcheck-out" >
+                                                <div class="am-modal-dialog" id="dacheckout">
+                                                  <div class="am-modal-hd">结账
+                                                      <a href="javascript: void(0)" class="am-close">&times;</a>
+                                                  </div>
+                                                  <div class="am-modal-bd">
+                                                      <table class="am-table am-table-bordered" >
+                                                          <tr>
+                                                              <td colspan="3">
+                                                                  单号：<span>201604282455</span>
+                                                              </td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td colspan="3"><hr></td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>
+                                                                 帐号：<span>00032</span>
+                                                              </td>
+                                                              <td>
+                                                                 姓名：<span>小王</span>
+                                                              </td>
+                                                              <td>
+                                                                  费用合计：<span>168</span>元
+                                                              </td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>
+                                                                  付款合计：<span>100</span>元
+                                                              </td>
+                                                              <td>
+                                                                  客帐余额：<span>0</span>元
+
+                                                              </td>
+                                                              <td>
+                                                                  应收：<span>68</span>元
+                                                              </td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>
+                                                                  应退：<span>0</span>元
+                                                              </td>
+                                                              <td>
+                                                                  实收：
+                                                                  <input type="" name="" value="68">元
+                                                              </td>
+                                                          </tr>
+                                                          <tr>
+                                                              <td colspan="2">
+                                                                  备注：
+                                                                  <textarea></textarea>
+                                                              </td>
+                                                          </tr>
+                                                          <tr><td colspan="3"><hr></td></tr>
+                                                          <tr>
+                                                              <td colspan="2">
+                                                                  <p>预订日期：<span>2017.04.10</span></p>
+                                                                  <p>工号：<span>003</span></p>
+                                                                  <p>营销员：<span>小张</span></p>
+                                                              </td>
+                                                              <td>
+                                                                  支付方式：<span>现金</span>
+                                                              </td>
+                                                          </tr>
+                                                      </table>
+                                                  </div>
+                                                  <button class="am-btn am-btn-success">确定</button>
+                                                </div>
+                                              </div>
+                                          </td>
+                                      </tr>
+                                  </table>
+                              </div>
                           </div>
                           <script>
-                              $(document).ready(function(){
-                                  $('#checked-right').load('index/check-out.html');
-                                  $('#checked-btn-one').click(function(){
-                                      $('#checked-right').load('index/check-out.html')
-                                  });
-                                  $('#checked-btn-two').click(function(){
-                                      $('#checked-right').load('index/exchange.html')
-                                  });
-                                  $('#checked-btn-three').click(function(){
-                                      $('#checked-right').load('index/continue.html')
-                                  });
+                              $("#dacheckout a").click(function(){
+                                  $("#dialogboxcheck-out").modal('close')
+                              });
+                              $("#dacheckout button").click(function(){
+                                  $("#dialogboxcheck-out").modal('close')
                               });
                           </script>
+                          </div>
+                          <div class="tm_right" ui-view >
+                          </div>
                       </div>
                   </div>
               </div>   <!-- 已入住房间的模态窗口-->
               <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-empty">
                   <div class="am-modal-dialog  modal_location">
                       <div class="am-modal-hd">
-                          <a href="javascript: void(0)" class="am-close refresh">&times;</a>
+                          <a class="am-close refresh" href="index.html" style="color: #000">&times;</a>
                       </div>
                       <div class="am-modal-bd">
-                          <section id="book-left" style="width: 8%;float:left;margin-top: 85px;">
-                              <button id="btn-book-one" class="am-btn am-btn-secondary">点击预定</button>
-                              <button id="btn-book-two" class="am-btn am-btn-secondary">点击入住</button>
-                              <a class="am-btn am-btn-secondary refresh">返回主页</a>
+                          <section id="book-left" class="tm_left">
+                              <button class="am-btn am-btn-secondary" ui-sref="check-in" ng-click="bookLeft()">点击预定</button>
+                              <button class="am-btn am-btn-secondary" ui-sref="registe" ng-click="bookLeft()">点击入住</button>
+                              <a class="am-btn am-btn-secondary refresh" href="index.html">返回主页</a>
                           </section>
-                          <section id="book-right" style="width: 90%;float: right;">
-                          </section>
+                          <section id="book-right" class="tm_right" >
+                          <table class="am-table am-table-bordered" id="checkin" >
+                              <tr><td colspan="4">预订单</td></tr>
+                              <tr>
+                                  <td colspan="3"><hr></td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                      <label>房型：</label>
+                                      <input type="text" value="普通房" name="" disabled>
+                                  <td>
+                                      <label>房号：</label>
+                                      <input type="text" name="text" value="101" disabled>
+                                  </td>
+                                  <td>
+                                      <label>房价：</label>
+                                      <input type="text" name="text" value="168">元
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                      <label>预订人：</label>
+                                      <input type="text" name="text">
+                                  </td>
+                                  <td>
+                                      <label>电话：</label>
+                                      <input type="num" name="">
+                                  </td>
+                                  <td>
+                                      <label>客源帐号：</label>
+                                      <input type="text" name="text">
+                                      <button data-am-modal="{target: '#dialogboxaccount',    closeViaDimmer: 0, width:900, height:600}">...</button>
+                                      <div class="am-modal am-modal-prompt" tabindex="-1" id="dialogboxaccount" >
+                                        <div class="am-modal-dialog" id="daccount">
+                                          <div class="am-modal-hd">客源账号
+                                              <a href="javascript: void(0)" class="am-close accountclose">&times;</a>
+                                          </div>
+                                          <div  class="am-modal-hd">
+                                              <input type="" name="" placeholder="请输入查询信息">
+                                          </div>
+                                          <table class="am-table am-table-bordered">
+                                              <thead >
+                                                  <tr class="am-primary">
+                                                      <td class="t1">姓名</td>
+                                                      <td class="t2">单位</td>
+                                                      <td class="t3">联系方式</td>
+                                                      <td>地址</td>
+                                                  </tr>
+                                              </thead>
+                                          </table>
+                                          <div class="da_body">
+                                              <table class="am-table am-table-bordered  am-table-hover" >
+                                                  <tbody >
+                                                      <tr>
+                                                          <td class="t1">小王</td>
+                                                          <td class="t2">九次方科技有限公司</td>
+                                                          <td class="t3">18683660949</td>
+                                                          <td>四川 绵阳 涪城区 青义镇</td>
+                                                      </tr>
+                                                  </tbody>
+                                              </table>
+                                          </div>
+                                          <button class="am-btn am-btn-success">确定</button>
+                                        </div>
+                                      </div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td><label >到店日期：</label>
+                                      <input class="datepicker3" type="text" readonly required>
+                                  </td>
+                                  <td><label >离店日期：</label>
+                                      <input class="datepicker4" type="text" readonly required>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td colspan="3">
+                                      <label>地址：</label>
+                                      <input type="text" name="">
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td colspan="3">
+                                      <label>公司：</label>
+                                      <input type="text" name="">
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                      <label>备注：</label>
+                                      <textarea></textarea>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td colspan="3"  class="c_hr"><hr></td>
+                              </tr>
+                              <tr>
+                                  <td class="c_bottom">
+                                      <p>预订日期：<span>2017.04.10</span></p>
+                                      <p>工号：<span>003</span></p>
+                                      <p>营销员：<span>小张</span></p>
+                                  </td>
+                                  <td class="charge">
+                                      订金：
+                                      <input type="text" name="text">元
+                                  </td>
+                              </tr>
+                                  <td></td>
+                                  <td colspan="2">
+                                      <div class="am-form-group">
+                                          <span>支付方式：</span>
+                                          <label class="am-radio-inline">
+                                              <input type="radio"  value="" name="docInlineRadio" checked> 现金
+                                          </label>
+                                          <label class="am-radio-inline">
+                                              <input type="radio" name="docInlineRadio"> 刷卡
+                                          </label>
+                                          <label class="am-radio-inline">
+                                              <input type="radio" name="docInlineRadio"> 支付宝
+                                          </label>
+                                          <label class="am-radio-inline">
+                                              <input type="radio" name="docInlineRadio"> 微信
+                                          </label>
+                                          <label class="am-radio-inline">
+                                              <input type="radio" name="docInlineRadio">挂账
+                                          </label>
+                                      </div>
+                                  </td>
+                              <tr>
+                                  <td colspan="3">
+                                      <button class="am-btn am-btn-secondary checkin">预定</button>
+                                  </td>
+                              </tr>
+                          </table>
                           <script>
-                              $(document).ready(function(){
-                                  $('#book-right').load('index/check-in.html');
-                                  $('#btn-book-one').click(function(){
-                                      $('#book-right').load('index/check-in.html')
+                              // jquery ui 的日历插件 start
+                                  $('.datepicker3').datepicker({
+                                      minDate: 0,
+                                      onClose: function( selectedDate ) {
+                                         $('.datepicker4').datepicker( "option", "minDate", selectedDate );
+                                      }
                                   });
-                                  $('#btn-book-two').click(function(){
-                                      $('#book-right').load('index/registe.html')
+                                  $('.datepicker4').datepicker({
+                                      minDate: 0,
+                                      onClose: function( selectedDate ) {
+                                         $('.datepicker3').datepicker( "option", "maxDate", selectedDate );
+                                      }
                                   });
-                              });
+                              // end   jquery ui 的日历插件
+                                $("button.checkin").click(function(){
+                                    $("#doc-modal-empty").modal('close');
+                                });
+                                $("a.accountclose").click(function(){
+                                    $("#dialogboxaccount").modal('close');
+                                });
+                                $("#daccount button").click(function(){
+                                    $("#dialogboxaccount").modal('close');
+                                });
                           </script>
+                          </section>
+                          <section class="tm_right" ui-view >
+                          </section>
                       </div>
                   </div>
               </div>   <!-- 空房的模态窗口-->
@@ -471,7 +1066,7 @@
                 <ul>
                   <li>
                     <a href="#">17点之前需要一个吹风，请速速送到，谢谢！</a>
-                    <p>房号：<span>101</span><span>2017/5/5</span></p>
+                    <p><span>2017/5/5</span><span><i class="am-icon-commenting"></i></span> </p>
                   </li>
                   <li>
                     <a href="#">需要一个吹风</a>
@@ -527,8 +1122,8 @@
                   <div class="am-modal-hd">交班报表
                       <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
                   </div>
-                  <div class="am-modal-bd">
-                      <span  style="float: left" >本班时间: <input type="text" name="" class="nowTime" disabled> 至 <input type="text" name="" class="nowTime" disabled></span><span>负责人：001</span>
+                  <div class="am-modal-bd shiftexchange">
+                      <span  class="left">本班时间: <input type="text" name="" class="nowTime" disabled> 至 <input type="text" name="" class="nowTime" disabled></span><span>负责人：001</span>
                       <table class="am-table am-table-bordered">
                           <tr class="am-primary">
                               <td></td>
@@ -686,8 +1281,8 @@
                           </div>
                           <div class="am-modal-bd">
                             请你仔细核对信息，确认无误后请登录您的账户：
-                            <p>账号：<input type="text" class="d_username"></p>
-                            <p>密码：<input type="text" class="d_password"></p>
+                            <p class="zm">账号：<input type="text" class="d_username"></p>
+                            <p class="zm">密码：<input type="text" class="d_password"></p>
                           </div>
                           <a id="shiftA" type="button"  class="am-btn am-btn-success" ng-click='shift()'>登录</a>
                         </div>
@@ -699,9 +1294,16 @@
             <p>交谈：</p>
             <p><i class="am-icon-qq">&nbsp;</i>1815642007</p>
             <p><i class="am-icon-phone">&nbsp;</i><span>18683660949</span></p>
+            <p><i class="am-icon-phone">&nbsp;</i><span>18208298026</span></p>
           </div>
       </footer>
 <script>
+  //输入框初始化   start
+  $('.inits').click(function(){
+    $('.initial').val('');
+    $('#empty_states #main ul li div.initial2').addClass('hide');
+  });
+  //end   输入框初始化
   // 获取本地时间  start
     function current(){
       var d=new Date(),str='';
@@ -777,10 +1379,10 @@
   // end 自动检索关键词
   // 刷新页面     start
     $("a.refresh").click(function(){
-        window.location.reload()
-    })
+        window.location.reload();
+    });
     function refresh(){
-        window.location.reload()
+        window.location.reload();
     };
   // end   刷新页面
   // 鼠标移上li显示 start
@@ -792,7 +1394,7 @@
       })
     });
   // end    鼠标移上li显示
-    var app = angular.module('myApp', []);
+    var app = angular.module('myApp', ['ui.router']);
     // focus指令           start
       app.directive('autoFocus', function(){
              return function(scope, element){
@@ -814,6 +1416,33 @@
           };
       });
     // end 页面渲染完的自定义指令
+    app.config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRouterProvider){
+      $stateProvider
+          .state('check-out',{
+              url:'/check-out',
+              templateUrl:'index/check-out.html',
+          })
+          .state('exchange',{
+              url:'/exchange',
+              templateUrl:'index/exchange.html',
+          })
+          .state('continue',{
+              url:'/continue',
+              templateUrl:'index/continue.html',
+          })
+          .state('check-in',{
+              url:'/check-in',
+              templateUrl:'index/check-in.html',
+          })
+          .state('registe',{
+              url:'/registe',
+              templateUrl:'index/registe.html',
+          })
+          .state('booked',{
+              url:'/booked',
+              templateUrl:'index/booked.html',
+          })
+    }]);
     app.controller('Ctrl', ["$scope","$http",function($scope,$http) {
       // 模拟数据  start
         $scope.shop=[
@@ -880,6 +1509,11 @@
         ];//右边栏房型下拉框
         $scope.roomfloors=['全部','1','2','3'];//右边栏楼层下拉框
       // end 模拟数据
+      //初始化   start
+        $scope.inits=function(){
+          $scope.bookgrouproom=0;
+        }
+      //end    初始化
       // 外客购买计算总价       start
         $scope.change=function(){
           if ($scope.octNumber<=0) {
@@ -946,12 +1580,19 @@
         $scope.click_bookgroup1=function($event){
              $($event.target).next().removeClass('hide');
              $scope.bookgrouproom+=1;
-        };//团队预订房态的点击1
+        };//团队预订房态的点击增加房间
         $scope.click_bookgroup2=function($event){
              $($event.target).addClass('hide');
              $scope.bookgrouproom--;
-             console.log($scope.bookgrouproom);
-        };//团队预订房态的点击1
+        };//团队预订房态的点击减少房间
+        $scope.bookLeft=function(){
+            $("#book-right").addClass('book-right');
+            $("#checked-right").addClass('checked-right');
+            $("#booked-right").addClass('booked-right');
+        };//关闭模内容态框里的右边
+
+
+
       // end   房态图的点击
       // 选择房型 楼层  房态      start
           $scope.$watch("roomFloor", function(n){

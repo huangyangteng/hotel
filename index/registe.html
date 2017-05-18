@@ -49,6 +49,14 @@
             display: inline-block;
             margin: 0px 0px 0px 20px;
         }
+        #registe td.charge{
+            float: right;
+            margin-right: -47%;
+            width: 120%;
+        }
+        #registe div.am-form-group{
+            margin-top: -10px;
+        }
         #daccount{
             border: 1px solid #C6C6C6;
             background: #fff;
@@ -182,15 +190,15 @@
         <tr>
             <td>
                 <label >到店日期：</label>
-                <input class="datepicker1" type="text">
+                <input class="datepicker1" type="text" readonly required>
             </td>
             <td>
                 <label>住店天数：</label>
-                <input type="number" name=""  class="renumber">
+                <input type="" name="" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}">
             </td>
             <td>
                 <label >离店日期：</label>
-                <input class="datepicker2" type="text">
+                <input class="datepicker2" type="text" readonly required>
             </td>
         </tr>
         <tr>
@@ -235,10 +243,6 @@
             </td>
         </tr>
         <tr>
-            <td>
-                <label>预付：</label>
-                <input type="text" name="text">元
-            </td>
             <td>
                 <label>会员卡号：</label>
                 <input type="text" name="text">
@@ -295,24 +299,31 @@
                 <p>营销员：<span>小张</span></p>
                 <p>接待人：<span>小王</span></p>
             </td>
+            <td class="charge">
+                预付：
+                <input type="text" name="text">元
+            </td>
+        </tr>
+        <tr>
+            <td></td>
             <td colspan="2">
                 <div class="am-form-group">
-                        <span><b>支付方式：</b></span>
-                        <label class="am-radio-inline">
-                            <input type="radio"  value="" name="docInlineRadio" checked> 现金
-                        </label>
-                        <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio"> 刷卡
-                        </label>
-                        <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio"> 支付宝
-                        </label>
-                        <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio"> 微信
-                        </label>
-                        <label class="am-radio-inline">
-                            <input type="radio" name="docInlineRadio">挂账
-                        </label>
+                    <span>支付方式：</span>
+                    <label class="am-radio-inline">
+                        <input type="radio"  value="" name="docInlineRadio" checked> 现金
+                    </label>
+                    <label class="am-radio-inline">
+                        <input type="radio" name="docInlineRadio"> 刷卡
+                    </label>
+                    <label class="am-radio-inline">
+                        <input type="radio" name="docInlineRadio"> 支付宝
+                    </label>
+                    <label class="am-radio-inline">
+                        <input type="radio" name="docInlineRadio"> 微信
+                    </label>
+                    <label class="am-radio-inline">
+                        <input type="radio" name="docInlineRadio">挂账
+                    </label>
                 </div>
             </td>
         </tr>
