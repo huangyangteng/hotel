@@ -59,6 +59,10 @@
     .turnRed{
         border: 1px solid red;
     }
+    .sousuo{
+        float: right;
+        margin-bottom: 10px;
+    }
 </style>
 <body>
 <header class="am-topbar">
@@ -219,8 +223,22 @@
         <button class="am-btn am-btn-secondary" style="width: 100%" id="column-three">入库</button>
         <button class="am-btn am-btn-secondary" style="width: 100%" id="column-four">商品转移</button>
     </div>
-
+  
     <div id="rightone">
+        <div class="sousuo">
+            <input class="am-primary sou_name" type="text" name="look">
+            <select>
+                <option selected value="">请选择</option>
+                <option value="一级分类">一级分类</option>
+                <option value="二级分类">二级分类</option>
+            </select>
+            <select>
+                <option selected value="">请选择</option>
+                <option value="上架">上架</option>
+                <option value="下架">下架</option>
+            </select>
+            <button id="look_for" class="am-btn am-btn-primary am-btn-xs">搜索</button>
+        </div>
         <table class="am-table am-table-bordered am-table-hover ">
             <thead>
             <tr class="am-primary">
@@ -335,7 +353,7 @@
             }
         });
 
-        //将修改模态框中内容重新传入当前列表列表（我觉得错误在这里，但不知道怎么改）
+        //将修改模态框中内容重新传入当前列表列表
         $(".stocks_to_change").click(function () {
             var stocks_in_chb_change = $(".stocks_in_chb_change").eq(0).val();
             var stocks_in_chb_change_1 = $(".stocks_in_chb_change").eq(1).val();
@@ -358,9 +376,23 @@
                 $(this).val("");
             })
         })
+        //日期设置
         $(function() {
           $( "#datepicker_0" ).datepicker();
         });
+        //搜索框设置
+        $(".sousuo").delegate("#look_for","click",function(){
+            var s_Name=$(".sou_name").val();  
+            var t_Name=$("#stock_tab tr td").eq(1).html();
+            alert(s_Name);
+            alert(t_Name);
+            if (s_Name==t_Name) {
+                alert("相等");
+            }
+            else{
+                alert("不相等");
+            }
+        })
     });
 </script>
 </html>
