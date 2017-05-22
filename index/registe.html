@@ -7,90 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>入住</title>
     <style type="text/css">
-        #registe{
-            margin-top: 25px;
-            border: 2px solid #EAE8E8;
-            background: #fff;
-        }
-        #registe td{
-            border: 0px;
-            padding: 0.3em;
-        }
-        #registe td[colspan="4"]{
-            font-size: 20px;
-            letter-spacing: 15px;
-        }
-        #registe td[colspan="4"] span{
-            font-size: 14px;
-            float: right;
-            letter-spacing: 0px;
-        }
-        #registe td[colspan="4"] span input{
-            margin:0px 26px 0px 6px ;
-        }
-        #registe .re_main{
-            float: left;
-        }
-        #registe  hr{
-            border-color: #C6C6C6;
-            box-shadow: 0px 0px 1px #C6C6C6;
-            margin: 0px;
-        }
-        #registe td textarea{
-            width: 65%;
-            height: 60px
-        }
-        #registe td[colspan="3"] button{
-            float: right;
-            margin-right: 6%;
-            margin-bottom: 10px;
-        }
-        #registe .c_bottom p{
-            display: inline-block;
-            margin: 0px 0px 0px 20px;
-        }
-        #registe td.charge{
-            float: right;
-            margin-right: -47%;
-            width: 120%;
-        }
-        #registe div.am-form-group{
-            margin-top: -10px;
-        }
-        #daccount{
-            border: 1px solid #C6C6C6;
-            background: #fff;
-            box-shadow: 1px 1px 10px #C6C6C6;
-            padding: 10px;
-            padding-top: 0px;
-        }
-        #daccount td{
-            border-left: 1px solid #ddd;
-            border-bottom: 1px solid #ddd;
-        }
-        #daccount div.da_body{
-            max-height:400px;
-            width:100%;
-            overflow-y: auto;
-            border-bottom: 1px solid #ddd;
-            margin-bottom: 20px;
-        }
-        #daccount div table{
-            margin-bottom: 0px;
-        }
-        #daccount .t1{
-            width: 100px;
-        }
-        #daccount .t2{
-            width: 200px;
-        }
-        #daccount .t3{
-            width: 150px;
-        }
+
     </style>
 </head>
 <body>
-    <table id="registe" class="am-table am-table-bordered">
+    <table id="registe" class="am-table am-table-bordered" ng-controller="Ctrl2">
         <tr>
             <td colspan="4">宾客登记表<span>长包 <input type="checkbox" name=""></span></td>
         </tr>
@@ -250,14 +171,15 @@
             <td>
                 <label>客源帐号：</label>
                 <input type="text" name="text">
-                <button data-am-modal="{target: '#dialogboxaccount',    closeViaDimmer: 0, width:900, height:600}">...</button>
-                <div class="am-modal am-modal-prompt" tabindex="-1" id="dialogboxaccount" >
-                  <div class="am-modal-dialog" id="daccount">
-                    <div class="am-modal-hd">客源账号
-                        <a href="javascript: void(0)" class="am-close accountclose">&times;</a>
+                <button ng-click="dacount2click()">...</button>
+                <div id="daccount2" ng-if="dacount2display=='block'">
+                    <div class="dacchd"><b>客源账号</b>
+                        <a class="am-close" ng-click="dacount2close()">&times;</a>
                     </div>
-                    <input type="" name="" placeholder="请输入查询信息">
-                    <table class="am-table am-table-bordered" style="margin-top: 10px;margin-bottom: 0px;">
+                    <div>
+                        <input type="" name="" placeholder="请输入查询信息">
+                    </div>
+                    <table class="am-table am-table-bordered">
                         <thead >
                             <tr class="am-primary">
                                 <td class="t1">姓名</td>
@@ -270,17 +192,46 @@
                     <div class="da_body">
                         <table class="am-table am-table-bordered  am-table-hover" >
                             <tbody >
-                                <tr>
-                                    <td class="t1">小王</td>
-                                    <td class="t2">九次方科技有限公司</td>
-                                    <td class="t3">18683660949</td>
+                                <tr ng-repeat="v in shop">
+                                    <td class="t1">{{v.name}}</td>
+                                    <td class="t2">{{v.numbers}}</td>
+                                    <td class="t3">{{v.price}}</td>
+                                    <td>四川 绵阳 涪城区 青义镇</td>
+                                </tr>
+                                <tr ng-repeat="v in shop">
+                                    <td class="t1">{{v.name}}</td>
+                                    <td class="t2">{{v.numbers}}</td>
+                                    <td class="t3">{{v.price}}</td>
+                                    <td>四川 绵阳 涪城区 青义镇</td>
+                                </tr>
+                                <tr ng-repeat="v in shop">
+                                    <td class="t1">{{v.name}}</td>
+                                    <td class="t2">{{v.numbers}}</td>
+                                    <td class="t3">{{v.price}}</td>
+                                    <td>四川 绵阳 涪城区 青义镇</td>
+                                </tr>
+                                <tr ng-repeat="v in shop">
+                                    <td class="t1">{{v.name}}</td>
+                                    <td class="t2">{{v.numbers}}</td>
+                                    <td class="t3">{{v.price}}</td>
+                                    <td>四川 绵阳 涪城区 青义镇</td>
+                                </tr>
+                                <tr ng-repeat="v in shop">
+                                    <td class="t1">{{v.name}}</td>
+                                    <td class="t2">{{v.numbers}}</td>
+                                    <td class="t3">{{v.price}}</td>
+                                    <td>四川 绵阳 涪城区 青义镇</td>
+                                </tr>
+                                <tr ng-repeat="v in shop">
+                                    <td class="t1">{{v.name}}</td>
+                                    <td class="t2">{{v.numbers}}</td>
+                                    <td class="t3">{{v.price}}</td>
                                     <td>四川 绵阳 涪城区 青义镇</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <button class="am-btn am-btn-success">确定</button>
-                  </div>
+                    <button class="am-btn am-btn-success" ng-click="dacount2close()">确定</button>
                 </div>
             </td>
         </tr>
@@ -356,15 +307,7 @@
                 }
             });
         // end   jquery ui 的日历插件
-        $("button.registe").click(function(){
-            $("#doc-modal-empty").modal('close');
-        });
-        $("a.accountclose").click(function(){
-            $("#dialogboxaccount").modal('close');
-        });
-        $("#daccount button").click(function(){
-            $("#dialogboxaccount").modal('close');
-        });
+
     </script>
 </body>
 

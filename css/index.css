@@ -40,61 +40,7 @@ section#three································不
         margin-top: 30px;
         margin-bottom: 20px;
     }
-/*导航更改*/
-    nav{
-        color: #EAE9E9;
-        background: #000;
-    }
-    nav ul{
-        padding: 0px;
-        margin: 0px;
-        width: 80%;
-        margin-left: 10%;
-        position: relative;
-    }
-    nav ul li{
-        display: inline-block;
-        list-style: none;
-        padding: 5px;
-        line-height: 30px;
-    }
-    nav ul li:first-child{
-        font-size: 1.2em;
-        letter-spacing: 2px;
-        font-weight: bold;
-    }
-    nav ul li:nth-child(2){
-        width: 30%;
-        font-size: 1.3em;
-        /*letter-spacing: 2px;*/
-        position: absolute;
-        left: 35%;
-    }
-    nav ul li:nth-child(3){
-        float: right;
-    }
-    nav ul li:nth-child(4){
-        float: right;
-    }
-    nav ul li:nth-child(3) a{
-        font-size: 14px;
-    }
-    header ul{
-        width: 40%;
-        margin: 0px;
-        padding: 0px;
-        height: 50px;
-        text-align: justify;
-    }
-    header ul:after {width: 100%;height: 0;margin: 0;display: inline-block;overflow: hidden;content: '';}
-    header ul li{
-        display: inline-block;
-    }
-     header ul li a{
-        height: 100%;
-        display: inline-block;
-    }
-/*导航更改*/
+
 /*外客购买 start*/
     .one_content{
         width: 98%;
@@ -315,11 +261,14 @@ section#three································不
         width: 90%;
         float: right;
     }
+
+
 /* 空房的模态框  start*/
     #checkin{
         margin-top: 25px;
         border: 2px solid #EAE8E8;
         background: #fff;
+        position: relative;
     }
     #checkin td{
         border: 0px;
@@ -367,13 +316,28 @@ section#three································不
         box-shadow: 1px 1px 10px #C6C6C6;
         padding: 10px;
         padding-top: 0px;
+        width: 950px;
+        height:565px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 1110;
+    }
+    #daccount .dacchd{
+        padding: 10px;
+    }
+    #daccount a{
+        float: right;
+    }
+    #daccount div input{
+        margin-bottom: 10px;
     }
     #daccount td{
         border-left: 1px solid #ddd;
         border-bottom: 1px solid #ddd;
     }
     #daccount div.da_body{
-        max-height:400px;
+        max-height:360px;
         width:100%;
         overflow-y: auto;
         border-bottom: 1px solid #ddd;
@@ -393,6 +357,103 @@ section#three································不
     }
     .book-right{
         display: none;
+    }
+
+    #registe{
+        margin-top: 25px;
+        border: 2px solid #EAE8E8;
+        background: #fff;
+        position: relative;
+    }
+    #registe td{
+        border: 0px;
+        padding: 0.3em;
+    }
+    #registe td[colspan="4"]{
+        font-size: 20px;
+        letter-spacing: 15px;
+    }
+    #registe td[colspan="4"] span{
+        font-size: 14px;
+        float: right;
+        letter-spacing: 0px;
+    }
+    #registe td[colspan="4"] span input{
+        margin:0px 26px 0px 6px ;
+    }
+    #registe .re_main{
+        float: left;
+    }
+    #registe  hr{
+        border-color: #C6C6C6;
+        box-shadow: 0px 0px 1px #C6C6C6;
+        margin: 0px;
+    }
+    #registe td textarea{
+        width: 65%;
+        height: 60px
+    }
+    #registe td[colspan="3"] button{
+        float: right;
+        margin-right: 6%;
+        margin-bottom: 10px;
+    }
+    #registe .c_bottom p{
+        display: inline-block;
+        margin: 0px 0px 0px 20px;
+    }
+    #registe td.charge{
+        float: right;
+        margin-right: -47%;
+        width: 120%;
+    }
+    #registe div.am-form-group{
+        margin-top: -10px;
+    }
+    #daccount2{
+        border: 1px solid #C6C6C6;
+        background: #fff;
+        box-shadow: 1px 1px 10px #C6C6C6;
+        padding: 10px;
+        padding-top: 0px;
+        width: 950px;
+        height:565px;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        z-index: 1110;
+    }
+    #daccount2 .dacchd{
+        padding: 10px;
+    }
+    #daccount2 a{
+        float: right;
+    }
+    #daccount2 div input{
+        margin-bottom: 10px;
+    }
+    #daccount2 td{
+        border-left: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+    }
+    #daccount2 div.da_body{
+        max-height:360px;
+        width:100%;
+        overflow-y: auto;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 20px;
+    }
+    #daccount2 table{
+        margin-bottom: 0px;
+    }
+    #daccount2 .t1{
+        width: 100px;
+    }
+    #daccount2 .t2{
+        width: 200px;
+    }
+    #daccount2 .t3{
+        width: 150px;
     }
 /*end 空房的模态框  */
 /*已入住的模态框   start*/
@@ -515,7 +576,6 @@ section#three································不
     }
 /*end 已入住的模态框  */
 /*已预订的模态框  start*/
-/*已预订的模态框  start*/
     #booked{
         margin-top: 25px;
         border: 2px solid #EAE8E8;
@@ -561,7 +621,7 @@ section#three································不
         border-color: #C6C6C6;
         box-shadow: 0px 0px 1px #C6C6C6;
     }
-    #daccount2{
+    /*#daccount2{
         border: 1px solid #C6C6C6;
         background: #fff;
         box-shadow: 1px 1px 10px #C6C6C6;
@@ -593,8 +653,11 @@ section#three································不
     }
     .booked-right{
         display: none;
-    }
+    }*/
 /*end  已预订的模态框*/
+
+
+
 /*end 房态显示*/
 /*房态的右边栏    start */
     #bar select option{

@@ -807,7 +807,7 @@
                           </div>
                       </div>
                   </div>
-              </div>   <!-- 已入住房间的模态窗口-->
+              </div><!-- 已入住房间的模态窗口-->
               <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-empty">
                   <div class="am-modal-dialog  modal_location">
                       <div class="am-modal-hd">
@@ -820,7 +820,7 @@
                               <a class="am-btn am-btn-secondary refresh" href="index.html">返回主页</a>
                           </section>
                           <section id="book-right" class="tm_right" >
-                          <table class="am-table am-table-bordered" id="checkin" >
+                          <table class="am-table am-table-bordered" id="checkin" ng-controller="Ctrl2">
                               <tr><td colspan="4">预订单</td></tr>
                               <tr>
                                   <td colspan="3"><hr></td>
@@ -850,13 +850,12 @@
                                   <td>
                                       <label>客源帐号：</label>
                                       <input type="text" name="text">
-                                      <button data-am-modal="{target: '#dialogboxaccount',    closeViaDimmer: 0, width:900, height:600}">...</button>
-                                      <div class="am-modal am-modal-prompt" tabindex="-1" id="dialogboxaccount" >
-                                        <div class="am-modal-dialog" id="daccount">
-                                          <div class="am-modal-hd">客源账号
-                                              <a href="javascript: void(0)" class="am-close accountclose">&times;</a>
+                                      <button ng-click="dacount3click()">...</button>
+                                      <div id="daccount" ng-if="dacount3display=='block'">
+                                          <div class="dacchd"><b>客源账号</b>
+                                              <a class="am-close" ng-click="dacount3close()">&times;</a>
                                           </div>
-                                          <div  class="am-modal-hd">
+                                          <div>
                                               <input type="" name="" placeholder="请输入查询信息">
                                           </div>
                                           <table class="am-table am-table-bordered">
@@ -872,17 +871,28 @@
                                           <div class="da_body">
                                               <table class="am-table am-table-bordered  am-table-hover" >
                                                   <tbody >
-                                                      <tr>
-                                                          <td class="t1">小王</td>
-                                                          <td class="t2">九次方科技有限公司</td>
-                                                          <td class="t3">18683660949</td>
+                                                      <tr ng-repeat="v in shop">
+                                                          <td class="t1">{{v.name}}</td>
+                                                          <td class="t2">{{v.numbers}}</td>
+                                                          <td class="t3">{{v.price}}</td>
+                                                          <td>四川 绵阳 涪城区 青义镇</td>
+                                                      </tr>
+                                                      <tr ng-repeat="v in shop">
+                                                          <td class="t1">{{v.name}}</td>
+                                                          <td class="t2">{{v.numbers}}</td>
+                                                          <td class="t3">{{v.price}}</td>
+                                                          <td>四川 绵阳 涪城区 青义镇</td>
+                                                      </tr>
+                                                      <tr ng-repeat="v in shop">
+                                                          <td class="t1">{{v.name}}</td>
+                                                          <td class="t2">{{v.numbers}}</td>
+                                                          <td class="t3">{{v.price}}</td>
                                                           <td>四川 绵阳 涪城区 青义镇</td>
                                                       </tr>
                                                   </tbody>
                                               </table>
                                           </div>
-                                          <button class="am-btn am-btn-success">确定</button>
-                                        </div>
+                                          <button class="am-btn am-btn-success" ng-click="dacount3close()">确定</button>
                                       </div>
                                   </td>
                               </tr>
@@ -983,7 +993,7 @@
                           </section>
                       </div>
                   </div>
-              </div>   <!-- 空房的模态窗口-->
+              </div><!-- 空房的模态窗口-->
           </div>
           <!-- ···············右侧边栏··························· -->
           <div id="bar">
@@ -1716,6 +1726,32 @@
         });
       // end  点击(页面渲染完执行)
     }]);
+    app.controller('Ctrl2', ["$scope","$http",function($scope,$http) {
+        $scope.dacountclick=function(){
+          $scope.dacountdisplay='block';
+        };
+        $scope.dacountclose=function(){
+          $scope.dacountdisplay='none';
+        };
+
+
+        $scope.dacount2click=function(){
+          $scope.dacount2display='block';
+        };
+        $scope.dacount2close=function(){
+          $scope.dacount2display='none';
+        };
+
+        $scope.dacount3click=function(){
+          $scope.dacount3display='block';
+        };
+        $scope.dacount3close=function(){
+          $scope.dacount3display='none';
+        };
+
+
+    }]);
+
 </script>
 </body>
 </html>
