@@ -59,6 +59,10 @@
     .turnRed{
         border: 1px solid red;
     }
+    .turnRed_1{
+        color: red;
+        background-color: pink;
+    }
     .sousuo{
         float: right;
         margin-bottom: 10px;
@@ -227,7 +231,7 @@
     <div id="rightone">
         <div class="sousuo">
             <input class="am-primary sou_name" type="text" name="look">
-            <select>
+            <!-- <select>
                 <option selected value="">请选择</option>
                 <option value="一级分类">一级分类</option>
                 <option value="二级分类">二级分类</option>
@@ -236,7 +240,7 @@
                 <option selected value="">请选择</option>
                 <option value="上架">上架</option>
                 <option value="下架">下架</option>
-            </select>
+            </select> -->
             <button id="look_for" class="am-btn am-btn-primary am-btn-xs">搜索</button>
         </div>
         <table class="am-table am-table-bordered am-table-hover ">
@@ -381,16 +385,16 @@
           $( "#datepicker_0" ).datepicker();
         });
         //搜索框设置
-        $(".sousuo").delegate("#look_for","click",function(){
-            var s_Name=$(".sou_name").val();  
-            var t_Name=$("#stock_tab tr td").eq(1).html();
-            alert(s_Name);
-            alert(t_Name);
-            if (s_Name==t_Name) {
-                alert("相等");
-            }
-            else{
-                alert("不相等");
+        $("#look_for").click(function(){
+            var s_Name=$(".sou_name").val();
+            var s_All_Tr_Td =$("#stock_tab tr td");
+            for (var i = 1; i < s_All_Tr_Td.length; i=i+10) {
+                if (s_Name==s_All_Tr_Td.eq(i).html()) {
+                    s_All_Tr_Td.eq(i).parents("tr").addClass("turnRed_1");
+                }
+                else{
+                  s_All_Tr_Td.eq(i).parents("tr").removeClass("turnRed_1");
+                }
             }
         })
     });
