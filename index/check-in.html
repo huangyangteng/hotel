@@ -42,7 +42,7 @@
                 <label>客源帐号：</label>
                 <input type="text" name="text">
                 <button ng-click="dacountclick()">...</button>
-                <div id="daccount" ng-if="dacountdisplay=='block'">
+                <div id="daccount" class="daccountone" ng-if="dacountdisplay=='block'">
                     <div class="dacchd"><b>客源账号</b>
                         <a class="am-close" ng-click="dacountclose()">&times;</a>
                     </div>
@@ -50,7 +50,7 @@
                         <input type="" name="" placeholder="请输入查询信息">
                     </div>
                     <table class="am-table am-table-bordered">
-                        <thead >
+                        <thead>
                             <tr class="am-primary">
                                 <td class="t1">姓名</td>
                                 <td class="t2">单位</td>

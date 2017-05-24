@@ -319,9 +319,14 @@ section#three································不
         width: 950px;
         height:565px;
         position: absolute;
-        top: 10px;
         right: 10px;
         z-index: 1110;
+    }
+    .daccountone{
+        top: 10px;
+    }
+    .daccounttwo{
+        bottom: 10px;
     }
     #daccount .dacchd{
         padding: 10px;
@@ -409,51 +414,6 @@ section#three································不
     }
     #registe div.am-form-group{
         margin-top: -10px;
-    }
-    #daccount2{
-        border: 1px solid #C6C6C6;
-        background: #fff;
-        box-shadow: 1px 1px 10px #C6C6C6;
-        padding: 10px;
-        padding-top: 0px;
-        width: 950px;
-        height:565px;
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
-        z-index: 1110;
-    }
-    #daccount2 .dacchd{
-        padding: 10px;
-    }
-    #daccount2 a{
-        float: right;
-    }
-    #daccount2 div input{
-        margin-bottom: 10px;
-    }
-    #daccount2 td{
-        border-left: 1px solid #ddd;
-        border-bottom: 1px solid #ddd;
-    }
-    #daccount2 div.da_body{
-        max-height:360px;
-        width:100%;
-        overflow-y: auto;
-        border-bottom: 1px solid #ddd;
-        margin-bottom: 20px;
-    }
-    #daccount2 table{
-        margin-bottom: 0px;
-    }
-    #daccount2 .t1{
-        width: 100px;
-    }
-    #daccount2 .t2{
-        width: 200px;
-    }
-    #daccount2 .t3{
-        width: 150px;
     }
 /*end 空房的模态框  */
 /*已入住的模态框   start*/
@@ -730,6 +690,15 @@ section#three································不
         list-style: none;
         border-bottom: 1px solid #E0E0E0;
         font-size: 12px;
+    }
+    #msg ul li i:hover{
+        color: #0e90d2;
+    }
+    #msg ul li input.msgin{
+        display: none;
+    }
+    #msg ul li input.msgon{
+        display: block;
     }
     #msg ul li a{
         margin-bottom: 10px;

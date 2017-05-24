@@ -124,7 +124,7 @@
     </style>
 </head>
 <body>
-    <div id="check-out" >
+    <div id="check-out" ng-controller="Ctrl3">
         <div id="co_head">
             <table class="am-table am-table-bordered ">
                 <tr>
@@ -152,19 +152,19 @@
                     <td>
                         <label>折扣率：</label>
                         <input type="" name="">
-                        <button>全部退房</button>
+                        <button ng-click="checkoutall()">全部退房</button>
                     </td>
                 </tr>
             </table>
         </div>
         <div id="co_infor">
             <hr>
-            <p><span>宾客帐号</span><button ng-click="checkOut()"> 退房</button></p>
+            <p><span>宾客帐号</span><button ng-click="checkOut()">退房</button></p>
             <table class="am-table am-table-bordered">
                 <thead>
                         <tr class="am-primary" >
                             <td>
-                                <input type="checkbox" ng-model="all" ng-disabled="mySwitch">
+                                <input type="checkbox" ng-model="all" ng-checked="allone" ng-disabled="allcheckout=='全退'" ng-click='allcheck()'>
                                 <span ng-bind="all?'取消':'全选'"></span>
                             </td>
                             <td>帐号</td>
@@ -180,8 +180,8 @@
             <div>
                 <table class="am-table am-table-bordered am-table-hover">
                     <tbody>
-                        <tr ng-repeat="v in data">
-                            <td><input type="checkbox" name="" ng-checked="all">{{v.state}}</td>
+                        <tr ng-repeat="v in checkoutdata">
+                            <td><input type="checkbox" name="" ng-checked="all" ng-disabled="v.state=='离店'" ng-click='checkout($index)'><span>{{v.state}}</span></td>
                             <td>{{v.number}}</td>
                             <td>{{v.price}}</td>
                             <td>{{v.person}}</td>
@@ -429,11 +429,7 @@
         $("#dacheckout button").click(function(){
             $("#dialogboxcheck-out").modal('close')
         });
-        app.controller('Ctrl', ["$scope","$http",function($scope,$http) {
-            $scope.checkOut=function(){
-                console.log(1)
-            };
-        }])
+
 
     </script>
 </body>

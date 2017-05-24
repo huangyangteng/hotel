@@ -496,9 +496,9 @@
                               <a class="am-btn am-btn-secondary refresh" href="index.html">返回主页</a>
                           </section>
                           <div id="checked-right" class="tm_right">
-                          <div id="check-out">
+                          <div id="check-out" ng-controller="Ctrl3">
                               <div id="co_head">
-                                  <table class="am-table am-table-bordered ">
+                                  <table class="am-table am-table-bordered">
                                       <tr>
                                           <td  colspan="4">结账</td>
                                       </tr>
@@ -524,20 +524,20 @@
                                           <td>
                                               <label>折扣率：</label>
                                               <input type="" name="">
-                                              <button>全部退房</button>
+                                              <button ng-click="checkoutall()">全部退房</button>
                                           </td>
                                       </tr>
                                   </table>
                               </div>
                               <div id="co_infor">
                                   <hr>
-                                  <p><span>宾客帐号</span><button>退房</button></p>
+                                  <p><span>宾客帐号</span><button ng-click="checkOut()">退房</button></p>
                                   <table class="am-table am-table-bordered">
                                       <thead>
                                               <tr class="am-primary" >
                                                   <td>
-                                                    <input type="checkbox" ng-model="all">
-                                                    <span ng-bind="all?'取消':'全选'"></span>
+                                                      <input type="checkbox" ng-model="all" ng-checked="allone" ng-disabled="allcheckout=='全退'" ng-click='allcheck()'>
+                                                      <span ng-bind="all?'取消':'全选'"></span>
                                                   </td>
                                                   <td>帐号</td>
                                                   <td>房号</td>
@@ -553,7 +553,7 @@
                                       <table class="am-table am-table-bordered am-table-hover">
                                           <tbody>
                                               <tr ng-repeat="v in data">
-                                                  <td><input type="checkbox" name="" ng-checked="all">{{v.name}}</td>
+                                                  <td><input type="checkbox" name="" ng-checked="all" ng-disabled="v.state=='离店'" ng-click='checkout($index)'><span>{{v.state}}</span></td>
                                                   <td>{{v.number}}</td>
                                                   <td>{{v.price}}</td>
                                                   <td>{{v.person}}</td>
@@ -1016,7 +1016,7 @@
               <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-5">
                   <div class="am-modal-dialog modal_location">
                       <div class="am-modal-hd">房价调整
-                          <a href="javascript: void(0)" class="am-close am-close-spin refresh">&times;</a>
+                          <a href="javascript: void(0)" class="am-close refresh">&times;</a>
                       </div>
                       <div class="am-modal-bd">
                           <div class="amb_big">
@@ -1043,7 +1043,7 @@
                                       <select ng-init="exMethod=exmethods[0]" ng-model="exMethod" ng-options="v for v in exmethods"  ng-click="exmethod($event)">
                                       </select>
                                   </td>
-                                  <td class="t4"><input type="" name="" class="initial" placeholder="请输入调整比例" ng-click="newprice($event)" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"></td>
+                                  <td class="t4"><input type="" name="" class="initial" placeholder="请输入调整比例" ng-click="newprice($event)" onkeyup="value=value.replace(/[^\-?\d.]/g,'')"></td>
                                   <td id="bt_time"><input type="text"  placeholder="请选择开始日期" required readonly> ---- <input type="text" placeholder="请选择结束日期" required readonly></td>
                               </tr>
                               <tr class="oct_last">
@@ -1076,11 +1076,12 @@
                 <ul>
                   <li>
                     <a href="#">17点之前需要一个吹风，请速速送到，谢谢！</a>
-                    <p><span>2017/5/5</span><span><i class="am-icon-commenting"></i></span> </p>
+                    <input type="" name="" class="msgin" value="1">
+                    <p><span>2017/5/5</span><span ng-click='msgi($event)'><i class="am-icon-commenting"></i></span></p>
                   </li>
                   <li>
                     <a href="#">需要一个吹风</a>
-                    <p>房号：<span>101</span><span>2017/5/5</span></p>
+                    <p><span>2017/5/5</span><span><i class="am-icon-commenting"></i></span> </p>
                   </li>
                 </ul>
                 <span class="last"><a>更多 &raquo;</a></span>
@@ -1309,10 +1310,10 @@
       </footer>
 <script>
   //输入框初始化   start
-  $('.inits').click(function(){
+    $('.inits').click(function(){
     $('.initial').val('');
     $('#empty_states #main ul li div.initial2').addClass('hide');
-  });
+    });
   //end   输入框初始化
   // 获取本地时间  start
     function current(){
@@ -1601,8 +1602,6 @@
             $("#booked-right").addClass('booked-right');
         };//关闭模内容态框里的右边
 
-
-
       // end   房态图的点击
       // 选择房型 楼层  房态      start
           $scope.$watch("roomFloor", function(n){
@@ -1666,6 +1665,16 @@
             });
         };//控制房价调整的时间输入
       // end   房价调整
+      // msg   start
+        $scope.msgi=function($event){
+            $($event.target).parent().prev().addClass('msgon');
+            // alert($($event.target).parent().prev().val());
+        }
+
+      // end    msg
+
+
+
       // 房态图下边栏计算剩余房间 start
         var count1=0;var count2=0;var count3=0;var count4=0;
         var count5=0;var count6=0;var count7=0;
@@ -1700,7 +1709,6 @@
         $scope.roomdatas[6].residue=count6;
         $scope.roomdatas[7].residue=count7;
       // end 房态图下边栏计算剩余房间
-      //  下边栏房态的点击   start
       // 交班 start
         $scope.shift=function(){
             if ($('.d_username').val()=='') {
@@ -1722,7 +1730,6 @@
       // end 房态图的高度
       // 点击(页面渲染完执行) start
         $scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {
-
         });
       // end  点击(页面渲染完执行)
     }]);
@@ -1748,10 +1755,125 @@
         $scope.dacount3close=function(){
           $scope.dacount3display='none';
         };
-
-
     }]);
-
+    app.controller('Ctrl3', ["$scope","$http",function($scope,$http) {
+        $scope.checkoutdata=[
+         {'id':1,'name':'普通','number':101,'price':120,'person':'','state':'空房','color':'#2993cc'},
+         {'id':1,'name':'商务','number':102,'price':168,'person':'张三','state':'在住','color':'#d32945'},
+         {'id':1,'name':'贵宾','number':103,'price':228,'person':'','state':'待查','color':'#070f7a'},
+         {'id':1,'name':'标间','number':104,'price': 90,'person':'','state':'自用','color':'#29e17f'},
+         {'id':1,'name':'普通','number':105,'price':120,'person':'','state':'修理','color':'#a49fb1'},
+         {'id':1,'name':'普通','number':106,'price':120,'person':'','state':'脏房','color':'#24282a'},
+         {'id':1,'name':'商务','number':107,'price':168,'person':'','state':'待查','color':'#070f7a'},
+         {'id':1,'name':'贵宾','number':108,'price':228,'person':'张三','state':'预订','color':'#c9d329'},
+         {'id':1,'name':'标间','number':109,'price': 90,'person':'','state':'空房','color':'#2993cc'},
+         {'id':1,'name':'普通','number':110,'price':120,'person':'','state':'空房','color':'#2993cc'},
+         {'id':1,'name':'商务','number':111,'price':168,'person':'','state':'待查','color':'#070f7a'},
+         {'id':1,'name':'贵宾','number':112,'price':228,'person':'','state':'空房','color':'#2993cc'},
+         {'id':1,'name':'标间','number':113,'price': 90,'person':'','state':'空房','color':'#2993cc'},
+         {'id':2,'name':'普通','number':201,'price':120,'person':'','state':'空房','color':'#2993cc'},
+         {'id':2,'name':'商务','number':202,'price':168,'person':'张三','state':'在住','color':'#d32945'},
+         {'id':2,'name':'贵宾','number':203,'price':228,'person':'','state':'待查','color':'#070f7a'},
+         {'id':2,'name':'标间','number':204,'price': 90,'person':'','state':'自用','color':'#29e17f'},
+         {'id':2,'name':'普通','number':205,'price':120,'person':'','state':'修理','color':'#a49fb1'},
+         {'id':2,'name':'普通','number':206,'price':120,'person':'','state':'脏房','color':'#24282a'},
+         {'id':2,'name':'商务','number':207,'price':168,'person':'','state':'待查','color':'#070f7a'},
+         {'id':2,'name':'贵宾','number':208,'price':228,'person':'张三','state':'预订','color':'#c9d329'},
+         {'id':2,'name':'标间','number':209,'price': 90,'person':'','state':'空房','color':'#2993cc'},
+         {'id':3,'name':'普通','number':305,'price':120,'person':'','state':'修理','color':'#a49fb1'},
+         {'id':3,'name':'普通','number':306,'price':120,'person':'','state':'脏房','color':'#24282a'},
+         {'id':3,'name':'商务','number':307,'price':168,'person':'','state':'待查','color':'#070f7a'},
+         {'id':3,'name':'贵宾','number':308,'price':228,'person':'张三','state':'预订','color':'#c9d329'},
+         {'id':3,'name':'标间','number':309,'price': 90,'person':'','state':'空房','color':'#2993cc'},
+         {'id':3,'name':'普通','number':310,'price':120,'person':'','state':'空房','color':'#2993cc'},
+         {'id':3,'name':'商务','number':311,'price':168,'person':'','state':'待查','color':'#070f7a'},
+         {'id':3,'name':'贵宾','number':312,'price':228,'person':'','state':'空房','color':'#2993cc'},
+         {'id':3,'name':'标间','number':313,'price': 90,'person':'','state':'空房','color':'#2993cc'},
+         {'id':1,'name':'商务','number':102,'price':168,'person':'张三','state':'在住','color':'#d32945'},
+         {'id':1,'name':'商务','number':102,'price':168,'person':'张三','state':'在住','color':'#d32945'},
+         {'id':1,'name':'商务','number':102,'price':168,'person':'张三','state':'在住','color':'#d32945'},
+         {'id':1,'name':'商务','number':102,'price':168,'person':'张三','state':'在住','color':'#d32945'},
+        ];
+        $scope.checkoutall=function(){
+            $scope.checkoutnumber=0;
+            for (var i = 0; i < $scope.checkoutdata.length; i++) {
+                if ($scope.checkoutdata[i].state=="离店") {
+                  $scope.checkoutnumber++;
+                };
+            };
+            if ($scope.checkoutnumber>=$scope.checkoutdata.length) {
+              alert('您已全部退房!');
+            }
+            else{
+              if (confirm('确定全部退房吗!')) {
+                for (var i = 0; i < $scope.checkoutdata.length; i++) {
+                  $scope.checkoutdata[i].state="离店";
+                }
+                $scope.allcheckout="全退";
+              }
+            };
+        };//全部退房
+        $scope.allcheck=function(){
+          for (var i = 0; i < $scope.checkoutdata.length; i++) {
+              if ($scope.checkoutdata[i].state!=='离店') {
+                  if ($scope.checkoutdata[i].color=="true") {
+                    $scope.checkoutdata[i].color="false";
+                  }
+                  else if($scope.all==false && $scope.checkoutdata[i].color=="false"){
+                    $scope.checkoutdata[i].color="false";
+                  }
+                  else
+                  {
+                    $scope.checkoutdata[i].color="true";
+                  };
+                  if ($scope.checkoutdata[i].id=="true") {
+                    $scope.checkoutdata[i].color="true";
+                    $scope.checkoutdata[i].id="false";
+                  };
+              };
+          }
+        };//点击全选按钮
+        $scope.checkout=function(index){
+            if ($scope.checkoutdata[index].color=="true") {
+              $scope.checkoutdata[index].color="false";
+            }
+            else
+            {
+              $scope.checkoutdata[index].color="true";
+              $scope.checkoutdata[index].id="true";
+            };
+        };//点击单选按钮
+        $scope.checkOut=function(){
+            $scope.all=false;
+            $scope.checknumber=0;
+            for (var i = 0; i < $scope.checkoutdata.length; i++) {
+                $scope.checkoutdata[i].id="false";
+                if ($scope.checkoutdata[i].color=="true") {
+                  $scope.checknumber++;
+                };
+                if ($scope.checkoutdata[i].color=="true") {
+                  $scope.checkoutdata[i].state="离店";
+                  $scope.checkoutdata[i].color="false";
+                };
+            };
+            if ($scope.checknumber>0) {
+                alert('退房成功!');
+            }
+            else{
+                alert('请选择退房房间');
+            };
+            $scope.checkoutnumber=0;
+            for (var i = 0; i < $scope.checkoutdata.length; i++) {
+                if ($scope.checkoutdata[i].state=="离店") {
+                  $scope.checkoutnumber++;
+                };
+            };
+            if ($scope.checkoutnumber>=$scope.checkoutdata.length) {
+              $scope.allcheckout="全退";
+              alert('您已全部退房!');
+            }
+        };//退房
+    }]);
 </script>
 </body>
 </html>
