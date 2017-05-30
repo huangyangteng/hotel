@@ -1,16 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>入住</title>
-    <style type="text/css">
 
-    </style>
-</head>
-<body>
     <table id="registe" class="am-table am-table-bordered" ng-controller="Ctrl2">
         <tr>
             <td colspan="4">宾客登记表<span>长包 <input type="checkbox" name=""></span></td>
@@ -111,7 +99,7 @@
         <tr>
             <td>
                 <label >到店日期：</label>
-                <input class="datepicker1" type="text" readonly required>
+                <input class="datepicker3" type="text" readonly required>
             </td>
             <td>
                 <label>住店天数：</label>
@@ -119,7 +107,7 @@
             </td>
             <td>
                 <label >离店日期：</label>
-                <input class="datepicker2" type="text" readonly required>
+                <input class="datepicker4" type="text" readonly required>
             </td>
         </tr>
         <tr>
@@ -286,28 +274,21 @@
     </table>
     <script>
         // jquery ui 的日历插件 start
-        $('.datepicker1').datepicker({
-            minDate: 0,
-            onClose: function( selectedDate ) {
-               $('.datepicker2').datepicker( "option", "minDate", selectedDate );
-            }
-        });
-
-        $("input.renumber").change(function(){
-            var re_number1=$('.datepicker1').val();
-            var re_number2=$("input.renumber").val();
-            console.log(re_number1);
-            console.log(re_number2);
-
-        });
-        $('.datepicker2').datepicker({
+          $(document).ready(function(){
+            $('.datepicker3').datepicker({
                 minDate: 0,
                 onClose: function( selectedDate ) {
-                   $('.datepicker1').datepicker( "option", "maxDate", selectedDate );
+                   $('.datepicker4').datepicker( "option", "minDate", selectedDate );
                 }
             });
+            $('.datepicker4').datepicker({
+                minDate: 0,
+                onClose: function( selectedDate ) {
+                   $('.datepicker3').datepicker( "option", "maxDate", selectedDate );
+                }
+            });
+          });
         // end   jquery ui 的日历插件
-
     </script>
-</body>
+
 

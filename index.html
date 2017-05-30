@@ -307,167 +307,9 @@
                               <button class="am-btn am-btn-secondary" id="booked-three"> 取消预订</button>
                               <a class="am-btn am-btn-secondary refresh" href="index.html">返回主页</a>
                           </section>
-                          <div id="booked-right" class="tm_right" >
-                          <table class="am-table am-table-bordered" id="booked" >
-                              <tr><td colspan="4">预订单</td></tr>
-                              <tr>
-                                  <td colspan="3"><hr></td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      <label>房型：</label>
-                                      <input type="text" value="普通房" name="" disabled>
-                                  <td>
-                                      <label>房号：</label>
-                                      <input type="text" name="text" value="101" disabled>
-                                  </td>
-                                  <td>
-                                      <label>房价：</label>
-                                      <input type="text" name="text" value="168">元
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      <label>预订人：</label>
-                                      <input type="text" name="text">
-                                  </td>
-                                  <td>
-                                      <label>电话：</label>
-                                      <input type="num" name="">
-                                  </td>
-                                  <td>
-                                      <label>客源帐号：</label>
-                                      <input type="text" name="text">
-                                      <button data-am-modal="{target: '#dialogboxaccount2',    closeViaDimmer: 0, width:900, height:600}">...</button>
-                                      <div class="am-modal am-modal-prompt" tabindex="-1" id="dialogboxaccount2" >
-                                        <div class="am-modal-dialog" id="daccount2">
-                                          <div class="am-modal-hd">客源账号
-                                              <a href="javascript: void(0)" class="am-close accountclose2">&times;</a>
-                                          </div>
-                                          <div  class="am-modal-hd">
-                                              <input type="" name="" placeholder="请输入查询信息">
-                                          </div>
-                                          <table class="am-table am-table-bordered">
-                                              <thead >
-                                                  <tr class="am-primary">
-                                                      <td class="t1">姓名</td>
-                                                      <td class="t2">单位</td>
-                                                      <td class="t3">联系方式</td>
-                                                      <td>地址</td>
-                                                  </tr>
-                                              </thead>
-                                          </table>
-                                          <div class="da_body">
-                                              <table class="am-table am-table-bordered  am-table-hover" >
-                                                  <tbody >
-                                                      <tr>
-                                                          <td class="t1">小王</td>
-                                                          <td class="t2">九次方科技有限公司</td>
-                                                          <td class="t3">18683660949</td>
-                                                          <td>四川 绵阳 涪城区 青义镇</td>
-                                                      </tr>
-                                                  </tbody>
-                                              </table>
-                                          </div>
-                                          <button class="am-btn am-btn-success">确定</button>
-                                        </div>
-                                      </div>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td><label >到店日期：</label>
-                                      <input class="datepicker1" type="text" readonly required>
-                                  </td>
-                                  <td><label >离店日期：</label>
-                                      <input class="datepicker2" type="text" readonly required>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td colspan="3">
-                                      <label>地址：</label>
-                                      <input type="text" name="">
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td colspan="3">
-                                      <label>公司：</label>
-                                      <input type="text" name="">
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      <label>备注：</label>
-                                      <textarea></textarea>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td colspan="3"  class="c_hr"><hr></td>
-                              </tr>
-                              <tr>
-                                  <td class="c_bottom">
-                                      <p>预订日期：<span>2017.04.10</span></p>
-                                      <p>工号：<span>003</span></p>
-                                      <p>营销员：<span>小张</span></p>
-                                  </td>
-                                  <td class="charge">
-                                      订金：
-                                      <input type="text" name="text">元
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td></td>
-                                  <td colspan="2">
-                                      <div class="am-form-group">
-                                          <span>支付方式：</span>
-                                          <label class="am-radio-inline">
-                                              <input type="radio"  value="" name="docInlineRadio" checked> 现金
-                                          </label>
-                                          <label class="am-radio-inline">
-                                              <input type="radio" name="docInlineRadio"> 刷卡
-                                          </label>
-                                          <label class="am-radio-inline">
-                                              <input type="radio" name="docInlineRadio"> 支付宝
-                                          </label>
-                                          <label class="am-radio-inline">
-                                              <input type="radio" name="docInlineRadio"> 微信
-                                          </label>
-                                          <label class="am-radio-inline">
-                                              <input type="radio" name="docInlineRadio">挂账
-                                          </label>
-                                      </div>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td colspan="3">
-                                      <button class="am-btn am-btn-secondary booked">修改</button>
-                                  </td>
-                              </tr>
-                          </table>
-                          <script>
-                              // jquery ui 的日历插件 start
-                                  $('.datepicker1').datepicker({
-                                      minDate: 0,
-                                      onClose: function( selectedDate ) {
-                                         $('.datepicker2').datepicker( "option", "minDate", selectedDate );
-                                      }
-                                  });
-                                  $('.datepicker2').datepicker({
-                                      minDate: 0,
-                                      onClose: function( selectedDate ) {
-                                         $('.datepicker1').datepicker( "option", "maxDate", selectedDate );
-                                      }
-                                  });
-                              // end   jquery ui 的日历插件
-                              $("button.booked").click(function(){
-                                  $("#doc-modal-empty").modal('close');
-                              });
-                              $("a.accountclose2").click(function(){
-                                  $("#dialogboxaccount2").modal('close');
-                              });
-                              $("#daccount2 button").click(function(){
-                                  $("#dialogboxaccount2").modal('close');
-                              });
-                          </script>
+                          <div class="tm_right" >
+                            <div booked-check ng-hide="bookCheckdisplay=='none'"></div>
+                            <div ui-view ng-show="bookCheckdisplay=='none'"></div>
                           </div>
                           <div class="tm_right" ui-view>
                           </div>
@@ -495,321 +337,15 @@
                               <button class="am-btn am-btn-secondary" ui-sref="continue" ng-click="bookLeft()">点击续住</button>
                               <a class="am-btn am-btn-secondary refresh" href="index.html">返回主页</a>
                           </section>
-                          <div id="checked-right" class="tm_right">
-                          <div id="check-out" ng-controller="Ctrl3">
-                              <div id="co_head">
-                                  <table class="am-table am-table-bordered">
-                                      <tr>
-                                          <td  colspan="4">结账</td>
-                                      </tr>
-                                      <tr>
-                                          <td>
-                                              <label>帐号：</label>
-                                              <input type="" name="">
-                                          </td>
-                                          <td>
-                                              <label>姓名：</label>
-                                              <input type="" name="">
-                                          </td>
-                                          <td>
-                                              <label>宾客数：</label>
-                                              <input type="" name="">
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                          <td>
-                                              <label>总房价：</label>
-                                              <input type="" name="">
-                                          </td>
-                                          <td>
-                                              <label>折扣率：</label>
-                                              <input type="" name="">
-                                              <button ng-click="checkoutall()">全部退房</button>
-                                          </td>
-                                      </tr>
-                                  </table>
-                              </div>
-                              <div id="co_infor">
-                                  <hr>
-                                  <p><span>宾客帐号</span><button ng-click="checkOut()">退房</button></p>
-                                  <table class="am-table am-table-bordered">
-                                      <thead>
-                                              <tr class="am-primary" >
-                                                  <td>
-                                                      <input type="checkbox" ng-model="all" ng-checked="allone" ng-disabled="allcheckout=='全退'" ng-click='allcheck()'>
-                                                      <span ng-bind="all?'取消':'全选'"></span>
-                                                  </td>
-                                                  <td>帐号</td>
-                                                  <td>房号</td>
-                                                  <td>房型</td>
-                                                  <td>姓名</td>
-                                                  <td>房价</td>
-                                                  <td>天数</td>
-                                                  <td>到店日期</td>
-                                              </tr>
-                                          </thead>
-                                  </table>
-                                  <div>
-                                      <table class="am-table am-table-bordered am-table-hover">
-                                          <tbody>
-                                              <tr ng-repeat="v in data">
-                                                  <td><input type="checkbox" name="" ng-checked="all" ng-disabled="v.state=='离店'" ng-click='checkout($index)'><span>{{v.state}}</span></td>
-                                                  <td>{{v.number}}</td>
-                                                  <td>{{v.price}}</td>
-                                                  <td>{{v.person}}</td>
-                                                  <td>{{v.state}}</td>
-                                                  <td>{{v.price}}</td>
-                                                  <td>{{v.color}}</td>
-                                                  <td>{{v.id}}</td>
-                                              </tr>
-                                          </tbody>
-                                      </table>
-                                  </div>
-                              </div>
-                              <div id="co_detail">
-                                  <hr>
-                                  <p><span>账务明细</span><button>编辑账单</button><button>打印账单</button><button>费用记账</button></p>
-                                  <table class="am-table am-table-bordered">
-                                      <thead>
-                                          <tr class="am-primary">
-                                                  <td>帐号</td>
-                                                  <td>姓名</td>
-                                                  <td>状态</td>
-                                                  <td>房号</td>
-                                                  <td>时间</td>
-                                                  <td>类型</td>
-                                                  <td>支付方式</td>
-                                                  <td>账项</td>
-                                                  <td>金额</td>
-                                                  <td>工号</td>
-                                                  <td>备注</td>
-                                          </tr>
-                                      </thead>
-                                  </table>
-                                  <div>
-                                      <table class="am-table am-table-bordered am-table-hover">
-                                          <tbody>
-                                              <tr>
-                                                  <td>0032</td>
-                                                  <td>小王</td>
-                                                  <td>在店</td>
-                                                  <td>102</td>
-                                                  <td>2017.4.16</td>
-                                                  <td>预付</td>
-                                                  <td>现金</td>
-                                                  <td>房费</td>
-                                                  <td>168</td>
-                                                  <td>002</td>
-                                                  <td></td>
-                                              </tr>
-                                              <tr>
-                                                  <td>0032</td>
-                                                  <td>小王</td>
-                                                  <td>在店</td>
-                                                  <td>102</td>
-                                                  <td>2017.4.16</td>
-                                                  <td>预付</td>
-                                                  <td>现金</td>
-                                                  <td>房费</td>
-                                                  <td>168</td>
-                                                  <td>002</td>
-                                                  <td></td>
-                                              </tr>
-                                              <tr>
-                                                  <td>0032</td>
-                                                  <td>小王</td>
-                                                  <td>在店</td>
-                                                  <td>102</td>
-                                                  <td>2017.4.16</td>
-                                                  <td>预付</td>
-                                                  <td>现金</td>
-                                                  <td>房费</td>
-                                                  <td>168</td>
-                                                  <td>002</td>
-                                                  <td></td>
-                                              </tr>
-                                              <tr>
-                                                  <td>0032</td>
-                                                  <td>小王</td>
-                                                  <td>在店</td>
-                                                  <td>102</td>
-                                                  <td>2017.4.16</td>
-                                                  <td>预付</td>
-                                                  <td>现金</td>
-                                                  <td>房费</td>
-                                                  <td>168</td>
-                                                  <td>002</td>
-                                                  <td></td>
-                                              </tr>
-                                              <tr>
-                                                  <td>0032</td>
-                                                  <td>小王</td>
-                                                  <td>在店</td>
-                                                  <td>102</td>
-                                                  <td>2017.4.16</td>
-                                                  <td>预付</td>
-                                                  <td>现金</td>
-                                                  <td>房费</td>
-                                                  <td>168</td>
-                                                  <td>002</td>
-                                                  <td></td>
-                                              </tr>
-                                          </tbody>
-                                      </table>
-                                  </div>
-                                  <hr>
-                              </div>
-                              <div id="co_bottom">
-                                  <table class="am-table am-table-bordered ">
-                                      <tr>
-                                          <td>
-                                              <label>费用合计：</label>
-                                              <input type="" name="">元
-                                          </td>
-                                          <td>
-                                              <label>付款合计：</label>
-                                              <input type="" name="">元
-                                          </td>
-                                          <td>
-                                              <label>客帐余额：</label>
-                                              <input type="" name="">元
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                          <td  style="width: 40%">
-                                              <label>应收：</label>
-                                              <input type="" name="">元
-                                          </td>
-                                          <td  style="width: 30%">
-                                              <label>应退：</label>
-                                              <input type="" name="">元
-                                          </td>
-                                          <td style="width: 30%"></td>
-                                      </tr>
-                                      <tr><td colspan="3"><hr></td></tr>
-                                      <tr>
-                                          <td class="cob_bottom">
-                                              <p>日期：<span>2017.04.10</span></p>
-                                              <p>工号：<span>003</span></p>
-                                              <p>营销员：<span>小张</span></p>
-                                          </td>
-                                          <td colspan="2">
-                                              <div class="am-form-group">
-                                                  <span>支付方式：</span>
-                                                  <label class="am-radio-inline">
-                                                      <input type="radio"  value="" name="docInlineRadio"  checked>储值
-                                                  </label>
-                                                  <label class="am-radio-inline">
-                                                      <input type="radio" name="docInlineRadio">挂账
-                                                  </label>
-                                                  <label class="am-radio-inline">
-                                                      <input type="radio"  name="docInlineRadio"> 现金
-                                                  </label>
-                                                  <label class="am-radio-inline">
-                                                      <input type="radio" name="docInlineRadio"> 刷卡
-                                                  </label>
-                                                  <label class="am-radio-inline">
-                                                      <input type="radio" name="docInlineRadio"> 支付宝
-                                                  </label>
-                                                  <label class="am-radio-inline">
-                                                      <input type="radio" name="docInlineRadio"> 微信
-                                                  </label>
-                                              </div>
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                          <td colspan="3">
-                                              <button class="am-btn am-btn-secondary" data-am-modal="{target: '#dialogboxcheck-out',    closeViaDimmer: 0, width:700, height:360}">结账</button>
-                                              <div class="am-modal am-modal-prompt" tabindex="-1" id="dialogboxcheck-out" >
-                                                <div class="am-modal-dialog" id="dacheckout">
-                                                  <div class="am-modal-hd">结账
-                                                      <a href="javascript: void(0)" class="am-close">&times;</a>
-                                                  </div>
-                                                  <div class="am-modal-bd">
-                                                      <table class="am-table am-table-bordered" >
-                                                          <tr>
-                                                              <td colspan="3">
-                                                                  单号：<span>201604282455</span>
-                                                              </td>
-                                                          </tr>
-                                                          <tr>
-                                                              <td colspan="3"><hr></td>
-                                                          </tr>
-                                                          <tr>
-                                                              <td>
-                                                                 帐号：<span>00032</span>
-                                                              </td>
-                                                              <td>
-                                                                 姓名：<span>小王</span>
-                                                              </td>
-                                                              <td>
-                                                                  费用合计：<span>168</span>元
-                                                              </td>
-                                                          </tr>
-                                                          <tr>
-                                                              <td>
-                                                                  付款合计：<span>100</span>元
-                                                              </td>
-                                                              <td>
-                                                                  客帐余额：<span>0</span>元
-
-                                                              </td>
-                                                              <td>
-                                                                  应收：<span>68</span>元
-                                                              </td>
-                                                          </tr>
-                                                          <tr>
-                                                              <td>
-                                                                  应退：<span>0</span>元
-                                                              </td>
-                                                              <td>
-                                                                  实收：
-                                                                  <input type="" name="" value="68">元
-                                                              </td>
-                                                          </tr>
-                                                          <tr>
-                                                              <td colspan="2">
-                                                                  备注：
-                                                                  <textarea></textarea>
-                                                              </td>
-                                                          </tr>
-                                                          <tr><td colspan="3"><hr></td></tr>
-                                                          <tr>
-                                                              <td colspan="2">
-                                                                  <p>预订日期：<span>2017.04.10</span></p>
-                                                                  <p>工号：<span>003</span></p>
-                                                                  <p>营销员：<span>小张</span></p>
-                                                              </td>
-                                                              <td>
-                                                                  支付方式：<span>现金</span>
-                                                              </td>
-                                                          </tr>
-                                                      </table>
-                                                  </div>
-                                                  <button class="am-btn am-btn-success">确定</button>
-                                                </div>
-                                              </div>
-                                          </td>
-                                      </tr>
-                                  </table>
-                              </div>
-                          </div>
-                          <script>
-                              $("#dacheckout a").click(function(){
-                                  $("#dialogboxcheck-out").modal('close')
-                              });
-                              $("#dacheckout button").click(function(){
-                                  $("#dialogboxcheck-out").modal('close')
-                              });
-                          </script>
-                          </div>
-                          <div class="tm_right" ui-view >
+                          <div class="tm_right">
+                            <div registed-check ng-hide="bookCheckdisplay=='none'"></div>
+                            <div ui-view ng-show="bookCheckdisplay=='none'"></div>
                           </div>
                       </div>
                   </div>
               </div><!-- 已入住房间的模态窗口-->
               <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-empty">
-                  <div class="am-modal-dialog  modal_location">
+                  <div class="am-modal-dialog  modal_location ">
                       <div class="am-modal-hd">
                           <a class="am-close refresh" href="index.html" style="color: #000">&times;</a>
                       </div>
@@ -819,178 +355,11 @@
                               <button class="am-btn am-btn-secondary" ui-sref="registe" ng-click="bookLeft()">点击入住</button>
                               <a class="am-btn am-btn-secondary refresh" href="index.html">返回主页</a>
                           </section>
-                          <section id="book-right" class="tm_right" >
-                          <table class="am-table am-table-bordered" id="checkin" ng-controller="Ctrl2">
-                              <tr><td colspan="4">预订单</td></tr>
-                              <tr>
-                                  <td colspan="3"><hr></td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      <label>房型：</label>
-                                      <input type="text" value="普通房" name="" disabled>
-                                  <td>
-                                      <label>房号：</label>
-                                      <input type="text" name="text" value="101" disabled>
-                                  </td>
-                                  <td>
-                                      <label>房价：</label>
-                                      <input type="text" name="text" value="168">元
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      <label>预订人：</label>
-                                      <input type="text" name="text">
-                                  </td>
-                                  <td>
-                                      <label>电话：</label>
-                                      <input type="num" name="">
-                                  </td>
-                                  <td>
-                                      <label>客源帐号：</label>
-                                      <input type="text" name="text">
-                                      <button ng-click="dacount3click()">...</button>
-                                      <div id="daccount" ng-if="dacount3display=='block'">
-                                          <div class="dacchd"><b>客源账号</b>
-                                              <a class="am-close" ng-click="dacount3close()">&times;</a>
-                                          </div>
-                                          <div>
-                                              <input type="" name="" placeholder="请输入查询信息">
-                                          </div>
-                                          <table class="am-table am-table-bordered">
-                                              <thead >
-                                                  <tr class="am-primary">
-                                                      <td class="t1">姓名</td>
-                                                      <td class="t2">单位</td>
-                                                      <td class="t3">联系方式</td>
-                                                      <td>地址</td>
-                                                  </tr>
-                                              </thead>
-                                          </table>
-                                          <div class="da_body">
-                                              <table class="am-table am-table-bordered  am-table-hover" >
-                                                  <tbody >
-                                                      <tr ng-repeat="v in shop">
-                                                          <td class="t1">{{v.name}}</td>
-                                                          <td class="t2">{{v.numbers}}</td>
-                                                          <td class="t3">{{v.price}}</td>
-                                                          <td>四川 绵阳 涪城区 青义镇</td>
-                                                      </tr>
-                                                      <tr ng-repeat="v in shop">
-                                                          <td class="t1">{{v.name}}</td>
-                                                          <td class="t2">{{v.numbers}}</td>
-                                                          <td class="t3">{{v.price}}</td>
-                                                          <td>四川 绵阳 涪城区 青义镇</td>
-                                                      </tr>
-                                                      <tr ng-repeat="v in shop">
-                                                          <td class="t1">{{v.name}}</td>
-                                                          <td class="t2">{{v.numbers}}</td>
-                                                          <td class="t3">{{v.price}}</td>
-                                                          <td>四川 绵阳 涪城区 青义镇</td>
-                                                      </tr>
-                                                  </tbody>
-                                              </table>
-                                          </div>
-                                          <button class="am-btn am-btn-success" ng-click="dacount3close()">确定</button>
-                                      </div>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td><label >到店日期：</label>
-                                      <input class="datepicker3" type="text" readonly required>
-                                  </td>
-                                  <td><label >离店日期：</label>
-                                      <input class="datepicker4" type="text" readonly required>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td colspan="3">
-                                      <label>地址：</label>
-                                      <input type="text" name="">
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td colspan="3">
-                                      <label>公司：</label>
-                                      <input type="text" name="">
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      <label>备注：</label>
-                                      <textarea></textarea>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td colspan="3"  class="c_hr"><hr></td>
-                              </tr>
-                              <tr>
-                                  <td class="c_bottom">
-                                      <p>预订日期：<span>2017.04.10</span></p>
-                                      <p>工号：<span>003</span></p>
-                                      <p>营销员：<span>小张</span></p>
-                                  </td>
-                                  <td class="charge">
-                                      订金：
-                                      <input type="text" name="text">元
-                                  </td>
-                              </tr>
-                                  <td></td>
-                                  <td colspan="2">
-                                      <div class="am-form-group">
-                                          <span>支付方式：</span>
-                                          <label class="am-radio-inline">
-                                              <input type="radio"  value="" name="docInlineRadio" checked> 现金
-                                          </label>
-                                          <label class="am-radio-inline">
-                                              <input type="radio" name="docInlineRadio"> 刷卡
-                                          </label>
-                                          <label class="am-radio-inline">
-                                              <input type="radio" name="docInlineRadio"> 支付宝
-                                          </label>
-                                          <label class="am-radio-inline">
-                                              <input type="radio" name="docInlineRadio"> 微信
-                                          </label>
-                                          <label class="am-radio-inline">
-                                              <input type="radio" name="docInlineRadio">挂账
-                                          </label>
-                                      </div>
-                                  </td>
-                              <tr>
-                                  <td colspan="3">
-                                      <button class="am-btn am-btn-secondary checkin">预定</button>
-                                  </td>
-                              </tr>
-                          </table>
-                          <script>
-                              // jquery ui 的日历插件 start
-                                  $('.datepicker3').datepicker({
-                                      minDate: 0,
-                                      onClose: function( selectedDate ) {
-                                         $('.datepicker4').datepicker( "option", "minDate", selectedDate );
-                                      }
-                                  });
-                                  $('.datepicker4').datepicker({
-                                      minDate: 0,
-                                      onClose: function( selectedDate ) {
-                                         $('.datepicker3').datepicker( "option", "maxDate", selectedDate );
-                                      }
-                                  });
-                              // end   jquery ui 的日历插件
-                                $("button.checkin").click(function(){
-                                    $("#doc-modal-empty").modal('close');
-                                });
-                                $("a.accountclose").click(function(){
-                                    $("#dialogboxaccount").modal('close');
-                                });
-                                $("#daccount button").click(function(){
-                                    $("#dialogboxaccount").modal('close');
-                                });
-                          </script>
+                          <section  class="tm_right" >
+                            <div book-check ng-hide="bookCheckdisplay=='none'"></div>
+                            <div ui-view ng-show="bookCheckdisplay=='none'"></div>
                           </section>
-                          <section class="tm_right" ui-view >
-                          </section>
+
                       </div>
                   </div>
               </div><!-- 空房的模态窗口-->
@@ -1076,7 +445,8 @@
                 <ul>
                   <li>
                     <a href="#">17点之前需要一个吹风，请速速送到，谢谢！</a>
-                    <input type="" name="" class="msgin" value="1">
+                    <div>{{inputval}}</div>
+                    <input type="" name="" class="msgin" value="请问您的房间号？" ng-click='msginput($event)'>
                     <p><span>2017/5/5</span><span ng-click='msgi($event)'><i class="am-icon-commenting"></i></span></p>
                   </li>
                   <li>
@@ -1086,6 +456,7 @@
                 </ul>
                 <span class="last"><a>更多 &raquo;</a></span>
               </div>
+
               <div class="slid">
                 <p>温馨提示</p>
                 <ul class="am-list">
@@ -1427,6 +798,29 @@
           };
       });
     // end 页面渲染完的自定义指令
+    // 自定义指令默认加载 start
+      app.directive('bookCheck',[function(){
+        return{
+          restrict:"A",
+          replace:true,
+          templateUrl:'index/check-in.html',
+        }
+      }]);
+      app.directive('registedCheck',[function(){
+        return{
+          restrict:"A",
+          replace:true,
+          templateUrl:'index/check-out.html',
+        }
+      }]);
+      app.directive('bookedCheck',[function(){
+        return{
+          restrict:"A",
+          replace:true,
+          templateUrl:'index/booked.html',
+        }
+      }]);
+    //end   自定义指令默认加载
     app.config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRouterProvider){
       $stateProvider
           .state('check-out',{
@@ -1597,10 +991,8 @@
              $scope.bookgrouproom--;
         };//团队预订房态的点击减少房间
         $scope.bookLeft=function(){
-            $("#book-right").addClass('book-right');
-            $("#checked-right").addClass('checked-right');
-            $("#booked-right").addClass('booked-right');
-        };//关闭模内容态框里的右边
+          $scope.bookCheckdisplay='none';
+        };//预订模态窗口
 
       // end   房态图的点击
       // 选择房型 楼层  房态      start
@@ -1667,10 +1059,22 @@
       // end   房价调整
       // msg   start
         $scope.msgi=function($event){
-            $($event.target).parent().prev().addClass('msgon');
-            // alert($($event.target).parent().prev().val());
-        }
+            var $eve=$($event.target).parent().parent().prev();
+            $eve.is('.msgin')?$eve.removeClass('msgin'):$eve.addClass('msgin');
 
+
+        }
+        $scope.msginput=function($event){
+          $($event.target).removeAttr('value')
+
+          $($event.target).bind('keypress',function(event){
+              if(event.keyCode == 13)
+              {
+
+              $scope.inputval=$($event.target).val();
+              }
+          });
+        }
       // end    msg
 
 
@@ -1734,27 +1138,34 @@
       // end  点击(页面渲染完执行)
     }]);
     app.controller('Ctrl2', ["$scope","$http",function($scope,$http) {
+      //客源账号 start
         $scope.dacountclick=function(){
           $scope.dacountdisplay='block';
         };
         $scope.dacountclose=function(){
           $scope.dacountdisplay='none';
         };
-
-
         $scope.dacount2click=function(){
           $scope.dacount2display='block';
         };
         $scope.dacount2close=function(){
           $scope.dacount2display='none';
         };
-
-        $scope.dacount3click=function(){
-          $scope.dacount3display='block';
-        };
-        $scope.dacount3close=function(){
-          $scope.dacount3display='none';
-        };
+      //end  客源账号
+      //日历  start
+        $('.datepicker1').datepicker({
+              minDate: 0,
+              onClose: function( selectedDate ) {
+                 $('.datepicker2').datepicker( "option", "minDate", selectedDate );
+              }
+          });
+        $('.datepicker2').datepicker({
+              minDate: 0,
+              onClose: function( selectedDate ) {
+                 $('.datepicker1').datepicker( "option", "maxDate", selectedDate );
+              }
+          });
+      //end  日历
     }]);
     app.controller('Ctrl3', ["$scope","$http",function($scope,$http) {
         $scope.checkoutdata=[
@@ -1873,6 +1284,36 @@
               alert('您已全部退房!');
             }
         };//退房
+    }]);
+    app.controller('Ctrl4', ["$scope","$http",function($scope,$http) {
+      //客源账号 start
+        $scope.dacountclick=function(){
+          $scope.dacountdisplay='block';
+        };
+        $scope.dacountclose=function(){
+          $scope.dacountdisplay='none';
+        };
+        $scope.dacount2click=function(){
+          $scope.dacount2display='block';
+        };
+        $scope.dacount2close=function(){
+          $scope.dacount2display='none';
+        };
+      //end  客源账号
+      //日历  start
+        $('.datepicker1').datepicker({
+              minDate: 0,
+              onClose: function( selectedDate ) {
+                 $('.datepicker2').datepicker( "option", "minDate", selectedDate );
+              }
+          });
+        $('.datepicker2').datepicker({
+              minDate: 0,
+              onClose: function( selectedDate ) {
+                 $('.datepicker1').datepicker( "option", "maxDate", selectedDate );
+              }
+          });
+      //end  日历
     }]);
 </script>
 </body>

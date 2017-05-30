@@ -1,16 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>预订</title>
-    <style type="text/css">
 
-    </style>
-</head>
-<body>
     <table class="am-table am-table-bordered" id="checkin" ng-controller="Ctrl2">
         <tr><td colspan="4">预订单</td></tr>
         <tr>
@@ -154,21 +142,6 @@
             </td>
         </tr>
     </table>
-<script>
-    // jquery ui 的日历插件 start
-        $('.datepicker1').datepicker({
-            minDate: 0,
-            onClose: function( selectedDate ) {
-               $('.datepicker2').datepicker( "option", "minDate", selectedDate );
-            }
-        });
-        $('.datepicker2').datepicker({
-            minDate: 0,
-            onClose: function( selectedDate ) {
-               $('.datepicker1').datepicker( "option", "maxDate", selectedDate );
-            }
-        });
-    // end   jquery ui 的日历插件
-</script>
-</body>
-</html>
+
+
+

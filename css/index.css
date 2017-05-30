@@ -39,6 +39,7 @@ section#three································不
     .modal_location{
         margin-top: 30px;
         margin-bottom: 20px;
+        overflow-y: hidden;
     }
 
 /*外客购买 start*/
@@ -260,9 +261,8 @@ section#three································不
     #main .tm_right{
         width: 90%;
         float: right;
+
     }
-
-
 /* 空房的模态框  start*/
     #checkin{
         margin-top: 25px;
@@ -360,10 +360,6 @@ section#three································不
     #daccount .t3{
         width: 150px;
     }
-    .book-right{
-        display: none;
-    }
-
     #registe{
         margin-top: 25px;
         border: 2px solid #EAE8E8;
@@ -458,8 +454,8 @@ section#three································不
         font-size: 14px;
     }
     #check-out #co_infor td:nth-child(1),#check-out #co_infor td:nth-child(2),#check-out #co_infor td:nth-child(3),#check-out #co_infor td:nth-child(4),#check-out #co_infor td:nth-child(5),#check-out #co_infor td:nth-child(6),#check-out #co_infor td:nth-child(7){
-        width: 100px;
-    }
+            width: 100px;
+        }
     #check-out #co_detail div{
         font-size: 14px;
         max-height: 150px;
@@ -531,9 +527,6 @@ section#three································不
     #dacheckout textarea{
         width: 75%;
     }
-    .checked-right{
-        display: none;
-    }
 /*end 已入住的模态框  */
 /*已预订的模态框  start*/
     #booked{
@@ -581,7 +574,7 @@ section#three································不
         border-color: #C6C6C6;
         box-shadow: 0px 0px 1px #C6C6C6;
     }
-    /*#daccount2{
+    #daccount2{
         border: 1px solid #C6C6C6;
         background: #fff;
         box-shadow: 1px 1px 10px #C6C6C6;
@@ -611,13 +604,7 @@ section#three································不
     #daccount2 .t3{
         width: 150px;
     }
-    .booked-right{
-        display: none;
-    }*/
 /*end  已预订的模态框*/
-
-
-
 /*end 房态显示*/
 /*房态的右边栏    start */
     #bar select option{
@@ -697,9 +684,7 @@ section#three································不
     #msg ul li input.msgin{
         display: none;
     }
-    #msg ul li input.msgon{
-        display: block;
-    }
+
     #msg ul li a{
         margin-bottom: 10px;
         cursor: pointer;
